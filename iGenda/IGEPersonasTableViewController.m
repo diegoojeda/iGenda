@@ -7,6 +7,8 @@
 //
 
 #import "IGEPersonasTableViewController.h"
+#import "IGEAddContactViewController.h"
+#import "IGEContacto.h"
 
 @interface IGEPersonasTableViewController ()
 
@@ -14,8 +16,14 @@
 
 @implementation IGEPersonasTableViewController
 
-- (IBAction)unwindToList:(UIStoryboardSegue *) segue {
-    
+
+- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
+    IGEAddContactViewController *source = [segue sourceViewController];
+    IGEContacto *item = source.contactItem;
+    if (item != nil){
+        [self.toDoItems addObject:item];
+        [self.tableView reloadData];
+    }
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
