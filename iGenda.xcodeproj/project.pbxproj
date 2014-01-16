@@ -23,7 +23,8 @@
 		B02DBC7B18868FE60019AAF1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B02DBC7918868FE60019AAF1 /* InfoPlist.strings */; };
 		B02DBC7D18868FE60019AAF1 /* iGendaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B02DBC7C18868FE60019AAF1 /* iGendaTests.m */; };
 		B05DC26C1887D8B100529752 /* IGEAddContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05DC26B1887D8B100529752 /* IGEAddContactViewController.m */; };
-		B05DC2771887DE9800529752 /* IGEPersonasTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05DC2761887DE9800529752 /* IGEPersonasTableViewController.m */; };
+		B05DC27B1887E26800529752 /* IGEContacto.m in Sources */ = {isa = PBXBuildFile; fileRef = B05DC27A1887E26800529752 /* IGEContacto.m */; };
+		B05DC27F1887E51C00529752 /* IGEPersonasTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05DC27E1887E51C00529752 /* IGEPersonasTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +61,10 @@
 		B02DBC7C18868FE60019AAF1 /* iGendaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iGendaTests.m; sourceTree = "<group>"; };
 		B05DC26A1887D8B100529752 /* IGEAddContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEAddContactViewController.h; sourceTree = "<group>"; };
 		B05DC26B1887D8B100529752 /* IGEAddContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEAddContactViewController.m; sourceTree = "<group>"; };
-		B05DC2751887DE9800529752 /* IGEPersonasTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEPersonasTableViewController.h; sourceTree = "<group>"; };
-		B05DC2761887DE9800529752 /* IGEPersonasTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEPersonasTableViewController.m; sourceTree = "<group>"; };
+		B05DC2791887E26800529752 /* IGEContacto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEContacto.h; sourceTree = "<group>"; };
+		B05DC27A1887E26800529752 /* IGEContacto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEContacto.m; sourceTree = "<group>"; };
+		B05DC27D1887E51C00529752 /* IGEPersonasTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEPersonasTableViewController.h; sourceTree = "<group>"; };
+		B05DC27E1887E51C00529752 /* IGEPersonasTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEPersonasTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				B02DBC6018868FE60019AAF1 /* Main.storyboard */,
-				B05DC2781887DEAB00529752 /* IGEPersonasTableViewController */,
+				B05DC2801887E52500529752 /* IGEPersonasTableViewController */,
+				B05DC27C1887E26E00529752 /* IGEContacto */,
 				B05DC26E1887D8D200529752 /* IGEAppDelegate */,
 				B05DC26D1887D8C900529752 /* IGEAddContactViewController */,
 				B05DC26F1887D8D800529752 /* IGEFirstViewController */,
@@ -198,14 +202,22 @@
 			name = IGESecondViewController;
 			sourceTree = "<group>";
 		};
-		B05DC2781887DEAB00529752 /* IGEPersonasTableViewController */ = {
+		B05DC27C1887E26E00529752 /* IGEContacto */ = {
 			isa = PBXGroup;
 			children = (
-				B05DC2751887DE9800529752 /* IGEPersonasTableViewController.h */,
-				B05DC2761887DE9800529752 /* IGEPersonasTableViewController.m */,
+				B05DC2791887E26800529752 /* IGEContacto.h */,
+				B05DC27A1887E26800529752 /* IGEContacto.m */,
+			);
+			name = IGEContacto;
+			sourceTree = "<group>";
+		};
+		B05DC2801887E52500529752 /* IGEPersonasTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B05DC27D1887E51C00529752 /* IGEPersonasTableViewController.h */,
+				B05DC27E1887E51C00529752 /* IGEPersonasTableViewController.m */,
 			);
 			name = IGEPersonasTableViewController;
-			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,9 +319,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B02DBC6818868FE60019AAF1 /* IGESecondViewController.m in Sources */,
+				B05DC27B1887E26800529752 /* IGEContacto.m in Sources */,
 				B02DBC5F18868FE60019AAF1 /* IGEAppDelegate.m in Sources */,
-				B05DC2771887DE9800529752 /* IGEPersonasTableViewController.m in Sources */,
 				B02DBC5B18868FE60019AAF1 /* main.m in Sources */,
+				B05DC27F1887E51C00529752 /* IGEPersonasTableViewController.m in Sources */,
 				B05DC26C1887D8B100529752 /* IGEAddContactViewController.m in Sources */,
 				B02DBC6518868FE60019AAF1 /* IGEFirstViewController.m in Sources */,
 			);

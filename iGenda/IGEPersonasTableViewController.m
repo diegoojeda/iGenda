@@ -7,6 +7,8 @@
 //
 
 #import "IGEPersonasTableViewController.h"
+#import "IGEAddContactViewController.h"
+#import "IGEContacto.h"
 
 @interface IGEPersonasTableViewController ()
 
@@ -14,8 +16,14 @@
 
 @implementation IGEPersonasTableViewController
 
-- (IBAction)unwindToList:(UIStoryboardSegue *) segue {
-    
+
+- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
+    IGEAddContactViewController *source = [segue sourceViewController];
+    IGEContacto *item = source.contactItem;
+    if (item != nil){
+        [self.contactos addObject:item];
+        [self.tableView reloadData];
+    }
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -50,14 +58,14 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.contactos count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
