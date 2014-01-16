@@ -32,13 +32,17 @@
     [self.contacts addObject:item3];
 }
 
+- (IBAction)unwindFromContactDetailToList:(UIStoryboardSegue *)segue{
+    
+}
+
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
-//    IGEAddContactViewController *source = [segue sourceViewController];
-//    IGEContacto *item = source.contacto;
-//    if (item != nil){
-//        [self.contacts addObject:item];
-//        [self.tableView reloadData];
-//    }
+    IGEAddContactViewController *source = [segue sourceViewController];
+    IGEContacto *item = source.contacto;
+    if (item != nil){
+        [self.contacts addObject:item];
+        [self.tableView reloadData];
+    }
 }
 
 
@@ -87,7 +91,6 @@
     
     IGEContacto* item = [self.contacts objectAtIndex:indexPath.row];
     cell.textLabel.text = item.nombre;
-    
     
     return cell;
 }
@@ -145,6 +148,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //TODO Array marcados para borrar
     [self.contacts removeObjectAtIndex:indexPath.row];
     [tableView reloadData];
 }
