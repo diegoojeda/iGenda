@@ -22,7 +22,8 @@
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <segue destination="Ji8-D0-A4H" kind="modal" id="GiT-eC-pjA"/>
+                                    <outletCollection property="gestureRecognizers" destination="bER-yV-pQN" appends="YES" id="8tY-cK-x4Z"/>
+                                    <outletCollection property="gestureRecognizers" destination="bER-yV-pQN" appends="YES" id="PcA-sd-LE0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -41,6 +42,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTJ-eE-o1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="bER-yV-pQN"/>
             </objects>
             <point key="canvasLocation" x="671" y="-290"/>
         </scene>

@@ -10,6 +10,7 @@
 #import "IGEContacto.h"
 #import "IGEAddContactViewController.h"
 
+
 @interface IGEPersonasTableViewController ()
 
 @property NSMutableArray *contacts;
@@ -120,7 +121,8 @@
     
     IGEContacto* item = [self.contacts objectAtIndex:indexPath.row];
     cell.textLabel.text = item.nombre;
-    //cell.textLabel.text = @"Prueba";
+    
+    
     return cell;
 }
 
@@ -174,5 +176,10 @@
 }
 
  */
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableData removeObjectAtIndex:indexPath.row];
+}
 
 @end
