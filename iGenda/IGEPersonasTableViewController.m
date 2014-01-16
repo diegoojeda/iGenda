@@ -7,23 +7,31 @@
 //
 
 #import "IGEPersonasTableViewController.h"
-#import "IGEAddContactViewController.h"
 #import "IGEContacto.h"
 
 @interface IGEPersonasTableViewController ()
+
+@property NSMutableArray *contacts;
 
 @end
 
 @implementation IGEPersonasTableViewController
 
+/** Carga de contactos inicial **/
+- (void)loadInitialData {
+    IGEContacto *item1 = [[IGEContacto alloc] init];
+    item1.nombre = @"Buy milk";
+    [self.contacts addObject:item1];
+    IGEContacto *item2 = [[IGEContacto alloc] init];
+    item2.nombre = @"Buy eggs";
+    [self.contacts addObject:item2];
+    IGEContacto *item3 = [[IGEContacto alloc] init];
+    item3.nombre = @"Read a book";
+    [self.contacts addObject:item3];
+}
 
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
-    IGEAddContactViewController *source = [segue sourceViewController];
-    IGEContacto *item = source.contactItem;
-    if (item != nil){
-        [self.contactos addObject:item];
-        [self.tableView reloadData];
-    }
+- (IBAction)unwindToList:(UIStoryboardSegue *) segue {
+    
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -38,12 +46,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.contacts = [[NSMutableArray alloc] init];
+    
+    [self loadInitialData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,16 +62,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
+    //Secciones, correspondientes a las letras del alfabeto que hay contactos
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return [self.contactos count];
+    return [self.contacts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
