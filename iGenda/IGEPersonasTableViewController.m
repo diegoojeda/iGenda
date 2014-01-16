@@ -55,6 +55,7 @@
     
     self.contacts = [[NSMutableArray alloc] init];
     
+    printf("\n Carga datos iniciales");
     [self loadInitialData];
 }
 
@@ -137,5 +138,7 @@
 }
 
  */
+
+
 
 @end
