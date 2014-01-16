@@ -144,7 +144,12 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableData removeObjectAtIndex:indexPath.row];
+    [self.contacts removeObjectAtIndex:indexPath.row];
+    [tableView reloadData];
+
 }
+
+
+
 
 @end
