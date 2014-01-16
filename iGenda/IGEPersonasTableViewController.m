@@ -35,7 +35,7 @@
     IGEAddContactViewController *source = [segue sourceViewController];
     IGEContacto *item = source.contactItem;
     if (item != nil){
-        [self.contactos addObject:item];
+        [self.contacts addObject:item];
         [self.tableView reloadData];
     }
 }
@@ -51,6 +51,7 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     
     self.contacts = [[NSMutableArray alloc] init];
@@ -83,8 +84,9 @@
     static NSString *CellIdentifier = @"ListPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    IGEContacto* item = [self.contactos objectAtIndex:indexPath.row];
+    IGEContacto* item = [self.contacts objectAtIndex:indexPath.row];
     cell.textLabel.text = item.nombre;
+    //cell.textLabel.text = @"Prueba";
     return cell;
 }
 
