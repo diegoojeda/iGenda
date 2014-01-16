@@ -33,6 +33,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="MNt-La-GiR">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="ZWQ-Iw-Gqy"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="nAb-Fa-TDy">
                             <connections>
                                 <segue destination="r0V-F5-zp4" kind="modal" id="MaF-6X-mNd"/>
