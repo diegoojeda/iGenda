@@ -33,7 +33,7 @@
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
     IGEAddContactViewController *source = [segue sourceViewController];
-    IGEContacto *item = source.contactItem;
+    IGEContacto *item = source.contacto;
     if (item != nil){
         [self.contacts addObject:item];
         [self.tableView reloadData];
