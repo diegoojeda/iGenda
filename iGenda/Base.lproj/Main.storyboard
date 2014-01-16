@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -22,8 +22,7 @@
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="bER-yV-pQN" appends="YES" id="8tY-cK-x4Z"/>
-                                    <outletCollection property="gestureRecognizers" destination="bER-yV-pQN" appends="YES" id="PcA-sd-LE0"/>
+                                    <segue destination="Ji8-D0-A4H" kind="modal" id="Lov-G5-wB8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -42,7 +41,6 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTJ-eE-o1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="bER-yV-pQN"/>
             </objects>
             <point key="canvasLocation" x="671" y="-290"/>
         </scene>
@@ -306,10 +304,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vkX-BJ-pU2">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="a4O-Rg-F5O"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="a4O-Rg-F5O">
+                            <connections>
+                                <segue destination="96o-b2-Jga" kind="unwind" unwindAction="unwindToList:" id="7ne-kF-POC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8h-Wq-YMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="96o-b2-Jga" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1859" y="-991"/>
         </scene>
