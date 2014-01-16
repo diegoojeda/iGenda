@@ -16,7 +16,6 @@
 
 @implementation IGEPersonasTableViewController
 
-
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
     IGEAddContactViewController *source = [segue sourceViewController];
     IGEContacto *item = source.contactItem;
@@ -56,25 +55,23 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [self.contactos count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"ListPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
-    
+    IGEContacto* item = [self.contactos objectAtIndex:indexPath.row];
+    cell.textLabel.text = item.nombre;
     return cell;
 }
 
