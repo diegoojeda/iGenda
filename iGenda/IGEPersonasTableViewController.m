@@ -9,7 +9,6 @@
 #import "IGEPersonasTableViewController.h"
 #import "IGEContacto.h"
 #import "IGEAddContactViewController.h"
-#import <QuartzCore/QuartzCore.h>
 
 
 @interface IGEPersonasTableViewController ()
@@ -19,14 +18,6 @@
 @end
 
 @implementation IGEPersonasTableViewController
-
-CGPoint _originalCenter;
-BOOL _deleteOnDragRelease;
-
-
-- (IBAction)displayGestureForTapRecognizer:(UITapGestureRecognizer *)recognizer{
-// Will implement method later...
-}
 
 /** Carga de contactos inicial **/
 - (void)loadInitialData {
@@ -54,8 +45,7 @@ BOOL _deleteOnDragRelease;
 {
     self = [super initWithStyle:style];
     if (self) {
-        // add a pan recognizer
-
+        // Custom initialization
     }
     return self;
 }
@@ -67,7 +57,6 @@ BOOL _deleteOnDragRelease;
     
     self.contacts = [[NSMutableArray alloc] init];
     
-    printf("\n Carga datos iniciales");
     [self loadInitialData];
 }
 
@@ -155,7 +144,7 @@ BOOL _deleteOnDragRelease;
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [tableData removeObjectAtIndex:indexPath.row];
 }
 
 @end
