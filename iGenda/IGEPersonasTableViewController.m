@@ -7,7 +7,7 @@
 //
 
 #import "IGEPersonasTableViewController.h"
-#import "iGenda/IGEContacto.h"
+#import "IGEContacto.h"
 
 @interface IGEPersonasTableViewController ()
 
