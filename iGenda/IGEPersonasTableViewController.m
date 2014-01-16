@@ -57,7 +57,43 @@
     self.contacts = [[NSMutableArray alloc] init];
     
     [self loadInitialData];
+    
+    UISwipeGestureRecognizer *swipeRecognizer = [[UISwipeGestureRecognizer alloc]
+                                             initWithTarget:self action:@selector(respondToSwipeGesture:)];
+    
 }
+
+- (void)respondToSwipeGesture: (UISwipeGestureRecognizer *) sender
+{
+    
+    
+}
+
+- (IBAction)displayGestureForSwipeRecognizer:(UISwipeGestureRecognizer *)recognizer
+{
+    // Get the location of the gesture
+    CGPoint location = [recognizer locationInView:self.view];
+    
+    // Display an image view at that location
+    [self  atPoint:location];
+    
+    // If gesture is a left swipe, specify an end location
+    // to the left of the current location
+    if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft) {
+        location.x -= 220.0;
+    } else {
+        location.x += 220.0;
+    }
+    
+    // Animate the image view in the direction of the swipe as it fades out
+    [UIView animateWithDuration:0.5 animations:^{
+        self.imageView.alpha = 0.0;
+        self.imageView.center = location;
+    }];
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
