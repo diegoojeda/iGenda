@@ -17,21 +17,13 @@
 
 @implementation IGEPersonasTableViewController
 
-/** Carga de contactos inicial **/
-- (void)loadInitialData {
-    IGEContacto *item1 = [[IGEContacto alloc] init];
-    item1.nombre = @"Buy milk";
-    [self.contacts addObject:item1];
-    IGEContacto *item2 = [[IGEContacto alloc] init];
-    item2.nombre = @"Buy eggs";
-    [self.contacts addObject:item2];
-    IGEContacto *item3 = [[IGEContacto alloc] init];
-    item3.nombre = @"Read a book";
-    [self.contacts addObject:item3];
-}
-
-- (IBAction)unwindToList:(UIStoryboardSegue *) segue {
-    
+- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
+    IGEAddContactViewController *source = [segue sourceViewController];
+    IGEContacto *item = source.contactItem;
+    if (item != nil){
+        [self.contactos addObject:item];
+        [self.tableView reloadData];
+    }
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -62,22 +54,23 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    //Secciones, correspondientes a las letras del alfabeto que hay contactos
+    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.contacts count];
+    // Return the number of rows in the section.
+    return [self.contactos count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"ListPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
-    
+    IGEContacto* item = [self.contactos objectAtIndex:indexPath.row];
+    cell.textLabel.text = item.nombre;
     return cell;
 }
 
