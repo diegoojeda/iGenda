@@ -16,10 +16,6 @@
 
 @implementation IGEAddContactViewController
 
-- (IBAction)unwindToList:(UIStoryboardSegue *) segue {
-    
-}
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
