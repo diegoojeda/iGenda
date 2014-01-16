@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -106,6 +106,23 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="apellido1" destination="jbK-4p-0BN" id="jTt-r1-Z5v"/>
+                        <outlet property="apellido2" destination="jxL-E7-a4v" id="1wb-V6-k1d"/>
+                        <outlet property="doneApellido1" destination="N2a-Z8-i09" id="RFe-pU-BHU"/>
+                        <outlet property="doneApellido2" destination="N2a-Z8-i09" id="Ek0-rr-2to"/>
+                        <outlet property="doneButton" destination="N2a-Z8-i09" id="S4D-7u-b8X"/>
+                        <outlet property="doneEmail" destination="N2a-Z8-i09" id="Bd0-or-sMJ"/>
+                        <outlet property="doneFoto" destination="N2a-Z8-i09" id="HlB-HY-EFD"/>
+                        <outlet property="doneGrupo" destination="N2a-Z8-i09" id="Uzf-1f-hpB"/>
+                        <outlet property="doneNombre" destination="N2a-Z8-i09" id="G62-la-IsO"/>
+                        <outlet property="doneTelefono" destination="N2a-Z8-i09" id="muw-PC-Oca"/>
+                        <outlet property="email" destination="wdW-Ml-Drf" id="5uL-TA-GzO"/>
+                        <outlet property="foto" destination="k6e-ci-EQJ" id="1tm-df-9S1"/>
+                        <outlet property="grupo" destination="SZT-6v-trj" id="oIS-8K-g5M"/>
+                        <outlet property="nombre" destination="Wd7-eI-JCk" id="XwA-KP-fGs"/>
+                        <outlet property="telefono" destination="DJd-Be-1os" id="fWe-JB-0AL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6uK-1g-cNt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="1JI-a8-2IX" userLabel="Exit" sceneMemberID="exit"/>

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IGEContacto.h"
 
 @interface IGEAddContactViewController : UIViewController
+
+@property IGEContacto *contacto;
 
 @end
