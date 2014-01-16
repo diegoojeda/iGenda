@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "IGEContact.h"
 
-@interface IGEAddContactViewController : UIViewController
+@interface IGEAddContactViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property IGEContact *contacto;
 
