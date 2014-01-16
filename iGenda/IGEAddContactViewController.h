@@ -11,6 +11,6 @@
 
 @interface IGEAddContactViewController : UIViewController
 
-@property IGEContacto *contactItem;
+@property IGEContacto *contacto;
 
 @end
