@@ -7,7 +7,7 @@
 //
 
 #import "IGEPersonasTableViewController.h"
-#import "IGEContacto.h"
+#import "IGEContact.h"
 #import "IGEAddContactViewController.h"
 
 
@@ -21,24 +21,30 @@
 
 /** Carga de contactos inicial **/
 - (void)loadInitialData {
-    IGEContacto *item1 = [[IGEContacto alloc] init];
+    //Fetch from Core Data
+    
+    IGEContact *item1 = [[IGEContact alloc] init];
     item1.nombre = @"Buy milk";
     [self.contacts addObject:item1];
-    IGEContacto *item2 = [[IGEContacto alloc] init];
+    IGEContact *item2 = [[IGEContact alloc] init];
     item2.nombre = @"Buy eggs";
     [self.contacts addObject:item2];
-    IGEContacto *item3 = [[IGEContacto alloc] init];
+    IGEContact *item3 = [[IGEContact alloc] init];
     item3.nombre = @"Read a book";
     [self.contacts addObject:item3];
 }
 
+- (IBAction)unwindFromContactDetailToList:(UIStoryboardSegue *)segue{
+    
+}
+
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
-//    IGEAddContactViewController *source = [segue sourceViewController];
-//    IGEContacto *item = source.contacto;
-//    if (item != nil){
-//        [self.contacts addObject:item];
-//        [self.tableView reloadData];
-//    }
+    IGEAddContactViewController *source = [segue sourceViewController];
+    IGEContact *item = source.contacto;
+    if (item != nil){
+        [self.contacts addObject:item];
+        [self.tableView reloadData];
+    }
 }
 
 
@@ -85,9 +91,8 @@
     static NSString *CellIdentifier = @"ListPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    IGEContacto* item = [self.contacts objectAtIndex:indexPath.row];
+    IGEContact* item = [self.contacts objectAtIndex:indexPath.row];
     cell.textLabel.text = item.nombre;
-    
     
     return cell;
 }
@@ -145,8 +150,13 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //TODO Array marcados para borrar
     [self.contacts removeObjectAtIndex:indexPath.row];
     [tableView reloadData];
+
 }
+
+
+
 
 @end
