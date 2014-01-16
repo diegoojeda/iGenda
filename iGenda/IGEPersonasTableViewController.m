@@ -8,6 +8,7 @@
 
 #import "IGEPersonasTableViewController.h"
 #import "IGEContacto.h"
+#import "IGEAddContactViewController.h"
 
 @interface IGEPersonasTableViewController ()
 
@@ -16,6 +17,19 @@
 @end
 
 @implementation IGEPersonasTableViewController
+
+/** Carga de contactos inicial **/
+- (void)loadInitialData {
+    IGEContacto *item1 = [[IGEContacto alloc] init];
+    item1.nombre = @"Buy milk";
+    [self.contacts addObject:item1];
+    IGEContacto *item2 = [[IGEContacto alloc] init];
+    item2.nombre = @"Buy eggs";
+    [self.contacts addObject:item2];
+    IGEContacto *item3 = [[IGEContacto alloc] init];
+    item3.nombre = @"Read a book";
+    [self.contacts addObject:item3];
+}
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
     IGEAddContactViewController *source = [segue sourceViewController];
@@ -54,14 +68,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
+    //Secciones, correspondientes a las letras del alfabeto que hay contactos
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return [self.contactos count];
+    return [self.contacts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
