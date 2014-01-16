@@ -10,6 +10,5 @@
 
 @interface IGEPersonasTableViewController : UITableViewController
 
-@property NSMutableArray* contactos;
 
 @end
