@@ -22,6 +22,7 @@
 		B02DBC7318868FE60019AAF1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC5218868FE60019AAF1 /* UIKit.framework */; };
 		B02DBC7B18868FE60019AAF1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B02DBC7918868FE60019AAF1 /* InfoPlist.strings */; };
 		B02DBC7D18868FE60019AAF1 /* iGendaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B02DBC7C18868FE60019AAF1 /* iGendaTests.m */; };
+		B05DC26C1887D8B100529752 /* IGEAddContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05DC26B1887D8B100529752 /* IGEAddContactViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		B02DBC7818868FE60019AAF1 /* iGendaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iGendaTests-Info.plist"; sourceTree = "<group>"; };
 		B02DBC7A18868FE60019AAF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B02DBC7C18868FE60019AAF1 /* iGendaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iGendaTests.m; sourceTree = "<group>"; };
+		B05DC26A1887D8B100529752 /* IGEAddContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEAddContactViewController.h; sourceTree = "<group>"; };
+		B05DC26B1887D8B100529752 /* IGEAddContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEAddContactViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,13 +118,11 @@
 		B02DBC5418868FE60019AAF1 /* iGenda */ = {
 			isa = PBXGroup;
 			children = (
-				B02DBC5D18868FE60019AAF1 /* IGEAppDelegate.h */,
-				B02DBC5E18868FE60019AAF1 /* IGEAppDelegate.m */,
 				B02DBC6018868FE60019AAF1 /* Main.storyboard */,
-				B02DBC6318868FE60019AAF1 /* IGEFirstViewController.h */,
-				B02DBC6418868FE60019AAF1 /* IGEFirstViewController.m */,
-				B02DBC6618868FE60019AAF1 /* IGESecondViewController.h */,
-				B02DBC6718868FE60019AAF1 /* IGESecondViewController.m */,
+				B05DC26E1887D8D200529752 /* IGEAppDelegate */,
+				B05DC26D1887D8C900529752 /* IGEAddContactViewController */,
+				B05DC26F1887D8D800529752 /* IGEFirstViewController */,
+				B05DC2701887D8E500529752 /* IGESecondViewController */,
 				B02DBC6918868FE60019AAF1 /* Images.xcassets */,
 				B02DBC5518868FE60019AAF1 /* Supporting Files */,
 			);
@@ -155,6 +156,42 @@
 				B02DBC7918868FE60019AAF1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B05DC26D1887D8C900529752 /* IGEAddContactViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B05DC26A1887D8B100529752 /* IGEAddContactViewController.h */,
+				B05DC26B1887D8B100529752 /* IGEAddContactViewController.m */,
+			);
+			name = IGEAddContactViewController;
+			sourceTree = "<group>";
+		};
+		B05DC26E1887D8D200529752 /* IGEAppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				B02DBC5D18868FE60019AAF1 /* IGEAppDelegate.h */,
+				B02DBC5E18868FE60019AAF1 /* IGEAppDelegate.m */,
+			);
+			name = IGEAppDelegate;
+			sourceTree = "<group>";
+		};
+		B05DC26F1887D8D800529752 /* IGEFirstViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B02DBC6318868FE60019AAF1 /* IGEFirstViewController.h */,
+				B02DBC6418868FE60019AAF1 /* IGEFirstViewController.m */,
+			);
+			name = IGEFirstViewController;
+			sourceTree = "<group>";
+		};
+		B05DC2701887D8E500529752 /* IGESecondViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B02DBC6618868FE60019AAF1 /* IGESecondViewController.h */,
+				B02DBC6718868FE60019AAF1 /* IGESecondViewController.m */,
+			);
+			name = IGESecondViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +295,7 @@
 				B02DBC6818868FE60019AAF1 /* IGESecondViewController.m in Sources */,
 				B02DBC5F18868FE60019AAF1 /* IGEAppDelegate.m in Sources */,
 				B02DBC5B18868FE60019AAF1 /* main.m in Sources */,
+				B05DC26C1887D8B100529752 /* IGEAddContactViewController.m in Sources */,
 				B02DBC6518868FE60019AAF1 /* IGEFirstViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,6 +505,7 @@
 				B02DBC8218868FE60019AAF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B02DBC8318868FE60019AAF1 /* Build configuration list for PBXNativeTarget "iGendaTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +514,7 @@
 				B02DBC8518868FE60019AAF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
