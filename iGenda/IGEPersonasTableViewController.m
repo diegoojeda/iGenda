@@ -23,15 +23,15 @@
 - (void)loadInitialData {
     //Fetch from Core Data
     
-    IGEContact *item1 = [[IGEContact alloc] init];
-    item1.nombre = @"Buy milk";
-    [self.contacts addObject:item1];
-    IGEContact *item2 = [[IGEContact alloc] init];
-    item2.nombre = @"Buy eggs";
-    [self.contacts addObject:item2];
-    IGEContact *item3 = [[IGEContact alloc] init];
-    item3.nombre = @"Read a book";
-    [self.contacts addObject:item3];
+//    IGEContact *item1 = [[IGEContact alloc] init];
+//    item1.nombre = @"Buy milk";
+//    [self.contacts addObject:item1];
+//    IGEContact *item2 = [[IGEContact alloc] init];
+//    item2.nombre = @"Buy eggs";
+//    [self.contacts addObject:item2];
+//    IGEContact *item3 = [[IGEContact alloc] init];
+//    item3.nombre = @"Read a book";
+//    [self.contacts addObject:item3];
 }
 
 - (IBAction)unwindFromContactDetailToList:(UIStoryboardSegue *)segue{

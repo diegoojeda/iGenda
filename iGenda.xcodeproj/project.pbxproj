@@ -27,6 +27,7 @@
 		B02DBC7D18868FE60019AAF1 /* iGendaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B02DBC7C18868FE60019AAF1 /* iGendaTests.m */; };
 		B05DC26C1887D8B100529752 /* IGEAddContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05DC26B1887D8B100529752 /* IGEAddContactViewController.m */; };
 		B05DC27F1887E51C00529752 /* IGEPersonasTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05DC27E1887E51C00529752 /* IGEPersonasTableViewController.m */; };
+		BE21D53118893FDD001C9328 /* contact.png in Resources */ = {isa = PBXBuildFile; fileRef = BE21D53018893FDD001C9328 /* contact.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		B05DC26B1887D8B100529752 /* IGEAddContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEAddContactViewController.m; sourceTree = "<group>"; };
 		B05DC27D1887E51C00529752 /* IGEPersonasTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEPersonasTableViewController.h; sourceTree = "<group>"; };
 		B05DC27E1887E51C00529752 /* IGEPersonasTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEPersonasTableViewController.m; sourceTree = "<group>"; };
+		BE21D53018893FDD001C9328 /* contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contact.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				B02DBC6418868FE60019AAF1 /* IGEFirstViewController.m */,
 				B02DBC6618868FE60019AAF1 /* IGESecondViewController.h */,
 				B02DBC6718868FE60019AAF1 /* IGESecondViewController.m */,
+				BE21D53018893FDD001C9328 /* contact.png */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			files = (
 				B02DBC6A18868FE60019AAF1 /* Images.xcassets in Resources */,
 				B02DBC5918868FE60019AAF1 /* InfoPlist.strings in Resources */,
+				BE21D53118893FDD001C9328 /* contact.png in Resources */,
 				B02DBC6218868FE60019AAF1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
