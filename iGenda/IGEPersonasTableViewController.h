@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IGEAppDelegate.h"
 
-@interface IGEPersonasTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface IGEPersonasTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UITableViewDataSource,UITableViewDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) IGEAppDelegate *appDelegate;
 
 @end

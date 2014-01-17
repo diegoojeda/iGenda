@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Contact.h"
 
 @interface IGEAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -18,6 +19,8 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+@property Contact *seleccionado; //Contacto seleccionado para Ver/Editar
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
