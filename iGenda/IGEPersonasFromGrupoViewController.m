@@ -132,6 +132,8 @@
         [controller getContact:[self.contactosGrupo objectAtIndex:selectedIndex]];
     }
 }
+- (IBAction)unwindFromContactDetailToGroupList:(UIStoryboardSegue *)segue{
+}
 
 
 @end

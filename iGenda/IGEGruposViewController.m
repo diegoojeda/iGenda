@@ -12,12 +12,13 @@
 
 @interface IGEGruposViewController ()
 
-@property NSMutableArray *grupos;
+
 
 @end
 
 @implementation IGEGruposViewController
 
+@synthesize grupos = _grupos;
 
 
 - (void) loadInitialData {
@@ -157,5 +158,8 @@
     
 }
 
+- (IBAction)unwindFromGroupDetailToGroups:(UIStoryboardSegue *)segue{
+    _grupos = nil;
+}
 
 @end
