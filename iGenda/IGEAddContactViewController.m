@@ -7,6 +7,9 @@
 //
 
 #import "IGEAddContactViewController.h"
+#import "IGEAppDelegate.h"
+#import "Contact.h"
+
 
 @interface IGEAddContactViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *telefono;
@@ -32,9 +35,12 @@
     if (sender != self.doneButton) return;
     
     
-    if (self.nombre.text.length > 0 && self.telefono.text.length >0)//Validación y almacenado
+    if (self.nombre.text.length > 0)//Validación y almacenado
     {
-        self.contacto = [[Contact alloc] init];
+        NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
+        NSError *error = nil;
+        
+        self.contacto = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:context];
         self.contacto.nombre = self.nombre.text;
         self.contacto.telefono = self.telefono.text;
         self.contacto.apellido1 = self.apellido1.text;
