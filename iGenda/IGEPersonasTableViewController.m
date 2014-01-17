@@ -24,7 +24,7 @@
 - (void)loadInitialData {
     //Recuperación de datos
     NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
-    /*NSError *error = nil;
+    NSError *error = nil;
     
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEContact" inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -32,11 +32,7 @@
     
     
     NSArray *array = [context executeFetchRequest:request error:&error];
-    self.contacts = [(NSArray*)array mutableCopy];*/
-
-    
-    
-    
+    self.contacts = [(NSArray*)array mutableCopy];
     
     /*Contact *c = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:context];
     c.nombre = @"Diego";
@@ -47,7 +43,14 @@
     [self.contacts addObject:c];
     c.nombre = @"Laura";
     [self.contacts addObject:c];
-    */
+    
+    
+    // Custom code here...
+    // Save the managed object context
+    if (![context save:&error]) {
+        NSLog(@"Error while saving %@", ([error localizedDescription] != nil) ? [error localizedDescription] : @"Unknown Error");
+        exit(1);
+    }*/
     
 }
 
