@@ -10,7 +10,6 @@
 #import "Contact.h"
 #import "IGEAddContactViewController.h"
 #import "IGEAppDelegate.h"
-#import "Contact.h"
 
 @interface IGEPersonasTableViewController ()
 
@@ -36,23 +35,6 @@
     NSArray *array = [context executeFetchRequest:request error:&error];
     self.contacts = [(NSArray*)array mutableCopy];
     
-    /*Contact *c = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:context];
-    c.nombre = @"Diego";
-    [self.contacts addObject:c];
-    c.nombre = @"Dani";
-    [self.contacts addObject:c];
-    c.nombre = @"Jorge";
-    [self.contacts addObject:c];
-    c.nombre = @"Laura";
-    [self.contacts addObject:c];
-    
-    
-    // Custom code here...
-    // Save the managed object context
-    if (![context save:&error]) {
-        NSLog(@"Error while saving %@", ([error localizedDescription] != nil) ? [error localizedDescription] : @"Unknown Error");
-        exit(1);
-    }*/
     
 }
 
