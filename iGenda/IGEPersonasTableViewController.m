@@ -22,14 +22,32 @@
 
 /** Carga de contactos inicial **/
 - (void)loadInitialData {
-    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    //Recuperación de datos
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
+    /*NSError *error = nil;
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Contact" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    
+    NSArray *array = [context executeFetchRequest:request error:&error];
+    self.contacts = [(NSArray*)array mutableCopy];*/
+
+    
     
     
     
     Contact *c = [NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext:context];
-    
     c.nombre = @"Diego";
     [self.contacts addObject:c];
+    c.nombre = @"Dani";
+    [self.contacts addObject:c];
+    c.nombre = @"Jorge";
+    [self.contacts addObject:c];
+    c.nombre = @"Laura";
+    [self.contacts addObject:c];
+    
     
 }
 

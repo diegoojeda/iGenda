@@ -50,7 +50,7 @@
     
     if (self.nombre.text.length > 0 && self.telefono.text.length >0)//Validación y almacenado
     {
-        self.contacto = [[IGEContact alloc] init];
+        self.contacto = [[Contact alloc] init];
         self.contacto.nombre = self.nombre.text;
         self.contacto.telefono = self.telefono.text;
         self.contacto.apellido1 = self.apellido1.text;
