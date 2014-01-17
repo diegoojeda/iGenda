@@ -1,54 +1,42 @@
 //
-//  IGEPersonasTableViewController.m
+//  IGEGruposViewController.m
 //  iGenda
 //
-//  Created by Máster INFTEL 11 on 16/01/14.
+//  Created by Diego Ojeda García on 17/01/14.
 //  Copyright (c) 2014 UMA. All rights reserved.
 //
 
-#import "IGEPersonasTableViewController.h"
-#import "Contact.h"
-#import "IGEAddContactViewController.h"
+#import "IGEGruposViewController.h"
 #import "IGEAppDelegate.h"
-#import "Contact.h"
-#import "IGEGroup.h"
+#import "IGEPersonasFromGrupoViewController.h"
 
-@interface IGEPersonasTableViewController ()
+@interface IGEGruposViewController ()
 
-@property NSMutableArray *contacts;
-
-
+@property NSMutableArray *grupos;
 
 @end
 
-@implementation IGEPersonasTableViewController
+@implementation IGEGruposViewController
 
-/** Carga de contactos inicial **/
-- (void)loadInitialData {
+
+
+- (void) loadInitialData {
     //Recuperación de datos
     NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
     NSError *error = nil;
     
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEContact" inManagedObjectContext:context];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEGroup" inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
     
     
     NSArray *array = [context executeFetchRequest:request error:&error];
-    self.contacts = [(NSArray*)array mutableCopy];
+    self.grupos = [(NSArray*)array mutableCopy];
     
-    
-    //Creación de contactos
-    /*Contact *c = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:context];
-    c.nombre = @"Diego";
-    [self.contacts addObject:c];
-    c.nombre = @"Dani";
-    [self.contacts addObject:c];
-    c.nombre = @"Jorge";
-    [self.contacts addObject:c];
-    c.nombre = @"Laura";
-    [self.contacts addObject:c];
-    
+    /*//Creación de un grupo
+    IGEGroup *g = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:context];
+     g.nombre = @"grupo de prueba";
+     //[g addNewRelationshipObject:[array objectAtIndex:0]];
     
     
     // Guardado del contexto
@@ -56,30 +44,8 @@
         NSLog(@"Error while saving %@", ([error localizedDescription] != nil) ? [error localizedDescription] : @"Unknown Error");
         exit(1);
     }
-    */
+*/
 }
-
-- (IBAction)unwindFromContactDetailToList:(UIStoryboardSegue *)segue{
-    
-}
-
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
-    IGEAddContactViewController *source = [segue sourceViewController];
-    Contact *item = source.contacto;
-    if (item != nil){
-        [self.contacts addObject:item];
-        [self.tableView reloadData];
-    }
-}
-
-
-
-
-
-
-
-
-
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -92,32 +58,15 @@
 
 - (void)viewDidLoad
 {
-    
-    [super viewDidLoad];
-    
-    self.contacts = [[NSMutableArray alloc] init];
-    
-
     [self loadInitialData];
-    
-//    UISwipeGestureRecognizer *rightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightSwipeHandle:)];
-//    rightRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
-//    [rightRecognizer setNumberOfTouchesRequired:1];
-//    [self.view addGestureRecognizer:rightRecognizer];
-//    //[rightRecognizer release];
+    [super viewDidLoad];
+
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
-- (void)rightSwipeHandle:(UISwipeGestureRecognizer*)sender
-{
-    //Do moving
-    if ( sender.direction == UISwipeGestureRecognizerDirectionRight ){
-        NSLog(@" *** SWIPE RIGHT ***");
-        
-    }
-}
-
-
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -129,21 +78,24 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    //Secciones, correspondientes a las letras del alfabeto que hay contactos
+    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.contacts count];
+    // Return the number of rows in the section.
+    return [self.grupos count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ListPrototypeCell";
+    
+    
+    static NSString *CellIdentifier = @"groupCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    Contact* item = [self.contacts objectAtIndex:indexPath.row];
+    IGEGroup* item = [self.grupos objectAtIndex:indexPath.row];
     cell.textLabel.text = item.nombre;
     
     return cell;
@@ -188,7 +140,6 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -196,18 +147,15 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"GruposToPersonas"]) {
+        IGEPersonasFromGrupoViewController *controller = (IGEPersonasFromGrupoViewController *)[[segue destinationViewController] topViewController];
+        NSInteger selectedIndex = [[self.tableView indexPathForSelectedRow] row];
+        NSString *groupName = [(IGEGroup *)[self.grupos objectAtIndex:selectedIndex] nombre];
+        NSArray *contactos = [[(IGEGroup *)[self.grupos objectAtIndex:selectedIndex] newRelationship] allObjects];
+        [controller getInfo:contactos andName:groupName];
+    }
+    
 }
-
- */
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //TODO Array marcados para borrar
-    [self.contacts removeObjectAtIndex:indexPath.row];
-    [tableView reloadData];
-}
-
-
 
 
 @end

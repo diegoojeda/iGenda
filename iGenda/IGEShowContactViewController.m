@@ -38,21 +38,21 @@
 
 -(IBAction)changeColor:(id)sender
 {
-    UIButton *btn = (UIButton *)sender;
+    /*UIButton *btn = (UIButton *)sender;
     
     if(btn.enabled)
     {
-        btn.enabled=YES;
-        btn.backgroundColor=[UIColor blueColor];
+        btn.enabled=NO;
+        btn.backgroundColor=[UIColor grayColor];
         
         
     }
     else
     {
-        btn.enabled=NO;
-        btn.backgroundColor=[UIColor grayColor];
+        btn.enabled=YES;
+        btn.backgroundColor=[UIColor blueColor];
     }
-    
+    */
 }
 
 

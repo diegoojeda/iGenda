@@ -10,4 +10,6 @@
 
 @interface IGEShowContactViewController : UIViewController
 
+-(IBAction)changeColor:(id)sender;
+
 @end
