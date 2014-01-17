@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8z8-06-aTX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8z8-06-aTX">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -197,25 +197,6 @@
             </objects>
             <point key="canvasLocation" x="229" y="410"/>
         </scene>
-        <!--View Controller - Favoritos-->
-        <scene sceneID="xXD-Gd-tA9">
-            <objects>
-                <viewController title="Favoritos" id="xxv-1j-vLg" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="O2H-jZ-Z2X"/>
-                        <viewControllerLayoutGuide type="bottom" id="rMp-7a-j7V"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wwx-k3-5HT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Favoritos" id="71z-ne-I5N"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VdN-0G-a7X" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-831" y="1417"/>
-        </scene>
         <!--Login View Controller-->
         <scene sceneID="rxH-PB-ozz">
             <objects>
@@ -310,7 +291,7 @@
                     <connections>
                         <segue destination="3o4-Ft-MZ1" kind="relationship" relationship="viewControllers" id="0k0-wb-nn5"/>
                         <segue destination="hH9-Za-sic" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
-                        <segue destination="xxv-1j-vLg" kind="relationship" relationship="viewControllers" id="gYh-XU-HLh"/>
+                        <segue destination="Qkv-vB-Pot" kind="relationship" relationship="viewControllers" id="NaO-dA-Ubi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
@@ -562,6 +543,35 @@
             </objects>
             <point key="canvasLocation" x="-831" y="410"/>
         </scene>
+        <!--Favoritos Table View Controller - Favoritos-->
+        <scene sceneID="1YJ-M9-c25">
+            <objects>
+                <tableViewController id="HH8-cc-27U" customClass="IGEFavoritosTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Oyd-u4-QPk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FavouritesPrototypeCell" id="EYR-Cz-2kH">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EYR-Cz-2kH" id="wFL-j5-aXf">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="HH8-cc-27U" id="h7h-gV-9C7"/>
+                            <outlet property="delegate" destination="HH8-cc-27U" id="zEB-B7-Qfv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Favoritos" id="i5J-a1-uQX"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6By-tW-x3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-305" y="1405"/>
+        </scene>
         <!--Grupos View Controller - Grupos-->
         <scene sceneID="Ci5-vR-hbh">
             <objects>
@@ -694,6 +704,25 @@
                 <exit id="Vih-Pb-Ssc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1837" y="410"/>
+        </scene>
+        <!--Navigation Controller - Favoritos-->
+        <scene sceneID="yX7-sJ-ra5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qkv-vB-Pot" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favoritos" id="C0v-wx-8CY"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="In4-tT-sQ6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HH8-cc-27U" kind="relationship" relationship="rootViewController" id="Ek8-gw-gZJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sqA-Cb-7fn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-831" y="1405"/>
         </scene>
     </scenes>
     <resources>
