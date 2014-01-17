@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="IGEContact" representedClassName="Contact" syncable="YES">
+        <attribute name="apellido1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="apellido2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="estado" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="favorito" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="imagen" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="telefono" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IGEGroup" inverseName="newRelationship" inverseEntity="IGEGroup" syncable="YES"/>
+    </entity>
+    <entity name="IGEContactToDelete" representedClassName="IGEContactToDelete" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="IGEGroup" representedClassName="IGEGroup" syncable="YES">
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IGEContact" inverseName="newRelationship" inverseEntity="IGEContact" syncable="YES"/>
+    </entity>
+    <entity name="IGESetting" representedClassName="IGESetting" syncable="YES">
+        <attribute name="clave" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="usuario" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="IGEContact" positionX="-225" positionY="176" width="128" height="193"/>
+        <element name="IGEGroup" positionX="162" positionY="234" width="128" height="73"/>
+        <element name="IGESetting" positionX="70" positionY="414" width="128" height="73"/>
+        <element name="IGEContactToDelete" positionX="-171" positionY="428" width="128" height="58"/>
+    </elements>
+</model>

@@ -138,10 +138,10 @@
             </objects>
             <point key="canvasLocation" x="1859" y="-290"/>
         </scene>
-        <!--Second View Controller - Grupos-->
+        <!--View Controller - Grupos-->
         <scene sceneID="ot8-2e-RuS">
             <objects>
-                <viewController title="Grupos" id="QUy-BD-bpt" customClass="IGESecondViewController" sceneMemberID="viewController">
+                <viewController title="Grupos" id="QUy-BD-bpt" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7h2-fO-2yU"/>
                         <viewControllerLayoutGuide type="bottom" id="brx-qH-XvG"/>
@@ -201,10 +201,10 @@
             </objects>
             <point key="canvasLocation" x="161" y="1141"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="Vex-rW-GRa">
             <objects>
-                <tabBarController id="8YX-ce-x5E" sceneMemberID="viewController">
+                <tabBarController id="8YX-ce-x5E" customClass="IGETabViewController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="JQR-rB-NYL">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>

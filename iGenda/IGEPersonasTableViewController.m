@@ -7,9 +7,10 @@
 //
 
 #import "IGEPersonasTableViewController.h"
-#import "IGEContact.h"
+#import "Contact.h"
 #import "IGEAddContactViewController.h"
-
+#import "IGEAppDelegate.h"
+#import "Contact.h"
 
 @interface IGEPersonasTableViewController ()
 
@@ -21,19 +22,15 @@
 
 /** Carga de contactos inicial **/
 - (void)loadInitialData {
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
     
     
-    //Fetch from Core Data
     
-    /*IGEContact *item1 = [[IGEContact alloc] init];
-    item1.nombre = @"Buy milk";
-    [self.contacts addObject:item1];
-    IGEContact *item2 = [[IGEContact alloc] init];
-    item2.nombre = @"Buy eggs";
-    [self.contacts addObject:item2];
-    IGEContact *item3 = [[IGEContact alloc] init];
-    item3.nombre = @"Read a book";
-    [self.contacts addObject:item3];*/
+    Contact *c = [NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext:context];
+    
+    c.nombre = @"Diego";
+    [self.contacts addObject:c];
+    
 }
 
 - (IBAction)unwindFromContactDetailToList:(UIStoryboardSegue *)segue{
@@ -42,7 +39,7 @@
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
     IGEAddContactViewController *source = [segue sourceViewController];
-    IGEContact *item = source.contacto;
+    Contact *item = source.contacto;
     if (item != nil){
         [self.contacts addObject:item];
         [self.tableView reloadData];
@@ -93,7 +90,7 @@
     static NSString *CellIdentifier = @"ListPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    IGEContact* item = [self.contacts objectAtIndex:indexPath.row];
+    Contact* item = [self.contacts objectAtIndex:indexPath.row];
     cell.textLabel.text = item.nombre;
     
     return cell;
