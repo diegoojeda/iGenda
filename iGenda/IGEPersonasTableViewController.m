@@ -33,6 +33,7 @@
     
     
     NSArray *array = [context executeFetchRequest:request error:&error];
+
     self.contacts = [(NSArray*)array mutableCopy];
   
 }
