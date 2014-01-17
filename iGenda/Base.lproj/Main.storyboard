@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -47,7 +47,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTJ-eE-o1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-177" y="-322"/>
+            <point key="canvasLocation" x="-305" y="-1023"/>
         </scene>
         <!--Add Contact View Controller - AddContact-->
         <scene sceneID="mTv-D2-64J">
@@ -184,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-703" y="402"/>
+            <point key="canvasLocation" x="-791" y="162"/>
         </scene>
         <!--View Controller - Favoritos-->
         <scene sceneID="xXD-Gd-tA9">
@@ -223,7 +223,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-488" y="434"/>
+            <point key="canvasLocation" x="-1818" y="98"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sEY-Gc-CrP">
@@ -319,6 +319,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vkX-BJ-pU2">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="a4O-Rg-F5O">
                             <connections>
                                 <segue destination="96o-b2-Jga" kind="unwind" unwindAction="unwindFromContactDetailToList:" id="A7M-eW-B8j"/>
@@ -327,7 +328,7 @@
                         <barButtonItem key="rightBarButtonItem" image="star_none" id="6WS-hB-rI2">
                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="changeColor:" destination="jl0-aM-QoI" id="fR3-WC-I8X"/>
+                                <action selector="changeColor:" destination="jl0-aM-QoI" id="U2c-on-A48"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -373,7 +374,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sdz-Hk-Skn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-703" y="-322"/>
+            <point key="canvasLocation" x="-831" y="-1023"/>
         </scene>
         <!--View Controller - Settings-->
         <scene sceneID="4jW-La-8te">
