@@ -14,19 +14,19 @@
 
 @implementation IGEShowContactViewController
 
+@synthesize contacto = _contacto;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.greetingNombre.text = @"HOLA CH";
     }
     return self;
 }
 
 - (IBAction) fetchContact
 {
-    self.appDelegate = [UIApplication sharedApplication].delegate;
-    self.greetingNombre.text = self.appDelegate.seleccionado.nombre;
+    self.greetingNombre.text = _contacto.nombre;
 }
 
 - (void)viewDidLoad
@@ -40,6 +40,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) getContact:(Contact *)contacto{
+    _contacto = contacto;
 }
 
 @end

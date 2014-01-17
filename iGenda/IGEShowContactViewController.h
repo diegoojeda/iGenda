@@ -12,12 +12,14 @@
 
 @interface IGEShowContactViewController : UIViewController
 
-@property (strong, nonatomic) IGEAppDelegate *appDelegate;
-
-
 @property (nonatomic, strong) IBOutlet UILabel *greetingNombre;
+
+@property Contact *contacto;
+
 
 - (IBAction) fetchContact;
 
+
+- (void) getContact:(Contact *)contacto;
 
 @end

@@ -173,8 +173,26 @@
 
  */
 
+
 /**
- Seleccionar Contacto
+    Prepara para la transición de la tabla de contactos a su descripción
+ */
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"ContactDescription"]) {
+        IGEShowContactViewController *controller = (IGEShowContactViewController *)[[segue destinationViewController] topViewController];
+        NSInteger selectedIndex = [[self.tableView indexPathForSelectedRow] row];
+        
+        [controller getContact:[self.contacts objectAtIndex:selectedIndex]];
+    }
+    
+}
+
+
+/**
+ Seleccionar Contacto BORRAR LUEGO
  */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //   indexPath.row;
