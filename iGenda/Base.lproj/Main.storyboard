@@ -138,11 +138,15 @@
             </objects>
             <point key="canvasLocation" x="1859" y="-290"/>
         </scene>
-        <!--Grupos Table View Controller - Root View Controller-->
-        <scene sceneID="Ytn-fb-hCH">
+        <!--View Controller - Grupos-->
+        <scene sceneID="ot8-2e-RuS">
             <objects>
-                <tableViewController id="JmQ-vY-HHi" customClass="IGEGruposTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="JhK-Mz-NaV">
+                <viewController title="Grupos" id="QUy-BD-bpt" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7h2-fO-2yU"/>
+                        <viewControllerLayoutGuide type="bottom" id="brx-qH-XvG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gMD-aP-Fq6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -198,10 +202,10 @@
             </objects>
             <point key="canvasLocation" x="161" y="1141"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="Vex-rW-GRa">
             <objects>
-                <tabBarController id="8YX-ce-x5E" sceneMemberID="viewController">
+                <tabBarController id="8YX-ce-x5E" customClass="IGETabViewController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="JQR-rB-NYL">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>

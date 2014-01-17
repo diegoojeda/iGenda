@@ -7,11 +7,11 @@
 //
 
 #import "IGEAppDelegate.h"
-
-#import "IGEFirstViewController.h"
+#import "IGETabViewController.h"
 
 @implementation IGEAppDelegate
 
+@synthesize tabBarController;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -20,8 +20,8 @@
 {
     // Override point for customization after application launch.
     UITabBarController *navigationController = (UITabBarController *)self.window.rootViewController;
-    //IGEFirstViewController *controller = (IGEFirstViewController *)navigationController;
-    //controller.managedObjectContext = self.managedObjectContext;
+    IGETabViewController *controller = (IGETabViewController *)navigationController.parentViewController;
+    controller.managedObjectContext = self.managedObjectContext;
     return YES;
 }
 
@@ -92,7 +92,7 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"coredataprueba" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"igendamodel" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
@@ -105,7 +105,7 @@
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"coredataprueba.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"igendamodel.sqlite"];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];

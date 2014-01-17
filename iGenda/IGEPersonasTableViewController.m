@@ -7,9 +7,10 @@
 //
 
 #import "IGEPersonasTableViewController.h"
-#import "IGEContact.h"
+#import "Contact.h"
 #import "IGEAddContactViewController.h"
-
+#import "IGEAppDelegate.h"
+#import "Contact.h"
 
 @interface IGEPersonasTableViewController ()
 
@@ -40,7 +41,7 @@
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
     IGEAddContactViewController *source = [segue sourceViewController];
-    IGEContact *item = source.contacto;
+    Contact *item = source.contacto;
     if (item != nil){
         [self.contacts addObject:item];
         [self.tableView reloadData];
@@ -91,7 +92,7 @@
     static NSString *CellIdentifier = @"ListPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    IGEContact* item = [self.contacts objectAtIndex:indexPath.row];
+    Contact* item = [self.contacts objectAtIndex:indexPath.row];
     cell.textLabel.text = item.nombre;
     
     return cell;
