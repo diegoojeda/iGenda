@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "IGEGroup.h"
+#import "IGEShowContactViewController.h"
 
 @interface IGEPersonasFromGrupoViewController : UITableViewController
 
