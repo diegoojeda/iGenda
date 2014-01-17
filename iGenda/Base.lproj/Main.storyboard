@@ -101,16 +101,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BOE-JB-gaC">
-                                <rect key="frame" x="108" y="398" width="105" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Buscar Foto">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showImagePickerForPhotoPicker:" destination="gPx-xz-dyS" eventType="touchUpInside" id="mss-j2-hML"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -240,10 +230,10 @@
             </objects>
             <point key="canvasLocation" x="457" y="-1023"/>
         </scene>
-        <!--View Controller-->
+        <!--Show Contact View Controller-->
         <scene sceneID="C34-SQ-hCA">
             <objects>
-                <viewController id="jl0-aM-QoI" sceneMemberID="viewController">
+                <viewController id="jl0-aM-QoI" customClass="IGEShowContactViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OoM-qx-BvI"/>
                         <viewControllerLayoutGuide type="bottom" id="ych-ou-K4S"/>
@@ -322,6 +312,12 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="a4O-Rg-F5O">
                             <connections>
                                 <segue destination="96o-b2-Jga" kind="unwind" unwindAction="unwindFromContactDetailToList:" id="A7M-eW-B8j"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="star_none" id="6WS-hB-rI2">
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="changeColor:" destination="jl0-aM-QoI" id="fR3-WC-I8X"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -444,6 +440,7 @@
     </scenes>
     <resources>
         <image name="second" width="30" height="30"/>
+        <image name="star_none" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
