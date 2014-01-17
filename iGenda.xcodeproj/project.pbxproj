@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0B44D518898FDE001850E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0B44D418898FDE001850E8 /* Main.storyboard */; };
+		4E0B44D81889913B001850E8 /* IGEShowContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0B44D71889913B001850E8 /* IGEShowContactViewController.m */; };
 		4E1D542B18885D22009E3B5A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E1D542A18885D22009E3B5A /* CoreData.framework */; };
 		4E4E133D188932250091E604 /* IGETabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4E133C188932250091E604 /* IGETabViewController.m */; };
 		4E4E1340188936EA0091E604 /* igendamodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E4E133E188936EA0091E604 /* igendamodel.xcdatamodeld */; };
@@ -21,7 +23,6 @@
 		B02DBC5918868FE60019AAF1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B02DBC5718868FE60019AAF1 /* InfoPlist.strings */; };
 		B02DBC5B18868FE60019AAF1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B02DBC5A18868FE60019AAF1 /* main.m */; };
 		B02DBC5F18868FE60019AAF1 /* IGEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B02DBC5E18868FE60019AAF1 /* IGEAppDelegate.m */; };
-		B02DBC6218868FE60019AAF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02DBC6018868FE60019AAF1 /* Main.storyboard */; };
 		B02DBC6A18868FE60019AAF1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B02DBC6918868FE60019AAF1 /* Images.xcassets */; };
 		B02DBC7118868FE60019AAF1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC7018868FE60019AAF1 /* XCTest.framework */; };
 		B02DBC7218868FE60019AAF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC4E18868FE60019AAF1 /* Foundation.framework */; };
@@ -57,6 +58,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E0B44D418898FDE001850E8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4E0B44D61889913B001850E8 /* IGEShowContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEShowContactViewController.h; sourceTree = "<group>"; };
+		4E0B44D71889913B001850E8 /* IGEShowContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEShowContactViewController.m; sourceTree = "<group>"; };
 		4E1D542A18885D22009E3B5A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4E4E133B188932250091E604 /* IGETabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGETabViewController.h; sourceTree = "<group>"; };
 		4E4E133C188932250091E604 /* IGETabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGETabViewController.m; sourceTree = "<group>"; };
@@ -80,7 +84,6 @@
 		B02DBC5C18868FE60019AAF1 /* iGenda-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iGenda-Prefix.pch"; sourceTree = "<group>"; };
 		B02DBC5D18868FE60019AAF1 /* IGEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IGEAppDelegate.h; sourceTree = "<group>"; };
 		B02DBC5E18868FE60019AAF1 /* IGEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IGEAppDelegate.m; sourceTree = "<group>"; };
-		B02DBC6118868FE60019AAF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B02DBC6918868FE60019AAF1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B02DBC6F18868FE60019AAF1 /* iGendaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iGendaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02DBC7018868FE60019AAF1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -165,6 +168,8 @@
 		4E1D53D118883B9D009E3B5A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4E0B44D61889913B001850E8 /* IGEShowContactViewController.h */,
+				4E0B44D71889913B001850E8 /* IGEShowContactViewController.m */,
 				B069E4D018895ACE00F9D504 /* IGELoginViewController.h */,
 				B069E4D118895ACE00F9D504 /* IGELoginViewController.m */,
 				4E4E133B188932250091E604 /* IGETabViewController.h */,
@@ -219,8 +224,8 @@
 				BE21D53218894471001C9328 /* Resources */,
 				4E1D53D118883B9D009E3B5A /* ViewController */,
 				4E1D53D018883B6D009E3B5A /* Classes */,
-				B02DBC6018868FE60019AAF1 /* Main.storyboard */,
 				B02DBC6918868FE60019AAF1 /* Images.xcassets */,
+				4E0B44D418898FDE001850E8 /* Main.storyboard */,
 				B02DBC5518868FE60019AAF1 /* Supporting Files */,
 			);
 			path = iGenda;
@@ -375,7 +380,7 @@
 				B02DBC6A18868FE60019AAF1 /* Images.xcassets in Resources */,
 				B02DBC5918868FE60019AAF1 /* InfoPlist.strings in Resources */,
 				BE21D53118893FDD001C9328 /* contact.png in Resources */,
-				B02DBC6218868FE60019AAF1 /* Main.storyboard in Resources */,
+				4E0B44D518898FDE001850E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +409,7 @@
 				4E4E135B18893F560091E604 /* Contact.m in Sources */,
 				B069E4F21889633400F9D504 /* SBJsonStreamParserState.m in Sources */,
 				B069E4EE1889633400F9D504 /* SBJsonParser.m in Sources */,
+				4E0B44D81889913B001850E8 /* IGEShowContactViewController.m in Sources */,
 				B069E4F01889633400F9D504 /* SBJsonStreamParserAccumulator.m in Sources */,
 				B069E4F51889633400F9D504 /* SBJsonStreamWriterState.m in Sources */,
 				B05DC27F1887E51C00529752 /* IGEPersonasTableViewController.m in Sources */,
@@ -445,14 +451,6 @@
 				B02DBC5818868FE60019AAF1 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		B02DBC6018868FE60019AAF1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B02DBC6118868FE60019AAF1 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		B02DBC7918868FE60019AAF1 /* InfoPlist.strings */ = {

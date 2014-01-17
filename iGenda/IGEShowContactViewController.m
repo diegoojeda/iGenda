@@ -31,8 +31,8 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
     [self fetchContact];
+    [super viewDidLoad];
 }
 
 
@@ -43,6 +43,8 @@
 }
 
 - (void) getContact:(Contact *)contacto{
+    NSLog(@"Get Contact %@",contacto.nombre);
+
     _contacto = contacto;
 }
 

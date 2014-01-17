@@ -184,7 +184,6 @@
     if ([[segue identifier] isEqualToString:@"ContactDescription"]) {
         IGEShowContactViewController *controller = (IGEShowContactViewController *)[[segue destinationViewController] topViewController];
         NSInteger selectedIndex = [[self.tableView indexPathForSelectedRow] row];
-        
         [controller getContact:[self.contacts objectAtIndex:selectedIndex]];
     }
     
