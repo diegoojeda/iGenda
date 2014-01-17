@@ -28,25 +28,28 @@
 /** Carga de contactos inicial **/
 - (void)loadInitialData {
     //Recuperación de datos
-    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
-    NSError *error = nil;
+    if ([self.contacts count] == 0){
     
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEContact" inManagedObjectContext:context];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDescription];
+        NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
+        NSError *error = nil;
+    
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEContact" inManagedObjectContext:context];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entityDescription];
     
     
-    NSArray *array = [context executeFetchRequest:request error:&error];
+        NSArray *array = [context executeFetchRequest:request error:&error];
 
-    self.contacts = [(NSArray*)array mutableCopy];
+        self.contacts = [(NSArray*)array mutableCopy];
+    }
    
 }
 
-- (IBAction)unwindFromContactDetailToList:(UIStoryboardSegue *)segue{
+- (IBAction)unwindFromContactDetailToContactList:(UIStoryboardSegue *)segue{
     
 }
 
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
+- (IBAction)unwindToAddUser:(UIStoryboardSegue *)segue {
     IGEAddContactViewController *source = [segue sourceViewController];
     Contact *item = source.contacto;
     if (item != nil){
