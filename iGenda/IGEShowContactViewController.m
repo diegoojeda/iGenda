@@ -45,8 +45,7 @@
 - (IBAction)changeFavorito:(id)sender{
     if(_contacto.favorito .intValue == 0){
         _contacto.favorito = [NSNumber numberWithInt:1];
-        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_none.png"]];
-        self.greetingStar.tintColor = [UIColor grayColor];
+        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Blue_Star.png"]];
         
         //falta guardar
         NSLog(@"HABILITADO \n");
@@ -54,7 +53,6 @@
     else{
         _contacto.favorito = [NSNumber numberWithInt:0];
         self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_none.png"]];
-        self.greetingStar.tintColor = [UIColor blueColor];
         
         //falta guardar
         NSLog(@"DESHABILITADO \n");
