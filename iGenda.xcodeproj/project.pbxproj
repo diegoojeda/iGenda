@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E1D53D418883C40009E3B5A /* IGEModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E1D53D218883C40009E3B5A /* IGEModel.xcdatamodeld */; };
 		4E1D53D718883D2D009E3B5A /* IGEContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1D53D618883D2D009E3B5A /* IGEContact.m */; };
+		4E1D542918885CAD009E3B5A /* coredataprueba-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E1D542818885CAD009E3B5A /* coredataprueba-Info.plist */; };
+		4E1D542B18885D22009E3B5A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E1D542A18885D22009E3B5A /* CoreData.framework */; };
 		4E78AC071887FD85000538E6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E78AC061887FD85000538E6 /* QuartzCore.framework */; };
 		83B783F018892EAF00F73545 /* IGEGruposTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B783EF18892EAF00F73545 /* IGEGruposTableViewController.m */; };
 		B02DBC4F18868FE60019AAF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC4E18868FE60019AAF1 /* Foundation.framework */; };
@@ -41,9 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4E1D53D318883C40009E3B5A /* IGEModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IGEModel.xcdatamodel; sourceTree = "<group>"; };
 		4E1D53D518883D2D009E3B5A /* IGEContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEContact.h; sourceTree = "<group>"; };
 		4E1D53D618883D2D009E3B5A /* IGEContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEContact.m; sourceTree = "<group>"; };
+		4E1D542818885CAD009E3B5A /* coredataprueba-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "coredataprueba-Info.plist"; sourceTree = "<group>"; };
+		4E1D542A18885D22009E3B5A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4E78AC061887FD85000538E6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		83B783EE18892EAF00F73545 /* IGEGruposTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEGruposTableViewController.h; sourceTree = "<group>"; };
 		83B783EF18892EAF00F73545 /* IGEGruposTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEGruposTableViewController.m; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E1D542B18885D22009E3B5A /* CoreData.framework in Frameworks */,
 				4E78AC071887FD85000538E6 /* QuartzCore.framework in Frameworks */,
 				B02DBC5118868FE60019AAF1 /* CoreGraphics.framework in Frameworks */,
 				B02DBC5318868FE60019AAF1 /* UIKit.framework in Frameworks */,
@@ -130,7 +133,6 @@
 		B02DBC4218868FE60019AAF1 = {
 			isa = PBXGroup;
 			children = (
-				4E1D53D218883C40009E3B5A /* IGEModel.xcdatamodeld */,
 				B02DBC5418868FE60019AAF1 /* iGenda */,
 				B02DBC7618868FE60019AAF1 /* iGendaTests */,
 				B02DBC4D18868FE60019AAF1 /* Frameworks */,
@@ -150,6 +152,7 @@
 		B02DBC4D18868FE60019AAF1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E1D542A18885D22009E3B5A /* CoreData.framework */,
 				4E78AC061887FD85000538E6 /* QuartzCore.framework */,
 				B02DBC4E18868FE60019AAF1 /* Foundation.framework */,
 				B02DBC5018868FE60019AAF1 /* CoreGraphics.framework */,
@@ -174,6 +177,7 @@
 		B02DBC5518868FE60019AAF1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4E1D542818885CAD009E3B5A /* coredataprueba-Info.plist */,
 				B02DBC5618868FE60019AAF1 /* iGenda-Info.plist */,
 				B02DBC5718868FE60019AAF1 /* InfoPlist.strings */,
 				B02DBC5A18868FE60019AAF1 /* main.m */,
@@ -279,6 +283,7 @@
 			files = (
 				B02DBC6A18868FE60019AAF1 /* Images.xcassets in Resources */,
 				B02DBC5918868FE60019AAF1 /* InfoPlist.strings in Resources */,
+				4E1D542918885CAD009E3B5A /* coredataprueba-Info.plist in Resources */,
 				B02DBC6218868FE60019AAF1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,7 +307,6 @@
 				B02DBC5F18868FE60019AAF1 /* IGEAppDelegate.m in Sources */,
 				83B783F018892EAF00F73545 /* IGEGruposTableViewController.m in Sources */,
 				B02DBC5B18868FE60019AAF1 /* main.m in Sources */,
-				4E1D53D418883C40009E3B5A /* IGEModel.xcdatamodeld in Sources */,
 				B05DC27F1887E51C00529752 /* IGEPersonasTableViewController.m in Sources */,
 				B05DC26C1887D8B100529752 /* IGEAddContactViewController.m in Sources */,
 				4E1D53D718883D2D009E3B5A /* IGEContact.m in Sources */,
@@ -527,19 +531,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		4E1D53D218883C40009E3B5A /* IGEModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				4E1D53D318883C40009E3B5A /* IGEModel.xcdatamodel */,
-			);
-			currentVersion = 4E1D53D318883C40009E3B5A /* IGEModel.xcdatamodel */;
-			path = IGEModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = B02DBC4318868FE60019AAF1 /* Project object */;
 }

@@ -21,6 +21,8 @@
 
 /** Carga de contactos inicial **/
 - (void)loadInitialData {
+    
+    
     //Fetch from Core Data
     /* NSManagedObjectContext *context = [[NSManagedObjectContext alloc]init];
     IGEContact *con = [NSEntityDescription insertNewObjectForEntityForName:@"Contacto" inManagedObjectContext:context];
@@ -154,7 +156,6 @@
     //TODO Array marcados para borrar
     [self.contacts removeObjectAtIndex:indexPath.row];
     [tableView reloadData];
-
 }
 
 
