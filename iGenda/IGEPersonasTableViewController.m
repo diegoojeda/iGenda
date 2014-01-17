@@ -26,7 +26,7 @@
     NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
     /*NSError *error = nil;
     
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Contact" inManagedObjectContext:context];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEContact" inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
     
@@ -38,7 +38,7 @@
     
     
     
-    Contact *c = [NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext:context];
+    /*Contact *c = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:context];
     c.nombre = @"Diego";
     [self.contacts addObject:c];
     c.nombre = @"Dani";
@@ -47,7 +47,7 @@
     [self.contacts addObject:c];
     c.nombre = @"Laura";
     [self.contacts addObject:c];
-    
+    */
     
 }
 
