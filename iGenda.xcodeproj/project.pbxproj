@@ -318,8 +318,7 @@
 			files = (
 				B02DBC5F18868FE60019AAF1 /* IGEAppDelegate.m in Sources */,
 				B02DBC5B18868FE60019AAF1 /* main.m in Sources */,
-				4E1D53D418883C40009E3B5A /* IGEModel.xcdatamodeld in Sources */,
-				AA506B4A188943EF00AA1279 /* IGEShowContactViewController.m in Sources */,
+				4E4E135B18893F560091E604 /* Contact.m in Sources */,
 				B05DC27F1887E51C00529752 /* IGEPersonasTableViewController.m in Sources */,
 				B05DC26C1887D8B100529752 /* IGEAddContactViewController.m in Sources */,
 				4E4E135818893F560091E604 /* IGEContactToDelete.m in Sources */,
