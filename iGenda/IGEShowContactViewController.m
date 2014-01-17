@@ -26,8 +26,42 @@
 
 - (IBAction) fetchContact
 {
-    self.greetingNombre.text = _contacto.nombre;
+    static NSString *formatString = @"%@%@%@%@%@";
+    NSString *fullname = [NSString stringWithFormat:formatString,_contacto.nombre,@" ",_contacto.apellido1,@" ",_contacto.apellido2];
+    self.greetingNombre.text = fullname;
+    
+    self.greetingMovil.text = _contacto.telefono;
+    self.greetingEmail.text = _contacto.email;
+    
+    
+    if(_contacto.favorito == 0){
+        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_none.png"]];
+    }
+    else{
+        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Blue_Star.png"]];
+    }
 }
+
+- (IBAction)changeFavorito:(id)sender{
+    if(_contacto.favorito .intValue == 0){
+        _contacto.favorito = [NSNumber numberWithInt:1];
+        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_none.png"]];
+        self.greetingStar.tintColor = [UIColor grayColor];
+        
+        //falta guardar
+        NSLog(@"HABILITADO \n");
+    }
+    else{
+        _contacto.favorito = [NSNumber numberWithInt:0];
+        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_none.png"]];
+        self.greetingStar.tintColor = [UIColor blueColor];
+        
+        //falta guardar
+        NSLog(@"DESHABILITADO \n");
+    }
+}
+
+
 
 - (void)viewDidLoad
 {
@@ -43,8 +77,6 @@
 }
 
 - (void) getContact:(Contact *)contacto{
-    NSLog(@"Get Contact %@",contacto.nombre);
-
     _contacto = contacto;
 }
 
