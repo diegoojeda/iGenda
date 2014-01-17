@@ -47,7 +47,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTJ-eE-o1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-305" y="-1023"/>
+            <point key="canvasLocation" x="-177" y="-322"/>
         </scene>
         <!--Add Contact View Controller - AddContact-->
         <scene sceneID="mTv-D2-64J">
