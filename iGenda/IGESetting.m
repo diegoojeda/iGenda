@@ -2,7 +2,7 @@
 //  IGESetting.m
 //  iGenda
 //
-//  Created by Escabia on 17/01/14.
+//  Created by Máster INFTEL 12 on 17/01/14.
 //  Copyright (c) 2014 UMA. All rights reserved.
 //
 
@@ -11,7 +11,7 @@
 
 @implementation IGESetting
 
-@dynamic usuario;
 @dynamic clave;
+@dynamic usuario;
 
 @end
