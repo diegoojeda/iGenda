@@ -41,12 +41,17 @@
         NSError *error = nil;
         
         self.contacto = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:context];
-        self.contacto.nombre = self.nombre.text;
-        self.contacto.telefono = self.telefono.text;
-        self.contacto.apellido1 = self.apellido1.text;
-        self.contacto.apellido2 = self.apellido2.text;
-        self.contacto.email = self.email.text;
         
+        //Esto solo almacena un campo, nombre, lo demas es lo de la persistencia
+        self.contacto.nombre = self.nombre.text;
+        
+        // Custom code here...
+        // Save the managed object context
+        if (![context save:&error]) {
+            NSLog(@"Error while saving %@", ([error localizedDescription] != nil) ? [error localizedDescription] : @"Unknown Error");
+            exit(1);
+        }
+       
         //Conversión imagen UIImage a NSData, formato de la imagen del contacto
         NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.foto.image)];
         self.contacto.imagen = imageData;
