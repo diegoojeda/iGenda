@@ -22,17 +22,33 @@
 
 /** Carga de contactos inicial **/
 - (void)loadInitialData {
-    //Fetch from Core Data
+    //Recuperación de datos
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
+    /*NSError *error = nil;
     
-//    IGEContact *item1 = [[IGEContact alloc] init];
-//    item1.nombre = @"Buy milk";
-//    [self.contacts addObject:item1];
-//    IGEContact *item2 = [[IGEContact alloc] init];
-//    item2.nombre = @"Buy eggs";
-//    [self.contacts addObject:item2];
-//    IGEContact *item3 = [[IGEContact alloc] init];
-//    item3.nombre = @"Read a book";
-//    [self.contacts addObject:item3];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Contact" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    
+    NSArray *array = [context executeFetchRequest:request error:&error];
+    self.contacts = [(NSArray*)array mutableCopy];*/
+
+    
+    
+    
+    
+    Contact *c = [NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext:context];
+    c.nombre = @"Diego";
+    [self.contacts addObject:c];
+    c.nombre = @"Dani";
+    [self.contacts addObject:c];
+    c.nombre = @"Jorge";
+    [self.contacts addObject:c];
+    c.nombre = @"Laura";
+    [self.contacts addObject:c];
+    
+    
 }
 
 - (IBAction)unwindFromContactDetailToList:(UIStoryboardSegue *)segue{
