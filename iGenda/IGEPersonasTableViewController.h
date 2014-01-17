@@ -15,4 +15,7 @@
 
 @property (nonatomic, strong) IBOutlet UISwipeGestureRecognizer *swipeRecognizer;
 
+
+
+
 @end

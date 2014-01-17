@@ -16,6 +16,7 @@
 		4E4E135818893F560091E604 /* IGEContactToDelete.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4E135718893F560091E604 /* IGEContactToDelete.m */; };
 		4E4E135B18893F560091E604 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4E135A18893F560091E604 /* Contact.m */; };
 		4E78AC071887FD85000538E6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E78AC061887FD85000538E6 /* QuartzCore.framework */; };
+		AA506B4A188943EF00AA1279 /* IGEShowContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA506B49188943EF00AA1279 /* IGEShowContactViewController.m */; };
 		B02DBC4F18868FE60019AAF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC4E18868FE60019AAF1 /* Foundation.framework */; };
 		B02DBC5118868FE60019AAF1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC5018868FE60019AAF1 /* CoreGraphics.framework */; };
 		B02DBC5318868FE60019AAF1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC5218868FE60019AAF1 /* UIKit.framework */; };
@@ -58,6 +59,8 @@
 		4E4E135918893F560091E604 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		4E4E135A18893F560091E604 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		4E78AC061887FD85000538E6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AA506B48188943EF00AA1279 /* IGEShowContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEShowContactViewController.h; sourceTree = "<group>"; };
+		AA506B49188943EF00AA1279 /* IGEShowContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEShowContactViewController.m; sourceTree = "<group>"; };
 		B02DBC4B18868FE60019AAF1 /* iGenda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iGenda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02DBC4E18868FE60019AAF1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B02DBC5018868FE60019AAF1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -134,6 +137,12 @@
 				B05DC27E1887E51C00529752 /* IGEPersonasTableViewController.m */,
 				B05DC26A1887D8B100529752 /* IGEAddContactViewController.h */,
 				B05DC26B1887D8B100529752 /* IGEAddContactViewController.m */,
+				B02DBC6318868FE60019AAF1 /* IGEFirstViewController.h */,
+				B02DBC6418868FE60019AAF1 /* IGEFirstViewController.m */,
+				B02DBC6618868FE60019AAF1 /* IGESecondViewController.h */,
+				B02DBC6718868FE60019AAF1 /* IGESecondViewController.m */,
+				AA506B48188943EF00AA1279 /* IGEShowContactViewController.h */,
+				AA506B49188943EF00AA1279 /* IGEShowContactViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";

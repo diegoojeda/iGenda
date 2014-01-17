@@ -16,6 +16,8 @@
 
 @property NSMutableArray *contacts;
 
+
+
 @end
 
 @implementation IGEPersonasTableViewController
@@ -65,6 +67,14 @@
 }
 
 
+
+
+
+
+
+
+
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -81,8 +91,27 @@
     
     self.contacts = [[NSMutableArray alloc] init];
     
+
     [self loadInitialData];
+    
+//    UISwipeGestureRecognizer *rightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightSwipeHandle:)];
+//    rightRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+//    [rightRecognizer setNumberOfTouchesRequired:1];
+//    [self.view addGestureRecognizer:rightRecognizer];
+//    //[rightRecognizer release];
 }
+
+- (void)rightSwipeHandle:(UISwipeGestureRecognizer*)sender
+{
+    //Do moving
+    if ( sender.direction == UISwipeGestureRecognizerDirectionRight ){
+        NSLog(@" *** SWIPE RIGHT ***");
+        
+    }
+}
+
+
+
 
 - (void)didReceiveMemoryWarning
 {
