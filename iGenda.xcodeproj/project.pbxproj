@@ -19,6 +19,7 @@
 		4E78AC071887FD85000538E6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E78AC061887FD85000538E6 /* QuartzCore.framework */; };
 		83DA3B831889532600FBA66E /* IGEGruposViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DA3B821889532600FBA66E /* IGEGruposViewController.m */; };
 		83DA3B861889578700FBA66E /* IGEPersonasFromGrupoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DA3B851889578700FBA66E /* IGEPersonasFromGrupoViewController.m */; };
+		4EAE761418898115004B9C6B /* IGEShowContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE761318898115004B9C6B /* IGEShowContactViewController.m */; };
 		B02DBC4F18868FE60019AAF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC4E18868FE60019AAF1 /* Foundation.framework */; };
 		B02DBC5118868FE60019AAF1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC5018868FE60019AAF1 /* CoreGraphics.framework */; };
 		B02DBC5318868FE60019AAF1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC5218868FE60019AAF1 /* UIKit.framework */; };
@@ -413,6 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EAE761418898115004B9C6B /* IGEShowContactViewController.m in Sources */,
 				B069E4D218895ACE00F9D504 /* IGELoginViewController.m in Sources */,
 				B069E4F81889633400F9D504 /* SBJsonWriter.m in Sources */,
 				B069E4F31889633400F9D504 /* SBJsonStreamWriter.m in Sources */,
