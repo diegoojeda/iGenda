@@ -45,6 +45,12 @@
         
         //Esto solo almacena un campo, nombre, lo demas es lo de la persistencia
         self.contacto.nombre = self.nombre.text;
+        self.contacto.apellido1 = self.apellido1.text;
+        self.contacto.apellido2 = self.apellido2.text;
+        self.contacto.telefono = self.telefono.text;
+        self.contacto.email = self.email.text;
+        self.contacto.favorito = false;
+        self.contacto.estado = 0; //Recien creado
         
         // Custom code here...
         // Save the managed object context

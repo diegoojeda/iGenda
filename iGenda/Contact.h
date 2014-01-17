@@ -16,10 +16,10 @@
 @property (nonatomic, retain) NSString * apellido1;
 @property (nonatomic, retain) NSString * apellido2;
 @property (nonatomic, retain) NSString * email;
-@property (nonatomic, retain) NSNumber * estado;
-@property (nonatomic, retain) NSNumber * favorito;
-@property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSData * imagen;
+@property (nonatomic, retain) NSNumber * estado;    //0 creado, 1 editado, 2 ya en el servidor
+@property (nonatomic, retain) NSNumber * id;
+@property (nonatomic, retain) NSNumber * favorito;
 @property (nonatomic, retain) NSString * nombre;
 @property (nonatomic, retain) NSString * telefono;
 @property (nonatomic, retain) IGEGroup *newRelationship;
