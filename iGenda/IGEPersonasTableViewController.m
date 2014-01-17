@@ -23,6 +23,8 @@
 
 @implementation IGEPersonasTableViewController
 
+@synthesize appDelegate;
+
 /** Carga de contactos inicial **/
 - (void)loadInitialData {
     //Recuperación de datos
@@ -35,6 +37,7 @@
     
     
     NSArray *array = [context executeFetchRequest:request error:&error];
+
     self.contacts = [(NSArray*)array mutableCopy];
     
     
@@ -71,14 +74,6 @@
         [self.tableView reloadData];
     }
 }
-
-
-
-
-
-
-
-
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -200,12 +195,43 @@
 
  */
 
+
+/**
+    Prepara para la transición de la tabla de contactos a su descripción
+ */
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"ContactDescription"]) {
+        IGEShowContactViewController *controller = (IGEShowContactViewController *)[[segue destinationViewController] topViewController];
+        NSInteger selectedIndex = [[self.tableView indexPathForSelectedRow] row];
+        [controller getContact:[self.contacts objectAtIndex:selectedIndex]];
+    }
+    
+}
+
+
+/**
+ Seleccionar Contacto BORRAR LUEGO
+ */
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //   indexPath.row;
+    appDelegate = [UIApplication sharedApplication].delegate;
+    appDelegate.seleccionado = [self.contacts objectAtIndex:indexPath.row];
+}
+
+/**
+    Eliminar Contacto
+ */
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //TODO Array marcados para borrar
     [self.contacts removeObjectAtIndex:indexPath.row];
     [tableView reloadData];
 }
+
+
 
 
 

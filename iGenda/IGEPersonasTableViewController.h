@@ -7,15 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IGEAppDelegate.h"
+#import "IGEShowContactViewController.h"
 
-@interface IGEPersonasTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface IGEPersonasTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UITableViewDataSource,UITableViewDelegate>
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
-@property (nonatomic, strong) IBOutlet UISwipeGestureRecognizer *swipeRecognizer;
-
-
-
+@property (strong, nonatomic) IGEAppDelegate *appDelegate;
 
 @end
