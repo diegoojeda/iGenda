@@ -34,8 +34,7 @@
     
     NSArray *array = [context executeFetchRequest:request error:&error];
     self.contacts = [(NSArray*)array mutableCopy];
-    
-    
+  
 }
 
 - (IBAction)unwindFromContactDetailToList:(UIStoryboardSegue *)segue{
@@ -50,6 +49,14 @@
         [self.tableView reloadData];
     }
 }
+
+
+
+
+
+
+
+
 
 
 - (id)initWithStyle:(UITableViewStyle)style
