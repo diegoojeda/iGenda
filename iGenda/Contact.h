@@ -19,7 +19,7 @@
 @property (nonatomic, retain) NSString * telefono;
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSData * imagen;
-@property (nonatomic, retain) NSNumber * estado;
+@property (nonatomic, retain) NSNumber * estado;    //0 creado, 1 editado, 2 ya en el servidor
 @property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSNumber * favorito;
 @property (nonatomic, retain) IGEGroup *newRelationship;
