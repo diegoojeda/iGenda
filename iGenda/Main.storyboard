@@ -332,70 +332,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="E-mail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQM-sl-EMF">
-                                <rect key="frame" x="20" y="425" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Telefono" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5o-gi-W3P">
-                                <rect key="frame" x="20" y="478" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OTz-2n-UgL">
-                                <rect key="frame" x="30" y="97" width="114" height="117"/>
+                                <rect key="frame" x="25" y="138" width="122" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lgp-us-qAp">
-                                <rect key="frame" x="30" y="507" width="261" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahR-yV-Guk">
+                                <rect key="frame" x="20" y="371" width="52" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Llamar">
+                                <state key="normal" title="e-mail">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOMBRE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylh-DL-IOy">
-                                <rect key="frame" x="196" y="97" width="75" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pju-3H-wqj">
+                                <rect key="frame" x="18" y="298" width="52" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="móvil">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loB-br-IGx">
+                                <rect key="frame" x="25" y="89" width="222" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaG-xG-xSF">
+                                <rect key="frame" x="186" y="179" width="98" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="ImagenLlamar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7TV-mp-zaY">
+                                <rect key="frame" x="25" y="332" width="262" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APELLIDO1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfY-Ut-2yw">
-                                <rect key="frame" x="188" y="145" width="91" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySD-XL-CL1">
+                                <rect key="frame" x="25" y="406" width="205" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APELLIDO2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNr-AR-hVh">
-                                <rect key="frame" x="188" y="200" width="91" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xv6-AP-KMk">
+                                <rect key="frame" x="273" y="84" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeFavorito:" destination="jl0-aM-QoI" eventType="touchUpInside" id="0w4-UU-scs"/>
+                                    <action selector="changeFavorito:" destination="jl0-aM-QoI" eventType="valueChanged" id="yqJ-Dk-R9h"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="DNr-AR-hVh" secondAttribute="trailing" constant="41" id="2HR-G2-1v6"/>
-                            <constraint firstItem="DNr-AR-hVh" firstAttribute="top" secondItem="MfY-Ut-2yw" secondAttribute="bottom" constant="34" id="3Iy-Ov-Vc4"/>
-                            <constraint firstAttribute="trailing" secondItem="ylh-DL-IOy" secondAttribute="trailing" constant="49" id="8Qk-3V-d1Y"/>
-                            <constraint firstItem="ylh-DL-IOy" firstAttribute="top" secondItem="OoM-qx-BvI" secondAttribute="bottom" constant="33" id="G2h-En-qqW"/>
-                            <constraint firstItem="MfY-Ut-2yw" firstAttribute="leading" secondItem="OTz-2n-UgL" secondAttribute="trailing" constant="44" id="Ghi-nE-NUK"/>
-                            <constraint firstItem="MfY-Ut-2yw" firstAttribute="top" secondItem="ylh-DL-IOy" secondAttribute="bottom" constant="27" id="GyI-eC-xfp"/>
-                            <constraint firstItem="LQM-sl-EMF" firstAttribute="leading" secondItem="hds-al-2hp" secondAttribute="leading" constant="20" id="IPO-EI-QFM"/>
-                            <constraint firstItem="ych-ou-K4S" firstAttribute="top" secondItem="Lgp-us-qAp" secondAttribute="bottom" constant="20" id="MCk-4E-Dmu"/>
-                            <constraint firstAttribute="trailing" secondItem="LQM-sl-EMF" secondAttribute="trailing" constant="20" id="Nya-nw-oQh"/>
-                            <constraint firstItem="DNr-AR-hVh" firstAttribute="leading" secondItem="OTz-2n-UgL" secondAttribute="trailing" constant="44" id="W18-QK-hxF"/>
-                            <constraint firstAttribute="trailing" secondItem="Lgp-us-qAp" secondAttribute="trailing" constant="29" id="egh-tY-HDv"/>
-                            <constraint firstItem="ylh-DL-IOy" firstAttribute="leading" secondItem="OTz-2n-UgL" secondAttribute="trailing" constant="52" id="gB7-MC-k0m"/>
-                            <constraint firstItem="Lgp-us-qAp" firstAttribute="leading" secondItem="hds-al-2hp" secondAttribute="leading" constant="30" id="gmj-8l-4WO"/>
-                            <constraint firstItem="L5o-gi-W3P" firstAttribute="top" secondItem="LQM-sl-EMF" secondAttribute="bottom" constant="30" id="i3s-6M-vB0"/>
+                            <constraint firstItem="ySD-XL-CL1" firstAttribute="leading" secondItem="7TV-mp-zaY" secondAttribute="leading" id="DAJ-pb-IzA"/>
                             <constraint firstItem="OTz-2n-UgL" firstAttribute="top" secondItem="OoM-qx-BvI" secondAttribute="bottom" constant="33" id="jbp-dp-eGN"/>
-                            <constraint firstAttribute="trailing" secondItem="L5o-gi-W3P" secondAttribute="trailing" constant="20" id="l6v-vo-d2I"/>
                             <constraint firstItem="OTz-2n-UgL" firstAttribute="leading" secondItem="hds-al-2hp" secondAttribute="leading" constant="30" id="lY8-JU-miI"/>
-                            <constraint firstItem="L5o-gi-W3P" firstAttribute="leading" secondItem="hds-al-2hp" secondAttribute="leading" constant="20" id="ubR-rb-t0w"/>
-                            <constraint firstAttribute="trailing" secondItem="MfY-Ut-2yw" secondAttribute="trailing" constant="41" id="w72-ty-ekj"/>
-                            <constraint firstItem="Lgp-us-qAp" firstAttribute="top" secondItem="L5o-gi-W3P" secondAttribute="bottom" constant="127" id="xVA-at-Yrf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vkX-BJ-pU2">
@@ -405,15 +402,12 @@
                                 <segue destination="96o-b2-Jga" kind="unwind" unwindAction="unwindFromContactDetailToContactList:" id="bay-Xv-Ss3"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="star_none" id="6WS-hB-rI2">
-                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="changeColor:" destination="jl0-aM-QoI" id="tlH-nO-ZlC"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="greetingNombre" destination="ylh-DL-IOy" id="cA9-ma-H5e"/>
+                        <outlet property="greetingEmail" destination="ySD-XL-CL1" id="lzW-02-rg4"/>
+                        <outlet property="greetingMovil" destination="7TV-mp-zaY" id="xCE-Fy-Lvc"/>
+                        <outlet property="greetingNombre" destination="loB-br-IGx" id="kcO-8V-CY7"/>
+                        <outlet property="greetingStar" destination="Xv6-AP-KMk" id="aG5-7a-WCk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8h-Wq-YMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -735,8 +729,8 @@
     <resources>
         <image name="contact.png" width="128" height="128"/>
         <image name="second" width="30" height="30"/>
-        <image name="star_none" width="32" height="32"/>
     </resources>
+    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
