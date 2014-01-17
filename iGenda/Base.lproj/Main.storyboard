@@ -250,7 +250,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OTz-2n-UgL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OTz-2n-UgL">
                                 <rect key="frame" x="30" y="97" width="114" height="117"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -284,6 +284,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DNr-AR-hVh" secondAttribute="trailing" constant="41" id="2HR-G2-1v6"/>
                             <constraint firstItem="DNr-AR-hVh" firstAttribute="top" secondItem="MfY-Ut-2yw" secondAttribute="bottom" constant="34" id="3Iy-Ov-Vc4"/>
+                            <constraint firstItem="OTz-2n-UgL" firstAttribute="centerY" secondItem="MfY-Ut-2yw" secondAttribute="centerY" id="4vI-EP-q4M"/>
                             <constraint firstAttribute="trailing" secondItem="ylh-DL-IOy" secondAttribute="trailing" constant="49" id="8Qk-3V-d1Y"/>
                             <constraint firstItem="ylh-DL-IOy" firstAttribute="top" secondItem="OoM-qx-BvI" secondAttribute="bottom" constant="33" id="G2h-En-qqW"/>
                             <constraint firstItem="MfY-Ut-2yw" firstAttribute="leading" secondItem="OTz-2n-UgL" secondAttribute="trailing" constant="44" id="Ghi-nE-NUK"/>
