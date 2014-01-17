@@ -12,6 +12,14 @@
 
 @interface IGEShowContactViewController : UIViewController
 
--(IBAction)changeColor:(id)sender;
+@property (nonatomic, strong) IBOutlet UILabel *greetingNombre;
+
+@property Contact *contacto;
+
+
+- (IBAction) fetchContact;
+
+
+- (void) getContact:(Contact *)contacto;
 
 @end

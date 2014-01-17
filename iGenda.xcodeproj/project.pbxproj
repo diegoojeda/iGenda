@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0B44D518898FDE001850E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0B44D418898FDE001850E8 /* Main.storyboard */; };
+		4E0B44D81889913B001850E8 /* IGEShowContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0B44D71889913B001850E8 /* IGEShowContactViewController.m */; };
 		4E1D542B18885D22009E3B5A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E1D542A18885D22009E3B5A /* CoreData.framework */; };
 		4E4E133D188932250091E604 /* IGETabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4E133C188932250091E604 /* IGETabViewController.m */; };
 		4E4E1340188936EA0091E604 /* igendamodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E4E133E188936EA0091E604 /* igendamodel.xcdatamodeld */; };
@@ -174,6 +176,10 @@
 		4E1D53D118883B9D009E3B5A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4E0B44D61889913B001850E8 /* IGEShowContactViewController.h */,
+				4E0B44D71889913B001850E8 /* IGEShowContactViewController.m */,
+				B069E4D018895ACE00F9D504 /* IGELoginViewController.h */,
+				B069E4D118895ACE00F9D504 /* IGELoginViewController.m */,
 				83DA3B841889578700FBA66E /* IGEPersonasFromGrupoViewController.h */,
 				83DA3B851889578700FBA66E /* IGEPersonasFromGrupoViewController.m */,
 				4E4E133B188932250091E604 /* IGETabViewController.h */,

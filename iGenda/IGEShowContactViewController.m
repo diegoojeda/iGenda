@@ -45,23 +45,7 @@
 - (void) getContact:(Contact *)contacto{
     NSLog(@"Get Contact %@",contacto.nombre);
 
--(IBAction)changeColor:(id)sender
-{
-    /*UIButton *btn = (UIButton *)sender;
-    
-    if(btn.enabled)
-    {
-        btn.enabled=NO;
-        btn.backgroundColor=[UIColor grayColor];
-        
-        
-    }
-    else
-    {
-        btn.enabled=YES;
-        btn.backgroundColor=[UIColor blueColor];
-    }
-    */
+    _contacto = contacto;
 }
 
 @end

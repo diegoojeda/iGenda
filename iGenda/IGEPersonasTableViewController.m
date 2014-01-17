@@ -39,27 +39,7 @@
     NSArray *array = [context executeFetchRequest:request error:&error];
 
     self.contacts = [(NSArray*)array mutableCopy];
-    
-    
-    //Creación de contactos
-    /*Contact *c = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:context];
-    c.nombre = @"Diego";
-    [self.contacts addObject:c];
-    c.nombre = @"Dani";
-    [self.contacts addObject:c];
-    c.nombre = @"Jorge";
-    [self.contacts addObject:c];
-    c.nombre = @"Laura";
-    [self.contacts addObject:c];
-    
-    
-    
-    // Guardado del contexto
-    if (![context save:&error]) {
-        NSLog(@"Error while saving %@", ([error localizedDescription] != nil) ? [error localizedDescription] : @"Unknown Error");
-        exit(1);
-    }
-    */
+   
 }
 
 - (IBAction)unwindFromContactDetailToList:(UIStoryboardSegue *)segue{
