@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IGEPersonasTableViewController : UITableViewController
+@interface IGEPersonasTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (nonatomic, strong) IBOutlet UISwipeGestureRecognizer *swipeRecognizer;
+
+
+
 
 @end

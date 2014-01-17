@@ -7,13 +7,16 @@
 //
 
 #import "IGEPersonasTableViewController.h"
-#import "IGEContact.h"
+#import "Contact.h"
 #import "IGEAddContactViewController.h"
-
+#import "IGEAppDelegate.h"
+#import "Contact.h"
 
 @interface IGEPersonasTableViewController ()
 
 @property NSMutableArray *contacts;
+
+
 
 @end
 
@@ -21,17 +24,36 @@
 
 /** Carga de contactos inicial **/
 - (void)loadInitialData {
-    //Fetch from Core Data
+    //Recuperación de datos
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
+    NSError *error = nil;
     
-    IGEContact *item1 = [[IGEContact alloc] init];
-    item1.nombre = @"Buy milk";
-    [self.contacts addObject:item1];
-    IGEContact *item2 = [[IGEContact alloc] init];
-    item2.nombre = @"Buy eggs";
-    [self.contacts addObject:item2];
-    IGEContact *item3 = [[IGEContact alloc] init];
-    item3.nombre = @"Read a book";
-    [self.contacts addObject:item3];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEContact" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    
+    NSArray *array = [context executeFetchRequest:request error:&error];
+    self.contacts = [(NSArray*)array mutableCopy];
+    
+    /*Contact *c = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:context];
+    c.nombre = @"Diego";
+    [self.contacts addObject:c];
+    c.nombre = @"Dani";
+    [self.contacts addObject:c];
+    c.nombre = @"Jorge";
+    [self.contacts addObject:c];
+    c.nombre = @"Laura";
+    [self.contacts addObject:c];
+    
+    
+    // Custom code here...
+    // Save the managed object context
+    if (![context save:&error]) {
+        NSLog(@"Error while saving %@", ([error localizedDescription] != nil) ? [error localizedDescription] : @"Unknown Error");
+        exit(1);
+    }*/
+    
 }
 
 - (IBAction)unwindFromContactDetailToList:(UIStoryboardSegue *)segue{
@@ -40,12 +62,20 @@
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
     IGEAddContactViewController *source = [segue sourceViewController];
-    IGEContact *item = source.contacto;
+    Contact *item = source.contacto;
     if (item != nil){
         [self.contacts addObject:item];
         [self.tableView reloadData];
     }
 }
+
+
+
+
+
+
+
+
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -64,8 +94,27 @@
     
     self.contacts = [[NSMutableArray alloc] init];
     
+
     [self loadInitialData];
+    
+//    UISwipeGestureRecognizer *rightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightSwipeHandle:)];
+//    rightRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+//    [rightRecognizer setNumberOfTouchesRequired:1];
+//    [self.view addGestureRecognizer:rightRecognizer];
+//    //[rightRecognizer release];
 }
+
+- (void)rightSwipeHandle:(UISwipeGestureRecognizer*)sender
+{
+    //Do moving
+    if ( sender.direction == UISwipeGestureRecognizerDirectionRight ){
+        NSLog(@" *** SWIPE RIGHT ***");
+        
+    }
+}
+
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -91,7 +140,7 @@
     static NSString *CellIdentifier = @"ListPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    IGEContact* item = [self.contacts objectAtIndex:indexPath.row];
+    Contact* item = [self.contacts objectAtIndex:indexPath.row];
     cell.textLabel.text = item.nombre;
     
     return cell;
@@ -153,7 +202,6 @@
     //TODO Array marcados para borrar
     [self.contacts removeObjectAtIndex:indexPath.row];
     [tableView reloadData];
-
 }
 
 
