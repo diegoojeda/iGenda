@@ -10,6 +10,7 @@
 		4E1D53D418883C40009E3B5A /* IGEModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E1D53D218883C40009E3B5A /* IGEModel.xcdatamodeld */; };
 		4E1D53D718883D2D009E3B5A /* IGEContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1D53D618883D2D009E3B5A /* IGEContact.m */; };
 		4E78AC071887FD85000538E6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E78AC061887FD85000538E6 /* QuartzCore.framework */; };
+		83B783F018892EAF00F73545 /* IGEGruposTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B783EF18892EAF00F73545 /* IGEGruposTableViewController.m */; };
 		B02DBC4F18868FE60019AAF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC4E18868FE60019AAF1 /* Foundation.framework */; };
 		B02DBC5118868FE60019AAF1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC5018868FE60019AAF1 /* CoreGraphics.framework */; };
 		B02DBC5318868FE60019AAF1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC5218868FE60019AAF1 /* UIKit.framework */; };
@@ -44,6 +45,8 @@
 		4E1D53D518883D2D009E3B5A /* IGEContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEContact.h; sourceTree = "<group>"; };
 		4E1D53D618883D2D009E3B5A /* IGEContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEContact.m; sourceTree = "<group>"; };
 		4E78AC061887FD85000538E6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		83B783EE18892EAF00F73545 /* IGEGruposTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEGruposTableViewController.h; sourceTree = "<group>"; };
+		83B783EF18892EAF00F73545 /* IGEGruposTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEGruposTableViewController.m; sourceTree = "<group>"; };
 		B02DBC4B18868FE60019AAF1 /* iGenda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iGenda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02DBC4E18868FE60019AAF1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B02DBC5018868FE60019AAF1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -108,6 +111,8 @@
 		4E1D53D118883B9D009E3B5A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				83B783EE18892EAF00F73545 /* IGEGruposTableViewController.h */,
+				83B783EF18892EAF00F73545 /* IGEGruposTableViewController.m */,
 				B02DBC5D18868FE60019AAF1 /* IGEAppDelegate.h */,
 				B02DBC5E18868FE60019AAF1 /* IGEAppDelegate.m */,
 				B05DC27D1887E51C00529752 /* IGEPersonasTableViewController.h */,
@@ -295,6 +300,7 @@
 			files = (
 				B02DBC6818868FE60019AAF1 /* IGESecondViewController.m in Sources */,
 				B02DBC5F18868FE60019AAF1 /* IGEAppDelegate.m in Sources */,
+				83B783F018892EAF00F73545 /* IGEGruposTableViewController.m in Sources */,
 				B02DBC5B18868FE60019AAF1 /* main.m in Sources */,
 				4E1D53D418883C40009E3B5A /* IGEModel.xcdatamodeld in Sources */,
 				B05DC27F1887E51C00529752 /* IGEPersonasTableViewController.m in Sources */,
