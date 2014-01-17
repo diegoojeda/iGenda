@@ -40,7 +40,10 @@
         self.contacto.apellido1 = self.apellido1.text;
         self.contacto.apellido2 = self.apellido2.text;
         self.contacto.email = self.email.text;
-        //self.contacto.foto = self.foto.image;//Falta la imagen
+        
+        //Conversión imagen UIImage a NSData, formato de la imagen del contacto
+        NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.foto.image)];
+        self.contacto.imagen = imageData;
     }
 }
 
