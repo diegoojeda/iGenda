@@ -122,4 +122,16 @@
     _nombreGrupo = name;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"ContactoFromGroup"]) {
+        IGEShowContactViewController *controller = (IGEShowContactViewController *)[[segue destinationViewController] topViewController];
+        NSInteger selectedIndex = [[self.tableView indexPathForSelectedRow] row];
+        [controller getContact:[self.contactosGrupo objectAtIndex:selectedIndex]];
+    }
+}
+
+
 @end
