@@ -223,7 +223,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-488" y="434"/>
+            <point key="canvasLocation" x="-1552" y="402"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sEY-Gc-CrP">
