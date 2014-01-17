@@ -70,8 +70,8 @@
 		4E4E135918893F560091E604 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		4E4E135A18893F560091E604 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		4E78AC061887FD85000538E6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		AA506B48188943EF00AA1279 /* IGEShowContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEShowContactViewController.h; sourceTree = "<group>"; };
-		AA506B49188943EF00AA1279 /* IGEShowContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEShowContactViewController.m; sourceTree = "<group>"; };
+		AAC5FDF718897835009CEAFF /* IGEShowContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEShowContactCell.h; sourceTree = "<group>"; };
+		AAC5FDF818897835009CEAFF /* IGEShowContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEShowContactCell.m; sourceTree = "<group>"; };
 		B02DBC4B18868FE60019AAF1 /* iGenda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iGenda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02DBC4E18868FE60019AAF1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B02DBC5018868FE60019AAF1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -416,6 +416,7 @@
 				4E4E135218893F550091E604 /* IGESetting.m in Sources */,
 				B069E4F71889633400F9D504 /* SBJsonUTF8Stream.m in Sources */,
 				4E4E133D188932250091E604 /* IGETabViewController.m in Sources */,
+				AAC5FDF918897835009CEAFF /* IGEShowContactCell.m in Sources */,
 				4E4E1340188936EA0091E604 /* igendamodel.xcdatamodeld in Sources */,
 				B069E4EF1889633400F9D504 /* SBJsonStreamParser.m in Sources */,
 				B069E4ED1889633400F9D504 /* NSObject+SBJson.m in Sources */,

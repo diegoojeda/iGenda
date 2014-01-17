@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Personas Table View Controller-->
+        <!--Personas Table View Controller - Contactos-->
         <scene sceneID="plK-FI-xM3">
             <objects>
-                <tableViewController id="MGZ-ou-aoB" customClass="IGEPersonasTableViewController" sceneMemberID="viewController">
+                <tableViewController title="Contactos" id="MGZ-ou-aoB" customClass="IGEPersonasTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="46" sectionHeaderHeight="22" sectionFooterHeight="22" id="52Q-Qs-a5I">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,7 +32,7 @@
                             <outlet property="delegate" destination="MGZ-ou-aoB" id="V0s-S9-WEW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="MNt-La-GiR">
+                    <navigationItem key="navigationItem" title="Contactos" id="MNt-La-GiR">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="ZWQ-Iw-Gqy">
                             <connections>
                                 <segue destination="0Mb-oh-AVv" kind="modal" id="5z0-cI-LFp"/>
@@ -47,7 +47,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTJ-eE-o1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-177" y="-322"/>
+            <point key="canvasLocation" x="-305" y="-1023"/>
         </scene>
         <!--Add Contact View Controller - AddContact-->
         <scene sceneID="mTv-D2-64J">
@@ -399,6 +399,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vkX-BJ-pU2">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="a4O-Rg-F5O">
                             <connections>
                                 <segue destination="96o-b2-Jga" kind="unwind" unwindAction="unwindFromContactDetailToList:" id="A7M-eW-B8j"/>
@@ -407,7 +408,7 @@
                         <barButtonItem key="rightBarButtonItem" image="star_none" id="6WS-hB-rI2">
                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="changeColor:" destination="jl0-aM-QoI" id="fR3-WC-I8X"/>
+                                <action selector="changeColor:" destination="jl0-aM-QoI" id="U2c-on-A48"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -453,7 +454,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sdz-Hk-Skn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-703" y="-322"/>
+            <point key="canvasLocation" x="-831" y="-1023"/>
         </scene>
         <!--View Controller - Settings-->
         <scene sceneID="4jW-La-8te">

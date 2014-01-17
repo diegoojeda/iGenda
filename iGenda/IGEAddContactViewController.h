@@ -13,5 +13,6 @@
     //Añado al View Controller estos dos protocolos para el el ImagePickerController, para navegación por la galería y manejo de datos (necesario)
 
 @property Contact *contacto;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  IGEShowContactViewController.h
+//  IGEShowContactCell.h
 //  iGenda
 //
 //  Created by Máster INFTEL 09  on 17/01/14.
@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IGEShowContactViewController : UIViewController
+@interface IGEShowContactCell : UITableViewCell
+
+@property Boolean fav;
+
+-(IBAction)changeColor:(id)sender;
 
 @end
