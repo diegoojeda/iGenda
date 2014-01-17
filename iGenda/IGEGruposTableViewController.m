@@ -1,51 +1,21 @@
 //
-//  IGEPersonasTableViewController.m
+//  IGEGruposTableViewController.m
 //  iGenda
 //
-//  Created by Máster INFTEL 11 on 16/01/14.
+//  Created by Diego Ojeda García on 17/01/14.
 //  Copyright (c) 2014 UMA. All rights reserved.
 //
 
-#import "IGEPersonasTableViewController.h"
-#import "IGEContact.h"
-#import "IGEAddContactViewController.h"
+#import "IGEGruposTableViewController.h"
 
+@interface IGEGruposTableViewController ()
 
-@interface IGEPersonasTableViewController ()
-
-@property NSMutableArray *contacts;
 
 @end
 
-@implementation IGEPersonasTableViewController
+@implementation IGEGruposTableViewController
 
-/** Carga de contactos inicial **/
-- (void)loadInitialData {
-    
-//    IGEContact *item1 = [[IGEContact alloc] init];
-//    item1.nombre = @"Buy milk";
-//    [self.contacts addObject:item1];
-//    IGEContact *item2 = [[IGEContact alloc] init];
-//    item2.nombre = @"Buy eggs";
-//    [self.contacts addObject:item2];
-//    IGEContact *item3 = [[IGEContact alloc] init];
-//    item3.nombre = @"Read a book";
-//    [self.contacts addObject:item3];
-}
-
-- (IBAction)unwindFromContactDetailToList:(UIStoryboardSegue *)segue{
-    
-}
-
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
-    IGEAddContactViewController *source = [segue sourceViewController];
-    IGEContact *item = source.contacto;
-    if (item != nil){
-        [self.contacts addObject:item];
-        [self.tableView reloadData];
-    }
-}
-
+@synthesize grupos = _grupos;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -58,12 +28,13 @@
 
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
-    
-    self.contacts = [[NSMutableArray alloc] init];
-    
-    [self loadInitialData];
+
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,22 +47,23 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    //Secciones, correspondientes a las letras del alfabeto que hay contactos
-    return 1;
+    // Return the number of sections.
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.contacts count];
+    // Return the number of rows in the section.
+    //return [_grupos ];
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ListPrototypeCell";
+    static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    IGEContact* item = [self.contacts objectAtIndex:indexPath.row];
-    cell.textLabel.text = item.nombre;
+    // Configure the cell...
     
     return cell;
 }
@@ -146,15 +118,5 @@
 }
 
  */
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //TODO Array marcados para borrar
-    [self.contacts removeObjectAtIndex:indexPath.row];
-    [tableView reloadData];
-}
-
-
-
 
 @end
