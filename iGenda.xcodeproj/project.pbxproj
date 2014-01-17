@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4E1D53D718883D2D009E3B5A /* IGEContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1D53D618883D2D009E3B5A /* IGEContact.m */; };
-		4E1D542918885CAD009E3B5A /* coredataprueba-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E1D542818885CAD009E3B5A /* coredataprueba-Info.plist */; };
 		4E1D542B18885D22009E3B5A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E1D542A18885D22009E3B5A /* CoreData.framework */; };
 		4E78AC071887FD85000538E6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E78AC061887FD85000538E6 /* QuartzCore.framework */; };
 		83B783F018892EAF00F73545 /* IGEGruposTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B783EF18892EAF00F73545 /* IGEGruposTableViewController.m */; };
@@ -128,7 +127,6 @@
 				B02DBC6418868FE60019AAF1 /* IGEFirstViewController.m */,
 				B02DBC6618868FE60019AAF1 /* IGESecondViewController.h */,
 				B02DBC6718868FE60019AAF1 /* IGESecondViewController.m */,
-				BE21D53018893FDD001C9328 /* contact.png */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -168,6 +166,7 @@
 		B02DBC5418868FE60019AAF1 /* iGenda */ = {
 			isa = PBXGroup;
 			children = (
+				BE21D53218894471001C9328 /* Resources */,
 				4E1D53D118883B9D009E3B5A /* ViewController */,
 				4E1D53D018883B6D009E3B5A /* Classes */,
 				B02DBC6018868FE60019AAF1 /* Main.storyboard */,
@@ -205,6 +204,14 @@
 				B02DBC7918868FE60019AAF1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE21D53218894471001C9328 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BE21D53018893FDD001C9328 /* contact.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

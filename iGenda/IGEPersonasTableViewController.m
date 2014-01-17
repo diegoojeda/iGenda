@@ -21,6 +21,7 @@
 
 /** Carga de contactos inicial **/
 - (void)loadInitialData {
+    //Fetch from Core Data
     
 //    IGEContact *item1 = [[IGEContact alloc] init];
 //    item1.nombre = @"Buy milk";
