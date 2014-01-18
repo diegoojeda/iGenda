@@ -52,12 +52,6 @@
         self.contacto.favorito = false;
         self.contacto.estado = 0; //Recien creado
         
-        // Custom code here...
-        // Save the managed object context
-        if (![context save:&error]) {
-            NSLog(@"Error while saving %@", ([error localizedDescription] != nil) ? [error localizedDescription] : @"Unknown Error");
-            exit(1);
-        }
        
         //Conversión imagen UIImage a NSData, formato de la imagen del contacto
         NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.foto.image)];
@@ -108,7 +102,6 @@
 //ShowImagePickerForPhotoPicker llama a este método que configura el controlador y le da el control
 - (void)showImagePickerForSourceType:(UIImagePickerControllerSourceType)sourceType
 {
-
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
     imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
     imagePickerController.sourceType = sourceType;

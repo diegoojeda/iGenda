@@ -18,6 +18,8 @@
 @property (nonatomic, strong) IBOutlet UILabel *greetingEmail;
 @property (nonatomic, strong) IBOutlet UIButton *greetingStar;
 
+@property (nonatomic, strong) IBOutlet UIImageView *greetingImage;
+
 
 
 

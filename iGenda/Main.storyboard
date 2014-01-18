@@ -118,10 +118,16 @@
                                 <segue destination="1JI-a8-2IX" kind="unwind" unwindAction="unwindFromContactDetailToContactList:" id="DiW-5M-8wd"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="XZU-f0-LGl">
+                            <connections>
+                                <segue destination="1JI-a8-2IX" kind="unwind" unwindAction="unwindToAddUser:" id="gQZ-Jn-kLd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="apellido1" destination="jbK-4p-0BN" id="jTt-r1-Z5v"/>
                         <outlet property="apellido2" destination="jxL-E7-a4v" id="1wb-V6-k1d"/>
+                        <outlet property="doneButton" destination="XZU-f0-LGl" id="9JP-pm-9rI"/>
                         <outlet property="email" destination="wdW-Ml-Drf" id="5uL-TA-GzO"/>
                         <outlet property="foto" destination="k6e-ci-EQJ" id="1tm-df-9S1"/>
                         <outlet property="nombre" destination="Wd7-eI-JCk" id="XwA-KP-fGs"/>
@@ -400,6 +406,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="greetingEmail" destination="ySD-XL-CL1" id="lzW-02-rg4"/>
+                        <outlet property="greetingImage" destination="OTz-2n-UgL" id="kGs-F1-2Nc"/>
                         <outlet property="greetingMovil" destination="7TV-mp-zaY" id="xCE-Fy-Lvc"/>
                         <outlet property="greetingNombre" destination="loB-br-IGx" id="kcO-8V-CY7"/>
                         <outlet property="greetingStar" destination="Xv6-AP-KMk" id="aG5-7a-WCk"/>
