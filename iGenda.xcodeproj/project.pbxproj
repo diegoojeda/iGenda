@@ -12,7 +12,6 @@
 		4E4E133D188932250091E604 /* IGETabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4E133C188932250091E604 /* IGETabViewController.m */; };
 		4E4E1340188936EA0091E604 /* igendamodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E4E133E188936EA0091E604 /* igendamodel.xcdatamodeld */; };
 		4E78AC071887FD85000538E6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E78AC061887FD85000538E6 /* QuartzCore.framework */; };
-		4EAE761418898115004B9C6B /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4EB5026A188AAFB600F846A4 /* IGEShowContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB50268188AAFB600F846A4 /* IGEShowContactViewController.m */; };
 		83DA3B831889532600FBA66E /* IGEGruposViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DA3B821889532600FBA66E /* IGEGruposViewController.m */; };
 		83DA3B861889578700FBA66E /* IGEPersonasFromGrupoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DA3B851889578700FBA66E /* IGEPersonasFromGrupoViewController.m */; };
@@ -43,6 +42,7 @@
 		B069E4F61889633400F9D504 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = B069E4E81889633400F9D504 /* SBJsonTokeniser.m */; };
 		B069E4F71889633400F9D504 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = B069E4EA1889633400F9D504 /* SBJsonUTF8Stream.m */; };
 		B069E4F81889633400F9D504 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = B069E4EC1889633400F9D504 /* SBJsonWriter.m */; };
+		B0A56FD6188AF19700ED8A08 /* IGEEditContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA26E7B7188A8753002A70BF /* IGEEditContactViewController.m */; };
 		BE21D53118893FDD001C9328 /* contact.png in Resources */ = {isa = PBXBuildFile; fileRef = BE21D53018893FDD001C9328 /* contact.png */; };
 		BE21D53518895C9E001C9328 /* IGEFavoritosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21D53418895C9E001C9328 /* IGEFavoritosTableViewController.m */; };
 		BE21D53818898C01001C9328 /* IGEContactToDelete.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21D53718898C01001C9328 /* IGEContactToDelete.m */; };
@@ -422,7 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EAE761418898115004B9C6B /* (null) in Sources */,
+				B0A56FD6188AF19700ED8A08 /* IGEEditContactViewController.m in Sources */,
 				B069E4D218895ACE00F9D504 /* IGELoginViewController.m in Sources */,
 				B069E4F81889633400F9D504 /* SBJsonWriter.m in Sources */,
 				B069E4F31889633400F9D504 /* SBJsonStreamWriter.m in Sources */,
