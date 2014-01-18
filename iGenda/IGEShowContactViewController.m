@@ -43,6 +43,10 @@
     }
 }
 
+-(IBAction)callPhone:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:639970861"]];
+}
+
 - (IBAction)changeFavorito:(id)sender{
     if(_contacto.favorito .intValue == 0){
         _contacto.favorito = [NSNumber numberWithInt:1];
