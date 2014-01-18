@@ -178,8 +178,8 @@
 
 
 /**
- Seleccionar Contacto BORRAR LUEGO
- */
+ Seleccionar Contacto BORRAR LUEGO - MODO JUAN
+ 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //   indexPath.row;
     appDelegate = [UIApplication sharedApplication].delegate;
@@ -187,16 +187,29 @@
 
     appDelegate.seleccionado = [self.contacts objectAtIndex:indexPath.row];
 }
+**/
+
+
 
 /**
     Eliminar Contacto
  */
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    /** Contexto de core data **/
     NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
     NSError *error = nil;
     
-    [context deleteObject:[self.contacts objectAtIndex:indexPath.row]];
+    /** Añade el contacto a la lista a borrar **/
+    IGEContactToDelete *contacto;
+    contacto = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContactToDelete" inManagedObjectContext:context];
+    contacto.id = [[self.contacts objectAtIndex:indexPath.row] id];
+    if (![context save:&error]) {
+        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+        return;
+    }
+    
+    [context deleteObject:[self.contacts objectAtIndex:indexPath.row]]; //Elimina contacto de core data
     
     //TODO Array marcados para borrar
     [self.contacts removeObjectAtIndex:indexPath.row];//Elimina contacto de memoria
@@ -206,10 +219,6 @@
         NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
         return;
     }
-    
-    
-    //self.contacto = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:context];
-
     
     [tableView reloadData]; //Recarga la tabla
 }
