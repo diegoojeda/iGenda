@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Contact.h"
+#import "IGEAppDelegate.h"
+#import "IGEGroup.h"
 
 @interface IGELoginViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *textUsername;
 @property (weak, nonatomic) IBOutlet UITextField *textPassword;
+@property NSManagedObjectContext* mno;
 - (IBAction)loginClick:(id)sender;
 - (IBAction)backgroundClick:(id)sender;
 

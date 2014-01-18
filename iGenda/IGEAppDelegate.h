@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Contact.h"
+#import "IGESetting.h"
 
 @interface IGEAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -22,6 +23,7 @@
 
 //@property Contact *seleccionado; //Contacto seleccionado para Ver/Editar
 @property NSNumber *seqId;
+@property IGESetting* settings;
 
 
 - (void)saveContext;

@@ -13,6 +13,6 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property NSMutableArray *grupos;
+@property (strong)NSMutableArray *grupos;
 
 @end
