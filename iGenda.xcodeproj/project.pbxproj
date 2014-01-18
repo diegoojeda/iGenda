@@ -432,7 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EAE761418898115004B9C6B /* (null) in Sources */,
+				B0A56FD6188AF19700ED8A08 /* IGEEditContactViewController.m in Sources */,
 				B069E4D218895ACE00F9D504 /* IGELoginViewController.m in Sources */,
 				B069E4F81889633400F9D504 /* SBJsonWriter.m in Sources */,
 				B069E4F31889633400F9D504 /* SBJsonStreamWriter.m in Sources */,
