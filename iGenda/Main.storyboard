@@ -410,6 +410,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="greetingEmail" destination="ySD-XL-CL1" id="lzW-02-rg4"/>
+                        <outlet property="greetingImage" destination="OTz-2n-UgL" id="kGs-F1-2Nc"/>
                         <outlet property="greetingMovil" destination="7TV-mp-zaY" id="xCE-Fy-Lvc"/>
                         <outlet property="greetingNombre" destination="loB-br-IGx" id="kcO-8V-CY7"/>
                         <outlet property="greetingStar" destination="Xv6-AP-KMk" id="aG5-7a-WCk"/>

@@ -183,6 +183,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //   indexPath.row;
     appDelegate = [UIApplication sharedApplication].delegate;
+    
+
     appDelegate.seleccionado = [self.contacts objectAtIndex:indexPath.row];
 }
 
@@ -192,8 +194,9 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //TODO Array marcados para borrar
-    [self.contacts removeObjectAtIndex:indexPath.row];
-    [tableView reloadData];
+    [self.contacts removeObjectAtIndex:indexPath.row];//Elimina contacto de memoria
+    
+    [tableView reloadData]; //Recarga la tabla
 }
 
 
