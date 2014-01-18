@@ -113,21 +113,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Nuevo" id="HrJ-ME-ihK">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="w23-YH-amR">
+                        <barButtonItem key="leftBarButtonItem" title="Atras" id="w23-YH-amR">
                             <connections>
                                 <segue destination="1JI-a8-2IX" kind="unwind" unwindAction="unwindFromContactDetailToContactList:" id="DiW-5M-8wd"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="N2a-Z8-i09">
-                            <connections>
-                                <segue destination="1JI-a8-2IX" kind="unwind" unwindAction="unwindToAddUser:" id="RJK-Yk-wzn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="apellido1" destination="jbK-4p-0BN" id="jTt-r1-Z5v"/>
                         <outlet property="apellido2" destination="jxL-E7-a4v" id="1wb-V6-k1d"/>
-                        <outlet property="doneButton" destination="N2a-Z8-i09" id="Ksa-gl-87X"/>
                         <outlet property="email" destination="wdW-Ml-Drf" id="5uL-TA-GzO"/>
                         <outlet property="foto" destination="k6e-ci-EQJ" id="1tm-df-9S1"/>
                         <outlet property="nombre" destination="Wd7-eI-JCk" id="XwA-KP-fGs"/>
@@ -402,6 +396,7 @@
                                 <segue destination="96o-b2-Jga" kind="unwind" unwindAction="unwindFromContactDetailToContactList:" id="bay-Xv-Ss3"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="hSX-ow-5Co"/>
                     </navigationItem>
                     <connections>
                         <outlet property="greetingEmail" destination="ySD-XL-CL1" id="lzW-02-rg4"/>
