@@ -72,26 +72,8 @@
 {
     
     [super viewDidLoad];
-    
     self.contacts = [[NSMutableArray alloc] init];
-    
-
     [self loadInitialData];
-    
-//    UISwipeGestureRecognizer *rightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightSwipeHandle:)];
-//    rightRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
-//    [rightRecognizer setNumberOfTouchesRequired:1];
-//    [self.view addGestureRecognizer:rightRecognizer];
-//    //[rightRecognizer release];
-}
-
-- (void)rightSwipeHandle:(UISwipeGestureRecognizer*)sender
-{
-    //Do moving
-    if ( sender.direction == UISwipeGestureRecognizerDirectionRight ){
-        NSLog(@" *** SWIPE RIGHT ***");
-        
-    }
 }
 
 
@@ -227,10 +209,11 @@
         return;
     }
     
-    [context deleteObject:[self.contacts objectAtIndex:indexPath.row]]; //Elimina contacto de core data
+    /** Elimina contacto de core data **/
+    [context deleteObject:[self.contacts objectAtIndex:indexPath.row]]; //
     
-    //TODO Array marcados para borrar
-    [self.contacts removeObjectAtIndex:indexPath.row];//Elimina contacto de memoria
+    /** Elimina contacto de memoria **/
+    [self.contacts removeObjectAtIndex:indexPath.row];
     
     
     if (![context save:&error]) {

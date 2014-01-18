@@ -33,7 +33,7 @@
     self.greetingMovil.text = _contacto.telefono;
     self.greetingEmail.text = _contacto.email;
     self.greetingImage.image=[UIImage imageWithData:_contacto.imagen];
-    self.greetingImage.frame = CGRectMake(25, 138, 125, 125);
+    
     
     if(_contacto.favorito == 0){
         self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_none.png"]];
@@ -44,6 +44,32 @@
 }
 
 - (IBAction)changeFavorito:(id)sender{
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSError *error = nil;
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity =
+    [NSEntityDescription entityForName:@"IGEContact"
+                inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSPredicate *predicate =
+    [NSPredicate predicateWithFormat:@"id == %@", _contacto.id];
+    [request setPredicate:predicate];
+    
+    NSArray *array = [context executeFetchRequest:request error:&error];
+    if (array != nil) {
+        NSUInteger count = [array count]; // May be 0 if the object has been deleted.
+        NSLog(@"----> Encontrado %i",count);
+        
+        
+        
+    }
+    else {
+        NSLog(@"Encontrado");
+    }
+    
+    
     if(_contacto.favorito .intValue == 0){
         _contacto.favorito = [NSNumber numberWithInt:1];
         self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Blue_Star.png"]];
@@ -67,6 +93,12 @@
     [self fetchContact];
     [super viewDidLoad];
 }
+
+
+- (IBAction)unwindFromEditToShowContact:(UIStoryboardSegue *)segue{
+    
+}
+
 
 
 - (void)didReceiveMemoryWarning
