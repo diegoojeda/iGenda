@@ -45,6 +45,10 @@
    
 }
 
+- (IBAction)unwindFromSettings:(UIStoryboardSegue *)segue{
+    
+}
+
 - (IBAction)unwindFromContactDetailToContactList:(UIStoryboardSegue *)segue{
     
 }
