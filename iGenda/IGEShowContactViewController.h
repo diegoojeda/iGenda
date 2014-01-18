@@ -12,14 +12,24 @@
 
 @interface IGEShowContactViewController : UIViewController
 
+/** Label **/
 @property (nonatomic, strong) IBOutlet UILabel *greetingNombre;
+@property (nonatomic, strong) IBOutlet UILabel *greetingMovil;
+@property (nonatomic, strong) IBOutlet UILabel *greetingEmail;
+@property (nonatomic, strong) IBOutlet UIButton *greetingStar;
 
-@property Contact *contacto;
+@property (nonatomic, strong) IBOutlet UIImageView *greetingImage;
 
 
-- (IBAction) fetchContact;
 
 
-- (void) getContact:(Contact *)contacto;
+
+@property Contact *contacto; //Contacto seleccionado
+
+
+- (IBAction) fetchContact; //Función de consulta
+- (IBAction)changeFavorito:(id)sender;
+
+- (void) getContact:(Contact *)contacto; //GetContact desde la tabla
 
 @end

@@ -20,7 +20,9 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property Contact *seleccionado; //Contacto seleccionado para Ver/Editar
+//@property Contact *seleccionado; //Contacto seleccionado para Ver/Editar
+@property NSNumber *seqId;
+
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

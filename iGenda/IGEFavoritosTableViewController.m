@@ -1,21 +1,60 @@
 //
-//  IGEPersonasFromGrupoViewController.m
+//  IGEFavoritosTableViewController.m
 //  iGenda
 //
-//  Created by Diego Ojeda García on 17/01/14.
+//  Created by Máster INFTEL 12 on 17/01/14.
 //  Copyright (c) 2014 UMA. All rights reserved.
 //
 
-#import "IGEPersonasFromGrupoViewController.h"
+#import "IGEFavoritosTableViewController.h"
+#import "Contact.h"
+#import "IGEAddContactViewController.h"
+#import "IGEAppDelegate.h"
 
-@interface IGEPersonasFromGrupoViewController ()
+@interface IGEFavoritosTableViewController ()
+
+@property NSMutableArray *favourites;
 
 @end
 
-@implementation IGEPersonasFromGrupoViewController
+@implementation IGEFavoritosTableViewController
 
-@synthesize nombreGrupo = _nombreGrupo;
-@synthesize contactosGrupo = _contactosGrupo;
+- (void)loadFavourites{
+    //Recuperación de datos
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
+    NSError *error = nil;
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEContact" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    
+    NSArray *array = [context executeFetchRequest:request error:&error];
+    
+    
+    NSMutableArray *auxContacts;
+    auxContacts=[(NSArray*)array mutableCopy];
+    Contact *contact;
+    
+    
+    for (int i=0; i< [auxContacts count]; i++)
+    {
+        contact = [auxContacts objectAtIndex:i];
+        
+        if ([contact favorito] != 0) //Si es favorito (0 false, !=0 true)
+        {
+            [self.favourites addObject:contact];
+        }
+    
+    }
+  
+    
+    //self.favourites = [(NSArray*)array mutableCopy];
+
+    [self.tableView reloadData];
+    
+    
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -29,7 +68,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = _nombreGrupo;
+    
+    self.favourites = [[NSMutableArray alloc] init];
+    
+    
+    [self loadFavourites];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -47,24 +91,25 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
+// Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_contactosGrupo count];
+    return [self.favourites count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"personaFromGrupoCell";
+    static NSString *CellIdentifier = @"FavouritesPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    IGEGroup* item = [_contactosGrupo objectAtIndex:indexPath.row];
+    
+    Contact* item = [self.favourites objectAtIndex:indexPath.row];
     cell.textLabel.text = item.nombre;
+    
     return cell;
-
 }
 
 /*
@@ -117,23 +162,5 @@
 }
 
  */
--(void) getInfo: (NSArray* ) grupo andName: (NSString *) name{
-    _contactosGrupo = grupo;
-    _nombreGrupo = name;
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    if ([[segue identifier] isEqualToString:@"ContactoFromGroup"]) {
-        IGEShowContactViewController *controller = (IGEShowContactViewController *)[[segue destinationViewController] topViewController];
-        NSInteger selectedIndex = [[self.tableView indexPathForSelectedRow] row];
-        [controller getContact:[self.contactosGrupo objectAtIndex:selectedIndex]];
-    }
-}
-- (IBAction)unwindFromContactDetailToGroupList:(UIStoryboardSegue *)segue{
-}
-
 
 @end

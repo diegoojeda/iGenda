@@ -28,25 +28,28 @@
 /** Carga de contactos inicial **/
 - (void)loadInitialData {
     //Recuperación de datos
-    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
-    NSError *error = nil;
+    if ([self.contacts count] == 0){
     
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEContact" inManagedObjectContext:context];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDescription];
+        NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
+        NSError *error = nil;
+    
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEContact" inManagedObjectContext:context];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entityDescription];
     
     
-    NSArray *array = [context executeFetchRequest:request error:&error];
+        NSArray *array = [context executeFetchRequest:request error:&error];
 
-    self.contacts = [(NSArray*)array mutableCopy];
+        self.contacts = [(NSArray*)array mutableCopy];
+    }
    
 }
 
-- (IBAction)unwindFromContactDetailToList:(UIStoryboardSegue *)segue{
+- (IBAction)unwindFromContactDetailToContactList:(UIStoryboardSegue *)segue{
     
 }
 
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
+- (IBAction)unwindToAddUser:(UIStoryboardSegue *)segue {
     IGEAddContactViewController *source = [segue sourceViewController];
     Contact *item = source.contacto;
     if (item != nil){
@@ -193,22 +196,49 @@
 
 
 /**
- Seleccionar Contacto BORRAR LUEGO
- */
+ Seleccionar Contacto BORRAR LUEGO - MODO JUAN
+ 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //   indexPath.row;
     appDelegate = [UIApplication sharedApplication].delegate;
+    
+
     appDelegate.seleccionado = [self.contacts objectAtIndex:indexPath.row];
 }
+**/
+
+
 
 /**
     Eliminar Contacto
  */
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    /** Contexto de core data **/
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSError *error = nil;
+    
+    /** Añade el contacto a la lista a borrar **/
+    IGEContactToDelete *contacto;
+    contacto = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContactToDelete" inManagedObjectContext:context];
+    contacto.id = [[self.contacts objectAtIndex:indexPath.row] id];
+    if (![context save:&error]) {
+        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+        return;
+    }
+    
+    [context deleteObject:[self.contacts objectAtIndex:indexPath.row]]; //Elimina contacto de core data
+    
     //TODO Array marcados para borrar
-    [self.contacts removeObjectAtIndex:indexPath.row];
-    [tableView reloadData];
+    [self.contacts removeObjectAtIndex:indexPath.row];//Elimina contacto de memoria
+    
+    
+    if (![context save:&error]) {
+        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+        return;
+    }
+    
+    [tableView reloadData]; //Recarga la tabla
 }
 
 
