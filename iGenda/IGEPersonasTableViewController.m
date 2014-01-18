@@ -209,10 +209,11 @@
         return;
     }
     
-    [context deleteObject:[self.contacts objectAtIndex:indexPath.row]]; //Elimina contacto de core data
+    /** Elimina contacto de core data **/
+    [context deleteObject:[self.contacts objectAtIndex:indexPath.row]]; //
     
-    //TODO Array marcados para borrar
-    [self.contacts removeObjectAtIndex:indexPath.row];//Elimina contacto de memoria
+    /** Elimina contacto de memoria **/
+    [self.contacts removeObjectAtIndex:indexPath.row];
     
     
     if (![context save:&error]) {

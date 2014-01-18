@@ -44,6 +44,32 @@
 }
 
 - (IBAction)changeFavorito:(id)sender{
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSError *error = nil;
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity =
+    [NSEntityDescription entityForName:@"IGEContact"
+                inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSPredicate *predicate =
+    [NSPredicate predicateWithFormat:@"id == %@", _contacto.id];
+    [request setPredicate:predicate];
+    
+    NSArray *array = [context executeFetchRequest:request error:&error];
+    if (array != nil) {
+        NSUInteger count = [array count]; // May be 0 if the object has been deleted.
+        NSLog(@"----> Encontrado %i",count);
+        
+        
+        
+    }
+    else {
+        NSLog(@"Encontrado");
+    }
+    
+    
     if(_contacto.favorito .intValue == 0){
         _contacto.favorito = [NSNumber numberWithInt:1];
         self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Blue_Star.png"]];
