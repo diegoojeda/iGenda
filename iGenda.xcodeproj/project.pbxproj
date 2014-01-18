@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4E0B44D518898FDE001850E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0B44D418898FDE001850E8 /* Main.storyboard */; };
-		4E0B44D81889913B001850E8 /* IGEShowContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0B44D71889913B001850E8 /* IGEShowContactViewController.m */; };
 		4E1D542B18885D22009E3B5A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E1D542A18885D22009E3B5A /* CoreData.framework */; };
 		4E4E133D188932250091E604 /* IGETabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4E133C188932250091E604 /* IGETabViewController.m */; };
 		4E4E1340188936EA0091E604 /* igendamodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E4E133E188936EA0091E604 /* igendamodel.xcdatamodeld */; };
 		4E78AC071887FD85000538E6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E78AC061887FD85000538E6 /* QuartzCore.framework */; };
+		4EAE761418898115004B9C6B /* (null) in Sources */ = {isa = PBXBuildFile; };
+		4EB50267188AA36000F846A4 /* IGEShowContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB50266188AA36000F846A4 /* IGEShowContactViewController.m */; };
 		83DA3B831889532600FBA66E /* IGEGruposViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DA3B821889532600FBA66E /* IGEGruposViewController.m */; };
 		83DA3B861889578700FBA66E /* IGEPersonasFromGrupoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DA3B851889578700FBA66E /* IGEPersonasFromGrupoViewController.m */; };
-		4EAE761418898115004B9C6B /* IGEShowContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE761318898115004B9C6B /* IGEShowContactViewController.m */; };
 		B02DBC4F18868FE60019AAF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC4E18868FE60019AAF1 /* Foundation.framework */; };
 		B02DBC5118868FE60019AAF1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC5018868FE60019AAF1 /* CoreGraphics.framework */; };
 		B02DBC5318868FE60019AAF1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC5218868FE60019AAF1 /* UIKit.framework */; };
@@ -63,19 +63,17 @@
 
 /* Begin PBXFileReference section */
 		4E0B44D418898FDE001850E8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		4E0B44D61889913B001850E8 /* IGEShowContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEShowContactViewController.h; sourceTree = "<group>"; };
-		4E0B44D71889913B001850E8 /* IGEShowContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEShowContactViewController.m; sourceTree = "<group>"; };
 		4E1D542A18885D22009E3B5A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4E4E133B188932250091E604 /* IGETabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGETabViewController.h; sourceTree = "<group>"; };
 		4E4E133C188932250091E604 /* IGETabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGETabViewController.m; sourceTree = "<group>"; };
 		4E4E133F188936EA0091E604 /* igendamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = igendamodel.xcdatamodel; sourceTree = "<group>"; };
 		4E78AC061887FD85000538E6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4EB50265188AA36000F846A4 /* IGEShowContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEShowContactViewController.h; sourceTree = "<group>"; };
+		4EB50266188AA36000F846A4 /* IGEShowContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEShowContactViewController.m; sourceTree = "<group>"; };
 		83DA3B811889532600FBA66E /* IGEGruposViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEGruposViewController.h; sourceTree = "<group>"; };
 		83DA3B821889532600FBA66E /* IGEGruposViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEGruposViewController.m; sourceTree = "<group>"; };
 		83DA3B841889578700FBA66E /* IGEPersonasFromGrupoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEPersonasFromGrupoViewController.h; sourceTree = "<group>"; };
 		83DA3B851889578700FBA66E /* IGEPersonasFromGrupoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEPersonasFromGrupoViewController.m; sourceTree = "<group>"; };
-		AA506B48188943EF00AA1279 /* IGEShowContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEShowContactViewController.h; sourceTree = "<group>"; };
-		AA506B49188943EF00AA1279 /* IGEShowContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEShowContactViewController.m; sourceTree = "<group>"; };
 		B02DBC4B18868FE60019AAF1 /* iGenda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iGenda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02DBC4E18868FE60019AAF1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B02DBC5018868FE60019AAF1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -180,8 +178,6 @@
 		4E1D53D118883B9D009E3B5A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4E0B44D61889913B001850E8 /* IGEShowContactViewController.h */,
-				4E0B44D71889913B001850E8 /* IGEShowContactViewController.m */,
 				B069E4D018895ACE00F9D504 /* IGELoginViewController.h */,
 				B069E4D118895ACE00F9D504 /* IGELoginViewController.m */,
 				83DA3B841889578700FBA66E /* IGEPersonasFromGrupoViewController.h */,
@@ -196,10 +192,10 @@
 				B05DC27E1887E51C00529752 /* IGEPersonasTableViewController.m */,
 				B05DC26A1887D8B100529752 /* IGEAddContactViewController.h */,
 				B05DC26B1887D8B100529752 /* IGEAddContactViewController.m */,
-				AA506B48188943EF00AA1279 /* IGEShowContactViewController.h */,
-				AA506B49188943EF00AA1279 /* IGEShowContactViewController.m */,
 				83DA3B811889532600FBA66E /* IGEGruposViewController.h */,
 				83DA3B821889532600FBA66E /* IGEGruposViewController.m */,
+				4EB50265188AA36000F846A4 /* IGEShowContactViewController.h */,
+				4EB50266188AA36000F846A4 /* IGEShowContactViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -419,18 +415,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EAE761418898115004B9C6B /* IGEShowContactViewController.m in Sources */,
+				4EAE761418898115004B9C6B /* (null) in Sources */,
 				B069E4D218895ACE00F9D504 /* IGELoginViewController.m in Sources */,
 				B069E4F81889633400F9D504 /* SBJsonWriter.m in Sources */,
 				B069E4F31889633400F9D504 /* SBJsonStreamWriter.m in Sources */,
 				B069E4F61889633400F9D504 /* SBJsonTokeniser.m in Sources */,
 				B069E4F41889633400F9D504 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				B02DBC5F18868FE60019AAF1 /* IGEAppDelegate.m in Sources */,
+				4EB50267188AA36000F846A4 /* IGEShowContactViewController.m in Sources */,
 				B02DBC5B18868FE60019AAF1 /* main.m in Sources */,
-				4E4E135B18893F560091E604 /* Contact.m in Sources */,
 				B069E4F21889633400F9D504 /* SBJsonStreamParserState.m in Sources */,
 				B069E4EE1889633400F9D504 /* SBJsonParser.m in Sources */,
-				4E0B44D81889913B001850E8 /* IGEShowContactViewController.m in Sources */,
 				B069E4F01889633400F9D504 /* SBJsonStreamParserAccumulator.m in Sources */,
 				B069E4F51889633400F9D504 /* SBJsonStreamWriterState.m in Sources */,
 				B05DC27F1887E51C00529752 /* IGEPersonasTableViewController.m in Sources */,
@@ -438,9 +433,7 @@
 				BE21D53B18898C02001C9328 /* IGESetting.m in Sources */,
 				B05DC26C1887D8B100529752 /* IGEAddContactViewController.m in Sources */,
 				83DA3B831889532600FBA66E /* IGEGruposViewController.m in Sources */,
-				4E4E135818893F560091E604 /* IGEContactToDelete.m in Sources */,
 				83DA3B861889578700FBA66E /* IGEPersonasFromGrupoViewController.m in Sources */,
-				4E4E135218893F550091E604 /* IGESetting.m in Sources */,
 				B069E4F71889633400F9D504 /* SBJsonUTF8Stream.m in Sources */,
 				BE21D53518895C9E001C9328 /* IGEFavoritosTableViewController.m in Sources */,
 				BE21D54118898C02001C9328 /* Contact.m in Sources */,
@@ -449,7 +442,6 @@
 				4E4E1340188936EA0091E604 /* igendamodel.xcdatamodeld in Sources */,
 				B069E4EF1889633400F9D504 /* SBJsonStreamParser.m in Sources */,
 				B069E4ED1889633400F9D504 /* NSObject+SBJson.m in Sources */,
-				4E4E135518893F560091E604 /* IGEGroup.m in Sources */,
 				B069E4F11889633400F9D504 /* SBJsonStreamParserAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
