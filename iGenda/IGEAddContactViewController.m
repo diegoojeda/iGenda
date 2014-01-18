@@ -64,6 +64,8 @@
         self.contacto.favorito = false;
         self.contacto.estado = 0; //Recien creado
         
+         NSLog(@"%@ \n %@ \n %@ \n %@ \n %@ \n", self.nombre, self.apellido1, self.apellido2, self.email, self.telefono);
+        
        
         //Conversión imagen UIImage a NSData, formato de la imagen del contacto
         NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.foto.image)];
