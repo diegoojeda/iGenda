@@ -211,8 +211,23 @@
  */
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSError *error = nil;
+    
+    [context deleteObject:[self.contacts objectAtIndex:indexPath.row]];
+    
     //TODO Array marcados para borrar
     [self.contacts removeObjectAtIndex:indexPath.row];//Elimina contacto de memoria
+    
+    
+    if (![context save:&error]) {
+        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+        return;
+    }
+    
+    
+    //self.contacto = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:context];
+
     
     [tableView reloadData]; //Recarga la tabla
 }
