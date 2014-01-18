@@ -44,52 +44,19 @@
 }
 
 - (IBAction)changeFavorito:(id)sender{
-    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    NSError *error = nil;
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity =
-    [NSEntityDescription entityForName:@"IGEContact"
-                inManagedObjectContext:context];
-    [request setEntity:entity];
-    
-    NSPredicate *predicate =
-    [NSPredicate predicateWithFormat:@"nombre == %@", _contacto.nombre];
-    [request setPredicate:predicate];
-    
-    NSArray *array = [context executeFetchRequest:request error:&error];
-    
-    
-
-    
-    if (array != nil) {
-        NSUInteger count = [array count]; // May be 0 if the object has been deleted.
-        NSLog(@"----> Encontrado %i",count);
-        Contact* contactoToEdit = [array objectAtIndex:0]; //Coje el primer contacto favorito
+    if(_contacto.favorito .intValue == 0){
+        _contacto.favorito = [NSNumber numberWithInt:1];
+        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Blue_Star.png"]];
         
-        if(_contacto.favorito.intValue == 0){
-            _contacto.favorito = [NSNumber numberWithInt:1];
-            self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Blue_Star.png"]];
-            
-            NSLog(@"HABILITADO \n");
-        }
-        else{
-            _contacto.favorito = [NSNumber numberWithInt:0];
-            self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_none.png"]];
-            
-            //falta guardar
-            NSLog(@"DESHABILITADO \n");
-        }
-        contactoToEdit.favorito = _contacto.favorito;
-        
-        /** Guarda el contexto **/
-        if (![context save:&error]) {
-            NSLog(@"Error while saving %@", ([error localizedDescription] != nil) ? [error localizedDescription] : @"Unknown Error");
-            exit(1);
-        }
+        //falta guardar
+        NSLog(@"HABILITADO \n");
     }
-    else {
-        NSLog(@"Encontrado");
+    else{
+        _contacto.favorito = [NSNumber numberWithInt:0];
+        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_none.png"]];
+        
+        //falta guardar
+        NSLog(@"DESHABILITADO \n");
     }
 }
 
