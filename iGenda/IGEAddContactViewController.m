@@ -65,11 +65,7 @@
         
 
         /** Guarda el contexto **/
-        if (![context save:&error]) {
-            NSLog(@"Error while saving %@", ([error localizedDescription] != nil) ? [error localizedDescription] : @"Unknown Error");
-            exit(1);
-        }
-        
+        [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
     }
 }
 

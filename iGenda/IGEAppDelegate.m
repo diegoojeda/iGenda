@@ -15,6 +15,7 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize settings = _settings;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -22,6 +23,7 @@
     UITabBarController *navigationController = (UITabBarController *)self.window.rootViewController;
     IGETabViewController *controller = (IGETabViewController *)navigationController.parentViewController;
     controller.managedObjectContext = self.managedObjectContext;
+    _settings = [NSEntityDescription insertNewObjectForEntityForName:@"IGESetting" inManagedObjectContext:self.managedObjectContext];
     return YES;
 }
 

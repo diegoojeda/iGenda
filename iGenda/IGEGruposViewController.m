@@ -41,10 +41,7 @@
     
     
     // Guardado del contexto
-    if (![context save:&error]) {
-        NSLog(@"Error while saving %@", ([error localizedDescription] != nil) ? [error localizedDescription] : @"Unknown Error");
-        exit(1);
-    }
+    [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
 */
 }
 
@@ -59,8 +56,9 @@
 
 - (void)viewDidLoad
 {
-    [self loadInitialData];
+    
     [super viewDidLoad];
+    [self loadInitialData];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -155,11 +153,10 @@
         NSArray *contactos = [[(IGEGroup *)[self.grupos objectAtIndex:selectedIndex] newRelationship] allObjects];
         [controller getInfo:contactos andName:groupName];
     }
-    
 }
 
 - (IBAction)unwindFromGroupDetailToGroups:(UIStoryboardSegue *)segue{
-    _grupos = nil;
+    //_grupos = nil;
 }
 
 @end
