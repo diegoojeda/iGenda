@@ -463,11 +463,11 @@
             </objects>
             <point key="canvasLocation" x="229" y="-294"/>
         </scene>
-        <!--Navigation Controller - Contactos-->
+        <!--Navigation Controller-->
         <scene sceneID="GcJ-Im-FrK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3o4-Ft-MZ1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Contactos" id="HeX-bY-HQR"/>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="HeX-bY-HQR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GjR-Nv-hon">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -486,7 +486,7 @@
         <scene sceneID="GIX-vS-vHn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hH9-Za-sic" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Grupos" image="second" id="Z7h-1E-pvt"/>
+                    <tabBarItem key="tabBarItem" title="Grupos" image="grupos" id="Z7h-1E-pvt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bh0-Fd-DIv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -675,11 +675,11 @@
             </objects>
             <point key="canvasLocation" x="1837" y="403"/>
         </scene>
-        <!--Navigation Controller - Favoritos-->
+        <!--Navigation Controller-->
         <scene sceneID="yX7-sJ-ra5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qkv-vB-Pot" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favoritos" id="C0v-wx-8CY"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="C0v-wx-8CY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="In4-tT-sQ6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -979,8 +979,8 @@
     </scenes>
     <resources>
         <image name="contact.png" width="128" height="128"/>
+        <image name="grupos" width="35" height="34"/>
         <image name="iconoLlamada" width="256" height="256"/>
-        <image name="second" width="30" height="30"/>
         <image name="star_none" width="32" height="32"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
