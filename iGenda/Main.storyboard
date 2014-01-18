@@ -405,6 +405,9 @@
                                 <state key="normal" title="Button" image="iconoLlamada">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="callPhone:" destination="jl0-aM-QoI" eventType="touchUpInside" id="eLN-nl-qQt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -421,7 +424,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="hSX-ow-5Co">
                             <connections>
-                                <segue destination="8Wn-dU-SnJ" kind="modal" id="bD0-0P-Ufq"/>
+                                <segue destination="8Wn-dU-SnJ" kind="modal" identifier="contacto" id="Z9t-qE-hzC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
