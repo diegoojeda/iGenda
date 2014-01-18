@@ -30,6 +30,9 @@
 
 @implementation IGEAddContactViewController
 
+@synthesize appDelegate;
+
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
@@ -44,6 +47,15 @@
         self.contacto = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:context];
         
         //Esto solo almacena un campo, nombre, lo demas es lo de la persistencia
+        appDelegate = [UIApplication sharedApplication].delegate;
+        if(appDelegate.seqId == NULL){ //Si la secuencia no está creada, se crea
+            appDelegate.seqId = [NSNumber numberWithInt:1];
+        }else{ //En otro caso, se incrementa
+            int value = [appDelegate.seqId intValue];
+            appDelegate.seqId = [NSNumber numberWithInt:value + 1];
+        }
+        
+        self.contacto.id = appDelegate.seqId;
         self.contacto.nombre = self.nombre.text;
         self.contacto.apellido1 = self.apellido1.text;
         self.contacto.apellido2 = self.apellido2.text;

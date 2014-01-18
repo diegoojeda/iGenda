@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IGEAppDelegate.h"
 #import "Contact.h"
 
 @interface IGEAddContactViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
@@ -14,5 +15,6 @@
 
 @property Contact *contacto;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) IGEAppDelegate *appDelegate;
 
 @end
