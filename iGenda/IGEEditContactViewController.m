@@ -143,7 +143,8 @@
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
-
-
+- (IBAction)backgroundClick:(id) sender {
+    [self.view endEditing:YES];
+}
 
 @end

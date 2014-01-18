@@ -33,7 +33,7 @@
     self.greetingMovil.text = _contacto.telefono;
     self.greetingEmail.text = _contacto.email;
     self.greetingImage.image=[UIImage imageWithData:_contacto.imagen];
-    self.greetingImage.frame=CGRectMake(25, 138, 125, 125);
+    
     
     if(_contacto.favorito == 0){
         self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_none.png"]];
