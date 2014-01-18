@@ -650,7 +650,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7WG-Lf-9Q9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="iconoLlamada" translatesAutoresizingMaskIntoConstraints="NO" id="7WG-Lf-9Q9">
                                 <rect key="frame" x="30" y="97" width="114" height="117"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -749,6 +749,7 @@
     </scenes>
     <resources>
         <image name="contact.png" width="128" height="128"/>
+        <image name="iconoLlamada" width="256" height="256"/>
         <image name="second" width="30" height="30"/>
         <image name="star_none" width="32" height="32"/>
     </resources>
