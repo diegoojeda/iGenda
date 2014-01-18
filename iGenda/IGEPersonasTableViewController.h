@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "IGEAppDelegate.h"
+#import "IGEContactToDelete.h"
 #import "IGEShowContactViewController.h"
 
 @interface IGEPersonasTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UITableViewDataSource,UITableViewDelegate>

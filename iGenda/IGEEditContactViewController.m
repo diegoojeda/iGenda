@@ -1,17 +1,19 @@
 //
-//  IGEAddContactViewController.m
+//  IGEEditContactViewController.m
 //  iGenda
 //
-//  Created by Máster INFTEL 11 on 16/01/14.
+//  Created by Máster INFTEL 09  on 18/01/14.
 //  Copyright (c) 2014 UMA. All rights reserved.
 //
 
-#import "IGEAddContactViewController.h"
+#import "IGEEditContactViewController.h"
 #import "IGEAppDelegate.h"
 #import "Contact.h"
 
 
-@interface IGEAddContactViewController ()
+@interface IGEEditContactViewController ()
+
+
 @property (weak, nonatomic) IBOutlet UITextField *telefono;
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *grupo;
@@ -19,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *apellido2;
 @property (weak, nonatomic) IBOutlet UITextField *apellido1;
 @property (weak, nonatomic) IBOutlet UITextField *nombre;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 
 //PARA IMAGEN CONTATO. Controlador para buscar imagen en galería
 @property (nonatomic) UIImagePickerController *imagePickerController;
@@ -28,15 +30,13 @@
 
 
 
-@implementation IGEAddContactViewController
-
-@synthesize appDelegate;
+@implementation IGEEditContactViewController
 
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
-    if (sender != self.doneButton) return;
+    if (sender != self.saveButton) return;
     
     
     if (self.nombre.text.length > 0)//Validación y almacenado
@@ -47,15 +47,6 @@
         self.contacto = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:context];
         
         //Esto solo almacena un campo, nombre, lo demas es lo de la persistencia
-        appDelegate = [UIApplication sharedApplication].delegate;
-        if(appDelegate.seqId == NULL){ //Si la secuencia no está creada, se crea
-            appDelegate.seqId = [NSNumber numberWithInt:1];
-        }else{ //En otro caso, se incrementa
-            int value = [appDelegate.seqId intValue];
-            appDelegate.seqId = [NSNumber numberWithInt:value + 1];
-        }
-        
-        self.contacto.id = appDelegate.seqId;
         self.contacto.nombre = self.nombre.text;
         self.contacto.apellido1 = self.apellido1.text;
         self.contacto.apellido2 = self.apellido2.text;
@@ -64,17 +55,27 @@
         self.contacto.favorito = false;
         self.contacto.estado = 0; //Recien creado
         
-        NSLog(@"%@ \n", self.nombre);
+        // Custom code here...
+        // Save the managed object context
+        if (![context save:&error]) {
+            NSLog(@"Error while saving %@", ([error localizedDescription] != nil) ? [error localizedDescription] : @"Unknown Error");
+            exit(1);
+        }
         
         //Conversión imagen UIImage a NSData, formato de la imagen del contacto
         NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.foto.image)];
         self.contacto.imagen = imageData;
         
-
+        
         /** Guarda el contexto **/
-        [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
+        if (![context save:&error]) {
+            NSLog(@"Error while saving %@", ([error localizedDescription] != nil) ? [error localizedDescription] : @"Unknown Error");
+            exit(1);
+        }
+        
     }
 }
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -89,7 +90,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -99,8 +99,7 @@
 }
 
 
-
-//PARA IMAGEN 
+//PARA IMAGEN
 
 //Acción cuando pulsar botón buscar foto
 - (IBAction)showImagePickerForPhotoPicker:(id)sender
@@ -111,6 +110,7 @@
 //ShowImagePickerForPhotoPicker llama a este método que configura el controlador y le da el control
 - (void)showImagePickerForSourceType:(UIImagePickerControllerSourceType)sourceType
 {
+    
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
     imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
     imagePickerController.sourceType = sourceType;
@@ -143,6 +143,8 @@
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
-
+- (IBAction)backgroundClick:(id) sender {
+    [self.view endEditing:YES];
+}
 
 @end

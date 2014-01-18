@@ -72,26 +72,8 @@
 {
     
     [super viewDidLoad];
-    
     self.contacts = [[NSMutableArray alloc] init];
-    
-
     [self loadInitialData];
-    
-//    UISwipeGestureRecognizer *rightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightSwipeHandle:)];
-//    rightRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
-//    [rightRecognizer setNumberOfTouchesRequired:1];
-//    [self.view addGestureRecognizer:rightRecognizer];
-//    //[rightRecognizer release];
-}
-
-- (void)rightSwipeHandle:(UISwipeGestureRecognizer*)sender
-{
-    //Do moving
-    if ( sender.direction == UISwipeGestureRecognizerDirectionRight ){
-        NSLog(@" *** SWIPE RIGHT ***");
-        
-    }
 }
 
 
@@ -196,22 +178,50 @@
 
 
 /**
- Seleccionar Contacto BORRAR LUEGO
- */
+ Seleccionar Contacto BORRAR LUEGO - MODO JUAN
+ 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //   indexPath.row;
     appDelegate = [UIApplication sharedApplication].delegate;
+    
+
     appDelegate.seleccionado = [self.contacts objectAtIndex:indexPath.row];
 }
+**/
+
+
 
 /**
     Eliminar Contacto
  */
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //TODO Array marcados para borrar
+    /** Contexto de core data **/
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSError *error = nil;
+    
+    /** Añade el contacto a la lista a borrar **/
+    IGEContactToDelete *contacto;
+    contacto = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContactToDelete" inManagedObjectContext:context];
+    contacto.id = [[self.contacts objectAtIndex:indexPath.row] id];
+    if (![context save:&error]) {
+        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+        return;
+    }
+    
+    /** Elimina contacto de core data **/
+    [context deleteObject:[self.contacts objectAtIndex:indexPath.row]]; //
+    
+    /** Elimina contacto de memoria **/
     [self.contacts removeObjectAtIndex:indexPath.row];
-    [tableView reloadData];
+    
+    
+    if (![context save:&error]) {
+        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+        return;
+    }
+    
+    [tableView reloadData]; //Recarga la tabla
 }
 
 

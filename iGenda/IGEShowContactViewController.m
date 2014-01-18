@@ -32,6 +32,7 @@
     
     self.greetingMovil.text = _contacto.telefono;
     self.greetingEmail.text = _contacto.email;
+    self.greetingImage.image=[UIImage imageWithData:_contacto.imagen];
     
     
     if(_contacto.favorito == 0){
@@ -40,6 +41,10 @@
     else{
         self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Blue_Star.png"]];
     }
+}
+
+-(IBAction)callPhone:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:639970861"]];
 }
 
 - (IBAction)changeFavorito:(id)sender{
@@ -66,6 +71,12 @@
     [self fetchContact];
     [super viewDidLoad];
 }
+
+
+- (IBAction)unwindFromEditToShowContact:(UIStoryboardSegue *)segue{
+    
+}
+
 
 
 - (void)didReceiveMemoryWarning
