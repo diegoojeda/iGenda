@@ -12,6 +12,7 @@
 		4E4E133D188932250091E604 /* IGETabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4E133C188932250091E604 /* IGETabViewController.m */; };
 		4E4E1340188936EA0091E604 /* igendamodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E4E133E188936EA0091E604 /* igendamodel.xcdatamodeld */; };
 		4E78AC071887FD85000538E6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E78AC061887FD85000538E6 /* QuartzCore.framework */; };
+		4ED95FE9188B4F2300EF668A /* contacto.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED95FE8188B4F2300EF668A /* contacto.png */; };
 		8316A0EF188AF9A300320439 /* IGEGruposTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8316A0EC188AF9A300320439 /* IGEGruposTableViewController.m */; };
 		8316A0F0188AF9A300320439 /* IGEShowContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8316A0EE188AF9A300320439 /* IGEShowContactViewController.m */; };
 		8354C07A188ADC6A00728685 /* IGESettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8354C079188ADC6A00728685 /* IGESettingsViewController.m */; };
@@ -71,6 +72,7 @@
 		4E4E133C188932250091E604 /* IGETabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGETabViewController.m; sourceTree = "<group>"; };
 		4E4E133F188936EA0091E604 /* igendamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = igendamodel.xcdatamodel; sourceTree = "<group>"; };
 		4E78AC061887FD85000538E6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4ED95FE8188B4F2300EF668A /* contacto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contacto.png; sourceTree = "<group>"; };
 		8316A0EB188AF9A300320439 /* IGEGruposTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEGruposTableViewController.h; sourceTree = "<group>"; };
 		8316A0EC188AF9A300320439 /* IGEGruposTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEGruposTableViewController.m; sourceTree = "<group>"; };
 		8316A0ED188AF9A300320439 /* IGEShowContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEShowContactViewController.h; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 		BE21D53218894471001C9328 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4ED95FE8188B4F2300EF668A /* contacto.png */,
 				BE21D53018893FDD001C9328 /* contact.png */,
 			);
 			name = Resources;
@@ -419,6 +422,7 @@
 				B02DBC5918868FE60019AAF1 /* InfoPlist.strings in Resources */,
 				BE21D53118893FDD001C9328 /* contact.png in Resources */,
 				4E0B44D518898FDE001850E8 /* Main.storyboard in Resources */,
+				4ED95FE9188B4F2300EF668A /* contacto.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

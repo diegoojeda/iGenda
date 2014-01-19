@@ -31,7 +31,7 @@
 @implementation IGEAddContactViewController
 
 @synthesize appDelegate;
-
+@synthesize greetingPickerSelGroup;
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -42,7 +42,6 @@
     if (self.nombre.text.length > 0)//Validación y almacenado
     {
         NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-        NSError *error = nil;
         
         self.contacto = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:context];
         
@@ -85,11 +84,12 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
+    countryNames = [[NSMutableArray alloc]initWithObjects:@"Grupo1",@"Grupo2",@"Grupo3", @"Grupo4",@"Grupo5",@"Grupo6",nil];//Habria que cargar aqui todos los grupos
+    //http://www.maquecitos.com/2012/01/13/aprende-a-programar-para-ios-usando-un-pickerview/
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -138,11 +138,28 @@
     [self finishAndUpdate];
 }
 
-// Cuando cancelas la  búsqueda de la imagen, el controlador llama a este método
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+#pragma mark -
+#pragma mark PickerView DataSource
+
+- (NSInteger)numberOfComponentsInPickerView:
+(UIPickerView *)pickerView
 {
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    return 1;
 }
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component
+{
+    return [countryNames count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView
+             titleForRow:(NSInteger)row
+            forComponent:(NSInteger)component
+{
+    return [countryNames objectAtIndex:row];
+} 
 
 
 @end
+
