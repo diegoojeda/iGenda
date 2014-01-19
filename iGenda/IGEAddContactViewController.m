@@ -62,8 +62,9 @@
         self.contacto.email = self.email.text;
         self.contacto.favorito = false;
         self.contacto.estado = 0; //Recien creado
+        //self.greetingPickerSelGroup.
         
-        NSLog(@"%@ \n", self.nombre);
+        NSLog(@"%@ \n", self.grupo.text);
         
         //Conversión imagen UIImage a NSData, formato de la imagen del contacto
         NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.foto.image)];
@@ -73,6 +74,14 @@
         /** Guarda el contexto **/
         [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
     }
+    /*else{QUITAR, EJEMPLO PARA CONEXIÓN
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
+                                                        message:@"You must be connected to the internet to use this app."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }*/
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -88,7 +97,7 @@
 - (void)viewDidLoad
 {
     countryNames = [[NSMutableArray alloc]initWithObjects:@"Grupo1",@"Grupo2",@"Grupo3", @"Grupo4",@"Grupo5",@"Grupo6",nil];//Habria que cargar aqui todos los grupos
-    //http://www.maquecitos.com/2012/01/13/aprende-a-programar-para-ios-usando-un-pickerview/
+    self.doneButton.enabled = NO;//Se inhabilita hasta que el usuario introduzca nombre y teléfono
     [super viewDidLoad];
 }
 
@@ -100,7 +109,11 @@
 
 
 
-//PARA IMAGEN 
+
+
+
+
+/******************** IMÁGEN ********************/
 
 //Acción cuando pulsar botón buscar foto
 - (IBAction)showImagePickerForPhotoPicker:(id)sender
@@ -126,8 +139,6 @@
     self.imagePickerController = nil;
 }
 
-
-
 // This method is called when an image has been chosen from the library or taken from the camera.
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -138,6 +149,9 @@
     [self finishAndUpdate];
 }
 
+
+
+/******************** PICKER ********************/
 #pragma mark -
 #pragma mark PickerView DataSource
 
@@ -145,6 +159,11 @@
 (UIPickerView *)pickerView
 {
     return 1;
+}
+
+-(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    self.grupo.text = [countryNames objectAtIndex:row];
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView
@@ -159,6 +178,24 @@ numberOfRowsInComponent:(NSInteger)component
 {
     return [countryNames objectAtIndex:row];
 } 
+
+
+/******************** VALIDACIÓN *****************/
+- (IBAction)changeNombre:(id)sender{
+
+    if(self.nombre.text.length > 0 && self.telefono.text.length > 0){
+        self.doneButton.enabled = YES;
+        NSLog(@"DONE BUTTON YES");
+    }
+    else{
+        NSLog(@"DONE BUTTON NO");
+    }
+}
+
+- (IBAction)changeTelefono:(id)sender{
+    if(self.nombre.text.length > 0 && self.telefono.text.length > 0)
+        self.doneButton.enabled = YES;
+}
 
 
 @end

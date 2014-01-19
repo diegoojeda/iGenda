@@ -22,6 +22,9 @@
 
 @property (nonatomic, strong) IBOutlet UIPickerView *greetingPickerSelGroup;
 
+/* Validación */
 
+- (IBAction)changeNombre:(id)sender;
+- (IBAction)changeTelefono:(id)sender;
 
 @end
