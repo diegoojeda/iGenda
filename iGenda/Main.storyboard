@@ -157,6 +157,33 @@
             </objects>
             <point key="canvasLocation" x="749" y="-294"/>
         </scene>
+        <!--Add Group Contact View Controller - Nuevo Grupo-->
+        <scene sceneID="VlG-qm-WU5">
+            <objects>
+                <viewController id="SPd-dD-iNN" customClass="IGEAddGroupContactViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pUn-yp-ZIB"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ht8-0e-ViA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CDC-wm-RJa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre del grupo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b4u-hG-IEx">
+                                <rect key="frame" x="20" y="88" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Nuevo Grupo" id="oce-4w-Pl3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="22i-ad-ece" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="505" y="410"/>
+        </scene>
         <!--Personas From Grupo View Controller-->
         <scene sceneID="lKm-Qb-9Yb">
             <objects>
@@ -173,9 +200,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="6z0-MN-rpg" kind="modal" identifier="ContactoFromGroup" id="6Jt-EB-raM"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -190,22 +214,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n2v-ck-ljO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="8Gv-mb-bdP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="749" y="410"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="5ik-jV-CZ8">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="6z0-MN-rpg" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Fe-a0-HXG">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="hrw-Ti-QkT" kind="relationship" relationship="rootViewController" id="RE8-9N-GaM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ajQ-Fy-yuI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1239" y="403"/>
+            <point key="canvasLocation" x="985" y="1182"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r27-YR-Tdg">
@@ -220,7 +229,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t2Y-L8-t9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="229" y="410"/>
+            <point key="canvasLocation" x="465" y="1182"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="X7n-Vl-fCM">
@@ -496,7 +505,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4p-FV-EJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="229" y="-294"/>
+            <point key="canvasLocation" x="227" y="-300"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GcJ-Im-FrK">
@@ -603,114 +612,16 @@
                                 <segue destination="6KM-k2-TRU" kind="push" id="fw5-O2-JWb"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="35f-kC-6CV">
+                            <connections>
+                                <segue destination="SPd-dD-iNN" kind="push" id="Zto-R7-xOx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8SB-Qy-yIF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-305" y="410"/>
-        </scene>
-        <!--Show Contact View Controller-->
-        <scene sceneID="1ml-aA-PhI">
-            <objects>
-                <viewController id="hrw-Ti-QkT" customClass="IGEShowContactViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="q7U-ov-JfQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="vkc-LZ-gbG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hS1-mS-FT9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSg-lM-gzT">
-                                <rect key="frame" x="20" y="303" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telefono" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9By-Ma-Wzy">
-                                <rect key="frame" x="20" y="354" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7WG-Lf-9Q9">
-                                <rect key="frame" x="30" y="97" width="114" height="116"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBh-hu-SkO">
-                                <rect key="frame" x="30" y="502" width="261" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Llamar">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOMBRE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZt-Ee-ksu">
-                                <rect key="frame" x="196" y="97" width="75" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APELLIDO1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OC8-hg-qsu">
-                                <rect key="frame" x="188" y="145" width="91" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APELLIDO2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhY-43-6fO">
-                                <rect key="frame" x="188" y="200" width="91" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="XBh-hu-SkO" secondAttribute="trailing" constant="29" id="0AU-Kb-ohJ"/>
-                            <constraint firstItem="7WG-Lf-9Q9" firstAttribute="centerY" secondItem="OC8-hg-qsu" secondAttribute="centerY" id="6n9-70-jRs"/>
-                            <constraint firstAttribute="trailing" secondItem="CSg-lM-gzT" secondAttribute="trailing" constant="20" id="7sd-37-euu"/>
-                            <constraint firstItem="vkc-LZ-gbG" firstAttribute="top" secondItem="XBh-hu-SkO" secondAttribute="bottom" constant="20" id="9Da-4O-CO6"/>
-                            <constraint firstAttribute="trailing" secondItem="9By-Ma-Wzy" secondAttribute="trailing" constant="20" id="B4d-Wl-cVL"/>
-                            <constraint firstItem="lZt-Ee-ksu" firstAttribute="top" secondItem="q7U-ov-JfQ" secondAttribute="bottom" constant="33" id="BDm-j4-LPc"/>
-                            <constraint firstItem="XBh-hu-SkO" firstAttribute="top" secondItem="9By-Ma-Wzy" secondAttribute="bottom" constant="127" id="CKH-F4-2an"/>
-                            <constraint firstItem="lZt-Ee-ksu" firstAttribute="leading" secondItem="7WG-Lf-9Q9" secondAttribute="trailing" constant="52" id="DC2-PY-luP"/>
-                            <constraint firstItem="CSg-lM-gzT" firstAttribute="top" secondItem="7WG-Lf-9Q9" secondAttribute="bottom" constant="90" id="Fm5-N9-bw9"/>
-                            <constraint firstAttribute="trailing" secondItem="OC8-hg-qsu" secondAttribute="trailing" constant="41" id="Hbe-m7-hie"/>
-                            <constraint firstItem="XBh-hu-SkO" firstAttribute="leading" secondItem="hS1-mS-FT9" secondAttribute="leading" constant="30" id="JFg-ya-3wc"/>
-                            <constraint firstItem="9By-Ma-Wzy" firstAttribute="leading" secondItem="hS1-mS-FT9" secondAttribute="leading" constant="20" id="JhX-oH-pwf"/>
-                            <constraint firstItem="YhY-43-6fO" firstAttribute="leading" secondItem="7WG-Lf-9Q9" secondAttribute="trailing" constant="44" id="KHE-rA-0m7"/>
-                            <constraint firstItem="CSg-lM-gzT" firstAttribute="leading" secondItem="hS1-mS-FT9" secondAttribute="leading" constant="20" id="V8e-Vp-ABH"/>
-                            <constraint firstItem="OC8-hg-qsu" firstAttribute="leading" secondItem="7WG-Lf-9Q9" secondAttribute="trailing" constant="44" id="Zuu-0K-7DN"/>
-                            <constraint firstAttribute="trailing" secondItem="lZt-Ee-ksu" secondAttribute="trailing" constant="49" id="aqz-0O-uAB"/>
-                            <constraint firstItem="7WG-Lf-9Q9" firstAttribute="leading" secondItem="hS1-mS-FT9" secondAttribute="leading" constant="30" id="bJL-fR-d7B"/>
-                            <constraint firstItem="OC8-hg-qsu" firstAttribute="top" secondItem="lZt-Ee-ksu" secondAttribute="bottom" constant="27" id="dOU-WP-Q5P"/>
-                            <constraint firstAttribute="trailing" secondItem="YhY-43-6fO" secondAttribute="trailing" constant="41" id="hnZ-QN-7Ql"/>
-                            <constraint firstItem="9By-Ma-Wzy" firstAttribute="top" secondItem="CSg-lM-gzT" secondAttribute="bottom" constant="30" id="p6r-bH-jPc"/>
-                            <constraint firstItem="7WG-Lf-9Q9" firstAttribute="top" secondItem="q7U-ov-JfQ" secondAttribute="bottom" constant="33" id="rtV-dl-2sw"/>
-                            <constraint firstItem="YhY-43-6fO" firstAttribute="top" secondItem="OC8-hg-qsu" secondAttribute="bottom" constant="34" id="z1m-hw-XGt"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="j5P-qK-o8z">
-                        <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Md1-Wa-6aT">
-                            <connections>
-                                <segue destination="Vih-Pb-Ssc" kind="unwind" unwindAction="unwindFromContactDetailToGroupList:" id="syi-WJ-DLY"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="star_none" id="qX3-fl-qcV">
-                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="changeColor:" destination="hrw-Ti-QkT" id="PPh-xk-KZv"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="greetingNombre" destination="lZt-Ee-ksu" id="LnC-3V-Gdz"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q6i-S4-b9G" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Vih-Pb-Ssc" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1837" y="403"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yX7-sJ-ra5">
@@ -1019,7 +930,6 @@
         <image name="contacto.png" width="500" height="500"/>
         <image name="grupos" width="36" height="35"/>
         <image name="llamar" width="225" height="221"/>
-        <image name="star_none" width="32" height="32"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
