@@ -388,7 +388,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="contacto.png" translatesAutoresizingMaskIntoConstraints="NO" id="OTz-2n-UgL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="40" verticalHuggingPriority="40" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" fixedFrame="YES" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" image="contacto.png" translatesAutoresizingMaskIntoConstraints="NO" id="OTz-2n-UgL">
                                 <rect key="frame" x="25" y="119" width="122" height="126"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -428,7 +428,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xv6-AP-KMk">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xv6-AP-KMk">
                                 <rect key="frame" x="274" y="85" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
@@ -440,7 +440,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHI-ES-5TH">
-                                <rect key="frame" x="169" y="119" width="120" height="120"/>
+                                <rect key="frame" x="186" y="136" width="103" height="103"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="llamar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -457,12 +457,8 @@
                             <constraint firstItem="ySD-XL-CL1" firstAttribute="leading" secondItem="7TV-mp-zaY" secondAttribute="leading" id="DAJ-pb-IzA"/>
                             <constraint firstItem="loB-br-IGx" firstAttribute="top" secondItem="OoM-qx-BvI" secondAttribute="bottom" constant="25" id="IZZ-dA-cCa"/>
                             <constraint firstAttribute="trailing" secondItem="ySD-XL-CL1" secondAttribute="trailing" constant="91" id="YYT-yd-mdi"/>
-                            <constraint firstItem="OTz-2n-UgL" firstAttribute="top" secondItem="loB-br-IGx" secondAttribute="bottom" constant="26" id="dNt-CK-VkY"/>
-                            <constraint firstItem="ySD-XL-CL1" firstAttribute="leading" secondItem="OTz-2n-UgL" secondAttribute="leading" id="elk-ps-inh"/>
                             <constraint firstItem="ySD-XL-CL1" firstAttribute="leading" secondItem="hds-al-2hp" secondAttribute="leading" constant="25" id="ipG-NM-7Wr"/>
                             <constraint firstItem="ySD-XL-CL1" firstAttribute="leading" secondItem="loB-br-IGx" secondAttribute="leading" id="kU7-DH-yfU"/>
-                            <constraint firstItem="loB-br-IGx" firstAttribute="centerY" secondItem="Xv6-AP-KMk" secondAttribute="centerY" id="rtw-pt-12n"/>
-                            <constraint firstItem="Xv6-AP-KMk" firstAttribute="leading" secondItem="loB-br-IGx" secondAttribute="trailing" constant="27" id="v9U-1m-AbT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vkX-BJ-pU2">
