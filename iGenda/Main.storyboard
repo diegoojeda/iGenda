@@ -218,7 +218,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S5m-Ax-78f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2496" y="410"/>
+            <point key="canvasLocation" x="-2856" y="410"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="rxH-PB-ozz">
@@ -422,7 +422,7 @@
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="a4O-Rg-F5O">
                             <connections>
-                                <segue destination="96o-b2-Jga" kind="unwind" unwindAction="unwindFromContactDetailToContactList:" id="bay-Xv-Ss3"/>
+                                <segue destination="96o-b2-Jga" kind="unwind" unwindAction="unwindFromContactDetailToContactList:" id="zb5-3h-Lhi"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="hSX-ow-5Co">
@@ -517,6 +517,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Ji8-D0-A4H" kind="modal" identifier="ContactDescription" id="Vkg-ft-gRA"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -990,7 +993,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="61t-nf-Mh7"/>
-        <segue reference="sC8-VL-ZhP"/>
+        <segue reference="LYr-jt-KSO"/>
+        <segue reference="4J9-jn-ixT"/>
+        <segue reference="Vkg-ft-gRA"/>
     </inferredMetricsTieBreakers>
 </document>
