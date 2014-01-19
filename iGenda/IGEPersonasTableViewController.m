@@ -108,7 +108,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     Contact* item = [self.contacts objectAtIndex:indexPath.row];
-    cell.textLabel.text = item.nombre;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", item.nombre,item.apellido1];
     
     return cell;
 }

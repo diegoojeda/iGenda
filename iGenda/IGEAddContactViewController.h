@@ -10,11 +10,21 @@
 #import "IGEAppDelegate.h"
 #import "Contact.h"
 
-@interface IGEAddContactViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-    //Añado al View Controller estos dos protocolos para el el ImagePickerController, para navegación por la galería y manejo de datos (necesario)
+@interface IGEAddContactViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UIPickerViewDelegate, UIPickerViewDataSource>{
+    UIPickerView *greetingPickerSelGroup;
+    NSMutableArray *countryNames;
+}
+//Añado al View Controller estos dos protocolos para el el ImagePickerController, para navegación por la galería y manejo de datos (necesario)
 
 @property Contact *contacto;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) IGEAppDelegate *appDelegate;
+
+@property (nonatomic, strong) IBOutlet UIPickerView *greetingPickerSelGroup;
+
+/* Validación */
+
+- (IBAction)changeNombre:(id)sender;
+- (IBAction)changeTelefono:(id)sender;
 
 @end

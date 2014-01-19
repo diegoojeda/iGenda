@@ -27,8 +27,8 @@
 @property Contact *contacto; //Contacto seleccionado
 
 
-- (IBAction) fetchContact; //Función de consulta
 - (IBAction)changeFavorito:(id)sender;
+
 
 - (void) getContact:(Contact *)contacto; //GetContact desde la tabla
 

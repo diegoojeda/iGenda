@@ -36,10 +36,10 @@
     
     
     if(_contacto.favorito == 0){
-        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_none.png"]];
+        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
     }
     else{
-        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Blue_Star.png"]];
+        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_sel.png"]];
     }
 }
 
@@ -47,17 +47,17 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:639970861"]];
 }
 
-- (IBAction)changeFavorito:(id)sender{
+- (IBAction)changeFavorito:(id)sender{//NO ESTA BIEN
     if(_contacto.favorito .intValue == 0){
         _contacto.favorito = [NSNumber numberWithInt:1];
-        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Blue_Star.png"]];
+        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_sel.png"]];
         
         //falta guardar
         NSLog(@"HABILITADO \n");
     }
     else{
         _contacto.favorito = [NSNumber numberWithInt:0];
-        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_none.png"]];
+        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
         
         //falta guardar
         NSLog(@"DESHABILITADO \n");
