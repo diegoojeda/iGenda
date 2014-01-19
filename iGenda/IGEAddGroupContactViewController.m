@@ -16,28 +16,27 @@
 
 @implementation IGEAddGroupContactViewController
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-   /* if (self.grupo.text.length > 0)//Validación y almacenado
-    {
-        NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+@synthesize appDelegate;
+
+
+-(void) viewWillDisappear:(BOOL)animated {
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        if (self.grupo.text.length > 0)//Validación y almacenado
+        {
+             NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+             
+             self.group = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:context];
+             
+             //Esto solo almacena un campo, nombre, lo demas es lo de la persistencia
+             appDelegate = [UIApplication sharedApplication].delegate;
+             
+             self.group.nombre = self.grupo.text;
+            
+
+         }
         
-        self.group = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:context];
-        
-        //Esto solo almacena un campo, nombre, lo demas es lo de la persistencia
-        appDelegate = [UIApplication sharedApplication].delegate;
-        
-        self.group.nombre = self.grupo.text;
-        
-        NSLog(@"%@ \n", self.grupo.text);
-        
-        //Conversión imagen UIImage a NSData, formato de la imagen del contacto
-        NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.foto.image)];
-        self.contacto.imagen = imageData;
-        
-        
-        [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
-    }*/
+    }
+    [super viewWillDisappear:animated];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

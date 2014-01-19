@@ -198,7 +198,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Nuevo Grupo" id="oce-4w-Pl3"/>
+                    <navigationItem key="navigationItem" title="Nuevo Grupo" id="oce-4w-Pl3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="2EQ-sG-ZpD"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="grupo" destination="b4u-hG-IEx" id="Chp-P5-95Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="22i-ad-ece" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -976,7 +981,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Vkg-ft-gRA"/>
+        <segue reference="ooX-Fo-0zP"/>
         <segue reference="61t-nf-Mh7"/>
         <segue reference="Cb7-gv-2bB"/>
     </inferredMetricsTieBreakers>

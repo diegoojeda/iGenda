@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "IGEGroup.h"
+#import "IGEAppDelegate.h"
 
 @interface IGEAddGroupContactViewController : UIViewController
 
+@property (strong, nonatomic) IGEAppDelegate *appDelegate;
 @property IGEGroup *group;
-
 
 @end
