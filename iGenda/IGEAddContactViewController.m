@@ -196,7 +196,16 @@ numberOfRowsInComponent:(NSInteger)component
         self.doneButton.enabled = NO;
 }
 
+- (IBAction)backgroundClick:(id)sender {
+    [self.view endEditing:YES];
+    
+}
 
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 
 @end
