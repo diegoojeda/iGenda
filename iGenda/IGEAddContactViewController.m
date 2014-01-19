@@ -60,7 +60,7 @@
         self.contacto.apellido2 = self.apellido2.text;
         self.contacto.telefono = self.telefono.text;
         self.contacto.email = self.email.text;
-        self.contacto.favorito = false;
+        self.contacto.favorito = @0;
         self.contacto.estado = 0; //Recien creado
         //self.greetingPickerSelGroup.
         

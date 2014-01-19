@@ -415,7 +415,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahR-yV-Guk">
                                 <rect key="frame" x="22" y="340" width="52" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="e-mail">
+                                <state key="normal" title="email">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -486,6 +486,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="atrasButton" destination="a4O-Rg-F5O" id="SpD-hg-xmD"/>
                         <outlet property="greetingEmail" destination="ySD-XL-CL1" id="lzW-02-rg4"/>
                         <outlet property="greetingImage" destination="OTz-2n-UgL" id="kGs-F1-2Nc"/>
                         <outlet property="greetingMovil" destination="7TV-mp-zaY" id="xCE-Fy-Lvc"/>
