@@ -52,23 +52,36 @@
 }
 
 
+- (IBAction) registerClick:(id)sender {
+    if([[self.textUsername text] isEqualToString:@""] || [[self.textPassword text] isEqualToString:@""] ) {
+        [self alertStatus:@"Introduzca el nombre que desea y luego pulse registrar": @"Registro fallido" :0];
+    }
+    else{
+        NSString *username = [self.textUsername text];
+        NSString *usuario = [self fetchUser:username];
+        NSLog(@"USUARIO FETCHED: %@", usuario);
+        if (usuario == nil || [usuario length] == 0){
+            //Registrar usuario
+            NSLog(@"Registro nuevo usuario");
+            [self crearUsuarioEnServidor:username];
+        }
+        else {
+            NSLog(@"El usuario ya existia");
+            [self alertStatus:@"Ese nombre de usuario ya está siendo utilizado": @"Registro fallido" :0];
+        }
+    }
+}
+
+
 - (IBAction)loginClick:(id)sender
 {
     NSInteger success = 0;
     if([[self.textUsername text] isEqualToString:@""] || [[self.textPassword text] isEqualToString:@""] ) {
-        [self alertStatus:@"Please enter Email and Password" :@"Sign in Failed!" :0];
+        [self alertStatus:@"Introduzca su nombre de usuario" :@"Login fallido" :0];
     }
     else {
-        NSHTTPURLResponse  *response = nil;
-        NSError *error;
-        NSString* username = [[NSString alloc]initWithString:[self.textUsername text]];
-        NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://localhost:8080/iGenda/webresources/servicios.usuario/"];
-        [url appendString:username];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
-        [request setHTTPMethod: @"GET"];
-        NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        NSLog(@"GET enviado");
-        NSString *str = [[NSString alloc]initWithData:response1 encoding:NSUTF8StringEncoding];
+        NSString *username = [self.textUsername text];
+        NSString *str = [self fetchUser:[self.textUsername text]];
         if ([str length] > 0){
             NSLog(@"LOGIN SUCCESFUL");
             //En el NSString str está almacenado el JSON, es genial =)
@@ -156,4 +169,61 @@
     return grupos;
 }
 
+- (NSString *) fetchUser :(NSString *) userName {
+    NSHTTPURLResponse  *response = nil;
+    NSError *error;
+    NSString* username = [[NSString alloc]initWithString:[self.textUsername text]];
+    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://localhost:8080/iGenda/webresources/servicios.usuario/"];
+    [url appendString:username];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
+    [request setHTTPMethod: @"GET"];
+    NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSLog(@"GET enviado");
+    NSString *str = [[NSString alloc]initWithData:response1 encoding:NSUTF8StringEncoding];
+    return str;
+}
+
+- (void) crearUsuarioEnServidor: (NSString *) username {
+    //Creamos diccionario con la información del usuario
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithCapacity:1];
+    [dic setObject:username forKey:@"username"];
+    [dic setObject:@0 forKey:@"version"];
+    //Convertimos el diccionario a JSON y luego a NSData
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&error]; // Pass 0 if you don't care about the readability of the generateds string
+    
+    //Creamos y ejecutamos la petición
+    NSURL *url = [[NSURL alloc] initWithString:@"http://localhost:8080/iGenda/webresources/servicios.usuario"];
+    NSMutableURLRequest *req = [NSURLRequest requestWithURL:url];
+    [req setHTTPMethod:@"POST"];
+    [req setHTTPBody:jsonData];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [req setValue:@"application/json; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+    [req setValue:[NSString stringWithFormat:@"%d", [jsonData length]] forHTTPHeaderField:@"Content-Length"];
+    NSURLResponse *response = nil;
+    NSLog(@"Justo antes de lanzar la petición al servidor");
+    NSData *responsedata = [NSURLConnection sendSynchronousRequest:req returningResponse:&response error:&error];
+    NSLog(@"Petición terminada");
+    NSString *data=[[NSString alloc]initWithData:responsedata encoding:NSUTF8StringEncoding];
+    NSLog(@"Respuesta: %@", data);
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
