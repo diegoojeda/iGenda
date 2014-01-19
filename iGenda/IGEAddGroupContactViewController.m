@@ -10,20 +10,34 @@
 
 @interface IGEAddGroupContactViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *grupo;
+
 @end
 
 @implementation IGEAddGroupContactViewController
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
-//    if (sender != self.doneButton) return;
-//    
-//    
-//    if (self.nombre.text.length > 0)//Validación y almacenado
-//    {
-//
-//    }
+   /* if (self.grupo.text.length > 0)//Validación y almacenado
+    {
+        NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+        
+        self.group = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:context];
+        
+        //Esto solo almacena un campo, nombre, lo demas es lo de la persistencia
+        appDelegate = [UIApplication sharedApplication].delegate;
+        
+        self.group.nombre = self.grupo.text;
+        
+        NSLog(@"%@ \n", self.grupo.text);
+        
+        //Conversión imagen UIImage a NSData, formato de la imagen del contacto
+        NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.foto.image)];
+        self.contacto.imagen = imageData;
+        
+        
+        [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
+    }*/
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
