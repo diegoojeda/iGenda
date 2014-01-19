@@ -17,13 +17,13 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
-    if (sender != self.doneButton) return;
-    
-    
-    if (self.nombre.text.length > 0)//Validación y almacenado
-    {
-
-    }
+//    if (sender != self.doneButton) return;
+//    
+//    
+//    if (self.nombre.text.length > 0)//Validación y almacenado
+//    {
+//
+//    }
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
