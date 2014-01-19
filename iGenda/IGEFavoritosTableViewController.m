@@ -41,7 +41,7 @@
     {
         contact = [auxContacts objectAtIndex:i];
         
-        if ([contact favorito] != 0) //Si es favorito (0 false, !=0 true)
+        if ([contact favorito] == 0) //Si es favorito (0 false, !=0 true)
         {
             [self.favourites addObject:contact];
         }
