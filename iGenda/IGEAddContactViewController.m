@@ -183,19 +183,20 @@ numberOfRowsInComponent:(NSInteger)component
 /******************** VALIDACIÓN *****************/
 - (IBAction)changeNombre:(id)sender{
 
-    if(self.nombre.text.length > 0 && self.telefono.text.length > 0){
+    if(self.nombre.text.length > 0 && self.telefono.text.length > 0)
         self.doneButton.enabled = YES;
-        NSLog(@"DONE BUTTON YES");
-    }
-    else{
-        NSLog(@"DONE BUTTON NO");
-    }
+    else
+        self.doneButton.enabled = NO;
 }
 
 - (IBAction)changeTelefono:(id)sender{
     if(self.nombre.text.length > 0 && self.telefono.text.length > 0)
         self.doneButton.enabled = YES;
+    else
+        self.doneButton.enabled = NO;
 }
+
+
 
 
 @end
