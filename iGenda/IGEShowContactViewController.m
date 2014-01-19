@@ -9,10 +9,22 @@
 #import "IGEShowContactViewController.h"
 
 @interface IGEShowContactViewController ()
-
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *atrasButton;
 @end
 
 @implementation IGEShowContactViewController
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    /** Contexto de core data **/
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSError *error = nil;
+
+    if (![context save:&error]) {
+        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+        return;
+    }
+}
 
 @synthesize contacto = _contacto;
 
@@ -35,32 +47,27 @@
     self.greetingImage.image=[UIImage imageWithData:_contacto.imagen];
     
     
-    if(_contacto.favorito == 0){
+    if([_contacto.favorito  isEqual: @0]){
         self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
     }
     else{
         self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_sel.png"]];
     }
 }
+
 
 -(IBAction)callPhone:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:639970861"]];
 }
 
 - (IBAction)changeFavorito:(id)sender{//NO ESTA BIEN
-    if(_contacto.favorito .intValue == 0){
-        _contacto.favorito = [NSNumber numberWithInt:1];
+    if([_contacto.favorito  isEqual: @0]){
+        _contacto.favorito = @1;
         self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_sel.png"]];
-        
-        //falta guardar
-        NSLog(@"HABILITADO \n");
     }
     else{
-        _contacto.favorito = [NSNumber numberWithInt:0];
+        _contacto.favorito = @0;
         self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
-        
-        //falta guardar
-        NSLog(@"DESHABILITADO \n");
     }
 }
 

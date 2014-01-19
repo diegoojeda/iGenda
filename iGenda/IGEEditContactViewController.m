@@ -143,8 +143,16 @@
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
-- (IBAction)backgroundClick:(id) sender {
+//Oculta el teclado
+- (IBAction)backgroundClick:(id)sender {
     [self.view endEditing:YES];
+    
+}
+//Oculta el teclado haciendo caso omiso al return
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end
