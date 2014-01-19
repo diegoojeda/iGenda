@@ -17,5 +17,6 @@
 @property NSManagedObjectContext* mno;
 - (IBAction)loginClick:(id)sender;
 - (IBAction)backgroundClick:(id)sender;
+- (IBAction)registerClick: (id) sender;
 
 @end
