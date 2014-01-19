@@ -31,7 +31,7 @@
 @implementation IGEAddContactViewController
 
 @synthesize appDelegate;
-
+@synthesize greetingPickerSelGroup;
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -42,7 +42,6 @@
     if (self.nombre.text.length > 0)//Validación y almacenado
     {
         NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-        NSError *error = nil;
         
         self.contacto = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:context];
         
@@ -63,8 +62,9 @@
         self.contacto.email = self.email.text;
         self.contacto.favorito = false;
         self.contacto.estado = 0; //Recien creado
+        //self.greetingPickerSelGroup.
         
-        NSLog(@"%@ \n", self.nombre);
+        NSLog(@"%@ \n", self.grupo.text);
         
         //Conversión imagen UIImage a NSData, formato de la imagen del contacto
         NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.foto.image)];
@@ -74,6 +74,14 @@
         /** Guarda el contexto **/
         [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
     }
+    /*else{QUITAR, EJEMPLO PARA CONEXIÓN
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
+                                                        message:@"You must be connected to the internet to use this app."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }*/
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -85,11 +93,12 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
+    countryNames = [[NSMutableArray alloc]initWithObjects:@"Grupo1",@"Grupo2",@"Grupo3", @"Grupo4",@"Grupo5",@"Grupo6",nil];//Habria que cargar aqui todos los grupos
+    self.doneButton.enabled = NO;//Se inhabilita hasta que el usuario introduzca nombre y teléfono
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -100,7 +109,11 @@
 
 
 
-//PARA IMAGEN 
+
+
+
+
+/******************** IMÁGEN ********************/
 
 //Acción cuando pulsar botón buscar foto
 - (IBAction)showImagePickerForPhotoPicker:(id)sender
@@ -126,8 +139,6 @@
     self.imagePickerController = nil;
 }
 
-
-
 // This method is called when an image has been chosen from the library or taken from the camera.
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -138,11 +149,55 @@
     [self finishAndUpdate];
 }
 
-// Cuando cancelas la  búsqueda de la imagen, el controlador llama a este método
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+
+
+/******************** PICKER ********************/
+#pragma mark -
+#pragma mark PickerView DataSource
+
+- (NSInteger)numberOfComponentsInPickerView:
+(UIPickerView *)pickerView
 {
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    return 1;
+}
+
+-(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    self.grupo.text = [countryNames objectAtIndex:row];
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component
+{
+    return [countryNames count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView
+             titleForRow:(NSInteger)row
+            forComponent:(NSInteger)component
+{
+    return [countryNames objectAtIndex:row];
+} 
+
+
+/******************** VALIDACIÓN *****************/
+- (IBAction)changeNombre:(id)sender{
+
+    if(self.nombre.text.length > 0 && self.telefono.text.length > 0)
+        self.doneButton.enabled = YES;
+    else
+        self.doneButton.enabled = NO;
+}
+
+- (IBAction)changeTelefono:(id)sender{
+    if(self.nombre.text.length > 0 && self.telefono.text.length > 0)
+        self.doneButton.enabled = YES;
+    else
+        self.doneButton.enabled = NO;
 }
 
 
+
+
 @end
+
