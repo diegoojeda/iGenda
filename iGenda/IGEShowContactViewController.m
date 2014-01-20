@@ -7,6 +7,7 @@
 //
 
 #import "IGEShowContactViewController.h"
+#import "IGEEditContactViewController.h"
 
 @interface IGEShowContactViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *atrasButton;
@@ -14,17 +15,17 @@
 
 @implementation IGEShowContactViewController
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    /** Contexto de core data **/
-    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    NSError *error = nil;
-
-    if (![context save:&error]) {
-        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
-        return;
-    }
-}
+//- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    /** Contexto de core data **/
+//    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+//    NSError *error = nil;
+//
+//    if (![context save:&error]) {
+//        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+//        return;
+//    }
+//}
 
 @synthesize contacto = _contacto;
 
@@ -44,6 +45,7 @@
     
     self.greetingMovil.text = _contacto.telefono;
     self.greetingEmail.text = _contacto.email;
+    self.greetingGrupo.text = [_contacto.newRelationship nombre];
     self.greetingImage.image=[UIImage imageWithData:_contacto.imagen];
     
     
@@ -71,8 +73,6 @@
     }
 }
 
-
-
 - (void)viewDidLoad
 {
     [self fetchContact];
@@ -80,11 +80,19 @@
 }
 
 
+-(void) viewWillAppear:(BOOL)animated{
+    static NSString *formatString = @"%@%@%@%@%@";
+    NSString *fullname = [NSString stringWithFormat:formatString,_contacto.nombre,@" ",_contacto.apellido1,@" ",_contacto.apellido2];
+    self.greetingNombre.text = fullname;
+    self.greetingMovil.text = _contacto.telefono;
+    self.greetingEmail.text = _contacto.email;
+    self.greetingImage.image=[UIImage imageWithData:_contacto.imagen];
+    [self.view setNeedsDisplay];
+}
+
 - (IBAction)unwindFromEditToShowContact:(UIStoryboardSegue *)segue{
     
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -95,5 +103,23 @@
 - (void) getContact:(Contact *)contacto{
     _contacto = contacto;
 }
+
+
+/**
+ Prepara para la transición de la info del contacto a su edición
+ */
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"ContactEdit"]) {
+        IGEEditContactViewController *controller = (IGEEditContactViewController *)[[segue destinationViewController] topViewController];
+        [controller getContactEdit:_contacto];
+    }
+    
+}
+
+
+
 
 @end

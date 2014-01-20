@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "IGEAppDelegate.h"
+#import "IGEGroup.h"
 
 
 @interface IGEShowContactViewController : UIViewController
@@ -16,7 +17,9 @@
 @property (nonatomic, strong) IBOutlet UILabel *greetingNombre;
 @property (nonatomic, strong) IBOutlet UILabel *greetingMovil;
 @property (nonatomic, strong) IBOutlet UILabel *greetingEmail;
+@property (nonatomic, strong) IBOutlet UILabel *greetingGrupo;
 @property (nonatomic, strong) IBOutlet UIButton *greetingStar;
+
 
 @property (nonatomic, strong) IBOutlet UIImageView *greetingImage;
 
