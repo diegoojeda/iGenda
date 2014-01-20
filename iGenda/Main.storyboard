@@ -748,12 +748,6 @@
                                     <outlet property="delegate" destination="SEA-zW-aZ4" id="BKw-ox-5Lh"/>
                                 </connections>
                             </pickerView>
-                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Grupo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JqT-Oe-dGy">
-                                <rect key="frame" x="13" y="512" width="289" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -778,7 +772,6 @@
                         <outlet property="apellido2" destination="uOk-9F-8B9" id="YmV-qh-Iig"/>
                         <outlet property="email" destination="Igc-5v-Fcx" id="U0B-u4-7XM"/>
                         <outlet property="foto" destination="fCH-KA-PqB" id="aFi-R8-tcq"/>
-                        <outlet property="grupo" destination="JqT-Oe-dGy" id="GB6-1s-Wud"/>
                         <outlet property="nombre" destination="c7X-Wn-mAh" id="v68-m2-nPp"/>
                         <outlet property="saveButton" destination="pcm-6N-6Sa" id="jeg-Kj-gcT"/>
                         <outlet property="telefono" destination="taB-zk-xMN" id="um0-1L-Z78"/>

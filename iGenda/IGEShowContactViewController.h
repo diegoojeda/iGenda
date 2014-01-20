@@ -15,8 +15,6 @@
 
 /** Label **/
 @property (nonatomic, strong) IBOutlet UILabel *greetingNombre;
-@property (nonatomic, strong) IBOutlet UILabel *greetingApellido1;
-@property (nonatomic, strong) IBOutlet UILabel *greetingApellido2;
 @property (nonatomic, strong) IBOutlet UILabel *greetingMovil;
 @property (nonatomic, strong) IBOutlet UILabel *greetingEmail;
 @property (nonatomic, strong) IBOutlet UILabel *greetingGrupo;

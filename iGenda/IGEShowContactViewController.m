@@ -15,17 +15,17 @@
 
 @implementation IGEShowContactViewController
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    /** Contexto de core data **/
-    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    NSError *error = nil;
-
-    if (![context save:&error]) {
-        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
-        return;
-    }
-}
+//- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    /** Contexto de core data **/
+//    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+//    NSError *error = nil;
+//
+//    if (![context save:&error]) {
+//        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+//        return;
+//    }
+//}
 
 @synthesize contacto = _contacto;
 
@@ -81,8 +81,12 @@
 
 
 -(void) viewWillAppear:(BOOL)animated{
-    self.greetingNombre.text = _contacto.nombre;
-    self.greetin
+    static NSString *formatString = @"%@%@%@%@%@";
+    NSString *fullname = [NSString stringWithFormat:formatString,_contacto.nombre,@" ",_contacto.apellido1,@" ",_contacto.apellido2];
+    self.greetingNombre.text = fullname;
+    self.greetingMovil.text = _contacto.telefono;
+    self.greetingEmail.text = _contacto.email;
+    self.greetingImage.image=[UIImage imageWithData:_contacto.imagen];
     [self.view setNeedsDisplay];
 }
 
