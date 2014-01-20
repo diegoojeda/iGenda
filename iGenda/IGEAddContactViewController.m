@@ -96,7 +96,7 @@
 
 - (void)viewDidLoad
 {
-    countryNames = [[NSMutableArray alloc]initWithObjects:@"Grupo1",@"Grupo2",@"Grupo3", @"Grupo4",@"Grupo5",@"Grupo6",nil];//Habria que cargar aqui todos los grupos
+    groupsNames = [[NSMutableArray alloc]initWithObjects:@"Grupo1",@"Grupo2",@"Grupo3", @"Grupo4",@"Grupo5",@"Grupo6",nil];//Habria que cargar aqui todos los grupos
     self.doneButton.enabled = NO;//Se inhabilita hasta que el usuario introduzca nombre y teléfono
     [super viewDidLoad];
 }
@@ -163,20 +163,20 @@
 
 -(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.grupo.text = [countryNames objectAtIndex:row];
+    self.grupo.text = [groupsNames objectAtIndex:row];
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView
 numberOfRowsInComponent:(NSInteger)component
 {
-    return [countryNames count];
+    return [groupsNames count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView
              titleForRow:(NSInteger)row
             forComponent:(NSInteger)component
 {
-    return [countryNames objectAtIndex:row];
+    return [groupsNames objectAtIndex:row];
 } 
 
 
