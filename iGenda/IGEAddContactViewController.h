@@ -12,7 +12,7 @@
 
 @interface IGEAddContactViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>{
     UIPickerView *greetingPickerSelGroup;
-    NSMutableArray *countryNames;
+    NSMutableArray *groups;
 }
 //Añado al View Controller estos dos protocolos para el el ImagePickerController, para navegación por la galería y manejo de datos (necesario)
 
