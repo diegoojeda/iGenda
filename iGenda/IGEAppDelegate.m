@@ -24,7 +24,14 @@
     UITabBarController *navigationController = (UITabBarController *)self.window.rootViewController;
     IGETabViewController *controller = (IGETabViewController *)navigationController.parentViewController;
     controller.managedObjectContext = self.managedObjectContext;
-    _settings = [NSEntityDescription insertNewObjectForEntityForName:@"IGESetting" inManagedObjectContext:self.managedObjectContext];
+    //_settings = [NSEntityDescription insertNewObjectForEntityForName:@"IGESetting" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGESetting" inManagedObjectContext:context];
+    NSFetchRequest *requestCoreData = [[NSFetchRequest alloc] init];
+    NSError *error;
+    [requestCoreData setEntity:entityDescription];
+    _settings =[[context executeFetchRequest:requestCoreData error:&error] firstObject];
+    NSLog(@"Cargo settings en delegate: %@", _settings.usuario);
     return YES;
 }
 

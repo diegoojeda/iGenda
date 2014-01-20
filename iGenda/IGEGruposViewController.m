@@ -155,6 +155,40 @@
     }
 }
 
+/**
+ Eliminar Grupo
+ */
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    /** Contexto de core data **/
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSError *error = nil;
+    
+    
+//    /** Añade el contacto a la lista a borrar **/
+//    IGEContactToDelete *contacto;
+//    contacto = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContactToDelete" inManagedObjectContext:context];
+//    contacto.id = [[self.contacts objectAtIndex:indexPath.row] id];
+//    if (![context save:&error]) {
+//        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+//        return;
+//    }
+    
+    /** Elimina contacto de core data **/
+    [context deleteObject:[self.grupos objectAtIndex:indexPath.row]]; //
+    
+    /** Elimina contacto de memoria **/
+    [self.grupos removeObjectAtIndex:indexPath.row];
+    
+    
+    if (![context save:&error]) {
+        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+        return;
+    }
+    
+    [tableView reloadData]; //Recarga la tabla
+}
+
 - (IBAction)unwindFromGroupDetailToGroups:(UIStoryboardSegue *)segue{
     //_grupos = nil;
 }

@@ -87,7 +87,21 @@
 
 - (void)viewDidLoad
 {
-    countryNames = [[NSMutableArray alloc]initWithObjects:@"Grupo1",@"Grupo2",@"Grupo3", @"Grupo4",@"Grupo5",@"Grupo6",nil];//Habria que cargar aqui todos los grupos
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
+    NSError *error = nil;
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEGroup" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    
+    NSArray *array = [context executeFetchRequest:request error:&error];
+    
+    
+    groups = [[NSMutableArray alloc] init];//Habria que cargar aqui todos los grupos
+    [groups addObjectsFromArray:array];
+
+    
     self.doneButton.enabled = NO;//Se inhabilita hasta que el usuario introduzca nombre y teléfono
     [super viewDidLoad];
 }
@@ -150,20 +164,20 @@
 
 -(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.grupo.text = [countryNames objectAtIndex:row];
+    self.grupo.text = [groups objectAtIndex:row];
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView
 numberOfRowsInComponent:(NSInteger)component
 {
-    return [countryNames count];
+    return [groups count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView
              titleForRow:(NSInteger)row
             forComponent:(NSInteger)component
 {
-    return [countryNames objectAtIndex:row];
+    return [groups objectAtIndex:row];
 } 
 
 
