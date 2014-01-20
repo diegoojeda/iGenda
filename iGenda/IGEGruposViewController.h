@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "IGEGroup.h"
+#import "IGEAddGroupContactViewController.h"
 
 @interface IGEGruposViewController : UITableViewController
 

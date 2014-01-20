@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E00E8DF188C49E500A8E57D /* IGEAddGroupContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E00E8DE188C49E500A8E57D /* IGEAddGroupContactViewController.m */; };
 		4E0B44D518898FDE001850E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0B44D418898FDE001850E8 /* Main.storyboard */; };
 		4E1D542B18885D22009E3B5A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E1D542A18885D22009E3B5A /* CoreData.framework */; };
 		4E4E133D188932250091E604 /* IGETabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4E133C188932250091E604 /* IGETabViewController.m */; };
@@ -65,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E00E8DD188C49E500A8E57D /* IGEAddGroupContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEAddGroupContactViewController.h; sourceTree = "<group>"; };
+		4E00E8DE188C49E500A8E57D /* IGEAddGroupContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEAddGroupContactViewController.m; sourceTree = "<group>"; };
 		4E0B44D418898FDE001850E8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4E1D542A18885D22009E3B5A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4E4E133B188932250091E604 /* IGETabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGETabViewController.h; sourceTree = "<group>"; };
@@ -212,6 +215,8 @@
 				AA26E7B7188A8753002A70BF /* IGEEditContactViewController.m */,
 				83DA3B811889532600FBA66E /* IGEGruposViewController.h */,
 				83DA3B821889532600FBA66E /* IGEGruposViewController.m */,
+				4E00E8DD188C49E500A8E57D /* IGEAddGroupContactViewController.h */,
+				4E00E8DE188C49E500A8E57D /* IGEAddGroupContactViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -382,7 +387,7 @@
 				ORGANIZATIONNAME = UMA;
 				TargetAttributes = {
 					B02DBC4A18868FE60019AAF1 = {
-						DevelopmentTeam = 6R699FCK8Q;
+						DevelopmentTeam = 8TP58Z89HP;
 					};
 					B02DBC6E18868FE60019AAF1 = {
 						TestTargetID = B02DBC4A18868FE60019AAF1;
@@ -466,6 +471,7 @@
 				B069E4ED1889633400F9D504 /* NSObject+SBJson.m in Sources */,
 				8354C07A188ADC6A00728685 /* IGESettingsViewController.m in Sources */,
 				B069E4F11889633400F9D504 /* SBJsonStreamParserAdapter.m in Sources */,
+				4E00E8DF188C49E500A8E57D /* IGEAddGroupContactViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

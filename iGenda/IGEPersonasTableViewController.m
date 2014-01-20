@@ -176,21 +176,6 @@
     
 }
 
-
-/**
- Seleccionar Contacto BORRAR LUEGO - MODO JUAN
- 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //   indexPath.row;
-    appDelegate = [UIApplication sharedApplication].delegate;
-    
-
-    appDelegate.seleccionado = [self.contacts objectAtIndex:indexPath.row];
-}
-**/
-
-
-
 /**
     Eliminar Contacto
  */

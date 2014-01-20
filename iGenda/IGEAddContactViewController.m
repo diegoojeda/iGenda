@@ -60,7 +60,7 @@
         self.contacto.apellido2 = self.apellido2.text;
         self.contacto.telefono = self.telefono.text;
         self.contacto.email = self.email.text;
-        self.contacto.favorito = false;
+        self.contacto.favorito = @0;
         self.contacto.estado = 0; //Recien creado
         //self.greetingPickerSelGroup.
         
@@ -74,14 +74,6 @@
         /** Guarda el contexto **/
         [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
     }
-    /*else{QUITAR, EJEMPLO PARA CONEXIÓN
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
-                                                        message:@"You must be connected to the internet to use this app."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }*/
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -96,7 +88,21 @@
 
 - (void)viewDidLoad
 {
-    countryNames = [[NSMutableArray alloc]initWithObjects:@"Grupo1",@"Grupo2",@"Grupo3", @"Grupo4",@"Grupo5",@"Grupo6",nil];//Habria que cargar aqui todos los grupos
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
+    NSError *error = nil;
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEGroup" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    
+    NSArray *array = [context executeFetchRequest:request error:&error];
+    
+    
+    groups = [[NSMutableArray alloc] init];//Habria que cargar aqui todos los grupos
+    [groups addObjectsFromArray:array];
+
+    
     self.doneButton.enabled = NO;//Se inhabilita hasta que el usuario introduzca nombre y teléfono
     [super viewDidLoad];
 }
@@ -163,20 +169,20 @@
 
 -(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.grupo.text = [countryNames objectAtIndex:row];
+    self.grupo.text = [groups objectAtIndex:row];
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView
 numberOfRowsInComponent:(NSInteger)component
 {
-    return [countryNames count];
+    return [groups count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView
              titleForRow:(NSInteger)row
             forComponent:(NSInteger)component
 {
-    return [countryNames objectAtIndex:row];
+    return [groups objectAtIndex:row];
 } 
 
 
@@ -196,7 +202,16 @@ numberOfRowsInComponent:(NSInteger)component
         self.doneButton.enabled = NO;
 }
 
+- (IBAction)backgroundClick:(id)sender {
+    [self.view endEditing:YES];
+    
+}
 
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 
 @end
