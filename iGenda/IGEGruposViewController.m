@@ -144,16 +144,27 @@
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"Prepare for segue");
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"GruposToPersonas"]) {
         IGEPersonasFromGrupoViewController *controller = (IGEPersonasFromGrupoViewController *)[[segue destinationViewController] topViewController];
         NSInteger selectedIndex = [[self.tableView indexPathForSelectedRow] row];
-        NSString *groupName = [(IGEGroup *)[self.grupos objectAtIndex:selectedIndex] nombre];
-        NSArray *contactos = [[(IGEGroup *)[self.grupos objectAtIndex:selectedIndex] newRelationship] allObjects];
-        [controller getInfo:contactos andName:groupName];
+        //NSString *groupName = [(IGEGroup *)[self.grupos objectAtIndex:selectedIndex] nombre];
+        //NSArray *contactos = [[(IGEGroup *)[self.grupos objectAtIndex:selectedIndex] newRelationship] allObjects];
+        
+        //NSLog(@"Prepare for Segue ------> %@",[[self.grupos objectAtIndex:selectedIndex] nombre]);
+        [controller getGroup:[[self.grupos objectAtIndex:selectedIndex] nombre]];
     }
 }
+
+- (IBAction)unwindFromGroupDetailToGroups:(UIStoryboardSegue *)segue{
+    NSLog(@"UNWINFROMGROUP");
+    //_grupos = nil;
+}
+
+
+
 
 /**
  Eliminar Grupo
@@ -187,10 +198,6 @@
     }
     
     [tableView reloadData]; //Recarga la tabla
-}
-
-- (IBAction)unwindFromGroupDetailToGroups:(UIStoryboardSegue *)segue{
-    //_grupos = nil;
 }
 
 - (IBAction)unwindToAddGroup:(UIStoryboardSegue *)segue {

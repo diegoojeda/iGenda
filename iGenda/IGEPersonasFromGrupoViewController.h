@@ -15,6 +15,6 @@
 @property NSString *nombreGrupo;
 @property NSArray *contactosGrupo;
 
--(void) getInfo: (NSArray* ) grupo andName: (NSString *) name;
+-(void) getGroup: (NSString *) grupo;
 
 @end

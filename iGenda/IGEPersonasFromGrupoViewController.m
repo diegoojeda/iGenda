@@ -117,10 +117,7 @@
 }
 
  */
--(void) getInfo: (NSArray* ) grupo andName: (NSString *) name{
-    _contactosGrupo = grupo;
-    _nombreGrupo = name;
-}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -135,5 +132,9 @@
 - (IBAction)unwindFromContactDetailToGroupList:(UIStoryboardSegue *)segue{
 }
 
+-(void) getGroup: (NSString *) grupo{
+    NSLog(@"Grupo %@",grupo);
+    _nombreGrupo = grupo;
+}
 
 @end

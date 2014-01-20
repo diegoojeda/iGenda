@@ -240,6 +240,7 @@
         <!--Navigation Controller-->
         <scene sceneID="r27-YR-Tdg">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t2Y-L8-t9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="xID-f9-qGb" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="meO-ZP-fe8">
                         <autoresizingMask key="autoresizingMask"/>
@@ -248,7 +249,6 @@
                         <segue destination="ZgC-gw-d6E" kind="relationship" relationship="rootViewController" id="XFb-gz-ATz"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="t2Y-L8-t9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="465" y="1182"/>
         </scene>
@@ -275,9 +275,16 @@
                             <outlet property="delegate" destination="ZgC-gw-d6E" id="hLB-t0-Ztv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="A3s-DR-GYu"/>
+                    <navigationItem key="navigationItem" id="zDt-kf-Jq3">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="ZQl-DQ-IVa">
+                            <connections>
+                                <segue destination="pVr-g6-ayC" kind="unwind" unwindAction="unwindFromGroupDetailToGroups:" id="2AP-f8-9dU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G09-aN-WbW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pVr-g6-ayC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1101" y="1182"/>
         </scene>
