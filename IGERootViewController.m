@@ -24,13 +24,14 @@
 }
 - (void)viewDidAppear:(BOOL)animated{
     //Fetch user logged or not
-    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
+    /*NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
     NSError *error = nil;
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGESetting" inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
-    NSArray *s = [context executeFetchRequest:request error:&error];
-    if (s == nil || [s count] == 0){
+    NSArray *s = [context executeFetchRequest:request error:&error];*/
+    IGESetting *s = [(IGEAppDelegate *) [[UIApplication sharedApplication] delegate] settings];
+    if (s.usuario == nil || [s.usuario length] == 0){
         NSLog(@"User vacío");
         [self performSegueWithIdentifier:@"ToLoginSegue" sender:self];
     }

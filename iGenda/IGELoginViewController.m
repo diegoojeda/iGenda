@@ -83,13 +83,20 @@
         NSString *username = [self.textUsername text];
         NSString *str = [self fetchUser:[self.textUsername text]];
         if ([str length] > 0){
+            //Conseguimos el número de versión
+            NSError *err = nil;
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[str dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&err];
+            
+            // access the dictionaries
+            //NSMutableDictionary *dict = arr[0];
             NSLog(@"LOGIN SUCCESFUL");
             //En el NSString str está almacenado el JSON, es genial =)
-            [self cargarContactos:username];
+            [self cargarContactos:username conVersion: [dic objectForKey:@"version"]];
             success = 1;
         }
         else {
             NSLog(@"FAIL");
+            [self alertStatus:@"Nombre de usuario incorrecto" :@"Login fallido" :0];
         }
     }
     if (success) {
@@ -103,12 +110,13 @@
 }
 
 
--(void) cargarContactos:(NSString *) usuario {
+-(void) cargarContactos:(NSString *) usuario conVersion: (NSNumber *) ver{
 
     //Petición http
+    NSLog(@"Recibo version: %@", ver);
     NSHTTPURLResponse *response = nil;
     NSError *error;
-    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://localhost:8080/iGenda/webresources/servicios.contacto/"];
+    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://localhost:8080/igenda/webresources/webservices.contacto/"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
     [request setHTTPMethod: @"GET"];
     NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
@@ -123,12 +131,23 @@
             [self crearUsuario:dic];
         }
     }
+    
     //Por último, almacenamos también el usuario en el IGESetting de la aplicación
-    [[(IGEAppDelegate*)[[UIApplication sharedApplication] delegate] settings] setUsuario:usuario];
-
+    
+    /*NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGESetting" inManagedObjectContext:context];
+    NSFetchRequest *requestCoreData = [[NSFetchRequest alloc] init];
+    [requestCoreData setEntity:entityDescription];
+    [(IGESetting *)[[context executeFetchRequest:requestCoreData error:&error] firstObject] setUsuario:usuario];
+    //IGESetting *set =[[context executeFetchRequest:requestCoreData error:&error] firstObject];
+    //set.usuario = usuario;
+    */
+    NSManagedObjectContext *context = [(IGEAppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext];
+    IGESetting * set = [NSEntityDescription insertNewObjectForEntityForName:@"IGESetting" inManagedObjectContext:context];
+    set.usuario = usuario;
+    set.versionAgenda = ver;
     // Guardado del contexto
     [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
-
 }
 
 -(void) crearUsuario: (NSDictionary *) dic{
@@ -173,28 +192,29 @@
     NSHTTPURLResponse  *response = nil;
     NSError *error;
     NSString* username = [[NSString alloc]initWithString:[self.textUsername text]];
-    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://localhost:8080/iGenda/webresources/servicios.usuario/"];
+    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://localhost:8080/igenda/webresources/webservices.usuario/"];
     [url appendString:username];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
     [request setHTTPMethod: @"GET"];
     NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSLog(@"GET enviado");
     NSString *str = [[NSString alloc]initWithData:response1 encoding:NSUTF8StringEncoding];
+    NSLog(@"SERA AQUI? %@", str);
     return str;
 }
 
 - (void) crearUsuarioEnServidor: (NSString *) username {
     //Creamos diccionario con la información del usuario
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithCapacity:1];
-    [dic setObject:username forKey:@"username"];
+    [dic setObject:username forKey:@"login"];
     [dic setObject:@0 forKey:@"version"];
     //Convertimos el diccionario a JSON y luego a NSData
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&error]; // Pass 0 if you don't care about the readability of the generateds string
     
     //Creamos y ejecutamos la petición
-    NSURL *url = [[NSURL alloc] initWithString:@"http://localhost:8080/iGenda/webresources/servicios.usuario"];
-    NSMutableURLRequest *req = [NSURLRequest requestWithURL:url];
+    NSURL *url = [[NSURL alloc] initWithString:@"http://localhost:8080/igenda/webresources/webservices.usuario"];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
     [req setHTTPMethod:@"POST"];
     [req setHTTPBody:jsonData];
     [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
@@ -209,21 +229,3 @@
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
