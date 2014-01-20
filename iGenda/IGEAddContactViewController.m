@@ -74,14 +74,6 @@
         /** Guarda el contexto **/
         [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
     }
-    /*else{QUITAR, EJEMPLO PARA CONEXIÓN
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
-                                                        message:@"You must be connected to the internet to use this app."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }*/
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

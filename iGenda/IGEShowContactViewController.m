@@ -19,25 +19,10 @@
     /** Contexto de core data **/
     NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
     NSError *error = nil;
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"IGEContact" inManagedObjectContext:context];
-    [request setEntity:entity];
-    
 
-    if (sender == self.atrasButton){
-        NSPredicate *predicate =
-        [NSPredicate predicateWithFormat:@"self.id == %@", _contacto.id];
-        [request setPredicate:predicate];
-        
-        NSArray *array = [context executeFetchRequest:request error:&error];
-        
-        if (array != nil) {
-            //[[array firstObject] setValue:[_contacto favorito] forKey:@"favorito"];
-            if (![context save:&error]) {
-                NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
-                return;
-            }
-        }
+    if (![context save:&error]) {
+        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+        return;
     }
 }
 
