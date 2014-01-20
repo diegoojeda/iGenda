@@ -159,4 +159,13 @@
     //_grupos = nil;
 }
 
+- (IBAction)unwindToAddGroup:(UIStoryboardSegue *)segue {
+    IGEAddGroupContactViewController *source = [segue sourceViewController];
+    IGEGroup *item = source.group;
+    if (item != nil){
+        [self.grupos addObject:item];
+        [self.tableView reloadData];
+    }
+}
+
 @end

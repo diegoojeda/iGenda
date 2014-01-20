@@ -60,7 +60,7 @@
         self.contacto.apellido2 = self.apellido2.text;
         self.contacto.telefono = self.telefono.text;
         self.contacto.email = self.email.text;
-        self.contacto.favorito = false;
+        self.contacto.favorito = @0;
         self.contacto.estado = 0; //Recien creado
         //self.greetingPickerSelGroup.
         
@@ -73,14 +73,6 @@
         /** Guarda el contexto **/
         [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
     }
-    /*else{QUITAR, EJEMPLO PARA CONEXIÓN
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No network connection"
-                                                        message:@"You must be connected to the internet to use this app."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }*/
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -191,7 +183,16 @@ numberOfRowsInComponent:(NSInteger)component
         self.doneButton.enabled = NO;
 }
 
+- (IBAction)backgroundClick:(id)sender {
+    [self.view endEditing:YES];
+    
+}
 
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 
 @end

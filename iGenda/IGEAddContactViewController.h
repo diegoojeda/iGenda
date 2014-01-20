@@ -10,7 +10,7 @@
 #import "IGEAppDelegate.h"
 #import "Contact.h"
 
-@interface IGEAddContactViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UIPickerViewDelegate, UIPickerViewDataSource>{
+@interface IGEAddContactViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>{
     UIPickerView *greetingPickerSelGroup;
     NSMutableArray *countryNames;
 }
@@ -26,5 +26,6 @@
 
 - (IBAction)changeNombre:(id)sender;
 - (IBAction)changeTelefono:(id)sender;
+- (IBAction)backgroundClick:(id)sender;
 
 @end
