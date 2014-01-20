@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "IGEAppDelegate.h"
 #import "IGESetting.h"
+#import "Contact.h"
+#import "IGEGroup.h"
 
 @interface IGESettingsViewController : UIViewController
 
