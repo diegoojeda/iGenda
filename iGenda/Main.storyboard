@@ -182,6 +182,21 @@
             </objects>
             <point key="canvasLocation" x="749" y="-294"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rHG-vV-yr5">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="8LY-nz-1bW" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bQz-Qa-E8x">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="SPd-dD-iNN" kind="relationship" relationship="rootViewController" id="DKT-Zv-PSg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bmf-1n-4Xq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="285" y="403"/>
+        </scene>
         <!--Add Group Contact View Controller - Nuevo Grupo-->
         <scene sceneID="VlG-qm-WU5">
             <objects>
@@ -204,62 +219,26 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Nuevo Grupo" id="oce-4w-Pl3">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="2EQ-sG-ZpD"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="grupo" destination="b4u-hG-IEx" id="Chp-P5-95Z"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="22i-ad-ece" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="505" y="410"/>
-        </scene>
-        <!--Personas From Grupo View Controller-->
-        <scene sceneID="lKm-Qb-9Yb">
-            <objects>
-                <tableViewController id="KuE-t4-Bor" customClass="IGEPersonasFromGrupoViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="99Q-Ej-a8t">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="personaFromGrupoCell" id="XMw-nZ-Vtt">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XMw-nZ-Vtt" id="Bxe-gf-J6l">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="YmB-qR-7uc">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kcI-cj-AU5">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="G4h-sI-RQv">
                             <connections>
-                                <segue destination="8Gv-mb-bdP" kind="unwind" unwindAction="unwindFromGroupDetailToGroups:" id="BVy-v3-0yY"/>
+                                <segue destination="GnA-vb-1UT" kind="unwind" unwindAction="unwindFromGroupDetailToGroups:" id="sif-0S-uVe"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="2EQ-sG-ZpD">
+                            <connections>
+                                <segue destination="GnA-vb-1UT" kind="unwind" unwindAction="unwindToAddGroup:" id="svH-2y-SOB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="n2v-ck-ljO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="8Gv-mb-bdP" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="749" y="469"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="5ik-jV-CZ8">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="6z0-MN-rpg" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Fe-a0-HXG">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
                     <connections>
-                        <segue destination="hrw-Ti-QkT" kind="relationship" relationship="rootViewController" id="RE8-9N-GaM"/>
+                        <outlet property="grupo" destination="b4u-hG-IEx" id="Chp-P5-95Z"/>
+                        <outlet property="okButton" destination="2EQ-sG-ZpD" id="7oR-er-nlg"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ajQ-Fy-yuI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="22i-ad-ece" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="GnA-vb-1UT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1239" y="403"/>
+            <point key="canvasLocation" x="749" y="403"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r27-YR-Tdg">
@@ -268,9 +247,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="meO-ZP-fe8">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="KuE-t4-Bor" kind="relationship" relationship="rootViewController" id="wfg-Tx-LAu"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t2Y-L8-t9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -657,7 +633,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="35f-kC-6CV">
                             <connections>
-                                <segue destination="SPd-dD-iNN" kind="push" id="Zto-R7-xOx"/>
+                                <segue destination="8LY-nz-1bW" kind="modal" id="ee1-pH-7mf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1044,8 +1020,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ooX-Fo-0zP"/>
         <segue reference="61t-nf-Mh7"/>
-        <segue reference="Cb7-gv-2bB"/>
+        <segue reference="dQb-9f-OqX"/>
+        <segue reference="ooX-Fo-0zP"/>
     </inferredMetricsTieBreakers>
 </document>

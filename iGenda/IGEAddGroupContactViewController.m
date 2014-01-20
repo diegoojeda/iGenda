@@ -11,6 +11,7 @@
 @interface IGEAddGroupContactViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *grupo;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *okButton;
 
 @end
 
@@ -19,7 +20,15 @@
 @synthesize appDelegate;
 
 
--(void) viewWillDisappear:(BOOL)animated {
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"yesh");
+    //if (sender != self.okButton) return;
+}
+
+
+// Cuando retrocede...
+/*-(void) viewWillDisappear:(BOOL)animated {
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
         if (self.grupo.text.length > 0)//Validación y almacenado
         {
@@ -37,7 +46,7 @@
         
     }
     [super viewWillDisappear:animated];
-}
+}*/
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
