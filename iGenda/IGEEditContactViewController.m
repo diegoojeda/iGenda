@@ -202,6 +202,8 @@ numberOfRowsInComponent:(NSInteger)component
     self.apellido2.text = _contacto.apellido2;
     self.telefono.text = _contacto.telefono;
     self.email.text = _contacto.email;
+    UIImage *i =[[UIImage alloc] initWithData:_contacto.imagen];
+    self.foto.image=i;
     
 }
 
