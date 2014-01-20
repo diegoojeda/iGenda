@@ -83,7 +83,7 @@
     NSLog(@"VERSION AGENDA: %@", versionDispositivo);
     //Preparamos la petición al servidor
     NSHTTPURLResponse *response = nil;
-    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://localhost:8080/igenda/webresources/webservices.usuario/"];
+    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://192.168.1.139:8080/igenda/webresources/webservices.usuario/"];
     [url appendString:userName];
     NSMutableURLRequest *URLrequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
     [URLrequest setHTTPMethod: @"GET"];
@@ -174,7 +174,7 @@
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:arrayDiccionarios options:0 error:&errorJSON];
     NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
     NSLog(@"JSON OUTPUT: %@",JSONString);
-    NSURL *url = [NSURL URLWithString:@"http://localhost:8080/igenda/webresources/webservices.contacto"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.1.139:8080/igenda/webresources/webservices.contacto"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:jsonData];
