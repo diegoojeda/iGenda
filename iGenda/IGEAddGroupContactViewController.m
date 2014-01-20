@@ -22,8 +22,23 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"yesh");
-    //if (sender != self.okButton) return;
+    if (sender != self.okButton) return;
+
+
+    if (self.grupo.text.length > 0)//Validación y almacenado
+    {
+        NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+        
+        self.group = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:context];
+        
+        //Esto solo almacena un campo, nombre, lo demas es lo de la persistencia
+        appDelegate = [UIApplication sharedApplication].delegate;
+        
+        self.group.nombre = self.grupo.text;
+        
+        /** Guarda el contexto **/
+        [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
+    }
 }
 
 
