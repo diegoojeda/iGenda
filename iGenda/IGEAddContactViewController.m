@@ -64,8 +64,6 @@
         self.contacto.estado = 0; //Recien creado
         //self.greetingPickerSelGroup.
         
-        NSLog(@"%@ \n", self.grupo.text);
-        
        
         //Conversión imagen UIImage a NSData, formato de la imagen del contacto
         NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.foto.image)];
@@ -107,10 +105,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
-
 
 
 

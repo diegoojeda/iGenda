@@ -7,6 +7,7 @@
 //
 
 #import "IGEShowContactViewController.h"
+#import "IGEEditContactViewController.h"
 
 @interface IGEShowContactViewController ()
 
@@ -32,6 +33,7 @@
     
     self.greetingMovil.text = _contacto.telefono;
     self.greetingEmail.text = _contacto.email;
+    self.greetingGrupo.text = [_contacto.newRelationship nombre];
     self.greetingImage.image=[UIImage imageWithData:_contacto.imagen];
     
     
@@ -64,8 +66,6 @@
     }
 }
 
-
-
 - (void)viewDidLoad
 {
     [self fetchContact];
@@ -73,11 +73,15 @@
 }
 
 
+-(void) viewWillAppear:(BOOL)animated{
+    self.greetingNombre.text = _contacto.nombre;
+    self.greetin
+    [self.view setNeedsDisplay];
+}
+
 - (IBAction)unwindFromEditToShowContact:(UIStoryboardSegue *)segue{
     
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -88,5 +92,23 @@
 - (void) getContact:(Contact *)contacto{
     _contacto = contacto;
 }
+
+
+/**
+ Prepara para la transición de la info del contacto a su edición
+ */
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"ContactEdit"]) {
+        IGEEditContactViewController *controller = (IGEEditContactViewController *)[[segue destinationViewController] topViewController];
+        [controller getContactEdit:_contacto];
+    }
+    
+}
+
+
+
 
 @end
