@@ -14,11 +14,7 @@
 #import "IGEGroup.h"
 
 @interface IGEPersonasTableViewController ()
-
-@property NSMutableArray *contacts;
-
-
-
+    
 @end
 
 @implementation IGEPersonasTableViewController
