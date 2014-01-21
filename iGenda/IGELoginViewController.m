@@ -30,6 +30,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self.activityIndicator startAnimating];
+    [self.activityIndicator setHidden:YES];
+    //[self.activityIndicator a]
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,12 +71,24 @@
             [self alertStatus:@"Usuario registrado con éxito": @"Registro exitoso" :0];
         }
         else {
+            [self.activityIndicator setHidden:YES];
             NSLog(@"El usuario ya existia");
             [self alertStatus:@"Ese nombre de usuario ya está siendo utilizado": @"Registro fallido" :0];
         }
     }
 }
 
+- (void) startActivity
+{
+    [self.activityIndicator setHidden:NO];
+    [self.activityIndicator startAnimating];
+    //[self.activityIndicator setHidden:YES];
+}
+- (void) stopActivity
+{
+    [self.activityIndicator stopAnimating];
+    [self.activityIndicator setHidden:YES];
+}
 
 - (IBAction)loginClick:(id)sender
 {
@@ -96,6 +111,7 @@
             
         }
         else {
+            [self.activityIndicator setHidden:YES];
             NSLog(@"FAIL");
             [self alertStatus:@"Nombre de usuario incorrecto" :@"Login fallido" :0];
         }

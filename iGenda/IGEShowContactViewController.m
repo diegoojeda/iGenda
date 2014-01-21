@@ -15,18 +15,6 @@
 
 @implementation IGEShowContactViewController
 
-//- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    /** Contexto de core data **/
-//    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-//    NSError *error = nil;
-//
-//    if (![context save:&error]) {
-//        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
-//        return;
-//    }
-//}
-
 @synthesize contacto = _contacto;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -42,13 +30,9 @@
     static NSString *formatString = @"%@%@%@%@%@";
     NSString *fullname = [NSString stringWithFormat:formatString,_contacto.nombre,@" ",_contacto.apellido1,@" ",_contacto.apellido2];
     self.nombre_L.text = fullname;
-    
     self.movil_L.text = _contacto.telefono;
     self.email_L.text = _contacto.email;
-    //self.grupo_L.text = [_contacto.newRelationship nombre];
-    //NSLog(@"Show Contact: %@",[_contacto.newRelationship nombre]);
     self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
-    
     
     if([_contacto.favorito  isEqual: @0]){
         self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
@@ -72,12 +56,13 @@
         _contacto.favorito = @0;
         self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
     }
+    [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
 }
 
 - (void)viewDidLoad
 {
-    [self fetchContact];
     [super viewDidLoad];
+    [self fetchContact];
 }
 
 
@@ -87,13 +72,12 @@
     self.nombre_L.text = fullname;
     self.movil_L.text = _contacto.telefono;
     self.email_L.text = _contacto.email;
-    self.grupo_L.text = [_contacto.newRelationship nombre];
+    //self.grupo_L.text = [_contacto.newRelationship nombre];
     self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     [self.view setNeedsDisplay];
 }
 
 - (IBAction)unwindFromEditToShowContact:(UIStoryboardSegue *)segue{
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,12 +88,14 @@
 
 - (void) getContact:(Contact *)contacto{
     _contacto = contacto;
+    
+    
 }
 
 
-/**
- Prepara para la transición de la info del contacto a su edición
- */
+///**
+// Prepara para la transición de la info del contacto a su edición
+// */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].

@@ -182,7 +182,6 @@
 				BE21D54018898C02001C9328 /* Contact.m */,
 				BE21D53C18898C02001C9328 /* IGEGroup.h */,
 				BE21D53D18898C02001C9328 /* IGEGroup.m */,
-				BE21D53618898C01001C9328 /* IGEContactToDelete.h */,
 				BE21D53718898C01001C9328 /* IGEContactToDelete.m */,
 			);
 			name = Classes;

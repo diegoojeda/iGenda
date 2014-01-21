@@ -22,6 +22,8 @@
 
 @implementation IGEAddContactViewController
 
+#define kOFFSET_FOR_KEYBOARD 80.0
+
 @synthesize appDelegate;
 @synthesize greetingPickerSelGroup;
 @synthesize contacto;
@@ -75,9 +77,8 @@
         NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.foto.image)];
         self.contacto.imagen = imageData;
         
-        
-        
         [[groups objectAtIndex:[self.row integerValue]] addNewRelationshipObject:self.contacto];
+        self.contacto.newRelationship.nombre = [groups objectAtIndex:[self.row integerValue]];
         
         /** Guarda el contexto **/
         [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
@@ -94,9 +95,7 @@
     return self;
 }
 
-
-- (void)viewDidLoad
-{
+- (void)loadInitialData {
     NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
     NSError *error = nil;
     
@@ -106,13 +105,30 @@
     NSArray *array = [context executeFetchRequest:request error:&error];
     groups = [[NSMutableArray alloc] init];//Habria que cargar aqui todos los grupos
     
+    /** Añade grupos de core data **/
     for(int i=0; i<[array count]; i++){
         IGEGroup *g = [array objectAtIndex:i];
         [groups addObject:g];
     }
     
+    /** Si no hay grupos creados, añade uno de la base de datos por defecto <Sin Grupo> **/
+    if([groups count] == 0){
+        IGEGroup *g = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:context];
+        g.nombre = @"<Sin Grupo>";
+        [groups addObject:g];
+    }
+    
+    /** Guarda el contexto **/
+    [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
+}
+
+- (void)viewDidLoad
+{
+    groups = [[NSMutableArray alloc]initWithArray:groups];
+    groups = [[NSMutableArray alloc]initWithObjects:@"Familia",@"Amigos",@"Trabajo",nil];//Habria que cargar aqui todos los grupos
     self.doneButton.enabled = NO;//Se inhabilita hasta que el usuario introduzca nombre y teléfono
     [super viewDidLoad];
+    [self loadInitialData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -173,9 +189,7 @@
 
 -(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    //NSLog(@"Se ha cambiado %@", [groups objectAtIndex:row]);
     self.row = [[NSNumber alloc] initWithInteger:row];
-    //self.grupo.text = [[groups objectAtIndex:row] nombre] ;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView
@@ -195,15 +209,27 @@ numberOfRowsInComponent:(NSInteger)component
 /******************** VALIDACIÓN *****************/
 - (IBAction)changeNombre:(id)sender{
 
-    if(self.nombre.text.length > 0 && self.telefono.text.length > 0)
-        self.doneButton.enabled = YES;
+    if(self.nombre.text.length > 0 && self.telefono.text.length > 0){
+        if([groups count] == 0){
+            self.doneButton.enabled = NO;
+        }
+        else{
+            self.doneButton.enabled = YES;
+        }
+    }
     else
         self.doneButton.enabled = NO;
 }
 
 - (IBAction)changeTelefono:(id)sender{
-    if(self.nombre.text.length > 0 && self.telefono.text.length > 0)
-        self.doneButton.enabled = YES;
+    if(self.nombre.text.length > 0 && self.telefono.text.length > 0){
+        if([groups count] == 0){
+            self.doneButton.enabled = NO;
+        }
+        else{
+            self.doneButton.enabled = YES;
+        }
+    }
     else
         self.doneButton.enabled = NO;
 }
@@ -219,6 +245,86 @@ numberOfRowsInComponent:(NSInteger)component
     return YES;
 }
 
+
+//-----------------------
+/*
+
+-(void)keyboardWillShow {
+    // Animate the current view out of the way
+    if (self.view.frame.origin.y >= 0)
+    {
+        [self setViewMovedUp:YES];
+    }
+    else if (self.view.frame.origin.y < 0)
+    {
+        [self setViewMovedUp:NO];
+    }
+}
+
+-(void)keyboardWillHide {
+    if (self.view.frame.origin.y >= 0)
+    {
+        [self setViewMovedUp:YES];
+    }
+    else if (self.view.frame.origin.y < 0)
+    {
+        [self setViewMovedUp:NO];
+    }
+}
+
+//method to move the view up/down whenever the keyboard is shown/dismissed
+-(void)setViewMovedUp:(BOOL)movedUp
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3]; // if you want to slide up the view
+    
+    CGRect rect = self.view.frame;
+    if (movedUp)
+    {
+        // 1. move the view's origin up so that the text field that will be hidden come above the keyboard
+        // 2. increase the size of the view so that the area behind the keyboard is covered up.
+        rect.origin.y -= kOFFSET_FOR_KEYBOARD;
+        rect.size.height += kOFFSET_FOR_KEYBOARD;
+    }
+    else
+    {
+        // revert back to the normal state.
+        rect.origin.y += kOFFSET_FOR_KEYBOARD;
+        rect.size.height -= kOFFSET_FOR_KEYBOARD;
+    }
+    self.view.frame = rect;
+    
+    [UIView commitAnimations];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    // unregister for keyboard notifications while not visible.
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+}
+
+*/
 
 @end
 
