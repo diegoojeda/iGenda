@@ -15,5 +15,6 @@
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) IGEAppDelegate *appDelegate;
+@property NSMutableArray *contacts;
 
 @end
