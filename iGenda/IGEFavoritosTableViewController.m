@@ -7,9 +7,7 @@
 //
 
 #import "IGEFavoritosTableViewController.h"
-#import "Contact.h"
-#import "IGEAddContactViewController.h"
-#import "IGEAppDelegate.h"
+
 
 @interface IGEFavoritosTableViewController ()
 
@@ -41,18 +39,33 @@
     {
         contact = [auxContacts objectAtIndex:i];
         
-        if ([contact favorito] == 0) //Si es favorito (0 false, !=0 true)
+        NSLog(@"Contacto: %i / Favorito a: %@", i, [contact favorito]);
+        
+        if ([[contact favorito] isEqualToNumber:[NSNumber numberWithInt:1]]) //Favorito (1=true, 0=false)
         {
             [self.favourites addObject:contact];
         }
-    
+        
     }
-  
     
-    //self.favourites = [(NSArray*)array mutableCopy];
-
     [self.tableView reloadData];
     
+    
+}
+
+- (IBAction)unwindFromFavouriteContactDetailToContactList:(UIStoryboardSegue *)segue{
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"FavouriteContactDescription"]) {
+        IGEShowContactViewController *controller = (IGEShowContactViewController *)[[segue destinationViewController] topViewController];
+        NSInteger selectedIndex = [[self.tableView indexPathForSelectedRow] row];
+        [controller getContact:[self.favourites objectAtIndex:selectedIndex]];
+    }
     
 }
 
@@ -69,16 +82,21 @@
 {
     [super viewDidLoad];
     
-    self.favourites = [[NSMutableArray alloc] init];
-    
-    
-    [self loadFavourites];
-
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    self.favourites = [[NSMutableArray alloc] init];
+    
+    [self loadFavourites];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -111,6 +129,8 @@
     
     return cell;
 }
+
+
 
 /*
 // Override to support conditional editing of the table view.

@@ -7,6 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Contact.h"
+#import "IGEAddContactViewController.h"
+#import "IGEAppDelegate.h"
+#import "IGEShowContactViewController.h"
+#import "IGEContactToDelete.h"
 
 @interface IGEFavoritosTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
