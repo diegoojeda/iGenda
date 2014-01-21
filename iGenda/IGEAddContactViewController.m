@@ -57,7 +57,7 @@
         self.contacto.telefono = self.telefono.text;
         self.contacto.email = self.email.text;
         self.contacto.favorito = @0;
-        self.contacto.estado = 0; //Recien creado
+        self.contacto.estado = @0; //Recien creado
         NSLog(@"Se ha añadido un contacto con grupo---> %@", [[groups objectAtIndex:[self.row integerValue]] nombre]);
         
        
