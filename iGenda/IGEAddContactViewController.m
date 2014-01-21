@@ -238,7 +238,7 @@ numberOfRowsInComponent:(NSInteger)component
 
 
 //-----------------------
-
+/*
 
 -(void)keyboardWillShow {
     // Animate the current view out of the way
@@ -315,7 +315,7 @@ numberOfRowsInComponent:(NSInteger)component
                                                   object:nil];
 }
 
-
+*/
 
 @end
 

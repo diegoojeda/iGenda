@@ -32,7 +32,9 @@
     self.nombre_L.text = fullname;
     self.movil_L.text = _contacto.telefono;
     self.email_L.text = _contacto.email;
-    //self.grupo_L.text = [_contacto.newRelationship nombre];
+    //NSLog(@"Grupo del contacto: %@",_contacto.newRelationship.nombre);
+    //self.grupo_L.text = _contacto.newRelationship.nombre;
+    
     
     self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     
@@ -63,8 +65,8 @@
 
 - (void)viewDidLoad
 {
-    [self fetchContact];
     [super viewDidLoad];
+    [self fetchContact];
 }
 
 
@@ -90,12 +92,14 @@
 
 - (void) getContact:(Contact *)contacto{
     _contacto = contacto;
+    
+    
 }
 
 
-/**
- Prepara para la transición de la info del contacto a su edición
- */
+///**
+// Prepara para la transición de la info del contacto a su edición
+// */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].
