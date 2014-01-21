@@ -30,6 +30,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *apellido1;
 @property (weak, nonatomic) IBOutlet UITextField *nombre;
 
+@property NSNumber *row;;
+
+
 - (void) getContactEdit:(Contact *)contacto;
 
 @end

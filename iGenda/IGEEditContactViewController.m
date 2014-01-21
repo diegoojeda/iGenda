@@ -31,16 +31,16 @@
 @implementation IGEEditContactViewController
 
 @synthesize greetingPickerSelGroup;
-
+@synthesize contacto = _contacto;
 
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if (sender != self.saveButton) return;
     
+    NSLog(@"Nombre text %@",_contacto.nombre);
     if (self.nombre.text.length > 0)//Validación y almacenado
     {
-        
         
         _contacto.nombre = self.nombre.text;
         _contacto.apellido1 = self.apellido1.text;
@@ -86,6 +86,8 @@
 
 - (void)viewDidLoad
 {
+    [greetingPickerSelGroup selectedRowInComponent:3];
+    
     countryNames = [[NSMutableArray alloc]initWithObjects:@"Grupo1",@"Grupo2",@"Grupo3", @"Grupo4",@"Grupo5",@"Grupo6",nil];//Habria que cargar aqui todos los grupos
     [super viewDidLoad];
     [self fetchContactEdit];
@@ -172,7 +174,7 @@
 
 -(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.grupo = [countryNames objectAtIndex:row];
+    self.row = [[NSNumber alloc] initWithInteger:row];
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView
