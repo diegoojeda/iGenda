@@ -40,7 +40,6 @@
     
     self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     
-    
     if([_contacto.favorito  isEqual: @0]){
         self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
     }
@@ -63,6 +62,7 @@
         _contacto.favorito = @0;
         self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
     }
+    [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
 }
 
 - (void)viewDidLoad

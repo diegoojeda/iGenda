@@ -66,6 +66,7 @@
         self.contacto.imagen = imageData;
         
         [[groups objectAtIndex:[self.row integerValue]] addNewRelationshipObject:self.contacto];
+        self.contacto.newRelationship.nombre = [groups objectAtIndex:[self.row integerValue]];
         
         /** Guarda el contexto **/
         [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
