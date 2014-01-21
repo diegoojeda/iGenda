@@ -64,6 +64,8 @@
         self.contacto.estado = 0; //Recien creado
         //self.greetingPickerSelGroup.
         
+        NSLog(@"%@ \n", self.nombre.text);
+        NSLog(@"%@ \n", self.telefono.text);
         NSLog(@"%@ \n", self.grupo.text);
         
         //Conversión imagen UIImage a NSData, formato de la imagen del contacto
@@ -88,7 +90,8 @@
 
 - (void)viewDidLoad
 {
-    groups = [[NSMutableArray alloc]initWithObjects:@"Grupo1",@"Grupo2",@"Grupo3", @"Grupo4",@"Grupo5",@"Grupo6",nil];//Habria que cargar aqui todos los grupos
+    groups = [[NSMutableArray alloc]initWithArray:groups];
+    groups = [[NSMutableArray alloc]initWithObjects:@"Familia",@"Amigos",@"Trabajo",nil];//Habria que cargar aqui todos los grupos
     self.doneButton.enabled = NO;//Se inhabilita hasta que el usuario introduzca nombre y teléfono
     [super viewDidLoad];
 }

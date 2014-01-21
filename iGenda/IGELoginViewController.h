@@ -18,5 +18,6 @@
 - (IBAction)loginClick:(id)sender;
 - (IBAction)backgroundClick:(id)sender;
 - (IBAction)registerClick: (id) sender;
-
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+- (void) startActivityLogin;
 @end
