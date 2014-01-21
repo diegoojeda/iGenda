@@ -17,6 +17,24 @@
 @synthesize nombreGrupo = _nombreGrupo;
 @synthesize contactosGrupo = _contactosGrupo;
 
+- (void)loadInitialData {
+    self.contactosGrupo = [[NSMutableArray alloc] init];
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
+    NSError *error = nil;
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEContact" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    NSPredicate *predicate =
+    [NSPredicate predicateWithFormat:@"newRelationship.nombre == %@", self.nombreGrupo];
+    [request setPredicate:predicate];
+
+    
+    NSArray *array = [context executeFetchRequest:request error:&error];
+    
+    self.contactosGrupo = [(NSArray*)array mutableCopy];
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -26,15 +44,13 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.title = _nombreGrupo;
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self loadInitialData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,7 +80,6 @@
     IGEGroup* item = [_contactosGrupo objectAtIndex:indexPath.row];
     cell.textLabel.text = item.nombre;
     return cell;
-
 }
 
 /*
@@ -117,10 +132,7 @@
 }
 
  */
--(void) getInfo: (NSArray* ) grupo andName: (NSString *) name{
-    _contactosGrupo = grupo;
-    _nombreGrupo = name;
-}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -135,5 +147,9 @@
 - (IBAction)unwindFromContactDetailToGroupList:(UIStoryboardSegue *)segue{
 }
 
+-(void) getGroup: (NSString *) grupo{
+    NSLog(@"Grupo %@",grupo);
+    _nombreGrupo = grupo;
+}
 
 @end

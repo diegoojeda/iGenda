@@ -7,6 +7,7 @@
 //
 
 #import "IGEShowContactViewController.h"
+#import "IGEEditContactViewController.h"
 
 @interface IGEShowContactViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *atrasButton;
@@ -14,17 +15,17 @@
 
 @implementation IGEShowContactViewController
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    /** Contexto de core data **/
-    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    NSError *error = nil;
-
-    if (![context save:&error]) {
-        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
-        return;
-    }
-}
+//- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    /** Contexto de core data **/
+//    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+//    NSError *error = nil;
+//
+//    if (![context save:&error]) {
+//        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+//        return;
+//    }
+//}
 
 @synthesize contacto = _contacto;
 
@@ -40,18 +41,20 @@
 {
     static NSString *formatString = @"%@%@%@%@%@";
     NSString *fullname = [NSString stringWithFormat:formatString,_contacto.nombre,@" ",_contacto.apellido1,@" ",_contacto.apellido2];
-    self.greetingNombre.text = fullname;
+    self.nombre_L.text = fullname;
     
-    self.greetingMovil.text = _contacto.telefono;
-    self.greetingEmail.text = _contacto.email;
-    self.greetingImage.image=[UIImage imageWithData:_contacto.imagen];
+    self.movil_L.text = _contacto.telefono;
+    self.email_L.text = _contacto.email;
+    //self.grupo_L.text = [_contacto.newRelationship nombre];
+    //NSLog(@"Show Contact: %@",[_contacto.newRelationship nombre]);
+    self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     
     
     if([_contacto.favorito  isEqual: @0]){
-        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
+        self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
     }
     else{
-        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_sel.png"]];
+        self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_sel.png"]];
     }
 }
 
@@ -63,15 +66,13 @@
 - (IBAction)changeFavorito:(id)sender{//NO ESTA BIEN
     if([_contacto.favorito  isEqual: @0]){
         _contacto.favorito = @1;
-        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_sel.png"]];
+        self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_sel.png"]];
     }
     else{
         _contacto.favorito = @0;
-        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
+        self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
     }
 }
-
-
 
 - (void)viewDidLoad
 {
@@ -80,11 +81,20 @@
 }
 
 
+-(void) viewWillAppear:(BOOL)animated{
+    static NSString *formatString = @"%@%@%@%@%@";
+    NSString *fullname = [NSString stringWithFormat:formatString,_contacto.nombre,@" ",_contacto.apellido1,@" ",_contacto.apellido2];
+    self.nombre_L.text = fullname;
+    self.movil_L.text = _contacto.telefono;
+    self.email_L.text = _contacto.email;
+    self.grupo_L.text = [_contacto.newRelationship nombre];
+    self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
+    [self.view setNeedsDisplay];
+}
+
 - (IBAction)unwindFromEditToShowContact:(UIStoryboardSegue *)segue{
     
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -95,5 +105,23 @@
 - (void) getContact:(Contact *)contacto{
     _contacto = contacto;
 }
+
+
+/**
+ Prepara para la transición de la info del contacto a su edición
+ */
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"ContactEdit"]) {
+        IGEEditContactViewController *controller = (IGEEditContactViewController *)[[segue destinationViewController] topViewController];
+        [controller getContactEdit:_contacto];
+    }
+    
+}
+
+
+
 
 @end

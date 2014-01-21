@@ -12,14 +12,6 @@
 
 
 @interface IGEAddContactViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *telefono;
-@property (weak, nonatomic) IBOutlet UITextField *email;
-@property (weak, nonatomic) IBOutlet UITextField *grupo;
-@property (weak, nonatomic) IBOutlet UIImageView *foto;
-@property (weak, nonatomic) IBOutlet UITextField *apellido2;
-@property (weak, nonatomic) IBOutlet UITextField *apellido1;
-@property (weak, nonatomic) IBOutlet UITextField *nombre;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 //PARA IMAGEN CONTATO. Controlador para buscar imagen en galería
 @property (nonatomic) UIImagePickerController *imagePickerController;
@@ -32,6 +24,8 @@
 
 @synthesize appDelegate;
 @synthesize greetingPickerSelGroup;
+@synthesize contacto;
+@synthesize grupo;
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -42,7 +36,7 @@
     if (self.nombre.text.length > 0)//Validación y almacenado
     {
         NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-        
+
         self.contacto = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:context];
         
         //Esto solo almacena un campo, nombre, lo demas es lo de la persistencia
@@ -62,17 +56,20 @@
         self.contacto.email = self.email.text;
         self.contacto.favorito = @0;
         self.contacto.estado = 0; //Recien creado
-        //self.greetingPickerSelGroup.
+        NSLog(@"Se ha añadido un contacto con grupo---> %@", [[groups objectAtIndex:[self.row integerValue]] nombre]);
         
-        NSLog(@"%@ \n", self.grupo.text);
-        
+       
         //Conversión imagen UIImage a NSData, formato de la imagen del contacto
         NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.foto.image)];
         self.contacto.imagen = imageData;
         
-
+        
+        
+        [[groups objectAtIndex:[self.row integerValue]] addNewRelationshipObject:self.contacto];
+        
         /** Guarda el contexto **/
         [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
+        
     }
 }
 
@@ -95,13 +92,16 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
     
-    
     NSArray *array = [context executeFetchRequest:request error:&error];
-    
+
+
     
     groups = [[NSMutableArray alloc] init];//Habria que cargar aqui todos los grupos
-    [groups addObjectsFromArray:array];
-
+    
+    for(int i=0; i<[array count]; i++){
+        IGEGroup *g = [array objectAtIndex:i];
+        [groups addObject:g];
+    }
     
     self.doneButton.enabled = NO;//Se inhabilita hasta que el usuario introduzca nombre y teléfono
     [super viewDidLoad];
@@ -112,10 +112,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
-
 
 
 
@@ -169,7 +165,9 @@
 
 -(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.grupo.text = [groups objectAtIndex:row];
+    //NSLog(@"Se ha cambiado %@", [groups objectAtIndex:row]);
+    self.row = [[NSNumber alloc] initWithInteger:row];
+    //self.grupo.text = [[groups objectAtIndex:row] nombre] ;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView
@@ -182,7 +180,7 @@ numberOfRowsInComponent:(NSInteger)component
              titleForRow:(NSInteger)row
             forComponent:(NSInteger)component
 {
-    return [groups objectAtIndex:row];
+    return [[groups objectAtIndex:row] nombre];
 } 
 
 
