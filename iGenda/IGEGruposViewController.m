@@ -176,28 +176,25 @@
     NSError *error = nil;
     
     
-//    /** Añade el contacto a la lista a borrar **/
-//    IGEContactToDelete *contacto;
-//    contacto = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContactToDelete" inManagedObjectContext:context];
-//    contacto.id = [[self.contacts objectAtIndex:indexPath.row] id];
-//    if (![context save:&error]) {
-//        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
-//        return;
-//    }
-    
-    /** Elimina contacto de core data **/
-    [context deleteObject:[self.grupos objectAtIndex:indexPath.row]]; //
-    
-    /** Elimina contacto de memoria **/
-    [self.grupos removeObjectAtIndex:indexPath.row];
-    
-    
-    if (![context save:&error]) {
-        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
-        return;
+    if([[[self.grupos objectAtIndex:indexPath.row] nombre]  isEqual: @"<Sin Grupo>"]){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Aviso" message:@"No puede eliminar este grupo" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alertView show];
     }
-    
-    [tableView reloadData]; //Recarga la tabla
+    else{
+        /** Elimina contacto de core data **/
+        [context deleteObject:[self.grupos objectAtIndex:indexPath.row]]; //
+        
+        /** Elimina contacto de memoria **/
+        [self.grupos removeObjectAtIndex:indexPath.row];
+        
+        
+        if (![context save:&error]) {
+            NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        
+        [tableView reloadData]; //Recarga la tabla
+    }
 }
 
 - (IBAction)unwindToAddGroup:(UIStoryboardSegue *)segue {
@@ -210,3 +207,8 @@
 }
 
 @end
+
+
+
+
+
