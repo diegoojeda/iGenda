@@ -39,7 +39,9 @@
     {
         contact = [auxContacts objectAtIndex:i];
         
-        if ([contact favorito] != 0) //Si es favorito (0 false, !=0 true)
+        NSLog(@"Contacto: %i / Favorito a: %@", i, [contact favorito]);
+        
+        if ([[contact favorito] isEqualToNumber:[NSNumber numberWithInt:1]]) //Favorito (1=true, 0=false)
         {
             [self.favourites addObject:contact];
         }

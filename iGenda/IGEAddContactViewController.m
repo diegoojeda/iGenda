@@ -58,11 +58,7 @@
         self.contacto.email = self.email.text;
         self.contacto.favorito = @0;
         self.contacto.estado = 0; //Recien creado
-        //self.greetingPickerSelGroup.
-        
-        NSLog(@"%@ \n", self.nombre.text);
-        NSLog(@"%@ \n", self.telefono.text);
-        NSLog(@"%@ \n", self.grupo.text);
+        NSLog(@"Se ha añadido un contacto con grupo---> %@", [[groups objectAtIndex:[self.row integerValue]] nombre]);
         
        
         //Conversión imagen UIImage a NSData, formato de la imagen del contacto
@@ -91,6 +87,25 @@
     return self;
 }
 
+- (void)loadInitialData {
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
+    NSError *error = nil;
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEGroup" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    NSArray *array = [context executeFetchRequest:request error:&error];
+    
+    
+    
+    groups = [[NSMutableArray alloc] init];//Habria que cargar aqui todos los grupos
+    
+    for(int i=0; i<[array count]; i++){
+        IGEGroup *g = [array objectAtIndex:i];
+        [groups addObject:g];
+    }
+}
 
 - (void)viewDidLoad
 {
