@@ -835,6 +835,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqS-aT-glR">
                                 <rect key="frame" x="131" y="195" width="66" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Refrescar">
+                                    <accessibilityTraits key="traits" none="YES" button="YES"/>
+                                </accessibility>
                                 <state key="normal" title="Refrescar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -990,7 +993,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="deleteLoginData:" destination="5uD-M5-HRq" eventType="touchUpInside" id="qF6-kG-XLg"/>
-                                                    <segue destination="8z8-06-aTX" kind="modal" id="Cb7-gv-2bB"/>
+                                                    <segue destination="8z8-06-aTX" kind="push" id="Cb7-gv-2bB"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1505,7 +1508,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Cb7-gv-2bB"/>
+        <segue reference="sC8-VL-ZhP"/>
         <segue reference="61t-nf-Mh7"/>
         <segue reference="ooX-Fo-0zP"/>
     </inferredMetricsTieBreakers>

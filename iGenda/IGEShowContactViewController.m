@@ -34,7 +34,6 @@
     self.email_L.text = _contacto.email;
     self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     
-    
     if([_contacto.favorito  isEqual: @0]){
         self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
     }
