@@ -14,17 +14,14 @@
 @interface IGEShowContactViewController : UIViewController
 
 /** Label **/
-@property (nonatomic, strong) IBOutlet UILabel *greetingNombre;
-@property (nonatomic, strong) IBOutlet UILabel *greetingMovil;
-@property (nonatomic, strong) IBOutlet UILabel *greetingEmail;
-@property (nonatomic, strong) IBOutlet UILabel *greetingGrupo;
-@property (nonatomic, strong) IBOutlet UIButton *greetingStar;
+@property (nonatomic, strong) IBOutlet UILabel *nombre_L;
+@property (nonatomic, strong) IBOutlet UILabel *movil_L;
+@property (nonatomic, strong) IBOutlet UILabel *email_L;
+@property (nonatomic, strong) IBOutlet UILabel *grupo_L;
+@property (nonatomic, strong) IBOutlet UIButton *star_L;
 
 
-@property (nonatomic, strong) IBOutlet UIImageView *greetingImage;
-
-
-
+@property (nonatomic, strong) IBOutlet UIImageView *image_IV;
 
 
 @property Contact *contacto; //Contacto seleccionado
@@ -34,5 +31,4 @@
 
 
 - (void) getContact:(Contact *)contacto; //GetContact desde la tabla
-
 @end

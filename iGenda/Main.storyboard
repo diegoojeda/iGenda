@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -66,7 +66,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YPM-Q9-kxE">
-                                        <rect key="frame" x="-3" y="-3" width="312" height="644"/>
+                                        <rect key="frame" x="0.0" y="-35" width="312" height="644"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="contacto.png" translatesAutoresizingMaskIntoConstraints="NO" id="k6e-ci-EQJ">
@@ -127,12 +127,6 @@
                                                     <outlet property="delegate" destination="gPx-xz-dyS" id="IC4-76-Ixi"/>
                                                 </connections>
                                             </pickerView>
-                                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Grupo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tuR-Zt-HWh">
-                                                <rect key="frame" x="20" y="365" width="280" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
@@ -163,8 +157,7 @@
                         <outlet property="doneButton" destination="ePo-dj-8vm" id="MvI-C7-o9L"/>
                         <outlet property="email" destination="wdW-Ml-Drf" id="5uL-TA-GzO"/>
                         <outlet property="foto" destination="k6e-ci-EQJ" id="1tm-df-9S1"/>
-                        <outlet property="greetingPickerSelGroup" destination="Zb5-QC-TXj" id="WsA-36-clU"/>
-                        <outlet property="grupo" destination="tuR-Zt-HWh" id="0gF-su-YWf"/>
+                        <outlet property="greetingPickerSelGroup" destination="Zb5-QC-TXj" id="Ife-MS-1oa"/>
                         <outlet property="nombre" destination="Wd7-eI-JCk" id="XwA-KP-fGs"/>
                         <outlet property="telefono" destination="DJd-Be-1os" id="fWe-JB-0AL"/>
                     </connections>
@@ -177,7 +170,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="749" y="-294"/>
+            <point key="canvasLocation" x="754" y="-300"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rHG-vV-yr5">
@@ -510,7 +503,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvm-4K-3aZ">
-                                <rect key="frame" x="28" y="432" width="42" height="21"/>
+                                <rect key="frame" x="28" y="422" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -544,12 +537,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="atrasButton" destination="a4O-Rg-F5O" id="SpD-hg-xmD"/>
-                        <outlet property="greetingEmail" destination="ySD-XL-CL1" id="lzW-02-rg4"/>
-                        <outlet property="greetingGrupo" destination="zvm-4K-3aZ" id="bWN-fQ-nAz"/>
-                        <outlet property="greetingImage" destination="OTz-2n-UgL" id="kGs-F1-2Nc"/>
-                        <outlet property="greetingMovil" destination="7TV-mp-zaY" id="xCE-Fy-Lvc"/>
-                        <outlet property="greetingNombre" destination="loB-br-IGx" id="kcO-8V-CY7"/>
-                        <outlet property="greetingStar" destination="Xv6-AP-KMk" id="aG5-7a-WCk"/>
+                        <outlet property="email_L" destination="ySD-XL-CL1" id="aEL-Xt-fGK"/>
+                        <outlet property="grupo_L" destination="zvm-4K-3aZ" id="1aF-3I-7O5"/>
+                        <outlet property="image_IV" destination="OTz-2n-UgL" id="oim-CK-n2V"/>
+                        <outlet property="movil_L" destination="7TV-mp-zaY" id="tlZ-af-Aue"/>
+                        <outlet property="nombre_L" destination="loB-br-IGx" id="VS5-o2-Kdg"/>
+                        <outlet property="star_L" destination="Xv6-AP-KMk" id="pdp-1V-MoG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8h-Wq-YMS" userLabel="First Responder" sceneMemberID="firstResponder"/>

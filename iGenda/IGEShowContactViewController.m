@@ -41,19 +41,20 @@
 {
     static NSString *formatString = @"%@%@%@%@%@";
     NSString *fullname = [NSString stringWithFormat:formatString,_contacto.nombre,@" ",_contacto.apellido1,@" ",_contacto.apellido2];
-    self.greetingNombre.text = fullname;
+    self.nombre_L.text = fullname;
     
-    self.greetingMovil.text = _contacto.telefono;
-    self.greetingEmail.text = _contacto.email;
-    self.greetingGrupo.text = [_contacto.newRelationship nombre];
-    self.greetingImage.image=[UIImage imageWithData:_contacto.imagen];
+    self.movil_L.text = _contacto.telefono;
+    self.email_L.text = _contacto.email;
+    self.grupo_L.text = [_contacto.newRelationship nombre];
+    NSLog(@"Show Contact: %@",[_contacto.newRelationship nombre]);
+    self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     
     
     if([_contacto.favorito  isEqual: @0]){
-        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
+        self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
     }
     else{
-        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_sel.png"]];
+        self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_sel.png"]];
     }
 }
 
@@ -65,11 +66,11 @@
 - (IBAction)changeFavorito:(id)sender{//NO ESTA BIEN
     if([_contacto.favorito  isEqual: @0]){
         _contacto.favorito = @1;
-        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_sel.png"]];
+        self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_sel.png"]];
     }
     else{
         _contacto.favorito = @0;
-        self.greetingStar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
+        self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
     }
 }
 
@@ -83,10 +84,11 @@
 -(void) viewWillAppear:(BOOL)animated{
     static NSString *formatString = @"%@%@%@%@%@";
     NSString *fullname = [NSString stringWithFormat:formatString,_contacto.nombre,@" ",_contacto.apellido1,@" ",_contacto.apellido2];
-    self.greetingNombre.text = fullname;
-    self.greetingMovil.text = _contacto.telefono;
-    self.greetingEmail.text = _contacto.email;
-    self.greetingImage.image=[UIImage imageWithData:_contacto.imagen];
+    self.nombre_L.text = fullname;
+    self.movil_L.text = _contacto.telefono;
+    self.email_L.text = _contacto.email;
+    self.grupo_L.text = [_contacto.newRelationship nombre];
+    self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     [self.view setNeedsDisplay];
 }
 
