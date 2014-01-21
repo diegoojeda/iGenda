@@ -11,8 +11,8 @@
 
 @implementation IGESetting
 
+@dynamic numSeq;
 @dynamic usuario;
 @dynamic versionAgenda;
-@dynamic numSeq;
 
 @end

@@ -56,7 +56,12 @@
 
 
 - (IBAction) registerClick:(id)sender {
+    
+    [self performSelectorInBackground:@selector(startActivity) withObject:nil];
+    
+    
     if([[self.textUsername text] isEqualToString:@""]) {
+        [self.activityIndicator setHidden:YES];
         [self alertStatus:@"Introduzca el nombre que desea y luego pulse registrar": @"Registro fallido" :0];
     }
     else{
@@ -93,7 +98,10 @@
 - (IBAction)loginClick:(id)sender
 {
     NSInteger success = 0;
+    
+    [self performSelectorInBackground:@selector(startActivity) withObject:nil];
     if([[self.textUsername text] isEqualToString:@""]) {
+        [self.activityIndicator setHidden:YES];
         [self alertStatus:@"Introduzca su nombre de usuario" :@"Login fallido" :0];
     }
     else {

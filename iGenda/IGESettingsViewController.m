@@ -41,6 +41,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    alertView.tag = tag;
+    [alertView show];
+}
+
 - (IBAction)deleteLoginData:(id)sender {
     NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
     NSError *error = nil;
@@ -93,10 +100,10 @@
     NSDictionary * parsedData = [NSJSONSerialization JSONObjectWithData:response1 options:0 error:&error];
     versionServidor = [parsedData objectForKey:@"version"];
     NSLog(@"Procedo a actualizar el servidor");
-    //[self actualizarServidor];
+    [self actualizarServidor];
     //Si versionDispositivo > versionServidor procedemos con la sincronización. Almacenamos los datos del dispositivo en el servidor
     if (_versDispositivo > versionServidor){
-        [self actualizarServidor];
+        //[self actualizarServidor];
     }
     
     //Si versionDispositivo == versionServidor informamos de que no es necesario realizar ninguna acción
@@ -129,6 +136,7 @@
         }
         else if ([c.estado  isEqual: @1]){
             //Contacto editado, añadimos a arrayEditados
+            NSLog(@"añado contacto a editados");
             [arrayEditados addObject:c];
         }
     }
@@ -145,9 +153,9 @@
         NSLog(@"Detectado al menos un contacto creado");
         [self crearContactosEnServidor:arrayCreados];
     }
-    //if ([arrayEditados count] != 0){
-        //[self editarContactosEnServidor:arrayEditados];
-    //}
+    if ([arrayEditados count] != 0){
+        [self editarContactosEnServidor:arrayEditados];
+    }
     //if ([marcadosBorrar count] != 0){
         //[self eliminarContactosEnServidor:marcadosBorrar];
     //}
@@ -156,7 +164,7 @@
     [self actualizarInformacionPersistente];
     NSLog(@"Información persistente actualizada");
     //También procedemos a actualizar correctamente el número de versión en el servidor
-    
+    //[self alertStatus:@"Contactos actualizados con éxito" :@"Éxito" :0];
     
 }
 
@@ -187,8 +195,8 @@
         [dic setObject:c.id forKey:@"idAgenda"];
         NSLog(@"COMPROBANDO JSON");
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&errorJSON];
-        NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
-        NSLog(@"JSON OUTPUT: %@",JSONString);
+        //NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
+        //NSLog(@"JSON OUTPUT: %@",JSONString);
         NSURL *url = [NSURL URLWithString:@"http://localhost:8080/igenda-rs/webresources/igenda.contacto"];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
         [request setHTTPMethod:@"POST"];
@@ -210,7 +218,56 @@
 }
 
 - (void) editarContactosEnServidor: (NSMutableArray *) contactos{
+    NSMutableDictionary *dic, *dicLogin, *dicGrupo;
+    NSError *errorJSON = nil;
+    for (Contact *c in contactos){
+        NSString *strGrupo = [[NSString alloc] initWithFormat:@"%@+%@", c.newRelationship.nombre, _nomUsuario];
+        NSString *strID = [[NSString alloc] initWithFormat:@"%@+%@", c.id, _nomUsuario];
+        //No se puede hacer una conversión directa del array a JSON, ya que hay campos que no almacenamos en el servidor (imagen y estado :((( )
+        dic = [[NSMutableDictionary alloc] init];
+        dicLogin = [[NSMutableDictionary alloc] init];
+        dicGrupo = [[NSMutableDictionary alloc]init];
+        [dicLogin setObject:_nomUsuario forKey:@"login"];
+        [dicLogin setObject:@0 forKey:@"version"];
+        [dicGrupo setObject:strGrupo forKey:@"idgrupo"];
+        [dicGrupo setObject:dicLogin forKey:@"login"];
+        [dicGrupo setObject:c.newRelationship.nombre forKey:@"nombregrupo"];
+        [dic setObject:c.apellido1 forKey:@"apellido1"];
+        [dic setObject:c.apellido2 forKey:@"apellido2"];
+        [dic setObject:c.email forKey:@"email"];
+        [dic setObject:c.favorito forKey:@"favorito"];
+        [dic setObject:dicGrupo forKey:@"grupo"];
+        [dic setObject:c.nombre forKey:@"nombre"];
+        [dic setObject:c.telefono forKey:@"telefono"];
+        [dic setObject:dicLogin forKey:@"login"];
+        [dic setObject:strID forKey:@"idbd"];
+        [dic setObject:c.id forKey:@"idAgenda"];
+        NSLog(@"COMPROBANDO JSON");
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&errorJSON];
+        NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
+        NSLog(@"JSON OUTPUT: %@",JSONString);
+        NSMutableString *urlStr = [[NSMutableString alloc] initWithString:@"http://localhost:8080/igenda-rs/webresources/igenda.contacto/edit/"];
+        [urlStr appendString:strID];
+        NSURL *url = [NSURL URLWithString:urlStr];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:jsonData];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [request setValue:@"application/json; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
+        NSHTTPURLResponse *respuesta;
+        NSLog(@"JSON STRING: %@", JSONString);
+        [NSURLConnection sendSynchronousRequest:request returningResponse:&respuesta error:&errorJSON];
+        NSLog(@"INFORMACION ENVIADA AL SERVIDOR PARA EDITAR. RESPUESTA: %@", respuesta);
+        if ([respuesta statusCode] > 200 && [respuesta statusCode] <300){
+            NSLog(@"Todo correcto");
+        }
+        else{
+            NSLog(@"Error al enviar un contacto al servidor.");
+        }
+    }
     
+
 }
 
 - (void) eliminarContactosEnServidor: (NSArray *) contactos{
@@ -228,7 +285,6 @@
         [c setPrimitiveValue:@2 forKey:@"estado"];
     }
     [(IGEAppDelegate *) [[UIApplication sharedApplication] delegate] saveContext];
-    
 }
 
 /*

@@ -20,7 +20,7 @@
 @property Contact *contacto;
 @property IGEGroup *grupo;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) IGEAppDelegate *appDelegate;
+//@property (strong, nonatomic) IGEAppDelegate *appDelegate;
 
 @property (nonatomic, strong) IBOutlet UIPickerView *greetingPickerSelGroup;
 
@@ -36,7 +36,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *apellido2;
 @property (weak, nonatomic) IBOutlet UITextField *apellido1;
 @property (weak, nonatomic) IBOutlet UITextField *nombre;
-@property NSNumber *row;;
+@property NSNumber *row;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 

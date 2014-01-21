@@ -24,7 +24,7 @@
 
 #define kOFFSET_FOR_KEYBOARD 80.0
 
-@synthesize appDelegate;
+//@synthesize appDelegate;
 @synthesize greetingPickerSelGroup;
 @synthesize contacto;
 @synthesize grupo;
@@ -78,7 +78,7 @@
         self.contacto.imagen = imageData;
         
         [[groups objectAtIndex:[self.row integerValue]] addNewRelationshipObject:self.contacto];
-        self.contacto.newRelationship.nombre = [groups objectAtIndex:[self.row integerValue]];
+        self.contacto.newRelationship = [groups objectAtIndex:[self.row integerValue]];
         
         /** Guarda el contexto **/
         [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
@@ -103,6 +103,9 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
     NSArray *array = [context executeFetchRequest:request error:&error];
+    
+    
+    
     groups = [[NSMutableArray alloc] init];//Habria que cargar aqui todos los grupos
     
     /** Añade grupos de core data **/

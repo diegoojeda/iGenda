@@ -106,7 +106,7 @@
     
     Contact* item = [self.contacts objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", item.nombre,item.apellido1];
-    
+    NSLog(@"ID CONTACTO: %@", item.id);
     return cell;
 }
 

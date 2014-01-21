@@ -12,8 +12,8 @@
 
 @interface IGESetting : NSManagedObject
 
+@property (nonatomic, retain) NSNumber * numSeq;
 @property (nonatomic, retain) NSString * usuario;
 @property (nonatomic, retain) NSNumber * versionAgenda;
-@property (nonatomic, retain) NSNumber * numSeq;
 
 @end

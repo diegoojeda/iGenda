@@ -74,6 +74,7 @@
     self.email_L.text = _contacto.email;
     //self.grupo_L.text = [_contacto.newRelationship nombre];
     self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
+    //NSLog(@"GRUPO: %@", _contacto.newRelationship.nombre);
     [self.view setNeedsDisplay];
 }
 
