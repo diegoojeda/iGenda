@@ -118,6 +118,8 @@
 
 - (void)viewDidLoad
 {
+    groups = [[NSMutableArray alloc]initWithArray:groups];
+    groups = [[NSMutableArray alloc]initWithObjects:@"Familia",@"Amigos",@"Trabajo",nil];//Habria que cargar aqui todos los grupos
     self.doneButton.enabled = NO;//Se inhabilita hasta que el usuario introduzca nombre y teléfono
     [super viewDidLoad];
     [self loadInitialData];
