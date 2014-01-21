@@ -65,12 +65,7 @@
         NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.foto.image)];
         self.contacto.imagen = imageData;
         
-        
-        /** Añade contacto a un grupo *
-        if([groups objectAtIndex:[self.row integerValue]] != NULL)
-            [[groups objectAtIndex:[self.row integerValue]] addNewRelationshipObject:self.contacto];
-        else
-            NSLog(@"NO SE ASIGNA GRUPO");*/
+        [[groups objectAtIndex:[self.row integerValue]] addNewRelationshipObject:self.contacto];
         
         /** Guarda el contexto **/
         [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
@@ -101,11 +96,13 @@
     
     groups = [[NSMutableArray alloc] init];//Habria que cargar aqui todos los grupos
     
+    /** Añade grupos de core data **/
     for(int i=0; i<[array count]; i++){
         IGEGroup *g = [array objectAtIndex:i];
         [groups addObject:g];
     }
     
+    /** Si no hay grupos creados, añade uno de la base de datos por defecto <Sin Grupo> **/
     if([groups count] == 0){
         IGEGroup *g = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:context];
         g.nombre = @"<Sin Grupo>";
