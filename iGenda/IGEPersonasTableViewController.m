@@ -173,6 +173,7 @@
         IGEShowContactViewController *controller = (IGEShowContactViewController *)[[segue destinationViewController] topViewController];
         NSInteger selectedIndex = [[self.tableView indexPathForSelectedRow] row];
         [controller getContact:[self.contacts objectAtIndex:selectedIndex]];
+
     }
     
 }
@@ -196,7 +197,7 @@
     }
     
     /** Elimina contacto de core data **/
-    [context deleteObject:[self.contacts objectAtIndex:indexPath.row]]; //
+    [context deleteObject:[self.contacts objectAtIndex:indexPath.row]];
     
     /** Elimina contacto de memoria **/
     [self.contacts removeObjectAtIndex:indexPath.row];

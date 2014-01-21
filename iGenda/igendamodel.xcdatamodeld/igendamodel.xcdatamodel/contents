@@ -20,13 +20,14 @@
         <relationship name="newRelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IGEContact" inverseName="newRelationship" inverseEntity="IGEContact" syncable="YES"/>
     </entity>
     <entity name="IGESetting" representedClassName="IGESetting" syncable="YES">
+        <attribute name="numSeq" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="usuario" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="versionAgenda" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="IGEContact" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="IGEContactToDelete" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="IGEGroup" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="IGESetting" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="IGEContact" positionX="0" positionY="0" width="128" height="195"/>
+        <element name="IGEContactToDelete" positionX="0" positionY="0" width="128" height="60"/>
+        <element name="IGEGroup" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="IGESetting" positionX="0" positionY="0" width="128" height="88"/>
     </elements>
 </model>
