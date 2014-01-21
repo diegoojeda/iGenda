@@ -46,7 +46,7 @@
         _contacto.apellido2 = self.apellido2.text;
         _contacto.telefono = self.telefono.text;
         _contacto.email = self.email.text;
-        
+        _contacto.estado = @1;
         //falta el grupo
         
         //Conversión imagen UIImage a NSData, formato de la imagen del contacto
