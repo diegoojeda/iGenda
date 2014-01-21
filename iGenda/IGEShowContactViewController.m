@@ -89,6 +89,8 @@
     self.email_L.text = _contacto.email;
     self.grupo_L.text = [_contacto.newRelationship nombre];
     self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
+    self.estado = _contacto.estado;
+    NSLog(@"Estado: %@", self.estado);
     [self.view setNeedsDisplay];
 }
 
