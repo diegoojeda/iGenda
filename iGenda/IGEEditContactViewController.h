@@ -25,7 +25,6 @@
 /** TextField **/
 @property (weak, nonatomic) IBOutlet UITextField *telefono;
 @property (weak, nonatomic) IBOutlet UITextField *email;
-@property (weak, nonatomic) IBOutlet UITextField *grupo;
 @property (weak, nonatomic) IBOutlet UIImageView *foto;
 @property (weak, nonatomic) IBOutlet UITextField *apellido2;
 @property (weak, nonatomic) IBOutlet UITextField *apellido1;

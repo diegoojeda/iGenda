@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -810,7 +810,6 @@
                         <outlet property="apellido2" destination="uOk-9F-8B9" id="YmV-qh-Iig"/>
                         <outlet property="email" destination="Igc-5v-Fcx" id="U0B-u4-7XM"/>
                         <outlet property="foto" destination="fCH-KA-PqB" id="aFi-R8-tcq"/>
-                        <outlet property="grupo" destination="Sz2-1K-d2b" id="GQu-xQ-uh6"/>
                         <outlet property="nombre" destination="c7X-Wn-mAh" id="v68-m2-nPp"/>
                         <outlet property="saveButton" destination="pcm-6N-6Sa" id="jeg-Kj-gcT"/>
                         <outlet property="telefono" destination="taB-zk-xMN" id="um0-1L-Z78"/>
