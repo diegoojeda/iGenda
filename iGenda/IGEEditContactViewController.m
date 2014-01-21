@@ -172,7 +172,7 @@
 
 -(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.grupo.text = [countryNames objectAtIndex:row];
+    self.grupo = [countryNames objectAtIndex:row];
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView
