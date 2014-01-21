@@ -32,10 +32,6 @@
     self.nombre_L.text = fullname;
     self.movil_L.text = _contacto.telefono;
     self.email_L.text = _contacto.email;
-    //NSLog(@"Grupo del contacto: %@",_contacto.newRelationship.nombre);
-    //self.grupo_L.text = _contacto.newRelationship.nombre;
-    
-    
     self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     
     
@@ -61,6 +57,7 @@
         _contacto.favorito = @0;
         self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
     }
+    [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
 }
 
 - (void)viewDidLoad
