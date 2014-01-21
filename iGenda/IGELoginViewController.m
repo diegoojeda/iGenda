@@ -30,6 +30,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self.activityIndicator startAnimating];
+    [self.activityIndicator setHidden:YES];
+    //[self.activityIndicator a]
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,7 +56,12 @@
 
 
 - (IBAction) registerClick:(id)sender {
+    
+    [self performSelectorInBackground:@selector(startActivity) withObject:nil];
+    
+    
     if([[self.textUsername text] isEqualToString:@""] || [[self.textPassword text] isEqualToString:@""] ) {
+        [self.activityIndicator setHidden:YES];
         [self alertStatus:@"Introduzca el nombre que desea y luego pulse registrar": @"Registro fallido" :0];
     }
     else{
@@ -66,17 +74,36 @@
             [self crearUsuarioEnServidor:username];
         }
         else {
+            [self.activityIndicator setHidden:YES];
             NSLog(@"El usuario ya existia");
             [self alertStatus:@"Ese nombre de usuario ya está siendo utilizado": @"Registro fallido" :0];
         }
     }
 }
 
+- (void) startActivity
+{
+    [self.activityIndicator setHidden:NO];
+    [self.activityIndicator startAnimating];
+    //[self.activityIndicator setHidden:YES];
+}
+- (void) stopActivity
+{
+    [self.activityIndicator stopAnimating];
+    [self.activityIndicator setHidden:YES];
+}
 
 - (IBAction)loginClick:(id)sender
 {
     NSInteger success = 0;
+    
+    
+    [self performSelectorInBackground:@selector(startActivity) withObject:nil];
+    
+    
+    
     if([[self.textUsername text] isEqualToString:@""] || [[self.textPassword text] isEqualToString:@""] ) {
+        [self.activityIndicator setHidden:YES];
         [self alertStatus:@"Introduzca su nombre de usuario" :@"Login fallido" :0];
     }
     else {
@@ -95,6 +122,7 @@
             success = 1;
         }
         else {
+            [self.activityIndicator setHidden:YES];
             NSLog(@"FAIL");
             [self alertStatus:@"Nombre de usuario incorrecto" :@"Login fallido" :0];
         }
