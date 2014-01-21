@@ -36,7 +36,6 @@
     if (self.nombre.text.length > 0)//Validación y almacenado
     {
         NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-        
 
         self.contacto = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:context];
         
@@ -57,7 +56,6 @@
         self.contacto.email = self.email.text;
         self.contacto.favorito = @0;
         self.contacto.estado = 0; //Recien creado
-        //self.contacto.newRelationship.nombre = @"pepinos";
         NSLog(@"Se ha añadido un contacto con grupo---> %@", [[groups objectAtIndex:[self.row integerValue]] nombre]);
         
        
@@ -65,16 +63,9 @@
         NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.foto.image)];
         self.contacto.imagen = imageData;
         
-        /** Guarda el contexto **/
-        [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
-
         
         
-        
-        grupo = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:context];
-        grupo.nombre = @"pepinos";
-        [grupo addNewRelationshipObject:self.contacto];
-        
+        [[groups objectAtIndex:[self.row integerValue]] addNewRelationshipObject:self.contacto];
         
         /** Guarda el contexto **/
         [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
