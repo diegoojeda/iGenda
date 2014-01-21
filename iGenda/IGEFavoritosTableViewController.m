@@ -41,7 +41,7 @@
         
         NSLog(@"Contacto: %i / Favorito a: %@", i, [contact favorito]);
         
-        if ([[contact favorito] isEqualToNumber:[NSNumber numberWithInt:1]]) //Favorito (1=true, 0=false)
+        if ([[contact favorito]  isEqual: @1]) //Favorito (1=true, 0=false)
         {
             [self.favourites addObject:contact];
         }
@@ -49,8 +49,6 @@
     }
     
     [self.tableView reloadData];
-    
-    
 }
 
 - (IBAction)unwindFromFavouriteContactDetailToContactList:(UIStoryboardSegue *)segue{
@@ -59,17 +57,32 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"Segue favoritos");
     
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"FavouriteContactDescription"]) {
+        NSLog(@"Segue favoritos");
         IGEShowContactViewController *controller = (IGEShowContactViewController *)[[segue destinationViewController] topViewController];
         NSInteger selectedIndex = [[self.tableView indexPathForSelectedRow] row];
         [controller getContact:[self.favourites objectAtIndex:selectedIndex]];
     }
     
 }
+///**
+// Prepara para la transición de la tabla de contactos a su descripción
+// */
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    NSLog(@"Prepare for segure");
+//    
+//    // Get the new view controller using [segue destinationViewController].
+//    // Pass the selected object to the new view controller.
+//    if ([[segue identifier] isEqualToString:@"ContactDescription"]) {
+//        IGEShowContactViewController *controller = (IGEShowContactViewController *)[[segue destinationViewController] topViewController];
+//        NSInteger selectedIndex = [[self.tableView indexPathForSelectedRow] row];
+//        [controller getContact:[self.contacts objectAtIndex:selectedIndex]];
+//    }
+//}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
