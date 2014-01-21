@@ -176,13 +176,13 @@
 		4E1D53D018883B6D009E3B5A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BE21D53618898C01001C9328 /* IGEContactToDelete.h */,
 				83CD6F1D188C4A14002BA793 /* IGESetting.h */,
 				83CD6F1E188C4A14002BA793 /* IGESetting.m */,
 				BE21D53F18898C02001C9328 /* Contact.h */,
 				BE21D54018898C02001C9328 /* Contact.m */,
 				BE21D53C18898C02001C9328 /* IGEGroup.h */,
 				BE21D53D18898C02001C9328 /* IGEGroup.m */,
-				BE21D53618898C01001C9328 /* IGEContactToDelete.h */,
 				BE21D53718898C01001C9328 /* IGEContactToDelete.m */,
 			);
 			name = Classes;
