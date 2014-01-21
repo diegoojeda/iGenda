@@ -61,7 +61,7 @@
         NSArray *contactos = [context executeFetchRequest:req error:&error];
         for (Contact *c in contactos) {
             if (c.id == _contacto.id){
-                NSLog(@"ID: %@", c.id);
+                //NSLog(@"ID: %@", c.id);
                 [c setValue:_contacto.nombre forKey:@"nombre"];
             }
         }
