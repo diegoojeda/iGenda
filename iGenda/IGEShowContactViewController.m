@@ -45,8 +45,8 @@
     
     self.movil_L.text = _contacto.telefono;
     self.email_L.text = _contacto.email;
-    self.grupo_L.text = [_contacto.newRelationship nombre];
-    NSLog(@"Show Contact: %@",[_contacto.newRelationship nombre]);
+    //self.grupo_L.text = [_contacto.newRelationship nombre];
+    //NSLog(@"Show Contact: %@",[_contacto.newRelationship nombre]);
     self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     
     
