@@ -37,7 +37,6 @@
 
     self.contacts = [(NSArray*)array mutableCopy];
     //}
-   
 }
 
 - (IBAction)unwindFromSettings:(UIStoryboardSegue *)segue{

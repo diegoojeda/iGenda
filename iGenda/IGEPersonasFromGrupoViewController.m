@@ -17,6 +17,24 @@
 @synthesize nombreGrupo = _nombreGrupo;
 @synthesize contactosGrupo = _contactosGrupo;
 
+- (void)loadInitialData {
+    self.contactosGrupo = [[NSMutableArray alloc] init];
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
+    NSError *error = nil;
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEContact" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    NSPredicate *predicate =
+    [NSPredicate predicateWithFormat:@"newRelationship.nombre == %@", self.nombreGrupo];
+    [request setPredicate:predicate];
+
+    
+    NSArray *array = [context executeFetchRequest:request error:&error];
+    
+    self.contactosGrupo = [(NSArray*)array mutableCopy];
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -32,7 +50,7 @@
     [super viewDidLoad];
     
     self.title = _nombreGrupo;
-    
+    [self loadInitialData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,7 +80,6 @@
     IGEGroup* item = [_contactosGrupo objectAtIndex:indexPath.row];
     cell.textLabel.text = item.nombre;
     return cell;
-
 }
 
 /*
