@@ -16,9 +16,7 @@
 @property Contact *contacto;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
--(IBAction)backgroundClick:(id)sender;
-
-@property (nonatomic, strong) IBOutlet UIPickerView *greetingPickerSelGroup;
+- (IBAction)backgroundClick:(id)sender;
 
 /** TextField **/
 @property (weak, nonatomic) IBOutlet UITextField *telefono;

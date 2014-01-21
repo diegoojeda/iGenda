@@ -30,7 +30,7 @@
 
 @implementation IGEEditContactViewController
 
-@synthesize greetingPickerSelGroup;
+//@synthesize greetingPickerSelGroup;
 @synthesize contacto = _contacto;
 
 

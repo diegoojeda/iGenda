@@ -65,7 +65,7 @@
         NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.foto.image)];
         self.contacto.imagen = imageData;
         
-        //[[groups objectAtIndex:[self.row integerValue]] addNewRelationshipObject:self.contacto];
+        [[groups objectAtIndex:[self.row integerValue]] addNewRelationshipObject:self.contacto];
         
         /** Guarda el contexto **/
         [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
@@ -240,6 +240,7 @@ numberOfRowsInComponent:(NSInteger)component
 //-----------------------
 /*
 
+
 //-(void)keyboardWillShow {
 //    // Animate the current view out of the way
 //    if (self.view.frame.origin.y >= 0)
@@ -314,6 +315,35 @@ numberOfRowsInComponent:(NSInteger)component
 //                                                    name:UIKeyboardWillHideNotification
 //                                                  object:nil];
 //}
+
+
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    // unregister for keyboard notifications while not visible.
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+}
 
 */
 
