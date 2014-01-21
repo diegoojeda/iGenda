@@ -64,8 +64,11 @@
         self.contacto.imagen = imageData;
         
         
-        
-        [[groups objectAtIndex:[self.row integerValue]] addNewRelationshipObject:self.contacto];
+        /** Añade contacto a un grupo *
+        if([groups objectAtIndex:[self.row integerValue]] != NULL)
+            [[groups objectAtIndex:[self.row integerValue]] addNewRelationshipObject:self.contacto];
+        else
+            NSLog(@"NO SE ASIGNA GRUPO");*/
         
         /** Guarda el contexto **/
         [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
@@ -82,9 +85,7 @@
     return self;
 }
 
-
-- (void)viewDidLoad
-{
+- (void)loadInitialData {
     NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
     NSError *error = nil;
     
@@ -93,8 +94,8 @@
     [request setEntity:entityDescription];
     
     NSArray *array = [context executeFetchRequest:request error:&error];
-
-
+    
+    
     
     groups = [[NSMutableArray alloc] init];//Habria que cargar aqui todos los grupos
     
@@ -102,9 +103,17 @@
         IGEGroup *g = [array objectAtIndex:i];
         [groups addObject:g];
     }
-    
+}
+
+- (void)viewDidLoad
+{
     self.doneButton.enabled = NO;//Se inhabilita hasta que el usuario introduzca nombre y teléfono
     [super viewDidLoad];
+    [self loadInitialData];
+    if([groups count] == 0){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Aviso" message:@"No puede añadir contactos. Debe crear al menos un grupo" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alertView show];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -165,9 +174,7 @@
 
 -(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    //NSLog(@"Se ha cambiado %@", [groups objectAtIndex:row]);
     self.row = [[NSNumber alloc] initWithInteger:row];
-    //self.grupo.text = [[groups objectAtIndex:row] nombre] ;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView
@@ -187,15 +194,27 @@ numberOfRowsInComponent:(NSInteger)component
 /******************** VALIDACIÓN *****************/
 - (IBAction)changeNombre:(id)sender{
 
-    if(self.nombre.text.length > 0 && self.telefono.text.length > 0)
-        self.doneButton.enabled = YES;
+    if(self.nombre.text.length > 0 && self.telefono.text.length > 0){
+        if([groups count] == 0){
+            self.doneButton.enabled = NO;
+        }
+        else{
+            self.doneButton.enabled = YES;
+        }
+    }
     else
         self.doneButton.enabled = NO;
 }
 
 - (IBAction)changeTelefono:(id)sender{
-    if(self.nombre.text.length > 0 && self.telefono.text.length > 0)
-        self.doneButton.enabled = YES;
+    if(self.nombre.text.length > 0 && self.telefono.text.length > 0){
+        if([groups count] == 0){
+            self.doneButton.enabled = NO;
+        }
+        else{
+            self.doneButton.enabled = YES;
+        }
+    }
     else
         self.doneButton.enabled = NO;
 }
