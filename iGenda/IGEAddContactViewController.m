@@ -105,6 +105,15 @@
         IGEGroup *g = [array objectAtIndex:i];
         [groups addObject:g];
     }
+    
+    if([groups count] == 0){
+        IGEGroup *g = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:context];
+        g.nombre = @"<Sin Grupo>";
+        [groups addObject:g];
+    }
+    
+    /** Guarda el contexto **/
+    [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
 }
 
 - (void)viewDidLoad
@@ -114,10 +123,6 @@
     self.doneButton.enabled = NO;//Se inhabilita hasta que el usuario introduzca nombre y teléfono
     [super viewDidLoad];
     [self loadInitialData];
-    if([groups count] == 0){
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Aviso" message:@"No puede añadir contactos. Debe crear al menos un grupo" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [alertView show];
-    }
 }
 
 - (void)didReceiveMemoryWarning
