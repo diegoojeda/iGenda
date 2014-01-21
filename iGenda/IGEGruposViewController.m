@@ -34,15 +34,15 @@
     NSArray *array = [context executeFetchRequest:request error:&error];
     self.grupos = [(NSArray*)array mutableCopy];
     
-    /*//Creación de un grupo
-    IGEGroup *g = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:context];
-     g.nombre = @"grupo de prueba";
-     //[g addNewRelationshipObject:[array objectAtIndex:0]];
+    /** Si no hay grupos creados, añade uno de la base de datos por defecto <Sin Grupo> **/
+    if([self.grupos count] == 0){
+        IGEGroup *g = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:context];
+        g.nombre = @"<Sin Grupo>";
+        [self.grupos addObject:g];
+    }
     
-    
-    // Guardado del contexto
+    /** Guarda el contexto **/
     [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
-*/
 }
 
 - (id)initWithStyle:(UITableViewStyle)style

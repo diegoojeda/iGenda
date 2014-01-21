@@ -508,20 +508,6 @@
                                     <action selector="callPhone:" destination="jl0-aM-QoI" eventType="touchUpInside" id="eLN-nl-qQt"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvm-4K-3aZ">
-                                <rect key="frame" x="28" y="422" width="276" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ua-F6-7Ko">
-                                <rect key="frame" x="28" y="394" width="41" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="grupo">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -544,7 +530,6 @@
                     <connections>
                         <outlet property="atrasButton" destination="a4O-Rg-F5O" id="SpD-hg-xmD"/>
                         <outlet property="email_L" destination="ySD-XL-CL1" id="aEL-Xt-fGK"/>
-                        <outlet property="grupo_L" destination="zvm-4K-3aZ" id="1aF-3I-7O5"/>
                         <outlet property="image_IV" destination="OTz-2n-UgL" id="oim-CK-n2V"/>
                         <outlet property="movil_L" destination="7TV-mp-zaY" id="tlZ-af-Aue"/>
                         <outlet property="nombre_L" destination="loB-br-IGx" id="VS5-o2-Kdg"/>
@@ -772,14 +757,6 @@
                                     <action selector="changeTelefono:" destination="gPx-xz-dyS" eventType="editingChanged" id="7x6-0A-nMI"/>
                                 </connections>
                             </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sz2-1K-d2b">
-                                <rect key="frame" x="-3" y="306" width="320" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="SEA-zW-aZ4" id="bVC-dj-JvT"/>
-                                    <outlet property="delegate" destination="SEA-zW-aZ4" id="BKw-ox-5Lh"/>
-                                </connections>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -804,7 +781,6 @@
                         <outlet property="apellido2" destination="uOk-9F-8B9" id="YmV-qh-Iig"/>
                         <outlet property="email" destination="Igc-5v-Fcx" id="U0B-u4-7XM"/>
                         <outlet property="foto" destination="fCH-KA-PqB" id="aFi-R8-tcq"/>
-                        <outlet property="grupo" destination="Sz2-1K-d2b" id="GQu-xQ-uh6"/>
                         <outlet property="nombre" destination="c7X-Wn-mAh" id="v68-m2-nPp"/>
                         <outlet property="saveButton" destination="pcm-6N-6Sa" id="jeg-Kj-gcT"/>
                         <outlet property="telefono" destination="taB-zk-xMN" id="um0-1L-Z78"/>

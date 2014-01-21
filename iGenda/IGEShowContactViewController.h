@@ -27,6 +27,7 @@
 
 
 @property Contact *contacto; //Contacto seleccionado
+@property NSString *grupo;
 
 
 - (IBAction)changeFavorito:(id)sender;
