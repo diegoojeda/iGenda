@@ -31,7 +31,7 @@
 @implementation IGEEditContactViewController
 
 @synthesize greetingPickerSelGroup;
-
+@synthesize contacto = _contacto;
 
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -48,6 +48,8 @@
         _contacto.telefono = self.telefono.text;
         _contacto.email = self.email.text;
         _contacto.estado = @1;
+        //_contacto.newRelationship= self.grupo.text;
+        
         
         //falta el grupo
         
@@ -153,6 +155,7 @@
     [self.view endEditing:YES];
     
 }
+
 //Oculta el teclado haciendo caso omiso al return
 - (BOOL) textFieldShouldReturn:(UITextField *)textField
 {

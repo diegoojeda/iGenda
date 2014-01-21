@@ -46,7 +46,7 @@
     self.movil_L.text = _contacto.telefono;
     self.email_L.text = _contacto.email;
     //self.grupo_L.text = [_contacto.newRelationship nombre];
-    //NSLog(@"Show Contact: %@",[_contacto.newRelationship nombre]);
+    //NSLog(@"Show Contact nombre grupo: %@",[_contacto.newRelationship nombre]);
     self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     
     
@@ -87,10 +87,11 @@
     self.nombre_L.text = fullname;
     self.movil_L.text = _contacto.telefono;
     self.email_L.text = _contacto.email;
-    self.grupo_L.text = [_contacto.newRelationship nombre];
+    //self.grupo_L.text = [_contacto.newRelationship nombre];
     self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     self.estado = _contacto.estado;
     NSLog(@"Estado: %@", self.estado);
+    //NSLog(@"ShowContact NombreGrupo WillAppear: %@", [_contacto.newRelationship nombre]);
     [self.view setNeedsDisplay];
 }
 
