@@ -14,11 +14,7 @@
 #import "IGEGroup.h"
 
 @interface IGEPersonasTableViewController ()
-
-@property NSMutableArray *contacts;
-
-
-
+    
 @end
 
 @implementation IGEPersonasTableViewController
@@ -28,21 +24,23 @@
 /** Carga de contactos inicial **/
 - (void)loadInitialData {
     //Recuperación de datos
-    if ([self.contacts count] == 0){
-    
-        NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
-        NSError *error = nil;
-    
-        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEContact" inManagedObjectContext:context];
-        NSFetchRequest *request = [[NSFetchRequest alloc] init];
-        [request setEntity:entityDescription];
-    
-    
-        NSArray *array = [context executeFetchRequest:request error:&error];
+    //if ([self.contacts count] == 0){
+    self.contacts = [[NSMutableArray alloc] init];
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
+    NSError *error = nil;
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEContact" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
 
-        self.contacts = [(NSArray*)array mutableCopy];
-    }
-   
+
+    NSArray *array = [context executeFetchRequest:request error:&error];
+
+    self.contacts = [(NSArray*)array mutableCopy];
+    //}
+}
+
+- (IBAction)unwindFromSettings:(UIStoryboardSegue *)segue{
+    
 }
 
 - (IBAction)unwindFromContactDetailToContactList:(UIStoryboardSegue *)segue{
@@ -72,12 +70,15 @@
 {
     
     [super viewDidLoad];
-    self.contacts = [[NSMutableArray alloc] init];
+    
     [self loadInitialData];
 }
 
-
-
+-(void) viewWillAppear:(BOOL)animated{
+    [self loadInitialData];
+    [self.tableView reloadData];
+    [self.view setNeedsDisplay];
+}
 
 - (void)didReceiveMemoryWarning
 {
