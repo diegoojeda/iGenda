@@ -83,7 +83,7 @@
     NSLog(@"VERSION AGENDA: %@", versionDispositivo);
     //Preparamos la petición al servidor
     NSHTTPURLResponse *response = nil;
-    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://192.168.1.139:8080/igenda/webresources/webservices.usuario/"];
+    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://localhost:8080/igenda/webresources/webservices.usuario/"];
     [url appendString:userName];
     NSMutableURLRequest *URLrequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
     [URLrequest setHTTPMethod: @"GET"];
@@ -153,20 +153,29 @@
 
 - (void) crearContactosEnServidor: (NSMutableArray *) contactos conUsuario: (NSString *) usuario{
     NSMutableArray *arrayDiccionarios = [[NSMutableArray alloc] init];
-    NSMutableDictionary *dic;
+    NSMutableDictionary *dic, *dicLogin, *dicPK, *dicGrupo;
     NSError *errorJSON = nil;
     for (Contact *c in contactos){
         //No se puede hacer una conversión directa del array a JSON, ya que hay campos que no almacenamos en el servidor (imagen y estado :((( )
         dic = [[NSMutableDictionary alloc] init];
-        [dic setObject:c.id forKey:@"id"];
-        [dic setObject:c.nombre forKey:@"nombre"];
+        dicPK = [[NSMutableDictionary alloc] init];
+        dicLogin = [[NSMutableDictionary alloc] init];
+        dicGrupo = [[NSMutableDictionary alloc]init];
+        [dicLogin setObject:usuario forKey:@"login"];
+        [dicLogin setObject:@0 forKey:@"version"];
+        [dicPK setObject:c.id forKey:@"id"];
+        [dicPK setObject:usuario forKey:@"login"];
+        [dicGrupo setObject:dicLogin forKey:@"login"];
+        [dicGrupo setObject:c.newRelationship.nombre forKey:@"nombregrupo"];
         [dic setObject:c.apellido1 forKey:@"apellido1"];
         [dic setObject:c.apellido2 forKey:@"apellido2"];
-        [dic setObject:c.telefono forKey:@"telefono"];
+        [dic setObject:dicPK forKey:@"contactoPK"];
         [dic setObject:c.email forKey:@"email"];
-        [dic setObject:usuario forKey:@"login"];
         [dic setObject:c.favorito forKey:@"favorito"];
-        [dic setObject:c.newRelationship.nombre forKey:@"grupo"];
+        [dic setObject:dicGrupo forKey:@"grupo"];
+        [dic setObject:c.nombre forKey:@"nombre"];
+        [dic setObject:c.telefono forKey:@"telefono"];
+        [dic setObject:dicLogin forKey:@"usuario"];
         [arrayDiccionarios addObject:dic];
     }
     //Una vez tenemos creado un array de diccionarios en el que cada diccionario es un contacto, procedemos a transformarlo a JSON y a mandarlo al servidor por HTTP POST
@@ -174,13 +183,13 @@
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:arrayDiccionarios options:0 error:&errorJSON];
     NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
     NSLog(@"JSON OUTPUT: %@",JSONString);
-    NSURL *url = [NSURL URLWithString:@"http://192.168.1.139:8080/igenda/webresources/webservices.contacto"];
+    NSURL *url = [NSURL URLWithString:@"http://localhost:8080/igenda/webresources/webservices.contacto"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:jsonData];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setValue:@"application/json; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:[NSString stringWithFormat:@"%d", [jsonData length]] forHTTPHeaderField:@"Content-Length"];
+    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
     NSURLResponse *respuesta;
     [NSURLConnection sendSynchronousRequest:request returningResponse:&respuesta error:&errorJSON];
     NSLog(@"INFORMACION ENVIADA AL SERVIDOR. RESPUESTA: %@", respuesta);

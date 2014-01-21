@@ -116,7 +116,7 @@
     NSLog(@"Recibo version: %@", ver);
     NSHTTPURLResponse *response = nil;
     NSError *error;
-    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://192.168.1.139:8080/igenda/webresources/webservices.contacto/"];
+    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://localhost:8080/igenda/webresources/webservices.contacto/"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
     [request setHTTPMethod: @"GET"];
     NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
@@ -192,7 +192,7 @@
     NSHTTPURLResponse  *response = nil;
     NSError *error;
     NSString* username = [[NSString alloc]initWithString:[self.textUsername text]];
-    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://192.168.1.139:8080/igenda/webresources/webservices.usuario/"];
+    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://localhost:8080/igenda/webresources/webservices.usuario/"];
     [url appendString:username];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
     [request setHTTPMethod: @"GET"];
@@ -213,13 +213,13 @@
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&error]; // Pass 0 if you don't care about the readability of the generateds string
     
     //Creamos y ejecutamos la petición
-    NSURL *url = [[NSURL alloc] initWithString:@"http://192.168.1.139:8080/igenda/webresources/webservices.usuario"];
+    NSURL *url = [[NSURL alloc] initWithString:@"http://localhost:8080/igenda/webresources/webservices.usuario"];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
     [req setHTTPMethod:@"POST"];
     [req setHTTPBody:jsonData];
     [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [req setValue:@"application/json; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-    [req setValue:[NSString stringWithFormat:@"%d", [jsonData length]] forHTTPHeaderField:@"Content-Length"];
+    [req setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
     NSURLResponse *response = nil;
     NSLog(@"Justo antes de lanzar la petición al servidor");
     NSData *responsedata = [NSURLConnection sendSynchronousRequest:req returningResponse:&response error:&error];
