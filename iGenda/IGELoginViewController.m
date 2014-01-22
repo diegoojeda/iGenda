@@ -148,7 +148,7 @@
     NSHTTPURLResponse *response = nil;
     NSError *error;
     NSMutableString *url = [[NSMutableString alloc] initWithString:self.IP];
-    [url appendString:@":8080/igenda-rs/webresources/igenda.contacto/"];
+    [url appendString:@":8080/igenda-777/webresources/igenda.contacto/"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
     [request setHTTPMethod: @"GET"];
@@ -190,7 +190,7 @@
     //Recuperación de datos
     //Recuperamos los grupos que teníamos almacenados actualmente en el gestor de persistencia (core data)
     NSArray* gruposEnDispositivo = [self fetchGrupos];
-    NSDictionary *grupoContacto = [dic valueForKey:@"grupo"];
+    NSString *grupoContacto = [dic valueForKey:@"grupo"];
     //Recupera contexto del Delegate
     _mno = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
     Contact *c = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:_mno];
@@ -204,15 +204,16 @@
     c.id = [dic valueForKey:@"idagenda"];
     //Comprobamos si ya hemos creado el grupo al que pertenece este contacto
     for (IGEGroup* g in gruposEnDispositivo){
-        if ([g.nombre isEqualToString:[grupoContacto valueForKey:@"nombregrupo"]]){
+        if ([g.nombre isEqualToString:grupoContacto]){
+            //IGEGroup *group = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:_mno];
             c.newRelationship = g;
             [g addNewRelationshipObject:c];
         }
     }
-    if (c.newRelationship == nil && [grupoContacto valueForKey:@"nombregrupo"] != 0){
+    if (c.newRelationship == nil){
         //Su grupo no existe en el dispositivo, por tanto creamos uno nuevo y los enlazamos
         IGEGroup *grupo = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:_mno];
-        grupo.nombre = [grupoContacto valueForKey:@"nombregrupo"];
+        grupo.nombre = grupoContacto;
         [grupo addNewRelationshipObject:c];
         c.newRelationship = grupo;
     }
@@ -244,7 +245,7 @@
     //Creamos y ejecutamos la petición
     
     NSMutableString *urlaux = [[NSMutableString alloc] initWithString:self.IP];
-    [urlaux appendString:@":8080/igenda-rs/webresources/igenda.usuario/"];
+    [urlaux appendString:@":8080/igenda-777/webresources/igenda.usuario/"];
     
     NSURL *url = [[NSURL alloc] initWithString:urlaux];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
@@ -273,7 +274,7 @@
     NSError *error;
     NSString* username = [[NSString alloc]initWithString:[self.textUsername text]];
     NSMutableString *url = [[NSMutableString alloc] initWithString:self.IP];
-    [url appendString:@":8080/igenda-rs/webresources/igenda.usuario/"];
+    [url appendString:@":8080/igenda-777/webresources/igenda.usuario/"];
     [url appendString:username];
     
     NSLog(@"URL ENVIADA %@",url);
@@ -295,7 +296,7 @@
     NSHTTPURLResponse  *response = nil;
     NSError *error;
     NSMutableString *url = [[NSMutableString alloc] initWithString:self.IP];
-    [url appendString:@":8080/igenda-rs/webresources/igenda.usuario/diego"];//Cambiar a un usuario de prueba sin contactos
+    [url appendString:@":8080/igenda-777/webresources/igenda.usuario/diego"];//Cambiar a un usuario de prueba sin contactos
     
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:1000];
