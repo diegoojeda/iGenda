@@ -2,7 +2,7 @@
 //  IGEGroup.h
 //  iGenda
 //
-//  Created by Máster INFTEL 12 on 17/01/14.
+//  Created by Diego Ojeda García on 22/01/14.
 //  Copyright (c) 2014 UMA. All rights reserved.
 //
 
@@ -13,15 +13,15 @@
 
 @interface IGEGroup : NSManagedObject
 
-@property (nonatomic, retain) NSString *nombre;
-@property (nonatomic, retain) NSSet *newRelationship;
+@property (nonatomic, retain) NSString * nombre;
+@property (nonatomic, retain) NSSet *contactos;
 @end
 
 @interface IGEGroup (CoreDataGeneratedAccessors)
 
-- (void)addNewRelationshipObject:(Contact *)value;
-- (void)removeNewRelationshipObject:(Contact *)value;
-- (void)addNewRelationship:(NSSet *)values;
-- (void)removeNewRelationship:(NSSet *)values;
+- (void)addContactosObject:(Contact *)value;
+- (void)removeContactosObject:(Contact *)value;
+- (void)addContactos:(NSSet *)values;
+- (void)removeContactos:(NSSet *)values;
 
 @end

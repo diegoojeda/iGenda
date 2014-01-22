@@ -206,16 +206,16 @@
     for (IGEGroup* g in gruposEnDispositivo){
         if ([g.nombre isEqualToString:grupoContacto]){
             //IGEGroup *group = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:_mno];
-            c.newRelationship = g;
-            [g addNewRelationshipObject:c];
+            //c.newRelationship = g;
+            [g addContactosObject:c];
         }
     }
-    if (c.newRelationship == nil){
+    if (c.grupo == nil){
         //Su grupo no existe en el dispositivo, por tanto creamos uno nuevo y los enlazamos
         IGEGroup *grupo = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:_mno];
         grupo.nombre = grupoContacto;
-        [grupo addNewRelationshipObject:c];
-        c.newRelationship = grupo;
+        [grupo addContactosObject:c];
+        //c.newRelationship = grupo;
     }
 }
 
