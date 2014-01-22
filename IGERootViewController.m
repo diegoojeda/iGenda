@@ -32,7 +32,6 @@
     NSArray *s = [context executeFetchRequest:request error:&error];*/
     IGESetting *s = [(IGEAppDelegate *) [[UIApplication sharedApplication] delegate] settings];
     if (s.usuario == nil || [s.usuario length] == 0){
-        NSLog(@"User vacío");
         [self performSegueWithIdentifier:@"ToLoginSegue" sender:self];
     }
     else{
