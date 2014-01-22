@@ -259,7 +259,7 @@
         NSLog(@"COMPROBANDO JSON");
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&errorJSON];
         NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
-        NSLog(@"JSON OUTPUT: %@",JSONString);        
+        NSLog(@"JSON OUTPUT: %@",JSONString);
         NSMutableString *urlStr = [[NSMutableString alloc] initWithString:self.IP];
         [urlStr appendString:@":8080/igenda-rs/webresources/igenda.contacto/edit/"];
         
