@@ -1227,7 +1227,7 @@
                                 <rect key="frame" x="13" y="241" width="289" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                 <connections>
                                     <action selector="changeTelefono:" destination="gPx-xz-dyS" eventType="editingChanged" id="sDN-I1-D19"/>
                                 </connections>
@@ -1465,7 +1465,7 @@
                                 <rect key="frame" x="13" y="241" width="289" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                 <connections>
                                     <action selector="changeTelefono:" destination="gPx-xz-dyS" eventType="editingChanged" id="eje-At-nmk"/>
                                 </connections>
@@ -1705,7 +1705,7 @@
                                 <rect key="frame" x="13" y="241" width="289" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                 <connections>
                                     <action selector="changeTelefono:" destination="gPx-xz-dyS" eventType="editingChanged" id="e2R-Qg-XQK"/>
                                 </connections>
@@ -1784,6 +1784,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="61t-nf-Mh7"/>
-        <segue reference="sC8-VL-ZhP"/>
+        <segue reference="dQb-9f-OqX"/>
     </inferredMetricsTieBreakers>
 </document>
