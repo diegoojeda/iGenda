@@ -18,7 +18,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *nombre_L;
 @property (nonatomic, strong) IBOutlet UILabel *movil_L;
 @property (nonatomic, strong) IBOutlet UILabel *email_L;
-@property (nonatomic, strong) IBOutlet UILabel *grupo_L;
 @property (nonatomic, strong) IBOutlet UIButton *star_L;
 
 
@@ -26,6 +25,7 @@
 
 
 @property Contact *contacto; //Contacto seleccionado
+@property NSString *grupo;
 
 - (IBAction)sendEmail:(id)sender;
 

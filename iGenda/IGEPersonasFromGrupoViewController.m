@@ -79,6 +79,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     IGEGroup* item = [_contactosGrupo objectAtIndex:indexPath.row];
     cell.textLabel.text = item.nombre;
+    
     return cell;
 }
 
@@ -136,6 +137,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"Prepare for segue");
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"ContactoFromGroup"]) {

@@ -29,10 +29,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    self.IP = [[NSMutableString alloc] initWithString:@"http://192.168.1.14"];
+    self.inicioButton.enabled = NO;
+    
     [self.activityIndicator startAnimating];
     [self.activityIndicator setHidden:YES];
-    //[self.activityIndicator a]
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,7 +51,7 @@
 
 - (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil];
     alertView.tag = tag;
     [alertView show];
 }
@@ -60,9 +62,9 @@
     [self performSelectorInBackground:@selector(startActivity) withObject:nil];
     
     
-    if([[self.textUsername text] isEqualToString:@""] || [[self.textPassword text] isEqualToString:@""] ) {
+    if([[self.textUsername text] isEqualToString:@""]) {
         [self.activityIndicator setHidden:YES];
-        [self alertStatus:@"Introduzca el nombre que desea y luego pulse registrar": @"Registro fallido" :0];
+        [self alertStatus:@"Introduzca el nombre que desea y registrese": @"Usuario vacío" :0];
     }
     else{
         NSString *username = [self.textUsername text];
@@ -72,10 +74,12 @@
             //Registrar usuario
             NSLog(@"Registro nuevo usuario");
             [self crearUsuarioEnServidor:username];
+            
+            [self alertStatus:@"Usuario registrado con éxito": @"Registro exitoso" :0];
         }
         else {
             [self.activityIndicator setHidden:YES];
-            NSLog(@"El usuario ya existia");
+            NSLog(@"El usuario ya existe");
             [self alertStatus:@"Ese nombre de usuario ya está siendo utilizado": @"Registro fallido" :0];
         }
     }
@@ -91,34 +95,39 @@
 {
     NSInteger success = 0;
     
-    
     [self performSelectorInBackground:@selector(startActivity) withObject:nil];
-    
-    
-    
-    if([[self.textUsername text] isEqualToString:@""] || [[self.textPassword text] isEqualToString:@""] ) {
+    if([[self.textUsername text] isEqualToString:@""]) {
         [self.activityIndicator setHidden:YES];
-        [self alertStatus:@"Introduzca su nombre de usuario" :@"Login fallido" :0];
+        [self alertStatus:@"Introduzca su nombre de usuario" :@"Usuario incorrecto" :0];
     }
     else {
-        NSString *username = [self.textUsername text];
-        NSString *str = [self fetchUser:[self.textUsername text]];
-        if ([str length] > 0){
-            //Conseguimos el número de versión
-            NSError *err = nil;
-            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[str dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&err];
-            
-            // access the dictionaries
-            //NSMutableDictionary *dict = arr[0];
-            NSLog(@"LOGIN SUCCESFUL");
-            //En el NSString str está almacenado el JSON, es genial =)
-            [self cargarContactos:username conVersion: [dic objectForKey:@"version"]];
-            success = 1;
-        }
-        else {
+        if([self fetchConnect] == 0){
             [self.activityIndicator setHidden:YES];
-            NSLog(@"FAIL");
-            [self alertStatus:@"Nombre de usuario incorrecto" :@"Login fallido" :0];
+            NSLog(@"SIN CONEXIÓN");
+            [self alertStatus:@"" :@"Sin conexión a la red" :0];
+        }
+        else{
+            NSString *username = [self.textUsername text];
+            NSString *str = [self fetchUser:[self.textUsername text]];
+            
+            if ([str length] > 0){
+                //Conseguimos el número de versión
+                
+                NSLog(@"STR ES: %@",str);
+                
+                NSError *err = nil;
+                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[str dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&err];
+                NSLog(@"LOGIN SUCCESFUL %f",[[dic objectForKey:@"version"] floatValue]);
+                //En el NSString str está almacenado el JSON, es genial =)
+                [self cargarContactos:username conVersion: [dic objectForKey:@"version"]];
+                success = 1;
+                
+            }
+            else {
+                [self.activityIndicator setHidden:YES];
+                NSLog(@"FAIL");
+                [self alertStatus:@"Vuelva a introducir su nombre correctamente" :@"Usuario incorrecto" :0];
+            }
         }
     }
     if (success) {
@@ -133,51 +142,58 @@
 
 
 -(void) cargarContactos:(NSString *) usuario conVersion: (NSNumber *) ver{
-
-    //Petición http
+    
+    //Petición http para recuperar todos los contactos
     NSLog(@"Recibo version: %@", ver);
     NSHTTPURLResponse *response = nil;
     NSError *error;
-    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://192.168.1.139:8080/igenda/webresources/webservices.contacto/"];
+    NSMutableString *url = [[NSMutableString alloc] initWithString:self.IP];
+    [url appendString:@":8080/igenda-rs/webresources/igenda.contacto/"];
+    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
     [request setHTTPMethod: @"GET"];
     NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    NSLog(@"GET enviado");
-    NSArray *jsonArray = (NSArray *)[NSJSONSerialization JSONObjectWithData:response1 options:0 error:&error];
-    //Trabajamos con los datos JSON recibidos del servidor
-    for (NSDictionary *dic in jsonArray){
-        NSDictionary *contactos = [dic valueForKey:@"contactoPK"];
-        NSString *usuarioDic = [contactos valueForKey:@"login"];
-        if ([usuarioDic isEqualToString:usuario]){
-            //Aquí se guardarán en core data los contactos correspondientes al usuario que ha hecho login
-            [self crearUsuario:dic];
-        }
+    NSLog(@"GET all contacts enviado");
+    if (response1 == nil){
+        [self alertStatus:@"Hubo un error durante el proceso de autenticación": @"Login fallido" :0];
     }
-    
-    //Por último, almacenamos también el usuario en el IGESetting de la aplicación
-    
-    /*NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGESetting" inManagedObjectContext:context];
-    NSFetchRequest *requestCoreData = [[NSFetchRequest alloc] init];
-    [requestCoreData setEntity:entityDescription];
-    [(IGESetting *)[[context executeFetchRequest:requestCoreData error:&error] firstObject] setUsuario:usuario];
-    //IGESetting *set =[[context executeFetchRequest:requestCoreData error:&error] firstObject];
-    //set.usuario = usuario;
-    */
-    NSManagedObjectContext *context = [(IGEAppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext];
-    IGESetting * set = [NSEntityDescription insertNewObjectForEntityForName:@"IGESetting" inManagedObjectContext:context];
-    set.usuario = usuario;
-    set.versionAgenda = ver;
-    // Guardado del contexto
-    [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
+    else{
+        NSArray *jsonArray = (NSArray *)[NSJSONSerialization JSONObjectWithData:response1 options:0 error:&error];
+        int contadorContactos = 0;
+        //Trabajamos con los datos JSON recibidos del servidor
+        for (NSDictionary *dic in jsonArray){
+            NSDictionary *contactos = [dic valueForKey:@"login"];
+            NSString *usuarioDic = [contactos valueForKey:@"login"];
+            if ([usuarioDic isEqualToString:usuario]){
+                //Aquí se guardarán en core data los contactos correspondientes al usuario que ha hecho login
+                [self leerContacto:dic];
+                contadorContactos++;
+            }
+        }
+        //NSLog(@"JSON ARRAY COUNT: %lu", [jsonArray count]);
+        //Por último, almacenamos también el usuario en el IGESetting de la aplicación
+        //[(IGEAppDelegate *) [[UIApplication sharedApplication] delegate] setSeqId:[NSNumber numberWithUnsignedInteger:[jsonArray count]]];
+        NSManagedObjectContext *context = [(IGEAppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext];
+        IGESetting * set = [NSEntityDescription insertNewObjectForEntityForName:@"IGESetting" inManagedObjectContext:context];
+        [set setValue:usuario forKey:@"usuario"];
+        [set setValue:ver forKey:@"versionAgenda"];
+        [set setValue:[NSNumber numberWithInt:contadorContactos++] forKey:@"numSeq"];
+        //set.usuario = usuario;
+        //set.versionAgenda = ver;
+        //set.numSeq = [ NSNumber numberWithInt:contadorContactos++];
+        // Guardado del contexto
+        [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
+    }
 }
 
--(void) crearUsuario: (NSDictionary *) dic{
+-(void) leerContacto: (NSDictionary *) dic{
     //Recuperación de datos
-    NSArray* grupos = [self fetchGrupos];
-    NSString *grupoContacto = [[dic valueForKey:@"grupo"] valueForKey:@"nombregrupo"];
+    //Recuperamos los grupos que teníamos almacenados actualmente en el gestor de persistencia (core data)
+    NSArray* gruposEnDispositivo = [self fetchGrupos];
+    NSDictionary *grupoContacto = [dic valueForKey:@"grupo"];
     //Recupera contexto del Delegate
-    _mno = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];     Contact *c = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:_mno];
+    _mno = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    Contact *c = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:_mno];
     c.nombre = [dic valueForKey:@"nombre"];
     c.apellido1 = [dic valueForKey:@"apellido1"];
     c.apellido2 = [dic valueForKey:@"apellido2"];
@@ -185,20 +201,24 @@
     c.telefono = [NSString stringWithFormat:@"%@", [dic valueForKey:@"telefono"]];
     c.estado = @2;
     c.favorito = [dic valueForKey:@"favorito"];
-    for (IGEGroup* g in grupos){
-        if ([g.nombre isEqualToString:grupoContacto]){
+    c.id = [dic valueForKey:@"idAgenda"];
+    //Comprobamos si ya hemos creado el grupo al que pertenece este contacto
+    for (IGEGroup* g in gruposEnDispositivo){
+        if ([g.nombre isEqualToString:[grupoContacto valueForKey:@"nombregrupo"]]){
             c.newRelationship = g;
+            [g addNewRelationshipObject:c];
         }
     }
-    if (c.newRelationship == nil && [grupoContacto length] != 0){
+    if (c.newRelationship == nil && [grupoContacto valueForKey:@"nombregrupo"] != 0){
         //Su grupo no existe en el dispositivo, por tanto creamos uno nuevo y los enlazamos
-        IGEGroup *g = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:_mno];
-        g.nombre = grupoContacto;
-        c.newRelationship = g;
+        IGEGroup *grupo = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:_mno];
+        grupo.nombre = [grupoContacto valueForKey:@"nombregrupo"];
+        [grupo addNewRelationshipObject:c];
+        c.newRelationship = grupo;
     }
-    
-    
 }
+
+//Devuelve los IEGroup almacenados en el gestor de persistencia
 - (NSArray *) fetchGrupos {
     NSArray* grupos;
     NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
@@ -210,20 +230,7 @@
     return grupos;
 }
 
-- (NSString *) fetchUser :(NSString *) userName {
-    NSHTTPURLResponse  *response = nil;
-    NSError *error;
-    NSString* username = [[NSString alloc]initWithString:[self.textUsername text]];
-    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://192.168.1.139:8080/igenda/webresources/webservices.usuario/"];
-    [url appendString:username];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
-    [request setHTTPMethod: @"GET"];
-    NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    NSLog(@"GET enviado");
-    NSString *str = [[NSString alloc]initWithData:response1 encoding:NSUTF8StringEncoding];
-    NSLog(@"SERA AQUI? %@", str);
-    return str;
-}
+
 
 - (void) crearUsuarioEnServidor: (NSString *) username {
     //Creamos diccionario con la información del usuario
@@ -235,13 +242,19 @@
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&error]; // Pass 0 if you don't care about the readability of the generateds string
     
     //Creamos y ejecutamos la petición
-    NSURL *url = [[NSURL alloc] initWithString:@"http://192.168.1.139:8080/igenda/webresources/webservices.usuario"];
+    
+    NSMutableString *urlaux = [[NSMutableString alloc] initWithString:self.IP];
+    [urlaux appendString:@":8080/igenda-rs/webresources/igenda.contacto/"];
+    
+    
+    NSURL *url = [[NSURL alloc] initWithString:urlaux];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    
     [req setHTTPMethod:@"POST"];
     [req setHTTPBody:jsonData];
     [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [req setValue:@"application/json; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-    [req setValue:[NSString stringWithFormat:@"%d", [jsonData length]] forHTTPHeaderField:@"Content-Length"];
+    [req setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
     NSURLResponse *response = nil;
     NSLog(@"Justo antes de lanzar la petición al servidor");
     NSData *responsedata = [NSURLConnection sendSynchronousRequest:req returningResponse:&response error:&error];
@@ -250,4 +263,86 @@
     NSLog(@"Respuesta: %@", data);
 }
 
+
+
+/**** LOGIN ****/
+/**
+ Consulta si un usuario existe en la base de datos
+ **/
+- (NSString *) fetchUser :(NSString *) userName {
+    NSHTTPURLResponse  *response = nil;
+    NSError *error;
+    NSString* username = [[NSString alloc]initWithString:[self.textUsername text]];
+    NSMutableString *url = [[NSMutableString alloc] initWithString:self.IP];
+    [url appendString:@":8080/igenda-rs/webresources/igenda.contacto/0+"];
+    [url appendString:username];
+    
+    NSLog(@"URL ENVIADA %@",url);
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
+    [request setHTTPMethod: @"GET"];
+    NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    NSLog(@"GET usuario en login enviado");
+    NSString *str = [[NSString alloc]initWithData:response1 encoding:NSUTF8StringEncoding];
+    
+    return str;
+}
+
+/**
+ Prueba la conexión
+ **/
+- (int) fetchConnect {
+    NSHTTPURLResponse  *response = nil;
+    NSError *error;
+    NSMutableString *url = [[NSMutableString alloc] initWithString:self.IP];
+    [url appendString:@":8080/igenda-rs/webresources/igenda.contacto/0+diego"];//Cambiar a un usuario de prueba sin contactos
+    
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:1000];
+    [request setHTTPMethod: @"GET"];
+    NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    
+    if(response1 == nil)
+        return 0;
+    else
+        return 1;
+    
+}
+
+
+
+
+
+/**** VALIDACIÓN ****/
+/**
+ Si no hay usuario, se inhabilita el botón
+ */
+- (IBAction)changeUsuario:(id)sender{
+    
+    if(self.textUsername.text.length > 0)
+        self.inicioButton.enabled = YES;
+    else
+        self.inicioButton.enabled = NO;
+}
+
+
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

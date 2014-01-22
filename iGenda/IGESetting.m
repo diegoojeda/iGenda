@@ -2,7 +2,7 @@
 //  IGESetting.m
 //  iGenda
 //
-//  Created by Diego Ojeda García on 19/01/14.
+//  Created by Diego Ojeda García on 21/01/14.
 //  Copyright (c) 2014 UMA. All rights reserved.
 //
 
@@ -11,6 +11,7 @@
 
 @implementation IGESetting
 
+@dynamic numSeq;
 @dynamic usuario;
 @dynamic versionAgenda;
 

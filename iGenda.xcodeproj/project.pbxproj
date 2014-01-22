@@ -17,9 +17,9 @@
 		8316A0F0188AF9A300320439 /* IGEShowContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8316A0EE188AF9A300320439 /* IGEShowContactViewController.m */; };
 		8354C07A188ADC6A00728685 /* IGESettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8354C079188ADC6A00728685 /* IGESettingsViewController.m */; };
 		83CD6F16188C4818002BA793 /* IGERootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8354C07F188AE0BA00728685 /* IGERootViewController.m */; };
-		83CD6F1F188C4A14002BA793 /* IGESetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD6F1E188C4A14002BA793 /* IGESetting.m */; };
 		83DA3B831889532600FBA66E /* IGEGruposViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DA3B821889532600FBA66E /* IGEGruposViewController.m */; };
 		83DA3B861889578700FBA66E /* IGEPersonasFromGrupoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DA3B851889578700FBA66E /* IGEPersonasFromGrupoViewController.m */; };
+		83DD9A3D188EFB4D00E6E9C1 /* IGESetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DD9A3C188EFB4D00E6E9C1 /* IGESetting.m */; };
 		B02DBC4F18868FE60019AAF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC4E18868FE60019AAF1 /* Foundation.framework */; };
 		B02DBC5118868FE60019AAF1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC5018868FE60019AAF1 /* CoreGraphics.framework */; };
 		B02DBC5318868FE60019AAF1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02DBC5218868FE60019AAF1 /* UIKit.framework */; };
@@ -70,6 +70,7 @@
 		4E00E8DD188C49E500A8E57D /* IGEAddGroupContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEAddGroupContactViewController.h; sourceTree = "<group>"; };
 		4E00E8DE188C49E500A8E57D /* IGEAddGroupContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEAddGroupContactViewController.m; sourceTree = "<group>"; };
 		4E0B44D418898FDE001850E8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4E19E672188F770A00EA0ECC /* iGenda.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = iGenda.entitlements; sourceTree = "<group>"; };
 		4E1D542A18885D22009E3B5A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4E4E133B188932250091E604 /* IGETabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGETabViewController.h; sourceTree = "<group>"; };
 		4E4E133C188932250091E604 /* IGETabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGETabViewController.m; sourceTree = "<group>"; };
@@ -82,12 +83,12 @@
 		8354C079188ADC6A00728685 /* IGESettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGESettingsViewController.m; sourceTree = "<group>"; };
 		8354C07E188AE0BA00728685 /* IGERootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGERootViewController.h; path = ../IGERootViewController.h; sourceTree = "<group>"; };
 		8354C07F188AE0BA00728685 /* IGERootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGERootViewController.m; path = ../IGERootViewController.m; sourceTree = "<group>"; };
-		83CD6F1D188C4A14002BA793 /* IGESetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGESetting.h; sourceTree = "<group>"; };
-		83CD6F1E188C4A14002BA793 /* IGESetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGESetting.m; sourceTree = "<group>"; };
 		83DA3B811889532600FBA66E /* IGEGruposViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEGruposViewController.h; sourceTree = "<group>"; };
 		83DA3B821889532600FBA66E /* IGEGruposViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEGruposViewController.m; sourceTree = "<group>"; };
 		83DA3B841889578700FBA66E /* IGEPersonasFromGrupoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEPersonasFromGrupoViewController.h; sourceTree = "<group>"; };
 		83DA3B851889578700FBA66E /* IGEPersonasFromGrupoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEPersonasFromGrupoViewController.m; sourceTree = "<group>"; };
+		83DD9A3B188EFB4D00E6E9C1 /* IGESetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGESetting.h; sourceTree = "<group>"; };
+		83DD9A3C188EFB4D00E6E9C1 /* IGESetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGESetting.m; sourceTree = "<group>"; };
 		AA26E7B6188A8753002A70BF /* IGEEditContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEEditContactViewController.h; sourceTree = "<group>"; };
 		AA26E7B7188A8753002A70BF /* IGEEditContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEEditContactViewController.m; sourceTree = "<group>"; };
 		B02DBC4B18868FE60019AAF1 /* iGenda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iGenda.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,13 +180,13 @@
 		4E1D53D018883B6D009E3B5A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				83CD6F1D188C4A14002BA793 /* IGESetting.h */,
-				83CD6F1E188C4A14002BA793 /* IGESetting.m */,
+				83DD9A3B188EFB4D00E6E9C1 /* IGESetting.h */,
+				83DD9A3C188EFB4D00E6E9C1 /* IGESetting.m */,
+				BE21D53618898C01001C9328 /* IGEContactToDelete.h */,
 				BE21D53F18898C02001C9328 /* Contact.h */,
 				BE21D54018898C02001C9328 /* Contact.m */,
 				BE21D53C18898C02001C9328 /* IGEGroup.h */,
 				BE21D53D18898C02001C9328 /* IGEGroup.m */,
-				BE21D53618898C01001C9328 /* IGEContactToDelete.h */,
 				BE21D53718898C01001C9328 /* IGEContactToDelete.m */,
 			);
 			name = Classes;
@@ -207,8 +208,8 @@
 				BE21D53318895C9E001C9328 /* IGEFavoritosTableViewController.h */,
 				BE21D53418895C9E001C9328 /* IGEFavoritosTableViewController.m */,
 				4E4E133B188932250091E604 /* IGETabViewController.h */,
-				B02DBC5D18868FE60019AAF1 /* IGEAppDelegate.h */,
 				4E4E133C188932250091E604 /* IGETabViewController.m */,
+				B02DBC5D18868FE60019AAF1 /* IGEAppDelegate.h */,
 				B02DBC5E18868FE60019AAF1 /* IGEAppDelegate.m */,
 				B05DC27D1887E51C00529752 /* IGEPersonasTableViewController.h */,
 				B05DC27E1887E51C00529752 /* IGEPersonasTableViewController.m */,
@@ -261,6 +262,7 @@
 		B02DBC5418868FE60019AAF1 /* iGenda */ = {
 			isa = PBXGroup;
 			children = (
+				4E19E672188F770A00EA0ECC /* iGenda.entitlements */,
 				B069E4D31889630D00F9D504 /* json */,
 				BE21D53218894471001C9328 /* Resources */,
 				4E1D53D118883B9D009E3B5A /* ViewController */,
@@ -453,7 +455,7 @@
 				B069E4F61889633400F9D504 /* SBJsonTokeniser.m in Sources */,
 				B069E4F41889633400F9D504 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				B02DBC5F18868FE60019AAF1 /* IGEAppDelegate.m in Sources */,
-				83CD6F1F188C4A14002BA793 /* IGESetting.m in Sources */,
+				83DD9A3D188EFB4D00E6E9C1 /* IGESetting.m in Sources */,
 				B02DBC5B18868FE60019AAF1 /* main.m in Sources */,
 				B069E4F21889633400F9D504 /* SBJsonStreamParserState.m in Sources */,
 				B069E4EE1889633400F9D504 /* SBJsonParser.m in Sources */,
@@ -594,6 +596,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = iGenda/iGenda.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -610,6 +613,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = iGenda/iGenda.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

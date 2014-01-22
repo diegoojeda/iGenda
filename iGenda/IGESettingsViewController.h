@@ -14,4 +14,8 @@
 
 @interface IGESettingsViewController : UIViewController
 
+@property NSNumber *versDispositivo;
+@property NSString *nomUsuario;
+
+
 @end

@@ -24,7 +24,7 @@
 
 #define kOFFSET_FOR_KEYBOARD 80.0
 
-@synthesize appDelegate;
+//@synthesize appDelegate;
 @synthesize greetingPickerSelGroup;
 @synthesize contacto;
 @synthesize grupo;
@@ -41,36 +41,44 @@
 
         self.contacto = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:context];
         
-        //Esto solo almacena un campo, nombre, lo demas es lo de la persistencia
+        /*//Esto solo almacena un campo, nombre, lo demas es lo de la persistencia
         appDelegate = [UIApplication sharedApplication].delegate;
         if(appDelegate.seqId == NULL){ //Si la secuencia no está creada, se crea
             appDelegate.seqId = [NSNumber numberWithInt:1];
         }else{ //En otro caso, se incrementa
             int value = [appDelegate.seqId intValue];
             appDelegate.seqId = [NSNumber numberWithInt:value + 1];
+            [(IGEAppDelegate *) [[UIApplication sharedApplication] delegate] setSeqId:appDelegate.seqId];
         }
-        
-        self.contacto.id = appDelegate.seqId;
+        */
+        NSError *error = nil;
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGESetting" inManagedObjectContext:context];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entityDescription];
+        IGESetting *set = [[context executeFetchRequest:request error:&error] firstObject];
+
+        //IGESetting * set = [NSEntityDescription insertNewObjectForEntityForName:@"IGESetting" inManagedObjectContext:context];
+        self.contacto.id = set.numSeq;
         self.contacto.nombre = self.nombre.text;
         self.contacto.apellido1 = self.apellido1.text;
         self.contacto.apellido2 = self.apellido2.text;
         self.contacto.telefono = self.telefono.text;
         self.contacto.email = self.email.text;
         self.contacto.favorito = @0;
-        self.contacto.estado = 0; //Recien creado
+        self.contacto.estado = @0; //Recien creado
+        int number = [set.numSeq intValue];
+        number++;
+        //set.numSeq = [NSNumber numberWithInt:number];
+        [set setValue:[NSNumber numberWithInt:number] forKey:@"numSeq"];
         NSLog(@"Se ha añadido un contacto con grupo---> %@", [[groups objectAtIndex:[self.row integerValue]] nombre]);
         
-       
+        NSLog(@"contacto con id: %@", self.contacto.id);
         //Conversión imagen UIImage a NSData, formato de la imagen del contacto
         NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.foto.image)];
         self.contacto.imagen = imageData;
         
-        
-        /** Añade contacto a un grupo *
-        if([groups objectAtIndex:[self.row integerValue]] != NULL)
-            [[groups objectAtIndex:[self.row integerValue]] addNewRelationshipObject:self.contacto];
-        else
-            NSLog(@"NO SE ASIGNA GRUPO");*/
+        [[groups objectAtIndex:[self.row integerValue]] addNewRelationshipObject:self.contacto];
+        self.contacto.newRelationship = [groups objectAtIndex:[self.row integerValue]];
         
         /** Guarda el contexto **/
         [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
@@ -94,17 +102,27 @@
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEGroup" inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
-    
     NSArray *array = [context executeFetchRequest:request error:&error];
     
     
     
     groups = [[NSMutableArray alloc] init];//Habria que cargar aqui todos los grupos
     
+    /** Añade grupos de core data **/
     for(int i=0; i<[array count]; i++){
         IGEGroup *g = [array objectAtIndex:i];
         [groups addObject:g];
     }
+    
+    /** Si no hay grupos creados, añade uno de la base de datos por defecto <Sin Grupo> **/
+    if([groups count] == 0){
+        IGEGroup *g = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:context];
+        g.nombre = @"<Sin Grupo>";
+        [groups addObject:g];
+    }
+    
+    /** Guarda el contexto **/
+    [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
 }
 
 - (void)viewDidLoad
@@ -114,10 +132,6 @@
     self.doneButton.enabled = NO;//Se inhabilita hasta que el usuario introduzca nombre y teléfono
     [super viewDidLoad];
     [self loadInitialData];
-    if([groups count] == 0){
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Aviso" message:@"No puede añadir contactos. Debe crear al menos un grupo" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [alertView show];
-    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -128,7 +142,7 @@
 
 
 
-/******************** IMÁGEN ********************/
+/******************** IMAGEN ********************/
 
 //Acción cuando pulsar botón buscar foto
 - (IBAction)showImagePickerForPhotoPicker:(id)sender
@@ -236,7 +250,7 @@ numberOfRowsInComponent:(NSInteger)component
 
 
 //-----------------------
-
+/*
 
 -(void)keyboardWillShow {
     // Animate the current view out of the way
@@ -313,7 +327,7 @@ numberOfRowsInComponent:(NSInteger)component
                                                   object:nil];
 }
 
-
+*/
 
 @end
 

@@ -30,24 +30,23 @@
 
 @implementation IGEEditContactViewController
 
-@synthesize greetingPickerSelGroup;
-
+@synthesize contacto = _contacto;
 
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if (sender != self.saveButton) return;
     
+    NSLog(@"Nombre text %@",_contacto.nombre);
     if (self.nombre.text.length > 0)//Validación y almacenado
     {
-        
         
         _contacto.nombre = self.nombre.text;
         _contacto.apellido1 = self.apellido1.text;
         _contacto.apellido2 = self.apellido2.text;
         _contacto.telefono = self.telefono.text;
         _contacto.email = self.email.text;
-        
+        _contacto.estado = @1;
         //falta el grupo
         
         //Conversión imagen UIImage a NSData, formato de la imagen del contacto
@@ -86,11 +85,8 @@
 
 - (void)viewDidLoad
 {
-    countryNames = [[NSMutableArray alloc]initWithObjects:@"Grupo1",@"Grupo2",@"Grupo3", @"Grupo4",@"Grupo5",@"Grupo6",nil];//Habria que cargar aqui todos los grupos
     [super viewDidLoad];
     [self fetchContactEdit];
-    
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -159,36 +155,6 @@
     return YES;
 }
 
-
-/******************** PICKER ********************/
-#pragma mark -
-#pragma mark PickerView DataSource
-
-- (NSInteger)numberOfComponentsInPickerView:
-(UIPickerView *)pickerView
-{
-    return 1;
-}
-
--(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    self.grupo = [countryNames objectAtIndex:row];
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView
-numberOfRowsInComponent:(NSInteger)component
-{
-    return [countryNames count];
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView
-             titleForRow:(NSInteger)row
-            forComponent:(NSInteger)component
-{
-    return [countryNames objectAtIndex:row];
-}
-
-//************************
 
 - (void) getContactEdit:(Contact *)contacto{
     _contacto = contacto;

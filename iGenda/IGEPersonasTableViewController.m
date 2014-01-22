@@ -106,7 +106,7 @@
     
     Contact* item = [self.contacts objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", item.nombre,item.apellido1];
-    
+    NSLog(@"ID CONTACTO: %@", item.id);
     return cell;
 }
 
@@ -167,14 +167,16 @@
  */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"Prepare for segure");
+    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"ContactDescription"]) {
         IGEShowContactViewController *controller = (IGEShowContactViewController *)[[segue destinationViewController] topViewController];
         NSInteger selectedIndex = [[self.tableView indexPathForSelectedRow] row];
         [controller getContact:[self.contacts objectAtIndex:selectedIndex]];
+
     }
-    
 }
 
 /**
@@ -196,7 +198,7 @@
     }
     
     /** Elimina contacto de core data **/
-    [context deleteObject:[self.contacts objectAtIndex:indexPath.row]]; //
+    [context deleteObject:[self.contacts objectAtIndex:indexPath.row]];
     
     /** Elimina contacto de memoria **/
     [self.contacts removeObjectAtIndex:indexPath.row];
