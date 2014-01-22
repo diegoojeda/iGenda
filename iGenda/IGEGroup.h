@@ -13,7 +13,7 @@
 
 @interface IGEGroup : NSManagedObject
 
-@property (nonatomic, retain) NSString * nombre;
+@property (nonatomic, retain) NSString *nombre;
 @property (nonatomic, retain) NSSet *newRelationship;
 @end
 

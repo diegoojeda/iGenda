@@ -79,6 +79,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     IGEGroup* item = [_contactosGrupo objectAtIndex:indexPath.row];
     cell.textLabel.text = item.nombre;
+    
     return cell;
 }
 
