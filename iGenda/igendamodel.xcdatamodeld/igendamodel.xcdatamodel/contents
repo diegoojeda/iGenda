@@ -10,14 +10,14 @@
         <attribute name="imagen" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="telefono" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IGEGroup" inverseName="newRelationship" inverseEntity="IGEGroup" syncable="YES"/>
+        <relationship name="grupo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IGEGroup" inverseName="contactos" inverseEntity="IGEGroup" syncable="YES"/>
     </entity>
     <entity name="IGEContactToDelete" representedClassName="IGEContactToDelete" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="IGEGroup" representedClassName="IGEGroup" syncable="YES">
         <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="newRelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IGEContact" inverseName="newRelationship" inverseEntity="IGEContact" syncable="YES"/>
+        <relationship name="contactos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IGEContact" inverseName="grupo" inverseEntity="IGEContact" syncable="YES"/>
     </entity>
     <entity name="IGESetting" representedClassName="IGESetting" syncable="YES">
         <attribute name="numSeq" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -25,9 +25,9 @@
         <attribute name="versionAgenda" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="IGEContact" positionX="0" positionY="0" width="128" height="195"/>
-        <element name="IGEContactToDelete" positionX="0" positionY="0" width="128" height="60"/>
-        <element name="IGEGroup" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="IGESetting" positionX="0" positionY="0" width="128" height="88"/>
+        <element name="IGEContact" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="IGEContactToDelete" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="IGEGroup" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="IGESetting" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
