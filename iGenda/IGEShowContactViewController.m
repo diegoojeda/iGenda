@@ -52,7 +52,7 @@ UINavigationControllerDelegate>
 
 
 -(IBAction)callPhone:(id)sender {
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString: self.movil_L.text]];
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString: self.contacto.telefono]];
    // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:639970861"]];
 }
 
@@ -117,19 +117,19 @@ UINavigationControllerDelegate>
 	MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
 	picker.mailComposeDelegate = self;
 	
-	[picker setSubject:@"Hello from California!"];
+	[picker setSubject:@"Put here your subject"];
 	
 	// Set up recipients
-	NSArray *toRecipients = [NSArray arrayWithObject:@"first@example.com"];
-	NSArray *ccRecipients = [NSArray arrayWithObjects:@"second@example.com", @"third@example.com", nil];
-	NSArray *bccRecipients = [NSArray arrayWithObject:@"fourth@example.com"];
+	NSArray *toRecipients = [NSArray arrayWithObject:self.contacto.email];
+	NSArray *ccRecipients = [NSArray arrayWithObjects:@"second@example.com", nil];
+	NSArray *bccRecipients = [NSArray arrayWithObject:@"third@example.com"];
 	
 	[picker setToRecipients:toRecipients];
 	[picker setCcRecipients:ccRecipients];
 	[picker setBccRecipients:bccRecipients];
 	
 	// Fill out the email body text
-	NSString *emailBody = @"It is raining in sunny California!";
+	NSString *emailBody = @"Put your message body";
 	[picker setMessageBody:emailBody isHTML:NO];
 	
 	[self presentViewController:picker animated:YES completion:NULL];

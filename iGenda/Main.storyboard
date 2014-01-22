@@ -471,6 +471,9 @@
                                 <state key="normal" title="email">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="showMailPicker:" destination="jl0-aM-QoI" eventType="touchUpInside" id="AWB-YU-wT4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pju-3H-wqj">
                                 <rect key="frame" x="20" y="266" width="52" height="40"/>
@@ -1383,6 +1386,9 @@
                                 <state key="normal" title="email">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="showMailPicker:" destination="dG5-OQ-r5V" eventType="touchUpInside" id="Zqg-wN-kOj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmo-uq-YxT">
                                 <rect key="frame" x="20" y="266" width="52" height="40"/>
@@ -1431,6 +1437,13 @@
                                     <action selector="callPhone:" destination="dG5-OQ-r5V" eventType="touchUpInside" id="2Xb-Mx-Ikn"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bj7-aL-dac">
+                                <rect key="frame" x="88" y="247" width="150" height="117"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1453,6 +1466,7 @@
                     <connections>
                         <outlet property="atrasButton" destination="IC6-Xz-r1h" id="1xd-AT-NAA"/>
                         <outlet property="email_L" destination="kNK-UJ-TNh" id="eUc-ny-JGc"/>
+                        <outlet property="feedbackMsg" destination="bj7-aL-dac" id="3g4-dW-iqK"/>
                         <outlet property="image_IV" destination="b4T-zq-QlS" id="6C1-di-ye5"/>
                         <outlet property="movil_L" destination="qzr-AQ-ljk" id="NVi-hA-5TH"/>
                         <outlet property="nombre_L" destination="5TI-Vc-Z3a" id="Jn3-xb-fpu"/>
