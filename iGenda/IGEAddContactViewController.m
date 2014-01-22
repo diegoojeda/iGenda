@@ -57,16 +57,15 @@
         self.contacto.telefono = self.telefono.text;
         self.contacto.email = self.email.text;
         self.contacto.favorito = @0;
-        self.contacto.estado = 0; //Recien creado
+        self.contacto.estado = @0; //Recien creado
         //NSLog(@"Se ha añadido un contacto con grupo---> %@", [[groups objectAtIndex:[self.row integerValue]] nombre]);
         
-       
         //Conversión imagen UIImage a NSData, formato de la imagen del contacto
         NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.foto.image)];
         self.contacto.imagen = imageData;
         
         [[groups objectAtIndex:[self.row integerValue]] addNewRelationshipObject:self.contacto];
-        self.contacto.newRelationship.nombre = [groups objectAtIndex:[self.row integerValue]];
+        //self.contacto.newRelationship.nombre = [groups objectAtIndex:[self.row integerValue]];
         
         /** Guarda el contexto **/
         [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];

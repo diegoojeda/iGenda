@@ -104,7 +104,7 @@
                                                 <rect key="frame" x="16" y="128" width="280" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                 <connections>
                                                     <action selector="changeTelefono:" destination="gPx-xz-dyS" eventType="editingChanged" id="wYk-8F-qRE"/>
                                                 </connections>
@@ -261,6 +261,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Qfb-kb-59x" kind="modal" identifier="ContactoFromGroup" id="cuQ-xO-jwo"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -275,14 +278,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="Ji8-D0-A4H" kind="modal" identifier="ContactDescription" id="5EA-0G-y6T"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G09-aN-WbW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="pVr-g6-ayC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1101" y="1182"/>
+            <point key="canvasLocation" x="1005" y="1182"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="X7n-Vl-fCM">
@@ -1510,6 +1510,246 @@
             </objects>
             <point key="canvasLocation" x="1290" y="2869"/>
         </scene>
+        <!--Show Contact View Controller-->
+        <scene sceneID="nhy-VH-0eO">
+            <objects>
+                <viewController id="RH0-rU-phy" customClass="IGEShowContactViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LLO-o0-jlF"/>
+                        <viewControllerLayoutGuide type="bottom" id="vsA-L7-w0b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dGs-rg-D6v">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="40" verticalHuggingPriority="40" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" fixedFrame="YES" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" image="contacto.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ent-m8-SYO">
+                                <rect key="frame" x="25" y="119" width="122" height="126"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pf4-Fr-lB7">
+                                <rect key="frame" x="22" y="326" width="52" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="email">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoF-RP-mxd">
+                                <rect key="frame" x="20" y="266" width="52" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="móvil">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ER8-yc-M1h">
+                                <rect key="frame" x="25" y="89" width="222" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4v1-UX-G2r">
+                                <rect key="frame" x="27" y="300" width="262" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWk-zT-iGS">
+                                <rect key="frame" x="27" y="361" width="273" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXu-Xi-dAD">
+                                <rect key="frame" x="274" y="85" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeFavorito:" destination="RH0-rU-phy" eventType="touchUpInside" id="Fy0-F0-zi4"/>
+                                    <action selector="changeFavorito:" destination="RH0-rU-phy" eventType="valueChanged" id="hCN-ON-q9g"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ZH-SJ-QQ9">
+                                <rect key="frame" x="186" y="136" width="103" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="llamar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="callPhone:" destination="RH0-rU-phy" eventType="touchUpInside" id="DeT-yg-A89"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ER8-yc-M1h" firstAttribute="top" secondItem="LLO-o0-jlF" secondAttribute="bottom" constant="25" id="vqH-Ma-pSP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="rdg-DA-HEl">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Atras" id="38S-DR-VPa">
+                            <connections>
+                                <segue destination="gHY-SY-TYC" kind="unwind" unwindAction="unwindFromGroupDetailToGroups:" id="fQX-1l-c1v"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Qrr-qO-wMO">
+                            <connections>
+                                <segue destination="lRb-mr-Wd3" kind="modal" identifier="ContactEdit" id="p8T-BC-t9z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="atrasButton" destination="38S-DR-VPa" id="mzN-88-aZF"/>
+                        <outlet property="email_L" destination="bWk-zT-iGS" id="Kwx-IX-Lir"/>
+                        <outlet property="image_IV" destination="Ent-m8-SYO" id="llZ-Ro-acs"/>
+                        <outlet property="movil_L" destination="4v1-UX-G2r" id="COt-RF-acS"/>
+                        <outlet property="nombre_L" destination="ER8-yc-M1h" id="a60-Aa-0xC"/>
+                        <outlet property="star_L" destination="nXu-Xi-dAD" id="elk-4k-VSe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vcg-e2-WRm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gHY-SY-TYC" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2039" y="1182"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Yet-Vx-pJh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qfb-kb-59x" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ogk-I7-WKF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RH0-rU-phy" kind="relationship" relationship="rootViewController" id="ecb-YQ-UG4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HOd-Cd-px7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1525" y="1182"/>
+        </scene>
+        <!--Edit Contact View Controller - Editar-->
+        <scene sceneID="U5W-vn-zZe">
+            <objects>
+                <viewController id="OlG-E1-d1f" customClass="IGEEditContactViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nij-Kg-XS9"/>
+                        <viewControllerLayoutGuide type="bottom" id="CWi-N4-hjJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pdw-fR-wxF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="contacto.png" translatesAutoresizingMaskIntoConstraints="NO" id="fqG-Tq-UBP">
+                                <rect key="frame" x="13" y="98" width="122" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I21-1X-fGp">
+                                <rect key="frame" x="13" y="91" width="125" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showImagePickerForPhotoPicker:" destination="OlG-E1-d1f" eventType="touchUpInside" id="3sh-0E-jZb"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="26N-dX-jLp">
+                                <rect key="frame" x="152" y="98" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="changeNombre:" destination="gPx-xz-dyS" eventType="editingChanged" id="UmN-Ii-ahW"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Primer Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qLM-NC-hUI">
+                                <rect key="frame" x="152" y="143" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Segundo Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Rv-I3-m6W">
+                                <rect key="frame" x="152" y="188" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w0C-2C-dD3">
+                                <rect key="frame" x="13" y="281" width="289" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Teléfono" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="swm-0D-z3T">
+                                <rect key="frame" x="13" y="241" width="289" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <connections>
+                                    <action selector="changeTelefono:" destination="gPx-xz-dyS" eventType="editingChanged" id="e2R-Qg-XQK"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="L8s-gO-rIS" appends="YES" id="sve-1i-u48"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Editar" id="JTa-XK-10H">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="edk-Ub-S7D">
+                            <connections>
+                                <segue destination="66w-by-t2l" kind="unwind" unwindAction="unwindFromEditToShowContact:" id="wnE-cJ-71l"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="qOx-Ma-qfr">
+                            <connections>
+                                <segue destination="66w-by-t2l" kind="unwind" identifier="unwindFromEditContact" unwindAction="unwindFromEditToShowContact:" id="ewC-Ge-Isk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="apellido1" destination="qLM-NC-hUI" id="eD3-Ww-lci"/>
+                        <outlet property="apellido2" destination="4Rv-I3-m6W" id="XZf-ka-UOZ"/>
+                        <outlet property="email" destination="w0C-2C-dD3" id="Hys-6G-bTL"/>
+                        <outlet property="foto" destination="fqG-Tq-UBP" id="Ci8-od-bVv"/>
+                        <outlet property="nombre" destination="26N-dX-jLp" id="S8t-PH-Ha9"/>
+                        <outlet property="saveButton" destination="qOx-Ma-qfr" id="Jyx-71-cYD"/>
+                        <outlet property="telefono" destination="swm-0D-z3T" id="4op-tJ-FmI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lns-bS-sIZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="66w-by-t2l" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="L8s-gO-rIS">
+                    <connections>
+                        <action selector="backgroundClick:" destination="OlG-E1-d1f" id="wVO-aK-CvJ"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3183" y="1182"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zyK-GN-Ito">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lRb-mr-Wd3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MpR-NM-y6X">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OlG-E1-d1f" kind="relationship" relationship="rootViewController" id="ftw-3o-aUg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CYv-vt-TlF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2657" y="1182"/>
+        </scene>
     </scenes>
     <resources>
         <image name="contacto.png" width="500" height="500"/>
@@ -1523,8 +1763,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="sC8-VL-ZhP"/>
         <segue reference="61t-nf-Mh7"/>
-        <segue reference="ooX-Fo-0zP"/>
+        <segue reference="sC8-VL-ZhP"/>
     </inferredMetricsTieBreakers>
 </document>

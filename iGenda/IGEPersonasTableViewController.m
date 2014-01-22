@@ -74,6 +74,7 @@
     [self loadInitialData];
 }
 
+
 -(void) viewWillAppear:(BOOL)animated{
     [self loadInitialData];
     [self.tableView reloadData];
