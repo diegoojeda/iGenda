@@ -1843,6 +1843,7 @@
         <image name="llamar" width="225" height="221"/>
         <image name="refresh" width="185" height="244"/>
         <image name="salir 2" width="75" height="75"/>
+        <image name="salir_item" width="23" height="26"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -1852,6 +1853,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="61t-nf-Mh7"/>
-        <segue reference="nRW-dP-IDE"/>
+        <segue reference="751-bG-M4W"/>
     </inferredMetricsTieBreakers>
 </document>
