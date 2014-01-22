@@ -81,7 +81,7 @@
         else {
             [self.activityIndicator setHidden:YES];
             NSLog(@"El usuario ya existe");
-            [self alertStatus:@"Nombre de usuario ya está siendo utilizado. Pruebe con otro.": @"Usuario ya existente" :0];
+            [self alertStatus:@"Este nombre de usuario ya está siendo utilizado. Pruebe con otro.": @"Usuario ya existente" :0];
         }
     }
 }
