@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
     
-    self.IP = [[NSMutableString alloc] initWithString:@"http://192.168.1.14"];
+    self.IP = [[NSMutableString alloc] initWithString:@"http://192.168.1.139"];
     self.inicioButton.enabled = NO;
     
     [self.activityIndicator startAnimating];
