@@ -80,7 +80,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <action selector="changeNombre:" destination="gPx-xz-dyS" eventType="editingChanged" id="nbs-Hv-9vR"/>
-                                                    <outlet property="delegate" destination="gPx-xz-dyS" id="kaY-5v-HNz"/>
+                                                    <outlet property="delegate" destination="gPx-xz-dyS" id="56l-4n-cde"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Primer Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jbK-4p-0BN">
@@ -89,7 +89,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="gPx-xz-dyS" id="s3p-yY-xnG"/>
+                                                    <outlet property="delegate" destination="gPx-xz-dyS" id="d7V-EK-5kG"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Segundo Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jxL-E7-a4v">
@@ -98,7 +98,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="gPx-xz-dyS" id="BOK-WF-MI1"/>
+                                                    <outlet property="delegate" destination="gPx-xz-dyS" id="ZJS-A7-MWt"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wdW-Ml-Drf">
@@ -107,7 +107,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="gPx-xz-dyS" id="pAw-go-gNA"/>
+                                                    <outlet property="delegate" destination="gPx-xz-dyS" id="tNF-u4-Z61"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Teléfono" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DJd-Be-1os">
@@ -117,7 +117,7 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                                 <connections>
                                                     <action selector="changeTelefono:" destination="gPx-xz-dyS" eventType="editingChanged" id="wYk-8F-qRE"/>
-                                                    <outlet property="delegate" destination="gPx-xz-dyS" id="fqi-7E-siA"/>
+                                                    <outlet property="delegate" destination="gPx-xz-dyS" id="3Ut-HO-e2i"/>
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Od7-nA-RZX">
@@ -216,7 +216,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="SPd-dD-iNN" id="qSw-PH-0R5"/>
+                                    <outlet property="delegate" destination="SPd-dD-iNN" id="Zt3-QL-gHn"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -377,22 +377,6 @@
                                                     <action selector="registerClick:" destination="8z8-06-aTX" eventType="touchUpInside" id="b7M-gf-8Ve"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzT-g1-hW5">
-                                                <rect key="frame" x="140" y="255" width="92" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Login">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="loginClick:" destination="8z8-06-aTX" eventType="touchUpInside" id="yp1-ig-VMY"/>
-                                                </connections>
-                                            </button>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="PCM-wg-Yo3">
-                                                <rect key="frame" x="126" y="214" width="37" height="37"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                                <color key="color" red="0.086956203309999994" green="0.28590445910000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
@@ -486,9 +470,6 @@
                                 <state key="normal" title="email">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="sendEmail:" destination="jl0-aM-QoI" eventType="touchUpInside" id="VzZ-YN-bHd"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pju-3H-wqj">
                                 <rect key="frame" x="20" y="266" width="52" height="40"/>
@@ -760,7 +741,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="changeNombre:" destination="gPx-xz-dyS" eventType="editingChanged" id="atM-cH-Wo7"/>
-                                    <outlet property="delegate" destination="SEA-zW-aZ4" id="gH7-Dn-zf1"/>
+                                    <outlet property="delegate" destination="SEA-zW-aZ4" id="38R-UP-taN"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Primer Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cur-1Y-Qos">
@@ -769,7 +750,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="SEA-zW-aZ4" id="CjL-8E-xc6"/>
+                                    <outlet property="delegate" destination="SEA-zW-aZ4" id="YLP-Sn-f8i"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Segundo Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uOk-9F-8B9">
@@ -778,7 +759,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="SEA-zW-aZ4" id="BdM-ag-Ag2"/>
+                                    <outlet property="delegate" destination="SEA-zW-aZ4" id="eoJ-cl-gBg"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Igc-5v-Fcx">
@@ -787,7 +768,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                 <connections>
-                                    <outlet property="delegate" destination="SEA-zW-aZ4" id="vu5-46-2LL"/>
+                                    <outlet property="delegate" destination="SEA-zW-aZ4" id="hub-5K-VsH"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Teléfono" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="taB-zk-xMN">
@@ -797,7 +778,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                 <connections>
                                     <action selector="changeTelefono:" destination="gPx-xz-dyS" eventType="editingChanged" id="7x6-0A-nMI"/>
-                                    <outlet property="delegate" destination="SEA-zW-aZ4" id="XW7-31-KKh"/>
+                                    <outlet property="delegate" destination="SEA-zW-aZ4" id="3ec-34-DUi"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -1118,6 +1099,9 @@
                                 <state key="normal" title="email">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendEmail:" destination="MEb-jH-OBT" eventType="touchUpInside" id="hHP-Qd-DQg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKa-c2-8y9">
                                 <rect key="frame" x="20" y="266" width="52" height="40"/>
@@ -1231,8 +1215,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="changeNombre:" destination="gPx-xz-dyS" eventType="editingChanged" id="VFa-dt-niq"/>
-                                    <outlet property="delegate" destination="9En-Hn-kOK" id="qyf-rB-WkP"/>
+                                    <action selector="changeNombre:" destination="gPx-xz-dyS" eventType="editingChanged" id="46V-7x-18S"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Primer Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWG-2g-sm5">
@@ -1240,27 +1223,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="9En-Hn-kOK" id="cmB-c2-bAB"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Segundo Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BTW-W4-Ycb">
                                 <rect key="frame" x="152" y="188" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="9En-Hn-kOK" id="Vj2-hg-fJ6"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M3Y-20-SFv">
                                 <rect key="frame" x="13" y="281" width="289" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
-                                <connections>
-                                    <outlet property="delegate" destination="9En-Hn-kOK" id="cES-6g-h6B"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Teléfono" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TAJ-fY-HEo">
                                 <rect key="frame" x="13" y="241" width="289" height="30"/>
@@ -1268,8 +1242,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                 <connections>
-                                    <action selector="changeTelefono:" destination="gPx-xz-dyS" eventType="editingChanged" id="Yei-Ly-3jF"/>
-                                    <outlet property="delegate" destination="9En-Hn-kOK" id="5Uz-KP-4bU"/>
+                                    <action selector="changeTelefono:" destination="gPx-xz-dyS" eventType="editingChanged" id="sDN-I1-D19"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -1367,6 +1340,9 @@
                                 <state key="normal" title="email">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendEmail:" destination="dG5-OQ-r5V" eventType="touchUpInside" id="dmj-pH-aSy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmo-uq-YxT">
                                 <rect key="frame" x="20" y="266" width="52" height="40"/>
@@ -1481,6 +1457,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="changeNombre:" destination="gPx-xz-dyS" eventType="editingChanged" id="Afb-JP-KhJ"/>
+                                    <outlet property="delegate" destination="1vF-dU-bo2" id="9tA-rs-3nL"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Primer Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lnb-FL-an9">
@@ -1488,18 +1465,27 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="1vF-dU-bo2" id="UHC-hh-bxe"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Segundo Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6vr-y1-Qqy">
                                 <rect key="frame" x="152" y="188" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="1vF-dU-bo2" id="rU8-bP-zUi"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8G1-8s-CIW">
                                 <rect key="frame" x="13" y="281" width="289" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                <connections>
+                                    <outlet property="delegate" destination="1vF-dU-bo2" id="fL5-kj-gEt"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Teléfono" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pHb-zu-Umt">
                                 <rect key="frame" x="13" y="241" width="289" height="30"/>
@@ -1508,6 +1494,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                 <connections>
                                     <action selector="changeTelefono:" destination="gPx-xz-dyS" eventType="editingChanged" id="eje-At-nmk"/>
+                                    <outlet property="delegate" destination="1vF-dU-bo2" id="dAz-Co-fDA"/>
                                 </connections>
                             </textField>
                         </subviews>
