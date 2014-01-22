@@ -18,5 +18,8 @@
 - (IBAction)backgroundClick:(id)sender;
 - (IBAction)registerClick: (id) sender;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIButton *inicioButton;
+@property NSMutableString *IP;
+
 
 @end
