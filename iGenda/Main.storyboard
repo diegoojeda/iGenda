@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -1135,7 +1135,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="sendEmail:" destination="MEb-jH-OBT" eventType="touchUpInside" id="hHP-Qd-DQg"/>
+                                    <action selector="showMailPicker:" destination="MEb-jH-OBT" eventType="touchUpInside" id="mbP-BG-bub"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKa-c2-8y9">
@@ -1185,6 +1185,13 @@
                                     <action selector="callPhone:" destination="MEb-jH-OBT" eventType="touchUpInside" id="KsM-0L-eRa"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxv-ef-CPU">
+                                <rect key="frame" x="87" y="266" width="150" height="117"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1207,6 +1214,7 @@
                     <connections>
                         <outlet property="atrasButton" destination="mNk-3p-but" id="LJh-ag-Pm3"/>
                         <outlet property="email_L" destination="eBI-2O-U4N" id="P5Y-BD-7Ea"/>
+                        <outlet property="feedbackMsg" destination="cxv-ef-CPU" id="t7n-dF-SmK"/>
                         <outlet property="image_IV" destination="j4k-JC-6fS" id="qwg-YO-ehf"/>
                         <outlet property="movil_L" destination="cES-wG-bxA" id="Wn5-Ly-3kZ"/>
                         <outlet property="nombre_L" destination="iO6-wT-9mM" id="Zzu-xZ-Qf9"/>
@@ -1375,9 +1383,6 @@
                                 <state key="normal" title="email">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="sendEmail:" destination="dG5-OQ-r5V" eventType="touchUpInside" id="dmj-pH-aSy"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmo-uq-YxT">
                                 <rect key="frame" x="20" y="266" width="52" height="40"/>
@@ -1611,6 +1616,9 @@
                                 <state key="normal" title="email">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="showMailPicker:" destination="RH0-rU-phy" eventType="touchUpInside" id="DaE-Lt-lNc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoF-RP-mxd">
                                 <rect key="frame" x="20" y="266" width="52" height="40"/>
@@ -1659,6 +1667,13 @@
                                     <action selector="callPhone:" destination="RH0-rU-phy" eventType="touchUpInside" id="DeT-yg-A89"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3u5-S5-svg">
+                                <rect key="frame" x="85" y="258" width="150" height="117"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1681,6 +1696,7 @@
                     <connections>
                         <outlet property="atrasButton" destination="38S-DR-VPa" id="mzN-88-aZF"/>
                         <outlet property="email_L" destination="bWk-zT-iGS" id="Kwx-IX-Lir"/>
+                        <outlet property="feedbackMsg" destination="3u5-S5-svg" id="5Wo-lZ-V4r"/>
                         <outlet property="image_IV" destination="Ent-m8-SYO" id="llZ-Ro-acs"/>
                         <outlet property="movil_L" destination="4v1-UX-G2r" id="COt-RF-acS"/>
                         <outlet property="nombre_L" destination="ER8-yc-M1h" id="a60-Aa-0xC"/>
@@ -1837,7 +1853,6 @@
         <image name="llamar" width="225" height="221"/>
         <image name="refresh" width="185" height="244"/>
         <image name="salir 2" width="75" height="75"/>
-        <image name="salir_item" width="23" height="26"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
