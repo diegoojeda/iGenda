@@ -928,6 +928,12 @@
                                 <segue destination="2PO-FI-iX6" kind="unwind" unwindAction="unwindFromContactDetailToContactList:" id="OCb-7W-Qd1"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="salir_item" width="14" id="t9C-3k-obq">
+                            <connections>
+                                <action selector="deleteLoginData:" destination="o9G-3d-Vfh" id="y3r-8P-R8y"/>
+                                <segue destination="8z8-06-aTX" kind="modal" id="1m8-nv-LlZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pq3-Jn-kd1" userLabel="First Responder" sceneMemberID="firstResponder"/>
