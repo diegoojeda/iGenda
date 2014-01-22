@@ -30,6 +30,7 @@
 
 @implementation IGEEditContactViewController
 
+//@synthesize greetingPickerSelGroup;
 @synthesize contacto = _contacto;
 
 
@@ -47,6 +48,9 @@
         _contacto.telefono = self.telefono.text;
         _contacto.email = self.email.text;
         _contacto.estado = @1;
+        //_contacto.newRelationship= self.grupo.text;
+        
+        
         //falta el grupo
         
         //Conversión imagen UIImage a NSData, formato de la imagen del contacto
@@ -148,6 +152,7 @@
     [self.view endEditing:YES];
     
 }
+
 //Oculta el teclado haciendo caso omiso al return
 - (BOOL) textFieldShouldReturn:(UITextField *)textField
 {
