@@ -105,22 +105,25 @@
     NSDictionary * parsedData = [NSJSONSerialization JSONObjectWithData:response1 options:0 error:&error];
     versionServidor = [parsedData objectForKey:@"version"];
     NSLog(@"Procedo a actualizar el servidor");
-    [self actualizarServidor];
+    NSLog(@"VERSDISPOSITIVO: %@ VERSSERVIDOR: %@", _versDispositivo, versionServidor);
+    //[self actualizarServidor];
     //Si versionDispositivo > versionServidor procedemos con la sincronización. Almacenamos los datos del dispositivo en el servidor
-    if (_versDispositivo > versionServidor){
-        //[self actualizarServidor];
+    if ([_versDispositivo intValue] > [versionServidor intValue]){
+        [self actualizarServidor];
+        [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] setModified:false];
+        [self alertStatus:@"La actualización se ha realizado con éxito" :@"Dispositivo actualizado" :0];
     }
     
     //Si versionDispositivo == versionServidor informamos de que no es necesario realizar ninguna acción
-    else if (_versDispositivo == versionServidor){
-        
+    else if ([_versDispositivo intValue] == [versionServidor intValue]){
+        [self alertStatus:@"El dispositivo ya está actualizado" :@"No es necesario actualizar" :0];
+        NSLog(@"Dispositivo actualizado");
     }
     //Si versionDispositivo < versionServidor requerimos al usuario que importe los contactos
     else{
+        NSLog(@"Dispositivo no actualizado");
         //[self importarContactos];
     }
-    
-    
 }
 
 
@@ -152,7 +155,6 @@
     [request setEntity:entityDescription];
     NSArray *marcadosBorrar = [context executeFetchRequest:request error:&error];
     
-    
     //Realizamos las actualizaciones procedentes en el servidor
     if ([arrayCreados count] != 0){
         NSLog(@"Detectado al menos un contacto creado");
@@ -164,6 +166,8 @@
     //if ([marcadosBorrar count] != 0){
         //[self eliminarContactosEnServidor:marcadosBorrar];
     //}
+    //Actualizamos la versión en el servidor
+    [self actualizarVersion];
     //Por último, procedemos a marcar todos los contactos con un estado = 2 (actualizados) y a borrar los marcados para borrar del almacenamiento persistente.
     NSLog(@"Procedemos a actualizar la información persistente");
     [self actualizarInformacionPersistente];
@@ -174,25 +178,21 @@
 }
 
 - (void) crearContactosEnServidor: (NSMutableArray *) contactos{
-    NSMutableDictionary *dic, *dicLogin, *dicGrupo;
+    NSMutableDictionary *dic, *dicLogin;
     NSError *errorJSON = nil;
+    //NSNumber *numVersion =
     for (Contact *c in contactos){
-        NSString *strGrupo = [[NSString alloc] initWithFormat:@"%@+%@", c.grupo.nombre, _nomUsuario];
         NSString *strID = [[NSString alloc] initWithFormat:@"%@+%@", c.id, _nomUsuario];
         //No se puede hacer una conversión directa del array a JSON, ya que hay campos que no almacenamos en el servidor (imagen y estado :((( )
         dic = [[NSMutableDictionary alloc] init];
         dicLogin = [[NSMutableDictionary alloc] init];
-        dicGrupo = [[NSMutableDictionary alloc]init];
         [dicLogin setObject:_nomUsuario forKey:@"login"];
         [dicLogin setObject:@0 forKey:@"version"];
-        [dicGrupo setObject:strGrupo forKey:@"idgrupo"];
-        [dicGrupo setObject:dicLogin forKey:@"login"];
-        [dicGrupo setObject:c.grupo.nombre forKey:@"nombregrupo"];
         [dic setObject:c.apellido1 forKey:@"apellido1"];
         [dic setObject:c.apellido2 forKey:@"apellido2"];
         [dic setObject:c.email forKey:@"email"];
         [dic setObject:c.favorito forKey:@"favorito"];
-        [dic setObject:dicGrupo forKey:@"grupo"];
+        [dic setObject:c.grupo.nombre forKey:@"grupo"];
         [dic setObject:c.nombre forKey:@"nombre"];
         [dic setObject:c.telefono forKey:@"telefono"];
         [dic setObject:dicLogin forKey:@"login"];
@@ -223,25 +223,20 @@
 }
 
 - (void) editarContactosEnServidor: (NSMutableArray *) contactos{
-    NSMutableDictionary *dic, *dicLogin, *dicGrupo;
+    NSMutableDictionary *dic, *dicLogin;
     NSError *errorJSON = nil;
     for (Contact *c in contactos){
-        NSString *strGrupo = [[NSString alloc] initWithFormat:@"%@+%@", c.grupo.nombre, _nomUsuario];
         NSString *strID = [[NSString alloc] initWithFormat:@"%@+%@", c.id, _nomUsuario];
         //No se puede hacer una conversión directa del array a JSON, ya que hay campos que no almacenamos en el servidor (imagen y estado :((( )
         dic = [[NSMutableDictionary alloc] init];
         dicLogin = [[NSMutableDictionary alloc] init];
-        dicGrupo = [[NSMutableDictionary alloc]init];
         [dicLogin setObject:_nomUsuario forKey:@"login"];
         [dicLogin setObject:@0 forKey:@"version"];
-        [dicGrupo setObject:strGrupo forKey:@"idgrupo"];
-        [dicGrupo setObject:dicLogin forKey:@"login"];
-        [dicGrupo setObject:c.grupo.nombre forKey:@"nombregrupo"];
         [dic setObject:c.apellido1 forKey:@"apellido1"];
         [dic setObject:c.apellido2 forKey:@"apellido2"];
         [dic setObject:c.email forKey:@"email"];
         [dic setObject:c.favorito forKey:@"favorito"];
-        [dic setObject:dicGrupo forKey:@"grupo"];
+        [dic setObject:c.grupo.nombre forKey:@"grupo"];
         [dic setObject:c.nombre forKey:@"nombre"];
         [dic setObject:c.telefono forKey:@"telefono"];
         [dic setObject:dicLogin forKey:@"login"];
@@ -250,7 +245,7 @@
         NSLog(@"COMPROBANDO JSON");
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&errorJSON];
         NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
-        NSLog(@"JSON OUTPUT: %@",JSONString);
+        //NSLog(@"JSON OUTPUT: %@",JSONString);
         NSMutableString *urlStr = [[NSMutableString alloc] initWithString:@"http://192.168.1.139:8080/igenda-777/webresources/igenda.contacto/edit/"];
         [urlStr appendString:strID];
         NSURL *url = [NSURL URLWithString:urlStr];
@@ -292,36 +287,43 @@
     [(IGEAppDelegate *) [[UIApplication sharedApplication] delegate] saveContext];
 }
 
-/*
- 
- //Creamos diccionario con la información del usuario
- NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithCapacity:1];
- [dic setObject:username forKey:@"login"];
- [dic setObject:@0 forKey:@"version"];
- //Convertimos el diccionario a JSON y luego a NSData
- NSError *error;
- NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&error]; // Pass 0 if you don't care about the readability of the generateds string
- 
- //Creamos y ejecutamos la petición
- NSURL *url = [[NSURL alloc] initWithString:@"http://localhost:8080/igenda/webresources/webservices.usuario"];
- NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
- [req setHTTPMethod:@"POST"];
- [req setHTTPBody:jsonData];
- [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
- [req setValue:@"application/json; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
- [req setValue:[NSString stringWithFormat:@"%d", [jsonData length]] forHTTPHeaderField:@"Content-Length"];
- NSURLResponse *response = nil;
- NSLog(@"Justo antes de lanzar la petición al servidor");
- NSData *responsedata = [NSURLConnection sendSynchronousRequest:req returningResponse:&response error:&error];
- NSLog(@"Petición terminada");
- NSString *data=[[NSString alloc]initWithData:responsedata encoding:NSUTF8StringEncoding];
- NSLog(@"Respuesta: %@", data);
+- (void) actualizarVersion {
+    NSError *errorJSON = nil;
+    
+    //NSNumber *version = [[(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] settings]versionAgenda];
+    NSError *error;
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSMutableDictionary *dicLogin = [[NSMutableDictionary alloc] init];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGESetting" inManagedObjectContext:context];
+    NSFetchRequest *requestCoreData = [[NSFetchRequest alloc] init];
+    [requestCoreData setEntity:entityDescription];
+    IGESetting *set = [[context executeFetchRequest:requestCoreData error:&error] firstObject];
+    [dicLogin setObject:_nomUsuario forKey:@"login"];
+    [dicLogin setObject:set.versionAgenda forKey:@"version"];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dicLogin options:0 error:&errorJSON];
+    NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
+    //NSLog(@"JSON OUTPUT: %@",JSONString);
+    NSMutableString *urlStr = [[NSMutableString alloc] initWithString:@"http://192.168.1.139:8080/igenda-777/webresources/igenda.usuario/edit/"];
+    [urlStr appendString:_nomUsuario];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:jsonData];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/json; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
+    NSHTTPURLResponse *respuesta;
+    NSLog(@"JSON STRING ACTUALIZAR VERSION: %@", JSONString);
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&respuesta error:&errorJSON];
+    NSLog(@"INFORMACION ENVIADA AL SERVIDOR PARA EDITAR. RESPUESTA: %@", respuesta);
+    if ([respuesta statusCode] > 200 && [respuesta statusCode] <300){
+        NSLog(@"Todo correcto. VERSION Actualizada");
+    }
+    else{
+        NSLog(@"Error al actualizar un usuario en el servidor.");
+    }
 
- 
- 
- 
- 
- */
+}
 
 
 

@@ -40,24 +40,12 @@
         NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
 
         self.contacto = [NSEntityDescription insertNewObjectForEntityForName:@"IGEContact" inManagedObjectContext:context];
-        
-        /*//Esto solo almacena un campo, nombre, lo demas es lo de la persistencia
-        appDelegate = [UIApplication sharedApplication].delegate;
-        if(appDelegate.seqId == NULL){ //Si la secuencia no está creada, se crea
-            appDelegate.seqId = [NSNumber numberWithInt:1];
-        }else{ //En otro caso, se incrementa
-            int value = [appDelegate.seqId intValue];
-            appDelegate.seqId = [NSNumber numberWithInt:value + 1];
-            [(IGEAppDelegate *) [[UIApplication sharedApplication] delegate] setSeqId:appDelegate.seqId];
-        }
-        */
         NSError *error = nil;
         NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGESetting" inManagedObjectContext:context];
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         [request setEntity:entityDescription];
         IGESetting *set = [[context executeFetchRequest:request error:&error] firstObject];
-
-        //IGESetting * set = [NSEntityDescription insertNewObjectForEntityForName:@"IGESetting" inManagedObjectContext:context];
+        //NSLog(@"Version antes: %@", set.versionAgenda);
         self.contacto.id = set.numSeq;
         self.contacto.nombre = self.nombre.text;
         self.contacto.apellido1 = self.apellido1.text;
@@ -76,13 +64,15 @@
         //Conversión imagen UIImage a NSData, formato de la imagen del contacto
         NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.foto.image)];
         self.contacto.imagen = imageData;
-        
         [[groups objectAtIndex:[self.row integerValue]] addContactosObject:self.contacto];
-        //self.contacto.newRelationship = [groups objectAtIndex:[self.row integerValue]];
-        
-        /** Guarda el contexto **/
+        if (![(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] modified]){
+            [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] setModified:true];
+            NSNumber *vers = set.versionAgenda;
+            int versint = [vers intValue] + 1;
+            set.versionAgenda = [NSNumber numberWithInt:versint];
+        }
         [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
-        
+        //NSLog(@"Version despues: %@", set.versionAgenda);
     }
 }
 
