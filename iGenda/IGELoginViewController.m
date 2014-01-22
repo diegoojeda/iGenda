@@ -75,12 +75,13 @@
             NSLog(@"Registro nuevo usuario");
             [self crearUsuarioEnServidor:username];
             
-            [self alertStatus:@"Usuario registrado con éxito": @"Registro exitoso" :0];
+            [self alertStatus:@"Su usuario ha sido registrado con éxito, ya puede Iniciar Sesión": @"Registrado con éxito" :0];
+            [self.activityIndicator setHidden:YES];
         }
         else {
             [self.activityIndicator setHidden:YES];
             NSLog(@"El usuario ya existe");
-            [self alertStatus:@"Ese nombre de usuario ya está siendo utilizado": @"Registro fallido" :0];
+            [self alertStatus:@"Este nombre de usuario ya está siendo utilizado. Pruebe con otro.": @"Usuario ya existente" :0];
         }
     }
 }

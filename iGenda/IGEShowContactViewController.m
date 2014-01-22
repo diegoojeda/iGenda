@@ -81,10 +81,12 @@
 - (IBAction)changeFavorito:(id)sender{//NO ESTA BIEN
     if([_contacto.favorito  isEqual: @0]){
         _contacto.favorito = @1;
+        _contacto.estado = @1;
         self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_sel.png"]];
     }
     else{
         _contacto.favorito = @0;
+        _contacto.estado = @1;
         self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
     }
     [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
