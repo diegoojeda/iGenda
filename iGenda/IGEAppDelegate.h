@@ -24,7 +24,7 @@
 //@property Contact *seleccionado; //Contacto seleccionado para Ver/Editar
 @property NSNumber *seqId;
 @property IGESetting* settings;
-
+@property BOOL modified;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

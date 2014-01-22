@@ -17,6 +17,7 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize seqId = _seqId;
 @synthesize settings = _settings;
+@synthesize modified = _modified;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -32,6 +33,7 @@
     [requestCoreData setEntity:entityDescription];
     _settings =[[context executeFetchRequest:requestCoreData error:&error] firstObject];
     NSLog(@"Cargo settings en delegate: %@", _settings.usuario);
+    _modified = false;
     return YES;
 }
 

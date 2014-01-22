@@ -68,6 +68,16 @@
                 [c setValue:_contacto.nombre forKey:@"nombre"];
             }
         }
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGESetting" inManagedObjectContext:context];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entityDescription];
+        IGESetting *set = [[context executeFetchRequest:request error:&error] firstObject];
+        if (![(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] modified]){
+            [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] setModified:true];
+            NSNumber *vers = set.versionAgenda;
+            int versint = [vers intValue] + 1;
+            set.versionAgenda = [NSNumber numberWithInt:versint];
+        }
         [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
         if ([[segue identifier] isEqualToString:@"unwindFromEditContact"]) {
             IGEShowContactViewController *controller = (IGEShowContactViewController *)[segue destinationViewController];

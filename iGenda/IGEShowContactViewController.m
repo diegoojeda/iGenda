@@ -32,7 +32,8 @@
     self.nombre_L.text = fullname;
     self.movil_L.text = _contacto.telefono;
     self.email_L.text = _contacto.email;
-    
+    self.grupo_L.text = _contacto.grupo.nombre;
+    //NSLog(@"Show Contact nombre grupo: %@",[_contacto.newRelationship nombre]);
     
     self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     
@@ -80,10 +81,12 @@
 - (IBAction)changeFavorito:(id)sender{//NO ESTA BIEN
     if([_contacto.favorito  isEqual: @0]){
         _contacto.favorito = @1;
+        _contacto.estado = @1;
         self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_sel.png"]];
     }
     else{
         _contacto.favorito = @0;
+        _contacto.estado = @1;
         self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
     }
     [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];

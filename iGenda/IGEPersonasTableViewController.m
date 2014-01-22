@@ -204,6 +204,16 @@
     /** Elimina contacto de memoria **/
     [self.contacts removeObjectAtIndex:indexPath.row];
     
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGESetting" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    IGESetting *set = [[context executeFetchRequest:request error:&error] firstObject];
+    if (![(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] modified]){
+        [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] setModified:true];
+        NSNumber *vers = set.versionAgenda;
+        int versint = [vers intValue] + 1;
+        set.versionAgenda = [NSNumber numberWithInt:versint];
+    }
     
     if (![context save:&error]) {
         NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
