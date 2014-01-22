@@ -66,6 +66,7 @@
     }
     else{
         UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Error" message:@"An error has ocurred" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
     }
 }
 
