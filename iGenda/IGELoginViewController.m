@@ -246,12 +246,11 @@
     //Convertimos el diccionario a JSON y luego a NSData
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&error]; // Pass 0 if you don't care about the readability of the generateds string
-    
+    NSLog(@"JSONDATA: %@", [NSString stringWithUTF8String:[jsonData bytes]]);
     //Creamos y ejecutamos la petición
     
     NSMutableString *urlaux = [[NSMutableString alloc] initWithString:self.IP];
-    [urlaux appendString:@":8080/igenda-rs/webresources/igenda.contacto/"];
-    
+    [urlaux appendString:@":8080/igenda-rs/webresources/igenda.usuario/"];
     
     NSURL *url = [[NSURL alloc] initWithString:urlaux];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
@@ -280,7 +279,7 @@
     NSError *error;
     NSString* username = [[NSString alloc]initWithString:[self.textUsername text]];
     NSMutableString *url = [[NSMutableString alloc] initWithString:self.IP];
-    [url appendString:@":8080/igenda-rs/webresources/igenda.contacto/0+"];
+    [url appendString:@":8080/igenda-rs/webresources/igenda.usuario/"];
     [url appendString:username];
     
     NSLog(@"URL ENVIADA %@",url);
@@ -302,7 +301,7 @@
     NSHTTPURLResponse  *response = nil;
     NSError *error;
     NSMutableString *url = [[NSMutableString alloc] initWithString:self.IP];
-    [url appendString:@":8080/igenda-rs/webresources/igenda.contacto/0+diego"];//Cambiar a un usuario de prueba sin contactos
+    [url appendString:@":8080/igenda-rs/webresources/igenda.usuario/diego"];//Cambiar a un usuario de prueba sin contactos
     
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:1000];
