@@ -32,6 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.IP = [[NSMutableString alloc] initWithString:@"http://192.168.1.139"];
+
+    
 	// Do any additional setup after loading the view.
 }
 
