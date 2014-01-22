@@ -1215,8 +1215,15 @@
                                     <action selector="callPhone:" destination="MEb-jH-OBT" eventType="touchUpInside" id="KsM-0L-eRa"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxv-ef-CPU">
-                                <rect key="frame" x="87" y="266" width="150" height="117"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTC-We-NT4">
+                                <rect key="frame" x="28" y="391" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="grupo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhP-k6-vDs">
+                                <rect key="frame" x="27" y="422" width="210" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1244,7 +1251,6 @@
                     <connections>
                         <outlet property="atrasButton" destination="mNk-3p-but" id="LJh-ag-Pm3"/>
                         <outlet property="email_L" destination="eBI-2O-U4N" id="P5Y-BD-7Ea"/>
-                        <outlet property="feedbackMsg" destination="cxv-ef-CPU" id="t7n-dF-SmK"/>
                         <outlet property="image_IV" destination="j4k-JC-6fS" id="qwg-YO-ehf"/>
                         <outlet property="movil_L" destination="cES-wG-bxA" id="Wn5-Ly-3kZ"/>
                         <outlet property="nombre_L" destination="iO6-wT-9mM" id="Zzu-xZ-Qf9"/>
@@ -1464,8 +1470,15 @@
                                     <action selector="callPhone:" destination="dG5-OQ-r5V" eventType="touchUpInside" id="2Xb-Mx-Ikn"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bj7-aL-dac">
-                                <rect key="frame" x="88" y="247" width="150" height="117"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccZ-F2-47Z">
+                                <rect key="frame" x="28" y="391" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="grupo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJ9-wh-xc6">
+                                <rect key="frame" x="27" y="422" width="210" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1493,7 +1506,6 @@
                     <connections>
                         <outlet property="atrasButton" destination="IC6-Xz-r1h" id="1xd-AT-NAA"/>
                         <outlet property="email_L" destination="kNK-UJ-TNh" id="eUc-ny-JGc"/>
-                        <outlet property="feedbackMsg" destination="bj7-aL-dac" id="3g4-dW-iqK"/>
                         <outlet property="image_IV" destination="b4T-zq-QlS" id="6C1-di-ye5"/>
                         <outlet property="movil_L" destination="qzr-AQ-ljk" id="NVi-hA-5TH"/>
                         <outlet property="nombre_L" destination="5TI-Vc-Z3a" id="Jn3-xb-fpu"/>
@@ -1708,8 +1720,15 @@
                                     <action selector="callPhone:" destination="RH0-rU-phy" eventType="touchUpInside" id="DeT-yg-A89"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3u5-S5-svg">
-                                <rect key="frame" x="85" y="258" width="150" height="117"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z51-8Z-NEF">
+                                <rect key="frame" x="28" y="395" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="grupo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixu-cZ-u3C">
+                                <rect key="frame" x="27" y="426" width="210" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1737,7 +1756,6 @@
                     <connections>
                         <outlet property="atrasButton" destination="38S-DR-VPa" id="mzN-88-aZF"/>
                         <outlet property="email_L" destination="bWk-zT-iGS" id="Kwx-IX-Lir"/>
-                        <outlet property="feedbackMsg" destination="3u5-S5-svg" id="5Wo-lZ-V4r"/>
                         <outlet property="image_IV" destination="Ent-m8-SYO" id="llZ-Ro-acs"/>
                         <outlet property="movil_L" destination="4v1-UX-G2r" id="COt-RF-acS"/>
                         <outlet property="nombre_L" destination="ER8-yc-M1h" id="a60-Aa-0xC"/>
