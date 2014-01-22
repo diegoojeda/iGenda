@@ -26,7 +26,7 @@
     [request setEntity:entityDescription];
     
     NSPredicate *predicate =
-    [NSPredicate predicateWithFormat:@"newRelationship.nombre == %@", self.nombreGrupo];
+    [NSPredicate predicateWithFormat:@"grupo.nombre == %@", self.nombreGrupo];
     [request setPredicate:predicate];
 
     

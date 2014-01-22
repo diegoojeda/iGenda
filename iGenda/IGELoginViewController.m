@@ -75,12 +75,13 @@
             NSLog(@"Registro nuevo usuario");
             [self crearUsuarioEnServidor:username];
             
-            [self alertStatus:@"Usuario registrado con éxito": @"Registro exitoso" :0];
+            [self alertStatus:@"Su usuario ha sido registrado con éxito, ya puede Iniciar Sesión": @"Registrado con éxito" :0];
+            [self.activityIndicator setHidden:YES];
         }
         else {
             [self.activityIndicator setHidden:YES];
             NSLog(@"El usuario ya existe");
-            [self alertStatus:@"Ese nombre de usuario ya está siendo utilizado": @"Registro fallido" :0];
+            [self alertStatus:@"Este nombre de usuario ya está siendo utilizado. Pruebe con otro.": @"Usuario ya existente" :0];
         }
     }
 }
@@ -158,6 +159,9 @@
         [self alertStatus:@"Hubo un error durante el proceso de autenticación": @"Login fallido" :0];
     }
     else{
+        NSManagedObjectContext *context = [(IGEAppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext];
+        IGEGroup *grupo = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:context];
+        grupo.nombre = @"<sin grupo>";
         NSArray *jsonArray = (NSArray *)[NSJSONSerialization JSONObjectWithData:response1 options:0 error:&error];
         int contadorContactos = 0;
         //Trabajamos con los datos JSON recibidos del servidor
@@ -173,7 +177,6 @@
         //NSLog(@"JSON ARRAY COUNT: %lu", [jsonArray count]);
         //Por último, almacenamos también el usuario en el IGESetting de la aplicación
         //[(IGEAppDelegate *) [[UIApplication sharedApplication] delegate] setSeqId:[NSNumber numberWithUnsignedInteger:[jsonArray count]]];
-        NSManagedObjectContext *context = [(IGEAppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext];
         IGESetting * set = [NSEntityDescription insertNewObjectForEntityForName:@"IGESetting" inManagedObjectContext:context];
         [set setValue:usuario forKey:@"usuario"];
         [set setValue:ver forKey:@"versionAgenda"];
