@@ -64,7 +64,7 @@
     
     if([[self.textUsername text] isEqualToString:@""]) {
         [self.activityIndicator setHidden:YES];
-        [self alertStatus:@"Introduzca el nombre que desea y luego pulse registrar": @"Registro fallido" :0];
+        [self alertStatus:@"Introduzca el nombre que desea y registrese": @"Usuario vacío" :0];
     }
     else{
         NSString *username = [self.textUsername text];
@@ -79,7 +79,7 @@
         }
         else {
             [self.activityIndicator setHidden:YES];
-            NSLog(@"El usuario ya existia");
+            NSLog(@"El usuario ya existe");
             [self alertStatus:@"Ese nombre de usuario ya está siendo utilizado": @"Registro fallido" :0];
         }
     }
@@ -109,7 +109,7 @@
     else {
         if([self fetchConnect] == 0){
             [self.activityIndicator setHidden:YES];
-            NSLog(@"FAIL");
+            NSLog(@"SIN CONEXIÓN");
             [self alertStatus:@"" :@"Sin conexión a la red" :0];
         }
         else{
@@ -118,9 +118,12 @@
             
             if ([str length] > 0){
                 //Conseguimos el número de versión
+                
+                NSLog(@"STR ES: %@",str);
+                
                 NSError *err = nil;
                 NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[str dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&err];
-                NSLog(@"LOGIN SUCCESFUL %@",[dic objectForKey:@"version"]);
+                NSLog(@"LOGIN SUCCESFUL %f",[[dic objectForKey:@"version"] floatValue]);
                 //En el NSString str está almacenado el JSON, es genial =)
                 [self cargarContactos:username conVersion: [dic objectForKey:@"version"]];
                 success = 1;
@@ -145,7 +148,7 @@
 
 
 -(void) cargarContactos:(NSString *) usuario conVersion: (NSNumber *) ver{
-
+    
     //Petición http para recuperar todos los contactos
     NSLog(@"Recibo version: %@", ver);
     NSHTTPURLResponse *response = nil;
@@ -248,10 +251,11 @@
     
     NSMutableString *urlaux = [[NSMutableString alloc] initWithString:self.IP];
     [urlaux appendString:@":8080/igenda-rs/webresources/igenda.contacto/"];
-
+    
     
     NSURL *url = [[NSURL alloc] initWithString:urlaux];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    
     [req setHTTPMethod:@"POST"];
     [req setHTTPBody:jsonData];
     [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
@@ -269,46 +273,48 @@
 
 /**** LOGIN ****/
 /**
-    Consulta si un usuario existe en la base de datos
-**/
+ Consulta si un usuario existe en la base de datos
+ **/
 - (NSString *) fetchUser :(NSString *) userName {
     NSHTTPURLResponse  *response = nil;
     NSError *error;
     NSString* username = [[NSString alloc]initWithString:[self.textUsername text]];
     NSMutableString *url = [[NSMutableString alloc] initWithString:self.IP];
-    [url appendString:@":8080/igenda-rs/webresources/igenda.contacto/"];
+    [url appendString:@":8080/igenda-rs/webresources/igenda.contacto/0+"];
     [url appendString:username];
     
     NSLog(@"URL ENVIADA %@",url);
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:1000];
-    [request setHTTPMethod: @"POST"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
+    [request setHTTPMethod: @"GET"];
     NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
     NSLog(@"GET usuario en login enviado");
     NSString *str = [[NSString alloc]initWithData:response1 encoding:NSUTF8StringEncoding];
-
+    
     return str;
 }
 
 /**
-    Prueba la conexión
+ Prueba la conexión
  **/
 - (int) fetchConnect {
     NSHTTPURLResponse  *response = nil;
     NSError *error;
     NSMutableString *url = [[NSMutableString alloc] initWithString:self.IP];
-    [url appendString:@":8080/igenda-rs/webresources/igenda.contacto/diego"];//Cambiar a un usuario de prueba sin contactos
+    [url appendString:@":8080/igenda-rs/webresources/igenda.contacto/0+diego"];//Cambiar a un usuario de prueba sin contactos
     
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:1000];
-    [request setHTTPMethod: @"POST"];
+    [request setHTTPMethod: @"GET"];
     NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    NSString *str = [[NSString alloc]initWithData:response1 encoding:NSUTF8StringEncoding];
     
-    if(str.length > 0)
-        return 1;
-    else
+    
+    if(response1 == nil)
         return 0;
+    else
+        return 1;
+    
 }
 
 
@@ -317,8 +323,8 @@
 
 /**** VALIDACIÓN ****/
 /**
-    Si no hay usuario, se inhabilita el botón
-*/
+ Si no hay usuario, se inhabilita el botón
+ */
 - (IBAction)changeUsuario:(id)sender{
     
     if(self.textUsername.text.length > 0)
