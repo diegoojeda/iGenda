@@ -17,5 +17,7 @@
 @property NSNumber *versDispositivo;
 @property NSString *nomUsuario;
 
+- (IBAction)deleteLoginData:(id)sender;
+@property NSMutableString *IP;
 
 @end

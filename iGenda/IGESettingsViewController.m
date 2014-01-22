@@ -32,6 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.IP = [[NSMutableString alloc] initWithString:@"http://192.168.1.139"];
+
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -49,6 +52,7 @@
 }
 
 - (IBAction)deleteLoginData:(id)sender {
+    NSLog(@"HAGO LOGOUT");
     NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
     NSError *error = nil;
     
@@ -93,7 +97,11 @@
     NSLog(@"VERSION AGENDA: %@", _versDispositivo);
     //Preparamos la petición al servidor
     NSHTTPURLResponse *response = nil;
-    NSMutableString *url = [[NSMutableString alloc] initWithString:@"http://localhost:8080/igenda-rs/webresources/igenda.usuario/"];
+    
+    NSMutableString *url = [[NSMutableString alloc] initWithString:self.IP];
+    [url appendString:@":8080/igenda-rs/webresources/igenda.usuario/"];
+
+    
     [url appendString:_nomUsuario];
     NSMutableURLRequest *URLrequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10];
     [URLrequest setHTTPMethod: @"GET"];
@@ -193,12 +201,18 @@
         [dic setObject:c.telefono forKey:@"telefono"];
         [dic setObject:dicLogin forKey:@"login"];
         [dic setObject:strID forKey:@"idbd"];
-        [dic setObject:c.id forKey:@"idAgenda"];
+        [dic setObject:c.id forKey:@"idagenda"];
         NSLog(@"COMPROBANDO JSON");
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&errorJSON];
         //NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
         //NSLog(@"JSON OUTPUT: %@",JSONString);
-        NSURL *url = [NSURL URLWithString:@"http://localhost:8080/igenda-rs/webresources/igenda.contacto"];
+        
+        NSMutableString *urlaux = [[NSMutableString alloc] initWithString:self.IP];
+        [urlaux appendString:@":8080/igenda-rs/webresources/igenda.contacto/"];
+        NSURL *url = [NSURL URLWithString:urlaux];
+        
+        
+        
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
         [request setHTTPMethod:@"POST"];
         [request setHTTPBody:jsonData];
@@ -247,7 +261,10 @@
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&errorJSON];
         NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
         NSLog(@"JSON OUTPUT: %@",JSONString);
-        NSMutableString *urlStr = [[NSMutableString alloc] initWithString:@"http://localhost:8080/igenda-rs/webresources/igenda.contacto/edit/"];
+        NSMutableString *urlStr = [[NSMutableString alloc] initWithString:self.IP];
+        [urlStr appendString:@":8080/igenda-rs/webresources/igenda.contacto/edit/"];
+        
+        
         [urlStr appendString:strID];
         NSURL *url = [NSURL URLWithString:urlStr];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];

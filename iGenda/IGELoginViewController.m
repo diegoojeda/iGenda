@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
     
-    self.IP = [[NSMutableString alloc] initWithString:@"http://192.168.1.14"];
+    self.IP = [[NSMutableString alloc] initWithString:@"http://192.168.1.139"];
     self.inicioButton.enabled = NO;
     
     [self.activityIndicator startAnimating];
@@ -89,12 +89,6 @@
 {
     [self.activityIndicator setHidden:NO];
     [self.activityIndicator startAnimating];
-    //[self.activityIndicator setHidden:YES];
-}
-- (void) stopActivity
-{
-    [self.activityIndicator stopAnimating];
-    [self.activityIndicator setHidden:YES];
 }
 
 - (IBAction)loginClick:(id)sender
@@ -207,7 +201,7 @@
     c.telefono = [NSString stringWithFormat:@"%@", [dic valueForKey:@"telefono"]];
     c.estado = @2;
     c.favorito = [dic valueForKey:@"favorito"];
-    c.id = [dic valueForKey:@"idAgenda"];
+    c.id = [dic valueForKey:@"idagenda"];
     //Comprobamos si ya hemos creado el grupo al que pertenece este contacto
     for (IGEGroup* g in gruposEnDispositivo){
         if ([g.nombre isEqualToString:[grupoContacto valueForKey:@"nombregrupo"]]){
@@ -246,12 +240,11 @@
     //Convertimos el diccionario a JSON y luego a NSData
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&error]; // Pass 0 if you don't care about the readability of the generateds string
-    
+    NSLog(@"JSONDATA: %@", [NSString stringWithUTF8String:[jsonData bytes]]);
     //Creamos y ejecutamos la petición
     
     NSMutableString *urlaux = [[NSMutableString alloc] initWithString:self.IP];
-    [urlaux appendString:@":8080/igenda-rs/webresources/igenda.contacto/"];
-    
+    [urlaux appendString:@":8080/igenda-rs/webresources/igenda.usuario/"];
     
     NSURL *url = [[NSURL alloc] initWithString:urlaux];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
@@ -280,7 +273,7 @@
     NSError *error;
     NSString* username = [[NSString alloc]initWithString:[self.textUsername text]];
     NSMutableString *url = [[NSMutableString alloc] initWithString:self.IP];
-    [url appendString:@":8080/igenda-rs/webresources/igenda.contacto/0+"];
+    [url appendString:@":8080/igenda-rs/webresources/igenda.usuario/"];
     [url appendString:username];
     
     NSLog(@"URL ENVIADA %@",url);
@@ -302,7 +295,7 @@
     NSHTTPURLResponse  *response = nil;
     NSError *error;
     NSMutableString *url = [[NSMutableString alloc] initWithString:self.IP];
-    [url appendString:@":8080/igenda-rs/webresources/igenda.contacto/0+diego"];//Cambiar a un usuario de prueba sin contactos
+    [url appendString:@":8080/igenda-rs/webresources/igenda.usuario/diego"];//Cambiar a un usuario de prueba sin contactos
     
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:1000];

@@ -47,6 +47,7 @@
 		B069E4F61889633400F9D504 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = B069E4E81889633400F9D504 /* SBJsonTokeniser.m */; };
 		B069E4F71889633400F9D504 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = B069E4EA1889633400F9D504 /* SBJsonUTF8Stream.m */; };
 		B069E4F81889633400F9D504 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = B069E4EC1889633400F9D504 /* SBJsonWriter.m */; };
+		B07D2883188EF5CD000F3437 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07D2882188EF5CD000F3437 /* MessageUI.framework */; };
 		B0A56FD6188AF19700ED8A08 /* IGEEditContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA26E7B7188A8753002A70BF /* IGEEditContactViewController.m */; };
 		BE21D53118893FDD001C9328 /* contact.png in Resources */ = {isa = PBXBuildFile; fileRef = BE21D53018893FDD001C9328 /* contact.png */; };
 		BE21D53518895C9E001C9328 /* IGEFavoritosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE21D53418895C9E001C9328 /* IGEFavoritosTableViewController.m */; };
@@ -137,6 +138,7 @@
 		B069E4EA1889633400F9D504 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		B069E4EB1889633400F9D504 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		B069E4EC1889633400F9D504 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		B07D2882188EF5CD000F3437 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BE21D53018893FDD001C9328 /* contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contact.png; sourceTree = "<group>"; };
 		BE21D53318895C9E001C9328 /* IGEFavoritosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEFavoritosTableViewController.h; sourceTree = "<group>"; };
 		BE21D53418895C9E001C9328 /* IGEFavoritosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEFavoritosTableViewController.m; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B07D2883188EF5CD000F3437 /* MessageUI.framework in Frameworks */,
 				4E1D542B18885D22009E3B5A /* CoreData.framework in Frameworks */,
 				4E78AC071887FD85000538E6 /* QuartzCore.framework in Frameworks */,
 				B02DBC5118868FE60019AAF1 /* CoreGraphics.framework in Frameworks */,
@@ -245,6 +248,7 @@
 		B02DBC4D18868FE60019AAF1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B07D2882188EF5CD000F3437 /* MessageUI.framework */,
 				4E1D542A18885D22009E3B5A /* CoreData.framework */,
 				4E78AC061887FD85000538E6 /* QuartzCore.framework */,
 				B02DBC4E18868FE60019AAF1 /* Foundation.framework */,
@@ -389,10 +393,10 @@
 				ORGANIZATIONNAME = UMA;
 				TargetAttributes = {
 					B02DBC4A18868FE60019AAF1 = {
-						DevelopmentTeam = 8TP58Z89HP;
+						DevelopmentTeam = 6R699FCK8Q;
 						SystemCapabilities = {
 							com.apple.iCloud = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -597,7 +601,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = iGenda/iGenda.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -614,7 +617,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = iGenda/iGenda.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
