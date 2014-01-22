@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "IGEAppDelegate.h"
 #import "IGEGroup.h"
+#import <MessageUI/MFMailComposeViewController.h>
 
 
-@interface IGEShowContactViewController : UIViewController
+@interface IGEShowContactViewController : UIViewController <MFMailComposeViewControllerDelegate>
 
 /** Label **/
 @property (nonatomic, strong) IBOutlet UILabel *nombre_L;
@@ -26,6 +27,7 @@
 
 @property Contact *contacto; //Contacto seleccionado
 
+- (IBAction)sendEmail:(id)sender;
 
 - (IBAction)changeFavorito:(id)sender;
 

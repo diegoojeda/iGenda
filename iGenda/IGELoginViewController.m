@@ -85,12 +85,6 @@
 {
     [self.activityIndicator setHidden:NO];
     [self.activityIndicator startAnimating];
-    //[self.activityIndicator setHidden:YES];
-}
-- (void) stopActivity
-{
-    [self.activityIndicator stopAnimating];
-    [self.activityIndicator setHidden:YES];
 }
 
 - (IBAction)loginClick:(id)sender
