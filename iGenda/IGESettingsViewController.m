@@ -192,11 +192,11 @@
         [dic setObject:c.telefono forKey:@"telefono"];
         [dic setObject:dicLogin forKey:@"login"];
         [dic setObject:strID forKey:@"idbd"];
-        [dic setObject:c.id forKey:@"idAgenda"];
+        [dic setObject:c.id forKey:@"idagenda"];
         NSLog(@"COMPROBANDO JSON");
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&errorJSON];
-        //NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
-        //NSLog(@"JSON OUTPUT: %@",JSONString);
+        NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
+        NSLog(@"JSON OUTPUT: %@",JSONString);
         NSURL *url = [NSURL URLWithString:@"http://localhost:8080/igenda-rs/webresources/igenda.contacto"];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
         [request setHTTPMethod:@"POST"];
@@ -241,7 +241,7 @@
         [dic setObject:c.telefono forKey:@"telefono"];
         [dic setObject:dicLogin forKey:@"login"];
         [dic setObject:strID forKey:@"idbd"];
-        [dic setObject:c.id forKey:@"idAgenda"];
+        [dic setObject:c.id forKey:@"idagenda"];
         NSLog(@"COMPROBANDO JSON");
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&errorJSON];
         NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
