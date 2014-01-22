@@ -176,7 +176,7 @@
     NSMutableDictionary *dic, *dicLogin, *dicGrupo;
     NSError *errorJSON = nil;
     for (Contact *c in contactos){
-        NSString *strGrupo = [[NSString alloc] initWithFormat:@"%@+%@", c.newRelationship.nombre, _nomUsuario];
+        NSString *strGrupo = [[NSString alloc] initWithFormat:@"%@+%@", c.grupo.nombre, _nomUsuario];
         NSString *strID = [[NSString alloc] initWithFormat:@"%@+%@", c.id, _nomUsuario];
         //No se puede hacer una conversión directa del array a JSON, ya que hay campos que no almacenamos en el servidor (imagen y estado :((( )
         dic = [[NSMutableDictionary alloc] init];
@@ -186,7 +186,7 @@
         [dicLogin setObject:@0 forKey:@"version"];
         [dicGrupo setObject:strGrupo forKey:@"idgrupo"];
         [dicGrupo setObject:dicLogin forKey:@"login"];
-        [dicGrupo setObject:c.newRelationship.nombre forKey:@"nombregrupo"];
+        [dicGrupo setObject:c.grupo.nombre forKey:@"nombregrupo"];
         [dic setObject:c.apellido1 forKey:@"apellido1"];
         [dic setObject:c.apellido2 forKey:@"apellido2"];
         [dic setObject:c.email forKey:@"email"];
@@ -225,7 +225,7 @@
     NSMutableDictionary *dic, *dicLogin, *dicGrupo;
     NSError *errorJSON = nil;
     for (Contact *c in contactos){
-        NSString *strGrupo = [[NSString alloc] initWithFormat:@"%@+%@", c.newRelationship.nombre, _nomUsuario];
+        NSString *strGrupo = [[NSString alloc] initWithFormat:@"%@+%@", c.grupo.nombre, _nomUsuario];
         NSString *strID = [[NSString alloc] initWithFormat:@"%@+%@", c.id, _nomUsuario];
         //No se puede hacer una conversión directa del array a JSON, ya que hay campos que no almacenamos en el servidor (imagen y estado :((( )
         dic = [[NSMutableDictionary alloc] init];
@@ -235,7 +235,7 @@
         [dicLogin setObject:@0 forKey:@"version"];
         [dicGrupo setObject:strGrupo forKey:@"idgrupo"];
         [dicGrupo setObject:dicLogin forKey:@"login"];
-        [dicGrupo setObject:c.newRelationship.nombre forKey:@"nombregrupo"];
+        [dicGrupo setObject:c.grupo.nombre forKey:@"nombregrupo"];
         [dic setObject:c.apellido1 forKey:@"apellido1"];
         [dic setObject:c.apellido2 forKey:@"apellido2"];
         [dic setObject:c.email forKey:@"email"];
