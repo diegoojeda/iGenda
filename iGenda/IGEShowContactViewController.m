@@ -39,9 +39,9 @@ UINavigationControllerDelegate>
     self.movil_L.text = _contacto.telefono;
     self.email_L.text = _contacto.email;
     self.grupo_L.text = _contacto.grupo.nombre;
-    //NSLog(@"Show Contact nombre grupo: %@",[_contacto.newRelationship nombre]);
     
-    self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
+    if(_contacto.imagen != nil)
+        self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     
     if([_contacto.favorito  isEqual: @0]){
         self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
