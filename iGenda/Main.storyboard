@@ -244,7 +244,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre del grupo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b4u-hG-IEx">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre del grupo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b4u-hG-IEx">
                                 <rect key="frame" x="20" y="88" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" label="Nuevo Nombre Grupo"/>
@@ -256,6 +256,9 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="b4u-hG-IEx" secondAttribute="centerX" id="sVG-ap-2jZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Nuevo Grupo" id="oce-4w-Pl3">
                         <barButtonItem key="leftBarButtonItem" image="atras" id="G4h-sI-RQv">
