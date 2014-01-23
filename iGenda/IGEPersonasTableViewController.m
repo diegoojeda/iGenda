@@ -20,6 +20,7 @@
 @implementation IGEPersonasTableViewController
 
 @synthesize appDelegate;
+@synthesize mySearchBar, myTableView, contacts, filteredContacts, isFiltered;
 
 /** Carga de contactos inicial **/
 - (void)loadInitialData {
@@ -38,6 +39,7 @@
     self.contacts = [(NSArray*)array mutableCopy];
     //}
 }
+
 
 - (IBAction)unwindFromSettings:(UIStoryboardSegue *)segue{
     
@@ -97,18 +99,43 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.contacts count];
+    if(isFiltered == YES)
+    {
+        return [filteredContacts count];
+    }
+    else
+    {
+        return [self.contacts count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ListPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+//    
+//    Contact* item = [self.contacts objectAtIndex:indexPath.row];
+//    
+//    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", item.nombre,item.apellido1];
+//    NSLog(@"ID CONTACTO: %@", item.id);
+//    return cell;
     
-    Contact* item = [self.contacts objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", item.nombre,item.apellido1];
-    NSLog(@"ID CONTACTO: %@", item.id);
+    if(isFiltered == YES)
+    {
+        Contact* item = [filteredContacts objectAtIndex:indexPath.row];
+
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", item.nombre,item.apellido1];
+        NSLog(@"ID CONTACTO: %@", item.id);
+    }
+    else
+    {
+        Contact* item = [self.contacts objectAtIndex:indexPath.row];
+        
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", item.nombre,item.apellido1];
+        NSLog(@"ID CONTACTO: %@", item.id);
+    }
     return cell;
+    
 }
 
 /*
@@ -175,7 +202,14 @@
     if ([[segue identifier] isEqualToString:@"ContactDescription"]) {
         IGEShowContactViewController *controller = (IGEShowContactViewController *)[[segue destinationViewController] topViewController];
         NSInteger selectedIndex = [[self.tableView indexPathForSelectedRow] row];
-        [controller getContact:[self.contacts objectAtIndex:selectedIndex]];
+        if (isFiltered == YES)
+        {
+            [controller getContact:[filteredContacts objectAtIndex:selectedIndex]];
+        }
+        else
+        {
+            [controller getContact:[self.contacts objectAtIndex:selectedIndex]];
+        }
 
     }
 }
@@ -221,6 +255,45 @@
     }
     
     [tableView reloadData]; //Recarga la tabla
+}
+
+#pragma mark -
+#pragma mark UISearchBarDelegate Methods
+
+- (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if(searchText.length == 0)
+    {
+        //set our boolean flag
+        isFiltered = NO;
+    }
+    else
+    {
+        //set our boolean flag
+        isFiltered = YES;
+        
+        //Alloc and init filteredContacts
+        filteredContacts =[[NSMutableArray alloc] init];
+        
+        //Fast enumeration
+        for (Contact* contactsName in contacts)
+        {
+            NSRange contactNameRange = [contactsName.nombre rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            
+            if(contactNameRange.location != NSNotFound)
+            {
+                [filteredContacts addObject:contactsName];
+            }
+        }
+    }
+    
+    //reload our table view
+    [myTableView reloadData];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [mySearchBar resignFirstResponder];
 }
 
 
