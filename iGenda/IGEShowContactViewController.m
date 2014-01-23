@@ -53,8 +53,10 @@ UINavigationControllerDelegate>
 
 
 -(IBAction)callPhone:(id)sender {
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString: self.contacto.telefono]];
-   // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:639970861"]];
+    NSString *telephone = @"tel:";
+    telephone = [telephone stringByAppendingString:self.contacto.telefono];
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString: telephone]];
+   
 }
 
 
@@ -172,7 +174,7 @@ UINavigationControllerDelegate>
     self.nombre_L.text = fullname;
     self.movil_L.text = _contacto.telefono;
     self.email_L.text = _contacto.email;
-    //self.grupo_L.text = [_contacto.newRelationship nombre];
+    self.grupo_L.text = _contacto.grupo.nombre;
     self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     //NSLog(@"GRUPO: %@", _contacto.newRelationship.nombre);
     [self.view setNeedsDisplay];
