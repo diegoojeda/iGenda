@@ -48,6 +48,8 @@
         _contacto.telefono = self.telefono.text;
         _contacto.email = self.email.text;
         _contacto.estado = @1;
+        _contacto.grupo =[groups objectAtIndex:[self.row integerValue]];
+        //_contacto.grupo.nombre = [[groups objectAtIndex:[self.row integerValue]] nombre];
         
         
         //falta el grupo
@@ -60,13 +62,7 @@
         NSEntityDescription *desc = [NSEntityDescription entityForName:@"IGEContact" inManagedObjectContext:context];
         NSFetchRequest *req = [[NSFetchRequest alloc] init];
         [req setEntity:desc];
-        /*NSArray *contactos = [context executeFetchRequest:req error:&error]; ¿POR QUÉ?
-         for (Contact *c in contactos) {
-         if (c.id == _contacto.id){
-         //NSLog(@"ID: %@", c.id);
-         [c setValue:_contacto.nombre forKey:@"nombre"];
-         }
-         }*/
+
         NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGESetting" inManagedObjectContext:context];
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         [request setEntity:entityDescription];
@@ -122,6 +118,15 @@
     [super viewDidLoad];
     [self fetchContactEdit];
     [self loadInitialData];
+    
+    /** Carga la posición correcta Picker **/
+    int row=0;
+    for(int i=0; i<groups.count; i++){
+        if([[groups objectAtIndex:i] nombre] == _contacto.grupo.nombre)
+            row = i;
+    }
+    
+    [self.greetingPickerSelGroup selectRow:row inComponent:0 animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -204,6 +209,7 @@
     self.apellido2.text = _contacto.apellido2;
     self.telefono.text = _contacto.telefono;
     self.email.text = _contacto.email;
+    
     UIImage *i =[[UIImage alloc] initWithData:_contacto.imagen];
     self.foto.image=i;
     
