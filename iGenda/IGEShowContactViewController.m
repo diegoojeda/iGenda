@@ -44,7 +44,7 @@ UINavigationControllerDelegate>
         self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     else{
         NSLog(@"else imagen background");
-        self.image_IV.image = [UIImage imageWithContentsOfFile:[@"contacto.png"];
+        self.image_IV.image = [UIImage imageWithContentsOfFile:@"contacto.png"];
     }
                 
     
