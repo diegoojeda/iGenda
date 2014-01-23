@@ -14,7 +14,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListPrototypeCell" rowHeight="46" id="w2z-8w-FRF">
-                                <rect key="frame" x="0.0" y="86" width="320" height="46"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w2z-8w-FRF" id="BNx-q5-1hY">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="45"/>
@@ -516,7 +516,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FavouritesPrototypeCell" id="EYR-Cz-2kH">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EYR-Cz-2kH" id="wFL-j5-aXf">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -1799,24 +1799,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CYv-vt-TlF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2657" y="1182"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="2oL-kC-dGq">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="2lS-IC-k0P" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gwM-Pl-YJ3"/>
-                        <viewControllerLayoutGuide type="bottom" id="QZ2-g6-ote"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VpA-2h-keb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="clA-nt-XL4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>
