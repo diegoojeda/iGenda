@@ -42,6 +42,11 @@ UINavigationControllerDelegate>
     
     if(_contacto.imagen != nil)
         self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
+    else{
+        NSLog(@"else imagen background");
+        self.image_IV.image = [UIImage imageWithContentsOfFile:@"contacto.png"];
+    }
+                
     
     if([_contacto.favorito  isEqual: @0]){
         self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
