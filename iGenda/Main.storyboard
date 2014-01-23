@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="sei-hg-j71">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -46,7 +46,7 @@
                     <navigationItem key="navigationItem" title="Contactos" id="MNt-La-GiR">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="ZWQ-Iw-Gqy">
                             <connections>
-                                <segue destination="o9G-3d-Vfh" kind="push" id="yTe-kx-SXx"/>
+                                <segue destination="o9G-3d-Vfh" kind="push" identifier="SegueToSettings" id="yTe-kx-SXx"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="nAb-Fa-TDy">
@@ -1860,6 +1860,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="61t-nf-Mh7"/>
-        <segue reference="aJ9-UC-Hcy"/>
+        <segue reference="4J9-jn-ixT"/>
     </inferredMetricsTieBreakers>
 </document>
