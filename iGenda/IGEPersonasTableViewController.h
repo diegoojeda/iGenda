@@ -11,10 +11,14 @@
 #import "IGEContactToDelete.h"
 #import "IGEShowContactViewController.h"
 
-@interface IGEPersonasTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UITableViewDataSource,UITableViewDelegate>
+@interface IGEPersonasTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UITableViewDataSource,UITableViewDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) IGEAppDelegate *appDelegate;
 @property NSMutableArray *contacts;
+@property (strong, nonatomic) NSMutableArray * filteredContacts;
+@property BOOL isFiltered;
+@property (weak, nonatomic) IBOutlet UISearchBar *mySearchBar;
+@property (weak, nonatomic) IBOutlet UITableView *myTableView;
 
 @end

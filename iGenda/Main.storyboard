@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -8,13 +8,21 @@
         <scene sceneID="plK-FI-xM3">
             <objects>
                 <tableViewController title="Contactos" id="MGZ-ou-aoB" customClass="IGEPersonasTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="46" sectionHeaderHeight="22" sectionFooterHeight="22" id="52Q-Qs-a5I">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="52Q-Qs-a5I">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="zrU-7h-H31">
+                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="MGZ-ou-aoB" id="h9D-6L-tx6"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListPrototypeCell" rowHeight="46" id="w2z-8w-FRF">
-                                <rect key="frame" x="0.0" y="86" width="320" height="46"/>
+                                <rect key="frame" x="0.0" y="130" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w2z-8w-FRF" id="BNx-q5-1hY">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="45"/>
@@ -48,10 +56,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mySearchBar" destination="zrU-7h-H31" id="x4r-Ji-1fg"/>
+                        <outlet property="myTableView" destination="52Q-Qs-a5I" id="VVK-lf-Ibl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTJ-eE-o1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-305" y="-1023"/>
+            <point key="canvasLocation" x="-281" y="-1023"/>
         </scene>
         <!--Add Contact View Controller - AddContact-->
         <scene sceneID="mTv-D2-64J">
@@ -150,6 +162,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="TRd-Qq-7KU" secondAttribute="centerX" id="LoM-CV-j1I"/>
+                            <constraint firstItem="TRd-Qq-7KU" firstAttribute="leading" secondItem="9Ek-hm-ruT" secondAttribute="leading" id="bLA-KL-Mjr"/>
+                            <constraint firstAttribute="trailing" secondItem="TRd-Qq-7KU" secondAttribute="trailing" id="hIR-tj-ruM"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="jDP-K2-lp5" appends="YES" id="08H-p7-6RA"/>
                         </connections>
@@ -167,14 +184,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="apellido1" destination="L6V-EP-vHi" id="tYP-zc-9Qa"/>
-                        <outlet property="apellido2" destination="KOM-5y-Qfg" id="mwc-i9-rZY"/>
+                        <outlet property="apellido1" destination="jbK-4p-0BN" id="LJM-TK-0oJ"/>
+                        <outlet property="apellido2" destination="jxL-E7-a4v" id="wmM-at-LtC"/>
                         <outlet property="doneButton" destination="ePo-dj-8vm" id="MvI-C7-o9L"/>
-                        <outlet property="email" destination="u2S-cb-js8" id="Kf7-XQ-ED3"/>
-                        <outlet property="foto" destination="h6v-B8-M4e" id="nmg-ep-zMw"/>
-                        <outlet property="greetingPickerSelGroup" destination="iEZ-mf-sRw" id="CG9-Pq-13P"/>
-                        <outlet property="nombre" destination="cHf-5B-bDa" id="5eX-Gz-65m"/>
-                        <outlet property="telefono" destination="LJt-RX-R4s" id="vb1-sw-dn2"/>
+                        <outlet property="email" destination="wdW-Ml-Drf" id="XCf-DG-3n9"/>
+                        <outlet property="foto" destination="k6e-ci-EQJ" id="wS0-yA-2u8"/>
+                        <outlet property="nombre" destination="Wd7-eI-JCk" id="1sB-16-tQL"/>
+                        <outlet property="telefono" destination="DJd-Be-1os" id="w0E-uZ-Rfj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6uK-1g-cNt" userLabel="First Responder" sceneMemberID="firstResponder"/>
