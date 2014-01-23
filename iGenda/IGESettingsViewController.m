@@ -509,7 +509,8 @@
 
 - (NSArray *) fetchEntitesArray: (NSString *) entityName {
     NSError *error = nil;
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:entityName inManagedObjectContext:_context];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+        entityForName:entityName inManagedObjectContext:_context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
     NSArray *s = [_context executeFetchRequest:request error:&error];
