@@ -244,4 +244,33 @@ numberOfRowsInComponent:(NSInteger)component
 }
 
 
+/******************** VALIDACIÓN *****************/
+- (IBAction)changeNombre:(id)sender{
+    
+    if(self.nombre.text.length > 0 && self.telefono.text.length > 0){
+        if([groups count] == 0){
+            self.saveButton.enabled = NO;
+        }
+        else{
+            self.saveButton.enabled = YES;
+        }
+    }
+    else
+        self.saveButton.enabled = NO;
+}
+
+- (IBAction)changeTelefono:(id)sender{
+    if(self.nombre.text.length > 0 && self.telefono.text.length > 0){
+        if([groups count] == 0){
+            self.saveButton.enabled = NO;
+        }
+        else{
+            self.saveButton.enabled = YES;
+        }
+    }
+    else
+        self.saveButton.enabled = NO;
+}
+
+
 @end
