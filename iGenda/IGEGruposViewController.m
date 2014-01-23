@@ -35,12 +35,12 @@
     self.grupos = [(NSArray*)array mutableCopy];
     
     /** Si no hay grupos creados, añade uno de la base de datos por defecto <Sin Grupo> **/
-    /*if([self.grupos count] == 0){
+    if([self.grupos count] == 0){
         IGEGroup *g = [NSEntityDescription insertNewObjectForEntityForName:@"IGEGroup" inManagedObjectContext:context];
         g.nombre = @"<Sin Grupo>";
         [self.grupos addObject:g];
     }
-    */
+    
     /** Guarda el contexto **/
     [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
 }
