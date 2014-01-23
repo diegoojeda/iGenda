@@ -142,6 +142,8 @@
     
     Contact* item = [self.favourites objectAtIndex:indexPath.row];
     cell.textLabel.text = item.nombre;
+
+    cell.accessibilityLabel = item.nombre;
     
     return cell;
 }

@@ -36,23 +36,24 @@ UINavigationControllerDelegate>
     static NSString *formatString = @"%@%@%@%@%@";
     NSString *fullname = [NSString stringWithFormat:formatString,_contacto.nombre,@" ",_contacto.apellido1,@" ",_contacto.apellido2];
     self.nombre_L.text = fullname;
+    self.nombre_L.accessibilityLabel = fullname;
     self.movil_L.text = _contacto.telefono;
+    self.movil_L.accessibilityLabel = _contacto.telefono;
     self.email_L.text = _contacto.email;
+    self.email_L.accessibilityLabel = _contacto.email;
     self.grupo_L.text = _contacto.grupo.nombre;
+    self.grupo_L.accessibilityLabel = _contacto.grupo.nombre;
     
     if(_contacto.imagen != nil)
         self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
-    else{
-        NSLog(@"else imagen background");
-        self.image_IV.image = [UIImage imageWithContentsOfFile:@"contacto.png"];
-    }
-                
     
     if([_contacto.favorito  isEqual: @0]){
         self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
+        self.star_L.accessibilityLabel = @"Marcar Como Favorito";
     }
     else{
         self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_sel.png"]];
+        self.star_L.accessibilityLabel = @"Desmarcar Como Favorito";
     }
 }
 
@@ -195,7 +196,8 @@ UINavigationControllerDelegate>
     self.movil_L.text = _contacto.telefono;
     self.email_L.text = _contacto.email;
     self.grupo_L.text = _contacto.grupo.nombre;
-    self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
+    if(_contacto.imagen != nil)
+        self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     //NSLog(@"GRUPO: %@", _contacto.newRelationship.nombre);
     [self.view setNeedsDisplay];
 }
