@@ -1079,6 +1079,10 @@
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l3r-x7-nBw">
                                 <rect key="frame" x="74" y="299" width="166" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="EHA-7l-jug" id="z0i-qP-gFI"/>
+                                    <outlet property="delegate" destination="EHA-7l-jug" id="j9q-Sk-tXv"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
