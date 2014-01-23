@@ -471,6 +471,9 @@
                                 <state key="normal" title="email">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="showMailPicker:" destination="jl0-aM-QoI" eventType="touchUpInside" id="AWB-YU-wT4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pju-3H-wqj">
                                 <rect key="frame" x="20" y="266" width="52" height="40"/>
@@ -1162,7 +1165,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="sendEmail:" destination="MEb-jH-OBT" eventType="touchUpInside" id="hHP-Qd-DQg"/>
+                                    <action selector="showMailPicker:" destination="MEb-jH-OBT" eventType="touchUpInside" id="mbP-BG-bub"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKa-c2-8y9">
@@ -1417,7 +1420,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="sendEmail:" destination="dG5-OQ-r5V" eventType="touchUpInside" id="dmj-pH-aSy"/>
+                                    <action selector="showMailPicker:" destination="dG5-OQ-r5V" eventType="touchUpInside" id="Zqg-wN-kOj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmo-uq-YxT">
@@ -1503,7 +1506,6 @@
                     <connections>
                         <outlet property="atrasButton" destination="IC6-Xz-r1h" id="1xd-AT-NAA"/>
                         <outlet property="email_L" destination="kNK-UJ-TNh" id="eUc-ny-JGc"/>
-                        <outlet property="grupo_L" destination="GJ9-wh-xc6" id="KLj-aQ-2OQ"/>
                         <outlet property="image_IV" destination="b4T-zq-QlS" id="6C1-di-ye5"/>
                         <outlet property="movil_L" destination="qzr-AQ-ljk" id="NVi-hA-5TH"/>
                         <outlet property="nombre_L" destination="5TI-Vc-Z3a" id="Jn3-xb-fpu"/>
@@ -1667,6 +1669,9 @@
                                 <state key="normal" title="email">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="showMailPicker:" destination="RH0-rU-phy" eventType="touchUpInside" id="DaE-Lt-lNc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoF-RP-mxd">
                                 <rect key="frame" x="20" y="269" width="52" height="40"/>
@@ -1751,7 +1756,6 @@
                     <connections>
                         <outlet property="atrasButton" destination="38S-DR-VPa" id="mzN-88-aZF"/>
                         <outlet property="email_L" destination="bWk-zT-iGS" id="Kwx-IX-Lir"/>
-                        <outlet property="grupo_L" destination="ixu-cZ-u3C" id="uc7-Qf-lQ5"/>
                         <outlet property="image_IV" destination="Ent-m8-SYO" id="llZ-Ro-acs"/>
                         <outlet property="movil_L" destination="4v1-UX-G2r" id="COt-RF-acS"/>
                         <outlet property="nombre_L" destination="ER8-yc-M1h" id="a60-Aa-0xC"/>
