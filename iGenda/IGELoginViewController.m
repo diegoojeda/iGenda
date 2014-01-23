@@ -59,7 +59,7 @@
 
 - (IBAction) registerClick:(id)sender {
     
-    [self performSelectorInBackground:@selector(startActivity) withObject:nil];
+    
     
     
     if([[self.textUsername text] isEqualToString:@""]) {
@@ -67,6 +67,7 @@
         [self alertStatus:@"Introduzca el nombre que desea y registrese": @"Usuario vacío" :0];
     }
     else{
+        [self performSelectorInBackground:@selector(startActivity) withObject:nil];
         NSString *username = [self.textUsername text];
         NSString *usuario = [self fetchUser:username];
         NSLog(@"USUARIO FETCHED: %@", usuario);
@@ -96,12 +97,13 @@
 {
     NSInteger success = 0;
     
-    [self performSelectorInBackground:@selector(startActivity) withObject:nil];
+    
     if([[self.textUsername text] isEqualToString:@""]) {
         [self.activityIndicator setHidden:YES];
         [self alertStatus:@"Introduzca su nombre de usuario" :@"Usuario incorrecto" :0];
     }
     else {
+        [self performSelectorInBackground:@selector(startActivity) withObject:nil];
         if([self fetchConnect] == 0){
             [self.activityIndicator setHidden:YES];
             NSLog(@"SIN CONEXIÓN");
