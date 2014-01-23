@@ -1012,7 +1012,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NEo-Ic-gHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lTr-gQ-xm7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="705" y="-1023"/>
+            <point key="canvasLocation" x="719" y="-1023"/>
         </scene>
         <!--Edit Contact View Controller - Editar-->
         <scene sceneID="F7r-se-8wg">
