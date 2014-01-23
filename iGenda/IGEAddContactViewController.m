@@ -212,7 +212,6 @@ numberOfRowsInComponent:(NSInteger)component
 
 - (IBAction)changeTelefono:(id)sender{
     if(self.nombre.text.length > 0 && self.telefono.text.length > 0){
-        NSLog(@"eNTRA EN CHANGE BUTTON");
         if([groups count] == 0){
             self.doneButton.enabled = NO;
         }
