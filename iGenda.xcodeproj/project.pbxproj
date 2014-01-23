@@ -393,7 +393,7 @@
 				ORGANIZATIONNAME = UMA;
 				TargetAttributes = {
 					B02DBC4A18868FE60019AAF1 = {
-						DevelopmentTeam = 8TP58Z89HP;
+						DevelopmentTeam = 6R699FCK8Q;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 0;
