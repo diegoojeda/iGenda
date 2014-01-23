@@ -102,6 +102,9 @@
     for (IGEGroup *g in [self fetchGrupos]){
         [_context deleteObject:g];
     }
+    for (Contact *c in [self fetchEntitesArray:@"IGEContactToDelete"]){
+        [_context deleteObject:c];
+    }
     [self cargarContactos:_nomUsuario];
     [self actualizarVersionDispositivo];
     NSLog(@"Procedemos a actualizar la información persistente (el estado de los contactos)");
