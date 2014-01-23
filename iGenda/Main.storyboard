@@ -186,7 +186,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="apellido1" destination="L6V-EP-vHi" id="tYP-zc-9Qa"/>
+                        <outlet property="apellido2" destination="KOM-5y-Qfg" id="mwc-i9-rZY"/>
                         <outlet property="doneButton" destination="ePo-dj-8vm" id="MvI-C7-o9L"/>
+                        <outlet property="email" destination="u2S-cb-js8" id="Kf7-XQ-ED3"/>
+                        <outlet property="foto" destination="h6v-B8-M4e" id="nmg-ep-zMw"/>
+                        <outlet property="greetingPickerSelGroup" destination="iEZ-mf-sRw" id="CG9-Pq-13P"/>
+                        <outlet property="nombre" destination="cHf-5B-bDa" id="5eX-Gz-65m"/>
+                        <outlet property="telefono" destination="LJt-RX-R4s" id="vb1-sw-dn2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6uK-1g-cNt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1435,7 +1442,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="changeNombre:" destination="gPx-xz-dyS" eventType="editingChanged" id="Afb-JP-KhJ"/>
                                     <outlet property="delegate" destination="1vF-dU-bo2" id="9tA-rs-3nL"/>
                                 </connections>
                             </textField>
@@ -1472,7 +1478,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                 <connections>
-                                    <action selector="changeTelefono:" destination="gPx-xz-dyS" eventType="editingChanged" id="eje-At-nmk"/>
                                     <outlet property="delegate" destination="1vF-dU-bo2" id="dAz-Co-fDA"/>
                                 </connections>
                             </textField>
@@ -1757,7 +1762,6 @@
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                 <connections>
                                     <action selector="changeNombre:" destination="OlG-E1-d1f" eventType="editingDidEnd" id="TWi-5p-VUy"/>
-                                    <action selector="changeTelefono:" destination="gPx-xz-dyS" eventType="editingChanged" id="e2R-Qg-XQK"/>
                                 </connections>
                             </textField>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="el4-Bi-Km4">
