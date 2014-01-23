@@ -48,7 +48,6 @@
         _contacto.telefono = self.telefono.text;
         _contacto.email = self.email.text;
         _contacto.estado = @1;
-        _contacto.grupo= self.
         
         
         //falta el grupo
@@ -61,13 +60,13 @@
         NSEntityDescription *desc = [NSEntityDescription entityForName:@"IGEContact" inManagedObjectContext:context];
         NSFetchRequest *req = [[NSFetchRequest alloc] init];
         [req setEntity:desc];
-        NSArray *contactos = [context executeFetchRequest:req error:&error];
-//        for (Contact *c in contactos) {
-//            if (c.id == _contacto.id){
-//                //NSLog(@"ID: %@", c.id);
-//                [c setValue:_contacto.nombre forKey:@"nombre"];
-//            }
-//        }
+        /*NSArray *contactos = [context executeFetchRequest:req error:&error]; ¿POR QUÉ?
+        for (Contact *c in contactos) {
+            if (c.id == _contacto.id){
+                //NSLog(@"ID: %@", c.id);
+                [c setValue:_contacto.nombre forKey:@"nombre"];
+            }
+        }*/
         NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGESetting" inManagedObjectContext:context];
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         [request setEntity:entityDescription];
