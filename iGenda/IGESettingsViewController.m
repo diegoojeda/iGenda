@@ -93,6 +93,7 @@
 }
 
 - (IBAction)exportarAgenda:(id)sender{
+    NSLog(@"Llego aqui");
     UIAlertView *alerta = [self alertStatusWithoutButton:@"Restaurando copia de seguridad. Espere..." :@"Restaurando" :0];
     NSArray *contactosDispositivo = [self fetchEntitesArray:@"IGEContact"];
     for (Contact *c in contactosDispositivo){
@@ -461,6 +462,7 @@
     c.estado = @2;
     c.favorito = [dic valueForKey:@"favorito"];
     c.id = [dic valueForKey:@"idagenda"];
+    c.imagen = nil;
     //Comprobamos si ya hemos creado el grupo al que pertenece este contacto
     for (IGEGroup* g in gruposEnDispositivo){
         if ([g.nombre isEqualToString:grupoContacto]){
