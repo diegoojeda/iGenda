@@ -42,11 +42,6 @@ UINavigationControllerDelegate>
     
     if(_contacto.imagen != nil)
         self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
-    else{
-        NSLog(@"else imagen background");
-        self.image_IV.image = [UIImage imageNamed:@"contacto.png"];
-    }
-                
     
     if([_contacto.favorito  isEqual: @0]){
         self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
@@ -195,7 +190,8 @@ UINavigationControllerDelegate>
     self.movil_L.text = _contacto.telefono;
     self.email_L.text = _contacto.email;
     self.grupo_L.text = _contacto.grupo.nombre;
-    self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
+    if(_contacto.imagen != nil)
+        self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     //NSLog(@"GRUPO: %@", _contacto.newRelationship.nombre);
     [self.view setNeedsDisplay];
 }
