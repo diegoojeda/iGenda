@@ -25,6 +25,8 @@
 
 
 @property (nonatomic, strong) IBOutlet UIImageView *image_IV;
+@property (nonatomic, strong) IBOutlet UIButton *image_UI;
+
 
 
 @property Contact *contacto; //Contacto seleccionado
