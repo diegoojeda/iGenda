@@ -62,12 +62,12 @@
         NSFetchRequest *req = [[NSFetchRequest alloc] init];
         [req setEntity:desc];
         /*NSArray *contactos = [context executeFetchRequest:req error:&error]; ¿POR QUÉ?
-        for (Contact *c in contactos) {
-            if (c.id == _contacto.id){
-                //NSLog(@"ID: %@", c.id);
-                [c setValue:_contacto.nombre forKey:@"nombre"];
-            }
-        }*/
+         for (Contact *c in contactos) {
+         if (c.id == _contacto.id){
+         //NSLog(@"ID: %@", c.id);
+         [c setValue:_contacto.nombre forKey:@"nombre"];
+         }
+         }*/
         NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGESetting" inManagedObjectContext:context];
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         [request setEntity:entityDescription];
@@ -97,10 +97,32 @@
     return self;
 }
 
+- (void)loadInitialData {
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
+    NSError *error = nil;
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEGroup" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    NSArray *array = [context executeFetchRequest:request error:&error];
+    
+    
+    
+    groups = [[NSMutableArray alloc] init];//Habria que cargar aqui todos los grupos
+    
+    /** Añade grupos de core data **/
+    for(int i=0; i<[array count]; i++){
+        IGEGroup *g = [array objectAtIndex:i];
+        [groups addObject:g];
+    }
+}
+
 - (void)viewDidLoad
 {
+    groups = [[NSMutableArray alloc]initWithArray:groups];
     [super viewDidLoad];
     [self fetchContactEdit];
+    [self loadInitialData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -188,6 +210,33 @@
     
 }
 
+/*********** PICKER *********/
+#pragma mark -
+#pragma mark PickerView DataSource
+
+- (NSInteger)numberOfComponentsInPickerView:
+(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+-(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    self.row = [[NSNumber alloc] initWithInteger:row];
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component
+{
+    return [groups count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView
+             titleForRow:(NSInteger)row
+            forComponent:(NSInteger)component
+{
+    return [[groups objectAtIndex:row] nombre];
+}
 
 
 @end
