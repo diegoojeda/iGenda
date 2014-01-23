@@ -332,34 +332,6 @@
                                         <rect key="frame" x="0.0" y="-8" width="320" height="447"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usuario" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jf7-yC-qd5">
-                                                <rect key="frame" x="20" y="107" width="280" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <accessibility key="accessibilityConfiguration" label="Nombre Usuario Login"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <action selector="changeUsuario:" destination="8z8-06-aTX" eventType="editingChanged" id="EXf-O6-rnS"/>
-                                                    <outlet property="delegate" destination="8z8-06-aTX" id="E00-UI-yfp"/>
-                                                </connections>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzT-g1-hW5">
-                                                <rect key="frame" x="26" y="150" width="274" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <accessibility key="accessibilityConfiguration" label="Iniciar Sesión"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                <state key="normal" title="Iniciar Sesión">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="loginClick:" destination="8z8-06-aTX" eventType="touchUpInside" id="yp1-ig-VMY"/>
-                                                </connections>
-                                            </button>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="PCM-wg-Yo3">
-                                                <rect key="frame" x="270" y="154" width="20" height="20"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="color" red="0.086956203309999994" green="0.28590445910000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="iGenda" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEm-iJ-9Ea">
                                                 <rect key="frame" x="109" y="20" width="103" height="57"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -379,8 +351,49 @@
                                                     <action selector="registerClick:" destination="8z8-06-aTX" eventType="touchUpInside" id="b7M-gf-8Ve"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eiH-CI-rkp">
+                                                <rect key="frame" x="20" y="91" width="286" height="46"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Usuario" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jf7-yC-qd5">
+                                                        <rect key="frame" x="6" y="8" width="280" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <accessibility key="accessibilityConfiguration" label="Nombre Usuario Login"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="changeUsuario:" destination="8z8-06-aTX" eventType="editingChanged" id="EXf-O6-rnS"/>
+                                                            <outlet property="delegate" destination="8z8-06-aTX" id="E00-UI-yfp"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GcZ-Y9-EzG">
+                                                <rect key="frame" x="20" y="145" width="286" height="46"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzT-g1-hW5">
+                                                        <rect key="frame" x="6" y="8" width="274" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <accessibility key="accessibilityConfiguration" label="Iniciar Sesión"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                        <state key="normal" title="Iniciar Sesión">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="loginClick:" destination="8z8-06-aTX" eventType="touchUpInside" id="yp1-ig-VMY"/>
+                                                        </connections>
+                                                    </button>
+                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="PCM-wg-Yo3">
+                                                        <rect key="frame" x="250" y="13" width="20" height="20"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="color" red="0.086956203309999994" green="0.28590445910000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </activityIndicatorView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -388,7 +401,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.92000000000000004" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="bdR-me-1iI" firstAttribute="leading" secondItem="rFa-Gi-QPf" secondAttribute="leading" id="2Dw-aa-Z6T"/>
@@ -403,6 +416,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="PCM-wg-Yo3" id="JkM-yW-ug9"/>
                         <outlet property="inicioButton" destination="qzT-g1-hW5" id="kik-Wf-nRO"/>
+                        <outlet property="registroButton" destination="zwG-b0-z4c" id="o6Y-eS-qHj"/>
                         <outlet property="textUsername" destination="jf7-yC-qd5" id="DjX-00-QJX"/>
                         <segue destination="8YX-ce-x5E" kind="modal" identifier="login_success" id="61t-nf-Mh7"/>
                     </connections>
@@ -1787,6 +1801,24 @@
             </objects>
             <point key="canvasLocation" x="2657" y="1182"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="2oL-kC-dGq">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="2lS-IC-k0P" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gwM-Pl-YJ3"/>
+                        <viewControllerLayoutGuide type="bottom" id="QZ2-g6-ote"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VpA-2h-keb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="clA-nt-XL4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="atras" width="14" height="23"/>
@@ -1804,7 +1836,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="61t-nf-Mh7"/>
         <segue reference="751-bG-M4W"/>
-        <segue reference="LYr-jt-KSO"/>
     </inferredMetricsTieBreakers>
 </document>
