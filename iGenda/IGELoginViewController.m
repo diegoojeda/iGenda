@@ -299,9 +299,7 @@
     NSHTTPURLResponse  *response = nil;
     NSError *error;
     NSMutableString *url = [[NSMutableString alloc] initWithString:self.IP];
-    [url appendString:@":8080/igenda-777/webresources/igenda.usuario/diego"];//Cambiar a un usuario de prueba sin contactos
-    
-    
+    [url appendString:@":8080/igenda-777/webresources/igenda.usuario"];//Cambiar a un usuario de prueba sin contactos
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:1000];
     [request setHTTPMethod: @"GET"];
     NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];

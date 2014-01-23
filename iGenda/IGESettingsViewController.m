@@ -163,9 +163,9 @@
     if ([arrayEditados count] != 0){
         [self editarContactosEnServidor:arrayEditados];
     }
-    //if ([marcadosBorrar count] != 0){
-        //[self eliminarContactosEnServidor:marcadosBorrar];
-    //}
+    if ([marcadosBorrar count] != 0){
+        [self eliminarContactosEnServidor:marcadosBorrar];
+    }
     //Actualizamos la versión en el servidor
     [self actualizarVersion];
     //Por último, procedemos a marcar todos los contactos con un estado = 2 (actualizados) y a borrar los marcados para borrar del almacenamiento persistente.
@@ -269,32 +269,33 @@
 }
 
 - (void) eliminarContactosEnServidor: (NSArray *) contactos{
-    NSMutableDictionary *dicLogin, *dic;
+    //NSMutableDictionary *dicLogin, *dic;
     NSError *errorJSON = nil;
     for (Contact *c in contactos){
         NSString *strID = [[NSString alloc] initWithFormat:@"%@+%@", c.id, _nomUsuario];
         //No se puede hacer una conversión directa del array a JSON, ya que hay campos que no almacenamos en el servidor (imagen y estado :((( )
-        dicLogin = [[NSMutableDictionary alloc] init];
+        //dicLogin = [[NSMutableDictionary alloc] init];
 
-        [dic setObject:strID forKey:@"idbd"];
+        //[dic setObject:strID forKey:@"idbd"];
         
-        NSLog(@"COMPROBANDO JSON");
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&errorJSON];
-        NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
+        //NSLog(@"COMPROBANDO JSON");
+        //NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&errorJSON];
+        //NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
         //NSLog(@"JSON OUTPUT: %@",JSONString);
         NSMutableString *urlStr = [[NSMutableString alloc] initWithString:@"http://192.168.1.139:8080/igenda-777/webresources/igenda.contacto/delete/"];
         [urlStr appendString:strID];
         NSURL *url = [NSURL URLWithString:urlStr];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
         [request setHTTPMethod:@"GET"];
-        [request setHTTPBody:jsonData];
-        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-        [request setValue:@"application/json; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-        [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
+        //[request setHTTPBody:jsonData];
+        //[request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        //[request setValue:@"application/json; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+        //[request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
         NSHTTPURLResponse *respuesta;
-        NSLog(@"JSON STRING: %@", JSONString);
+        //NSLog(@"JSON STRING: %@", JSONString);
         [NSURLConnection sendSynchronousRequest:request returningResponse:&respuesta error:&errorJSON];
         NSLog(@"INFORMACION ENVIADA AL SERVIDOR PARA EDITAR. RESPUESTA: %@", respuesta);
+        NSLog(@"Respuesta delete: %@", respuesta);
         if ([respuesta statusCode] > 200 && [respuesta statusCode] <300){
             NSLog(@"Todo correcto");
         }
