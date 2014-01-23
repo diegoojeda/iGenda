@@ -50,11 +50,20 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag
+- (UIAlertView *) alertStatusWithButton:(NSString *)msg :(NSString *)title :(int) tag
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     alertView.tag = tag;
     [alertView show];
+    return alertView;
+}
+
+- (UIAlertView *) alertStatusWithoutButton:(NSString *)msg :(NSString *)title :(int) tag
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
+    alertView.tag = tag;
+    [alertView show];
+    return alertView;
 }
 
 - (IBAction)deleteLoginData:(id)sender {
@@ -84,6 +93,7 @@
 }
 
 - (IBAction)exportarAgenda:(id)sender{
+    UIAlertView *alerta = [self alertStatusWithoutButton:@"Restaurando copia de seguridad. Espere..." :@"Restaurando" :0];
     NSArray *contactosDispositivo = [self fetchEntitesArray:@"IGEContact"];
     for (Contact *c in contactosDispositivo){
         [_context deleteObject:c];
@@ -96,10 +106,13 @@
     NSLog(@"Procedemos a actualizar la información persistente (el estado de los contactos)");
     [self actualizarInformacionPersistente];
     NSLog(@"Información persistente actualizada");
-    [self alertStatus:@"Copia de seguridad restaurada con éxito" :@"Restaurar copia de seguridad" :0];
+    [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
+    [alerta dismissWithClickedButtonIndex:0 animated:YES];
+    [self alertStatusWithButton:@"Copia de seguridad restaurada con éxito" :@"Restaurar copia de seguridad" :0];
 }
 
 - (void) sincronizar {
+    UIAlertView *alerta;
     NSNumber *versionServidor = [[NSNumber alloc] init];
     NSError *error;
     //NSLog(@"USERNAME: %@", _nomUsuario);
@@ -122,22 +135,26 @@
         NSLog(@"VERSDISPOSITIVO: %@ VERSSERVIDOR: %@", _versDispositivo, versionServidor);
         //Si versionDispositivo > versionServidor procedemos con la sincronización. Almacenamos los datos del dispositivo en el servidor
         if ([_versDispositivo intValue] > [versionServidor intValue]){
+            alerta = [self alertStatusWithoutButton:@"Actualización del servidor en curso..." :@"Actualizando" :0];
             [self actualizarServidor];
             [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] setModified:false];
-            [self alertStatus:@"La actualización se ha realizado con éxito" :@"Dispositivo actualizado" :0];
+            [alerta dismissWithClickedButtonIndex:0 animated:NO];
+            [self alertStatusWithButton:@"La actualización se ha realizado con éxito" :@"Dispositivo actualizado" :0];
         }
         
         //Si versionDispositivo == versionServidor informamos de que no es necesario realizar ninguna acción
         else if ([_versDispositivo intValue] == [versionServidor intValue]){
-            [self alertStatus:@"El dispositivo ya está actualizado" :@"No es necesario actualizar" :0];
+            [self alertStatusWithButton:@"El dispositivo ya está actualizado" :@"No es necesario actualizar" :0];
             NSLog(@"Dispositivo actualizado");
         }
         //Si versionDispositivo < versionServidor requerimos al usuario que importe los contactos
         else{
             NSLog(@"Dispositivo no actualizado");
+            alerta = [self alertStatusWithoutButton:@"Actualización del dispositivo en curso..." :@"Actualizando" :0];
             //[self alertStatus:@"La actualización se ha realizado con éxito" :@"Necesario actualizar" :0];
             [self actualizarDispositivoYLuegoServidor];
-            [self alertStatus:@"La actualización se ha realizado con éxito" :@"Dispositivo actualizado" :0];
+            [alerta dismissWithClickedButtonIndex:0 animated:NO];
+            [self alertStatusWithButton:@"La actualización se ha realizado con éxito" :@"Dispositivo actualizado" :0];
         }
     }
 }
@@ -487,7 +504,7 @@
 }
 
 - (void) errorDeRed{
-    [self alertStatus:@"Error conectando al servidor, compruebe su conexión a internet" :@"Error de red" :0];
+    [self alertStatusWithButton:@"Error conectando al servidor, compruebe su conexión a internet" :@"Error de red" :0];
 }
 
 - (NSArray *) fetchEntitesArray: (NSString *) entityName {
