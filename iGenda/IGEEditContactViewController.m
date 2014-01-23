@@ -17,9 +17,6 @@
 @interface IGEEditContactViewController ()
 
 
-
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
-
 @property NSMutableArray *arrayContacts;
 
 //PARA IMAGEN CONTATO. Controlador para buscar imagen en galería
@@ -32,6 +29,9 @@
 
 //@synthesize greetingPickerSelGroup;
 @synthesize contacto = _contacto;
+@synthesize greetingPickerSelGroup;
+@synthesize grupo;
+
 
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

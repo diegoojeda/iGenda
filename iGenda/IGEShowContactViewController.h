@@ -30,7 +30,8 @@
 @property Contact *contacto; //Contacto seleccionado
 @property NSString *grupo;
 
-- (IBAction)sendEmail:(id)sender;
+- (IBAction)showMailPicker:(id)sender;
+//- (IBAction)sendEmail:(id)sender;
 
 - (IBAction)changeFavorito:(id)sender;
 

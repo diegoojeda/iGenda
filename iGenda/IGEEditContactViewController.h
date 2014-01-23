@@ -10,11 +10,16 @@
 #import "Contact.h"
 #import "IGEAppDelegate.h"
 
-@interface IGEEditContactViewController : UIViewController<UINavigationControllerDelegate>
-//Añado al View Controller estos dos protocolos para el el ImagePickerController, para navegación por la galería y manejo de datos (necesario)
+@interface IGEEditContactViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>{
+    UIPickerView *greetingPickerSelGroup;
+    NSMutableArray *groups;
+}
 
 @property Contact *contacto;
+@property IGEGroup *grupo;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+@property (nonatomic, strong) IBOutlet UIPickerView *greetingPickerSelGroup;
 
 - (IBAction)backgroundClick:(id)sender;
 
@@ -27,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *nombre;
 
 @property NSNumber *row;;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 
 
 - (void) getContactEdit:(Contact *)contacto;

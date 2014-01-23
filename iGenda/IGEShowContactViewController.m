@@ -8,9 +8,15 @@
 
 #import "IGEShowContactViewController.h"
 #import "IGEEditContactViewController.h"
+#import <MessageUI/MessageUI.h>
 
-@interface IGEShowContactViewController ()
+
+@interface IGEShowContactViewController ()<
+MFMailComposeViewControllerDelegate,
+UINavigationControllerDelegate>
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *atrasButton;
+@property (nonatomic, weak) IBOutlet UILabel *feedbackMsg;
 @end
 
 @implementation IGEShowContactViewController
@@ -47,36 +53,97 @@
 
 
 -(IBAction)callPhone:(id)sender {
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString: self.movil_L.text]];
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString: self.contacto.telefono]];
    // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:639970861"]];
 }
 
-- (IBAction)sendEmail:(id)sender {
-    MFMailComposeViewController *composer = [[MFMailComposeViewController alloc] init];
-    [composer setMailComposeDelegate:self];
-    if ([MFMailComposeViewController canSendMail]){
-        [composer setToRecipients:[NSArray arrayWithObject:self.contacto.email]];
-        [composer setSubject:@"Put your subject here"];
-        [composer setMessageBody:@"Put your message here" isHTML:NO];
-        [composer setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-        [self presentViewController:composer animated:YES completion:NULL];
+
+
+//nuevas funciones para enviar email
+
+- (IBAction)showMailPicker:(id)sender
+{
+    // You must check that the current device can send email messages before you
+    // attempt to create an instance of MFMailComposeViewController.  If the
+    // device can not send email messages,
+    // [[MFMailComposeViewController alloc] init] will return nil.  Your app
+    // will crash when it calls -presentViewController:animated:completion: with
+    // a nil view controller.
+    if ([MFMailComposeViewController canSendMail])
+        // The device can send email.
+    {
+        [self displayMailComposerSheet];
     }
-    else{
-        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Error" message:@"An error has ocurred" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    else
+        // The device can not send email.
+    {
+        self.feedbackMsg.hidden = NO;
+		self.feedbackMsg.text = @"Device not configured to send mail.";
     }
 }
 
-//- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
-//{
-//    if(error){
-//        UIAlertView *alert =[[[UIAlertView alloc] initWithTitle:@"Error" message:@"An error has ocurred" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
-//        [alert show];
-//        [self dismissViewControllerAnimated:YES completion:nil];
-//
-//    }else {
-//        [self dismissViewControllerAnimated:YES completion:nil];
-//    }
-//}
+// -------------------------------------------------------------------------------
+//	displayMailComposerSheet
+//  Displays an email composition interface inside the application.
+//  Populates all the Mail fields.
+// -------------------------------------------------------------------------------
+- (void)displayMailComposerSheet
+{
+	MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+	picker.mailComposeDelegate = self;
+	
+	[picker setSubject:@"Put here your subject"];
+	
+	// Set up recipients
+	NSArray *toRecipients = [NSArray arrayWithObject:self.contacto.email];
+	NSArray *ccRecipients = [NSArray arrayWithObjects:@"second@example.com", nil];
+	NSArray *bccRecipients = [NSArray arrayWithObject:@"third@example.com"];
+	
+	[picker setToRecipients:toRecipients];
+	[picker setCcRecipients:ccRecipients];
+	[picker setBccRecipients:bccRecipients];
+	
+	// Fill out the email body text
+	NSString *emailBody = @"Put your message body";
+	[picker setMessageBody:emailBody isHTML:NO];
+	
+	[self presentViewController:picker animated:YES completion:NULL];
+}
+
+// -------------------------------------------------------------------------------
+//	mailComposeController:didFinishWithResult:
+//  Dismisses the email composition interface when users tap Cancel or Send.
+//  Proceeds to update the message field with the result of the operation.
+// -------------------------------------------------------------------------------
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+	self.feedbackMsg.hidden = NO;
+	// Notifies users about errors associated with the interface
+	switch (result)
+	{
+		case MFMailComposeResultCancelled:
+			self.feedbackMsg.text = @"Result: Mail sending canceled";
+			break;
+		case MFMailComposeResultSaved:
+			self.feedbackMsg.text = @"Result: Mail saved";
+			break;
+		case MFMailComposeResultSent:
+			self.feedbackMsg.text = @"Result: Mail sent";
+			break;
+		case MFMailComposeResultFailed:
+			self.feedbackMsg.text = @"Result: Mail sending failed";
+			break;
+		default:
+			self.feedbackMsg.text = @"Result: Mail not sent";
+			break;
+	}
+    
+	[self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+//////////////////////////////////Fin del email
+
 
 - (IBAction)changeFavorito:(id)sender{//NO ESTA BIEN
     if([_contacto.favorito  isEqual: @0]){
