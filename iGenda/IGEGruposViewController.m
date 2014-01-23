@@ -95,6 +95,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     IGEGroup* item = [self.grupos objectAtIndex:indexPath.row];
     cell.textLabel.text = item.nombre;
+    cell.accessibilityLabel = item.nombre;
     return cell;
 }
 
