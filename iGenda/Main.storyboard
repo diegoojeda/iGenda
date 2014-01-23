@@ -82,7 +82,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hxr-Kx-VZN">
-                                        <rect key="frame" x="0.0" y="24" width="320" height="560"/>
+                                        <rect key="frame" x="0.0" y="20" width="320" height="560"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="contacto.png" translatesAutoresizingMaskIntoConstraints="NO" id="k6e-ci-EQJ">
@@ -246,7 +246,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre del grupo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b4u-hG-IEx">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre del grupo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b4u-hG-IEx">
                                 <rect key="frame" x="20" y="88" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" label="Nuevo Nombre Grupo"/>
@@ -258,6 +258,9 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="b4u-hG-IEx" secondAttribute="centerX" id="sVG-ap-2jZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Nuevo Grupo" id="oce-4w-Pl3">
                         <barButtonItem key="leftBarButtonItem" image="atras" id="G4h-sI-RQv">
@@ -1043,11 +1046,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3tm-Ae-Y5V">
-                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <rect key="frame" x="10" y="46" width="300" height="536"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xqN-CS-ke4">
-                                        <rect key="frame" x="6" y="20" width="309" height="602"/>
+                                        <rect key="frame" x="-4" y="-36" width="309" height="623"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iO6-wT-9mM">
@@ -1180,7 +1183,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NEo-Ic-gHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lTr-gQ-xm7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="735" y="-1035"/>
+            <point key="canvasLocation" x="731" y="-1023"/>
         </scene>
         <!--Edit Contact View Controller - Editar-->
         <scene sceneID="F7r-se-8wg">
@@ -1194,73 +1197,95 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="contacto.png" translatesAutoresizingMaskIntoConstraints="NO" id="GZU-gT-i9k">
-                                <rect key="frame" x="13" y="98" width="122" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3l-3S-w6G">
-                                <rect key="frame" x="13" y="91" width="125" height="130"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" label="Editar Imagen Contacto"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showImagePickerForPhotoPicker:" destination="EHA-7l-jug" eventType="touchUpInside" id="FOE-aI-KNO"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AXq-bO-fci">
-                                <rect key="frame" x="152" y="98" width="150" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" label="Nombre Contacto"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="changeNombre:" destination="EHA-7l-jug" eventType="editingChanged" id="SSz-Qh-ozr"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Primer Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWG-2g-sm5">
-                                <rect key="frame" x="152" y="143" width="150" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" label="Primer Apellido Contacto"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Segundo Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BTW-W4-Ycb">
-                                <rect key="frame" x="152" y="188" width="150" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" label="Segundo Apellido Contacto"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M3Y-20-SFv">
-                                <rect key="frame" x="13" y="281" width="289" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" label="Dirección Email Contacto"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Teléfono" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TAJ-fY-HEo">
-                                <rect key="frame" x="13" y="241" width="289" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" label="Teléfono Móvil Contacto"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
-                                <connections>
-                                    <action selector="changeTelefono:" destination="EHA-7l-jug" eventType="editingChanged" id="lcJ-jD-AQC"/>
-                                </connections>
-                            </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l3r-x7-nBw">
-                                <rect key="frame" x="74" y="299" width="166" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="EHA-7l-jug" id="z0i-qP-gFI"/>
-                                    <outlet property="delegate" destination="EHA-7l-jug" id="j9q-Sk-tXv"/>
-                                </connections>
-                            </pickerView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vdh-9U-lC8">
+                                <rect key="frame" x="0.0" y="36" width="320" height="519"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PGg-jM-8op">
+                                        <rect key="frame" x="0.0" y="20" width="320" height="540"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="contacto.png" translatesAutoresizingMaskIntoConstraints="NO" id="GZU-gT-i9k">
+                                                <rect key="frame" x="15" y="0.0" width="122" height="120"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AXq-bO-fci">
+                                                <rect key="frame" x="156" y="14" width="150" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" label="Nombre Contacto"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="changeNombre:" destination="EHA-7l-jug" eventType="editingChanged" id="SSz-Qh-ozr"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Primer Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWG-2g-sm5">
+                                                <rect key="frame" x="156" y="52" width="150" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" label="Primer Apellido Contacto"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Segundo Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BTW-W4-Ycb">
+                                                <rect key="frame" x="156" y="90" width="150" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" label="Segundo Apellido Contacto"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Teléfono" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TAJ-fY-HEo">
+                                                <rect key="frame" x="15" y="128" width="289" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" label="Teléfono Móvil Contacto"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                                <connections>
+                                                    <action selector="changeTelefono:" destination="EHA-7l-jug" eventType="editingChanged" id="lcJ-jD-AQC"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M3Y-20-SFv">
+                                                <rect key="frame" x="15" y="166" width="289" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" label="Dirección Email Contacto"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                            </textField>
+                                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l3r-x7-nBw">
+                                                <rect key="frame" x="69" y="190" width="166" height="162"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="EHA-7l-jug" id="z0i-qP-gFI"/>
+                                                    <outlet property="delegate" destination="EHA-7l-jug" id="j9q-Sk-tXv"/>
+                                                </connections>
+                                            </pickerView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3l-3S-w6G">
+                                                <rect key="frame" x="15" y="3" width="122" height="117"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" label="Editar Imagen Contacto"/>
+                                                <state key="normal">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="showImagePickerForPhotoPicker:" destination="EHA-7l-jug" eventType="touchUpInside" id="FOE-aI-KNO"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="PGg-jM-8op" secondAttribute="bottom" id="bcO-Rf-hhg"/>
+                                    <constraint firstAttribute="centerX" secondItem="PGg-jM-8op" secondAttribute="centerX" id="ynD-WJ-pcQ"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Vdh-9U-lC8" secondAttribute="trailing" id="9ws-Rb-23s"/>
+                            <constraint firstAttribute="centerX" secondItem="Vdh-9U-lC8" secondAttribute="centerX" id="OkX-sp-gG8"/>
+                            <constraint firstItem="Vdh-9U-lC8" firstAttribute="leading" secondItem="EQo-Ma-Un8" secondAttribute="leading" id="WHs-4Z-cwi"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="B4R-Y3-7gr" appends="YES" id="Iyv-tV-JL1"/>
                         </connections>
