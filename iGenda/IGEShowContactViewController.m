@@ -53,8 +53,10 @@ UINavigationControllerDelegate>
 
 
 -(IBAction)callPhone:(id)sender {
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString: self.contacto.telefono]];
-   // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:639970861"]];
+    NSString *telephone = @"tel:";
+    telephone = [telephone stringByAppendingString:self.contacto.telefono];
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString: telephone]];
+   
 }
 
 
