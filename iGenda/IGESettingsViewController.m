@@ -93,6 +93,7 @@
 }
 
 - (IBAction)exportarAgenda:(id)sender{
+    NSLog(@"Llego aqui");
     UIAlertView *alerta = [self alertStatusWithoutButton:@"Restaurando copia de seguridad. Espere..." :@"Restaurando" :0];
     NSArray *contactosDispositivo = [self fetchEntitesArray:@"IGEContact"];
     for (Contact *c in contactosDispositivo){
@@ -100,6 +101,9 @@
     }
     for (IGEGroup *g in [self fetchGrupos]){
         [_context deleteObject:g];
+    }
+    for (Contact *c in [self fetchEntitesArray:@"IGEContactToDelete"]){
+        [_context deleteObject:c];
     }
     [self cargarContactos:_nomUsuario];
     [self actualizarVersionDispositivo];
@@ -381,19 +385,6 @@
     //Procedemos con los marcados para borrar.
 
     NSArray *marcadosBorrar = [self fetchEntitesArray:@"IGEContactToDelete"];
-    //Una vez tenemos almacenados todos los datos que vamos a modificar en el servidor, procedemos a descargar la última versión de éste.
-    //Antes que nada borramos los usuarios y grupos que hay en este momento en la aplicación
-    NSArray *contactosDispositivo = [self fetchEntitesArray:@"IGEContact"];
-    for (Contact *c in contactosDispositivo){
-        [_context deleteObject:c];
-    }
-    for (IGEGroup *g in [self fetchGrupos]){
-        [_context deleteObject:g];
-    }
-    //Una vez borrados todos los contactos y grupos en el dispositivo procedemos a descargar la última versión del servidor.
-    [self cargarContactos:_nomUsuario];
-    //Una vez cargados los contactos de ese usuario, procedemos a actualizar el servidor con los que habíamos almacenado previamente
-    //Realizamos las actualizaciones procedentes en el servidor
     if ([arrayCreados count] != 0){
         NSLog(@"Detectado al menos un contacto creado");
         [self crearContactosEnServidor:arrayCreados];
@@ -404,6 +395,17 @@
     if ([marcadosBorrar count] != 0){
         [self eliminarContactosEnServidor:marcadosBorrar];
     }
+    //Una vez tenemos almacenados todos los datos que vamos a modificar en el servidor, procedemos a descargar la última versión de éste.
+    //Antes que nada borramos los usuarios y grupos que hay en este momento en la aplicación
+    for (Contact *c in [self fetchEntitesArray:@"IGEContact"]){
+        [_context deleteObject:c];
+    }
+    for (IGEGroup *g in [self fetchGrupos]){
+        [_context deleteObject:g];
+    }
+    //Una vez borrados todos los contactos y grupos en el dispositivo procedemos a descargar la última versión del servidor.
+    [self cargarContactos:_nomUsuario];
+
     //Actualizamos la versión en el dispositivo
     [self actualizarVersionDispositivo];
     //Por último, procedemos a marcar todos los contactos con un estado = 2 (actualizados) y a borrar los marcados para borrar del almacenamiento persistente.
@@ -442,6 +444,7 @@
             contadorContactos++;
         }
     }
+    [(IGEAppDelegate *)[[UIApplication sharedApplication]delegate]setSeqId:[NSNumber numberWithInt:contadorContactos]];
     //Por último, almacenamos también el usuario en el IGESetting de la aplicación
     [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
 }
@@ -461,6 +464,7 @@
     c.estado = @2;
     c.favorito = [dic valueForKey:@"favorito"];
     c.id = [dic valueForKey:@"idagenda"];
+    c.imagen = nil;
     //Comprobamos si ya hemos creado el grupo al que pertenece este contacto
     for (IGEGroup* g in gruposEnDispositivo){
         if ([g.nombre isEqualToString:grupoContacto]){
@@ -509,7 +513,8 @@
 
 - (NSArray *) fetchEntitesArray: (NSString *) entityName {
     NSError *error = nil;
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:entityName inManagedObjectContext:_context];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+        entityForName:entityName inManagedObjectContext:_context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
     NSArray *s = [_context executeFetchRequest:request error:&error];
