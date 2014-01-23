@@ -19,6 +19,8 @@
 - (IBAction)registerClick: (id) sender;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *inicioButton;
+@property (weak, nonatomic) IBOutlet UIButton *registroButton;
+
 @property NSMutableString *IP;
 
 
