@@ -48,7 +48,8 @@
         _contacto.telefono = self.telefono.text;
         _contacto.email = self.email.text;
         _contacto.estado = @1;
-        //_contacto.newRelationship= self.grupo.text;
+        _contacto.grupo =[groups objectAtIndex:[self.row integerValue]];
+        //_contacto.grupo.nombre = [[groups objectAtIndex:[self.row integerValue]] nombre];
         
         
         //falta el grupo
@@ -61,13 +62,7 @@
         NSEntityDescription *desc = [NSEntityDescription entityForName:@"IGEContact" inManagedObjectContext:context];
         NSFetchRequest *req = [[NSFetchRequest alloc] init];
         [req setEntity:desc];
-        /*NSArray *contactos = [context executeFetchRequest:req error:&error]; ¿POR QUÉ?
-        for (Contact *c in contactos) {
-            if (c.id == _contacto.id){
-                //NSLog(@"ID: %@", c.id);
-                [c setValue:_contacto.nombre forKey:@"nombre"];
-            }
-        }*/
+
         NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGESetting" inManagedObjectContext:context];
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         [request setEntity:entityDescription];
@@ -97,10 +92,41 @@
     return self;
 }
 
+- (void)loadInitialData {
+    NSManagedObjectContext *context = [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]; //Recupera contexto del Delegate
+    NSError *error = nil;
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGEGroup" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    NSArray *array = [context executeFetchRequest:request error:&error];
+    
+    
+    
+    groups = [[NSMutableArray alloc] init];//Habria que cargar aqui todos los grupos
+    
+    /** Añade grupos de core data **/
+    for(int i=0; i<[array count]; i++){
+        IGEGroup *g = [array objectAtIndex:i];
+        [groups addObject:g];
+    }
+}
+
 - (void)viewDidLoad
 {
+    groups = [[NSMutableArray alloc]initWithArray:groups];
     [super viewDidLoad];
     [self fetchContactEdit];
+    [self loadInitialData];
+    
+    /** Carga la posición correcta Picker **/
+    int row=0;
+    for(int i=0; i<groups.count; i++){
+        if([[groups objectAtIndex:i] nombre] == _contacto.grupo.nombre)
+            row = i;
+    }
+    
+    [self.greetingPickerSelGroup selectRow:row inComponent:0 animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -183,11 +209,68 @@
     self.apellido2.text = _contacto.apellido2;
     self.telefono.text = _contacto.telefono;
     self.email.text = _contacto.email;
+    
     UIImage *i =[[UIImage alloc] initWithData:_contacto.imagen];
     self.foto.image=i;
     
 }
 
+/*********** PICKER *********/
+#pragma mark -
+#pragma mark PickerView DataSource
+
+- (NSInteger)numberOfComponentsInPickerView:
+(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+-(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    self.row = [[NSNumber alloc] initWithInteger:row];
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component
+{
+    return [groups count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView
+             titleForRow:(NSInteger)row
+            forComponent:(NSInteger)component
+{
+    return [[groups objectAtIndex:row] nombre];
+}
+
+
+/******************** VALIDACIÓN *****************/
+- (IBAction)changeNombre:(id)sender{
+    
+    if(self.nombre.text.length > 0 && self.telefono.text.length > 0){
+        if([groups count] == 0){
+            self.saveButton.enabled = NO;
+        }
+        else{
+            self.saveButton.enabled = YES;
+        }
+    }
+    else
+        self.saveButton.enabled = NO;
+}
+
+- (IBAction)changeTelefono:(id)sender{
+    if(self.nombre.text.length > 0 && self.telefono.text.length > 0){
+        if([groups count] == 0){
+            self.saveButton.enabled = NO;
+        }
+        else{
+            self.saveButton.enabled = YES;
+        }
+    }
+    else
+        self.saveButton.enabled = NO;
+}
 
 
 @end

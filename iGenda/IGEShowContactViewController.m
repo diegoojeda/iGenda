@@ -39,9 +39,9 @@ UINavigationControllerDelegate>
     self.movil_L.text = _contacto.telefono;
     self.email_L.text = _contacto.email;
     self.grupo_L.text = _contacto.grupo.nombre;
-    //NSLog(@"Show Contact nombre grupo: %@",[_contacto.newRelationship nombre]);
     
-    self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
+    if(_contacto.imagen != nil)
+        self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     
     if([_contacto.favorito  isEqual: @0]){
         self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
@@ -147,10 +147,11 @@ UINavigationControllerDelegate>
 //////////////////////////////////Fin del email
 
 
-- (IBAction)changeFavorito:(id)sender{//NO ESTA BIEN
+- (IBAction)changeFavorito:(id)sender{
     if([_contacto.favorito  isEqual: @0]){
         _contacto.favorito = @1;
         _contacto.estado = @1;
+        
         self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star_sel.png"]];
     }
     else{
@@ -158,6 +159,20 @@ UINavigationControllerDelegate>
         _contacto.estado = @1;
         self.star_L.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"star.png"]];
     }
+    //Modificamos la versión ya que es un cambio que cuenta como edición del contacto
+    NSError *error;
+    NSManagedObjectContext *context = [(IGEAppDelegate *) [[UIApplication sharedApplication] delegate] managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"IGESetting" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    IGESetting *set = [[context executeFetchRequest:request error:&error] firstObject];
+    if (![(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] modified]){
+        [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] setModified:true];
+        NSNumber *vers = set.versionAgenda;
+        int versint = [vers intValue] + 1;
+        set.versionAgenda = [NSNumber numberWithInt:versint];
+    }
+
     [(IGEAppDelegate *)[[UIApplication sharedApplication] delegate] saveContext];
 }
 
@@ -174,7 +189,7 @@ UINavigationControllerDelegate>
     self.nombre_L.text = fullname;
     self.movil_L.text = _contacto.telefono;
     self.email_L.text = _contacto.email;
-    //self.grupo_L.text = [_contacto.newRelationship nombre];
+    self.grupo_L.text = _contacto.grupo.nombre;
     self.image_IV.image=[UIImage imageWithData:_contacto.imagen];
     //NSLog(@"GRUPO: %@", _contacto.newRelationship.nombre);
     [self.view setNeedsDisplay];
