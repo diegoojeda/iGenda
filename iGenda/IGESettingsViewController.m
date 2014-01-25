@@ -52,7 +52,8 @@
 
 - (UIAlertView *) alertStatusWithButton:(NSString *)msg :(NSString *)title :(int) tag
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+        message:msg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     alertView.tag = tag;
     [alertView show];
     return alertView;
@@ -60,7 +61,8 @@
 
 - (UIAlertView *) alertStatusWithoutButton:(NSString *)msg :(NSString *)title :(int) tag
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+        message:msg delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
     alertView.tag = tag;
     [alertView show];
     return alertView;
